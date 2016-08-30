@@ -23,7 +23,8 @@ var userSchema=new mongoose.Schema({
 });
 
 /*
- * 通过Schema对象的pre()方法可以为数据模型的操作（增删该查设置回调函数），
+ * 通过Schema对象的pre()方法可以为数据模型的操作（增删该查设置前置函数），
+ * 设置的函数将在操作之前被调用
  * 有两个参数，
  * 第一个参数是要为哪个操作设置回调，
  * 第二个参数就是要设置的回调方法
@@ -60,7 +61,6 @@ userSchema.pre('save',function(next){
      * 再回调函数中可以用生成以后的盐加给密码进行hash
      */
     bcrypt.genSalt(10,function(err,salt){
-        
         if(err){
             return next(err);
         }else{
@@ -76,7 +76,6 @@ userSchema.pre('save',function(next){
              */
             bcrypt.hash(user.password,salt,function(err,hashresult){
                 if(err){
-                    console.log(err);
                     return next(err);
                 }else{
                     /*
@@ -84,6 +83,7 @@ userSchema.pre('save',function(next){
                      * 就把密码和salt经过hash后得出的结果作为用户的密码
                      * 保存到数据库中
                      */
+                    console.log(user.password);
                     user.password=hashresult;
                     console.log('hello lucy'+hashresult);
                     //进行下一步
