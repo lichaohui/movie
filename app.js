@@ -128,7 +128,7 @@ app.post('/dologin',function(req,res){
              * 如果用户存在则继续验证密码
              * 调用我们自己在schema中定义的comparePassword()方法进行验证
              */
-            user.comparePassword(postuser.password,function(err,isMatch){
+            data.comparePassword(postuser.password,function(err,isMatch){
                 if(err){
                     console.log(err);
                 }else{
