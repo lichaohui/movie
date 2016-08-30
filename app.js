@@ -76,11 +76,11 @@ app.post('/doregister',function(req,res){
      * 拿到表单发送过来的数据
      * 表单数据可以通过req.body拿到
      */
-    var user=req.body;
+    var postuser=req.body;
     //通过表单发送的数据实例化user模型
     var newuser=new user({
-        'name':user.name,
-        'password':user.password
+        'name':postuser.name,
+        'password':postuser.password
     });
     //将数据保存到数据库
     newuser.save(function(err,user){
