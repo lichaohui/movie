@@ -88,6 +88,7 @@ app.post('/doregister',function(req,res){
         if(err){
             console.log(err);
         }else{
+            console.log('数据保存成功');
             res.redirect('/movie');
         }
     });
