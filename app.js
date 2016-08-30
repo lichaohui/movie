@@ -38,13 +38,25 @@ app.listen(port);
 console.log('server running at port: '+port);
 
 /*
- * 设置“/movie”前台首页电影路由
+ * 设置“/”前台首页路由
  * 通过render方法将jade模板文件编译后返回给前台
  * render()函数有两个参数：
  * 第一个参数是要编译的jade模板文件的路径
  * 第二个参数是附带传递给模板文件的变量，
  * 传递的变量用一个json格式表示
  */
+app.get('/',function(req,res){
+    //调用movie模型的fetch方法遍历数据传递给前台展示
+    movie.fetch(function(err,data){
+        if(err){
+            console.log(err);
+        }else{
+            res.render('home/movie/index',{'title':'index','movies':data});
+        }
+    })
+});
+
+//前台电影列表页路由
 app.get('/movie',function(req,res){
     //调用movie模型的fetch方法遍历数据传递给前台展示
     movie.fetch(function(err,data){
@@ -100,31 +112,31 @@ app.get('/login',function(req,res){
 
 /*----后台路由----*/
 //后台展示用户列表的路由
-app.get('/admin/user/',function(req,res){
+app.get('/admin/user',function(req,res){
     user.fetch(function(err,data){
         if(err){
             console.log(err);
         }else{
-            res.render('admin/user/list',{'title':'list','movies':data});
+            res.render('admin/user/list',{'title':'user','users':data});
         }
     });
 });
 
 //后台电影列表页的路由
-app.get('/admin/movie/',function(req,res){
+app.get('/admin/movie',function(req,res){
     //调用movie模型的fetch方法遍历数据传递给前台展示
     movie.fetch(function(err,data){
         if(err){
             console.log(err);
         }else{
-            res.render('admin/movie/list',{'title':'list','movies':data});
+            res.render('admin/movie/list',{'title':'movie','movies':data});
         }
     })
 });
 
 //展示后台添加页面的路由
 app.get('/admin/movie/create',function(req,res){
-    res.render('admin/movie/create',{'title':'create'}); 
+    res.render('admin/movie/create',{'title':'movie'}); 
 });
 //后台执行添加操作的路由
 app.post('/admin/movie/store',function(req,res){
@@ -144,7 +156,7 @@ app.post('/admin/movie/store',function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.redirect('/admin/movie/');
+            res.redirect('/admin/movie');
         }; 
     });
 });
