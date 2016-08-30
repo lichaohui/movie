@@ -23,8 +23,8 @@ var userSchema=new mongoose.Schema({
 });
 
 /*
- * 通过Schema对象的pre()方法可以为数据模型的操作（增删该查设置前置函数），
- * 设置的函数将在操作之前被调用
+ * 通过Schema对象的pre()方法可以为数据模型的操作（增删该查设置中间件），
+ * 设置的中间件将在操作之前被调用
  * 有两个参数，
  * 第一个参数是要为哪个操作设置回调，
  * 第二个参数就是要设置的回调方法
@@ -34,7 +34,7 @@ var userSchema=new mongoose.Schema({
  * 如果数据不是新添加的是新修改的，
  * 则只更新updated_at为当前时间
  */
-userSchema.pre('save',function(next){
+userSchema.pre('save',true,function(next){
     var user=this;
     /*
      * 可以通过isNew判断当前数据是否为新的
