@@ -84,8 +84,9 @@ userSchema.pre('save',function(next){
                      * 保存到数据库中
                      */
                     console.log(user.password);
-                    user.password=hashresult;
+                    this.password=hashresult;
                     console.log('hello lucy'+hashresult);
+                    console.log('world'+this.password);
                     //进行下一步
                     next();
                 }
