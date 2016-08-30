@@ -46,14 +46,7 @@ console.log('server running at port: '+port);
  * 传递的变量用一个json格式表示
  */
 app.get('/',function(req,res){
-    //调用movie模型的fetch方法遍历数据传递给前台展示
-    movie.fetch(function(err,data){
-        if(err){
-            console.log(err);
-        }else{
-            res.render('home/movie/index',{'title':'home','movies':data});
-        }
-    })
+    res.render('home/index',{'title':'home'});
 });
 
 //前台电影列表页路由
@@ -65,7 +58,7 @@ app.get('/movie',function(req,res){
         }else{
             res.render('home/movie/index',{'title':'movie','movies':data});
         }
-    })
+    });
 });
 
 //设置前台详情页路由
