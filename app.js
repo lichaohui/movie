@@ -117,7 +117,7 @@ app.get('/login',function(req,res){
 //实现用户登录功能的路由
 app.post('/dologin',function(req,res){
     //获取到表单提交的数据
-    var postuser=res.body;
+    var postuser=req.body;
     /*
      * 通过findOne方法搜索指定的用户是否存在
      */
