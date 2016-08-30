@@ -72,10 +72,24 @@ app.get('/register',function(req,res){
 });
 //实现用户注册功能的路由
 app.post('/doregister',function(req,res){
-    var name=req.body.name;
-    var password=req.body.password;
-    console.log(name);
-    console.log(password);
+    /*
+     * 拿到表单发送过来的数据
+     * 表单数据可以通过req.body拿到
+     */
+    var user=req.body;
+    //通过表单发送的数据实例化user模型
+    var newuser=new user({
+        'name':user.name,
+        'password':user.password
+    });
+    //将数据保存到数据库
+    newuser.save(function(err,user){
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect('/movie');
+        }
+    });
 });
 
 //用户登录的路由
@@ -105,7 +119,7 @@ app.get('/admin/movie/create',function(req,res){
 app.post('/admin/movie/store',function(req,res){
     //获取到表单传递过来的数据
     var postmovie=req.body;
-    newmovie=new movie({
+    var newmovie=new movie({
         'name':postmovie.name,
         'director':postmovie.director,
         'type':postmovie.type,
