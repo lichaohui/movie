@@ -82,7 +82,7 @@ userSchema.pre('save',function(next){
                      * 就把密码和salt经过hash后得出的结果作为用户的密码
                      * 保存到数据库中
                      */
-                    this.password=hashresult;
+                    user.password=hashresult;
                     //进行下一步
                     next();
                 }
