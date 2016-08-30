@@ -85,7 +85,7 @@ app.post('/doregister',function(req,res){
     
     //先验证数据库中是否有重名的用户存在
     user.find({name:postuser.name},function(err,data){
-        if(checkuser.length>0){
+        if(data.length>0){
             //如果有重名的用户存在，则显示错误提示页面
             res.render('error',{'message':'该用户名已经存在了，请换个用户名重新注册！'});
         }else{
