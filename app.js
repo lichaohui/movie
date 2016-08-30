@@ -76,7 +76,7 @@ app.post('/doregister',function(req,res){
      * 拿到表单发送过来的数据
      * 表单数据可以通过req.body拿到
      */
-    var postuser=req.params;
+    var postuser=req.body;
     //通过表单发送的数据实例化user模型
     var newuser=new user({
         'name':postuser.name,
