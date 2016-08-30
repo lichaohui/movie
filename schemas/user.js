@@ -93,6 +93,22 @@ userSchema.pre('save',function(next){
 });
 
 /*
+ * 为userScehma添加方法
+ */
+userSchema.methods={
+    //添加一个比较密码的方法
+    comparePassword:function(password,callback){
+        bcrypt.compare(password,this.password,function(err,isMatch){
+            if(err){
+                return callback(err);
+            }else{
+                callback(null,isMatch);
+            }
+        })
+    }
+};
+
+/*
  * 为userSchema添加一些自定义的静态方法
  * scheme对象的静态方法都在其statics的属性中保存
  * 所以可以通过为schema对象的statics属性添加成员，

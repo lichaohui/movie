@@ -114,7 +114,38 @@ app.post('/doregister',function(req,res){
 app.get('/login',function(req,res){
     res.render('home/user/login',{'title':'login'});
 });
-
+//实现用户登录功能的路由
+app.post('/dologin',function(req,res){
+    //获取到表单提交的数据
+    var postuser=res.body;
+    /*
+     * 通过findOne方法搜索指定的用户是否存在
+     */
+    user.findOne({name:postuser.name},function(err,data){
+        if(data){
+            /*
+             * 如果用户存在则继续验证密码
+             * 调用我们自己在schema中定义的comparePassword()方法进行验证
+             */
+            user.comparePassword(postuser.password,function(err,isMatch){
+                if(err){
+                    console.log(err);
+                }else{
+                    if(isMatch){
+                        //如果密码匹配则跳转到首页
+                        res.redirect('/');
+                    }else{
+                        //如果密码不匹配则返回错误信息
+                        res.render('error',{'message':'密码错误！'});
+                    }
+                }
+            });
+        }else{
+            //如果用户不存在则返回错误信息
+            res.render('error',{'message':'用户不存在！'});
+        }
+    });
+});
 
 /*----后台路由----*/
 //后台展示用户列表的路由
