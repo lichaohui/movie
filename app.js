@@ -72,7 +72,10 @@ app.get('/register',function(req,res){
 });
 //实现用户注册功能的路由
 app.post('/doregister',function(req,res){
-     
+    var name=req.body.name;
+    var password=req.body.password;
+    console.log(name);
+    console.log(password);
 });
 
 //用户登录的路由
