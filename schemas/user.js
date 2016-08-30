@@ -75,7 +75,7 @@ userSchema.pre('save',function(next){
              */
             bcrypt.hash(user.password,salt,function(err,hashresult){
                 if(err){
-                    console.log('this is wrong');
+                    console.log(err);
                     return next(err);
                 }else{
                     /*
