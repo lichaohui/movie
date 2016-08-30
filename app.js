@@ -51,7 +51,7 @@ app.get('/',function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.render('home/movie/index',{'title':'index','movies':data});
+            res.render('home/movie/index',{'title':'home','movies':data});
         }
     })
 });
@@ -63,7 +63,7 @@ app.get('/movie',function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.render('home/movie/index',{'title':'index','movies':data});
+            res.render('home/movie/index',{'title':'movie','movies':data});
         }
     })
 });
