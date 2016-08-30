@@ -1,0 +1,17 @@
+include ../../common/header
+block content
+  style.
+    th{text-align:center}
+  section(class='container')
+    include ../common/nav
+    br
+    table(class='table table-bordered table-hover text-center')
+      tr
+        th name
+        th created_at
+      each user in users
+        tr
+          td #{user.name}
+          td #{moment(user.meta.created_at).format('YYYY MM DD')}
+  include ../../common/footer        
+        

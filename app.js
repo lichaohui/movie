@@ -82,13 +82,11 @@ app.post('/doregister',function(req,res){
         'name':postuser.name,
         'password':postuser.password
     });
-    console.log(postuser);
     //将数据保存到数据库
     newuser.save(function(err,user){
         if(err){
             console.log(err);
         }else{
-            console.log('数据保存成功');
             res.redirect('/movie');
         }
     });
@@ -101,8 +99,19 @@ app.get('/login',function(req,res){
 
 
 /*----后台路由----*/
-//后台列表页的路由
-app.get('/admin/movie/list',function(req,res){
+//后台展示用户列表的路由
+app.get('/admin/user/',function(req,res){
+    user.fetch(function(err,data){
+        if(err){
+            console.log(err);
+        }else{
+            res.render('admin/user/list',{'title':'list','movies':data});
+        }
+    });
+});
+
+//后台电影列表页的路由
+app.get('/admin/movie/',function(req,res){
     //调用movie模型的fetch方法遍历数据传递给前台展示
     movie.fetch(function(err,data){
         if(err){
@@ -135,7 +144,7 @@ app.post('/admin/movie/store',function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.redirect('/admin/movie/list');
+            res.redirect('/admin/movie/');
         }; 
     });
 });
