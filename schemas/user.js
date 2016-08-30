@@ -74,6 +74,7 @@ userSchema.pre('save',function(next){
              * 第一个参数是err,
              * 第二个参数是hash后生成的值
              */
+            console.log(this.password);
             bcrypt.hash(this.password,salt,function(err,hashresult){
                 if(err){
                     console.log(err);
