@@ -82,19 +82,30 @@ app.post('/doregister',function(req,res){
      * 表单数据可以通过req.body拿到
      */
     var postuser=req.body;
-    //通过表单发送的数据实例化user模型
-    var newuser=new user({
-        'name':postuser.name,
-        'password':postuser.password
-    });
-    //将数据保存到数据库
-    newuser.save(function(err,user){
-        if(err){
-            console.log(err);
-        }else{
-            res.redirect('/movie');
-        }
-    });
+    
+    //先验证数据库中是否有重名的用户存在
+    var checkuser=user.find({name:postuser.name});
+    if(checkuser){
+        //如果有重名的用户存在，则显示错误提示页面
+        res.render('home/error',{'message':‘该用户名已经存在了，请换个用户名重新注册！’});
+    }else{
+        /*
+         * 如果用户名可以使用
+         * 就通过表单发送的数据实例化user模型
+         */
+        var newuser=new user({
+            'name':postuser.name,
+            'password':postuser.password
+        });
+        //将数据保存到数据库
+        newuser.save(function(err,user){
+            if(err){
+                console.log(err);
+            }else{
+                res.redirect('/movie');
+            }
+        });
+    }
 });
 
 //用户登录的路由
