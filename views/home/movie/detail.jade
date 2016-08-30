@@ -1,0 +1,17 @@
+include ../../common/header
+block content
+  section(class='container')
+    include ../common/nav
+    div
+      h2 #{movie.name}
+      video(src='#{movie.src}', controls='controls',width='600')
+      dl(class='dl-horizontal')
+        dt name:
+        dd #{movie.name}
+        dt director:
+        dd #{movie.director}
+        dt type:
+        dd #{movie.type}
+        dt country
+        dd #{movie.country}
+include ../../common/footer        
