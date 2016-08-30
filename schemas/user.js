@@ -98,6 +98,13 @@ userSchema.pre('save',function(next){
 userSchema.methods={
     //添加一个比较密码的方法
     comparePassword:function(password,callback){
+        /*
+         * bcrypt的compare()方法可以比较两个值是否匹配
+         * 在这里我们可以比较表单提交的密码和数据库中的密码是否匹配
+         * 回调函数中的第二个参数是一个布尔值，
+         * 如果匹配则返回true,
+         * 不匹配则返回false
+         */
         bcrypt.compare(password,this.password,function(err,isMatch){
             if(err){
                 return callback(err);
