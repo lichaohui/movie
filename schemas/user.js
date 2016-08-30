@@ -60,6 +60,7 @@ userSchema.pre('save',function(next){
      * 第二个参数是生成的salt(盐)
      * 再回调函数中可以用生成以后的盐加给密码进行hash
      */
+    console.log('aaa');
     bcrypt.genSalt(10,function(err,salt){
         if(err){
             return next(err);
@@ -74,6 +75,7 @@ userSchema.pre('save',function(next){
              * 第一个参数是err,
              * 第二个参数是hash后生成的值
              */
+            console.log('bbbbb');
             bcrypt.hash(user.password,salt,function(err,hashresult){
                 if(err){
                     return next(err);
