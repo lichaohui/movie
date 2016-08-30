@@ -34,6 +34,7 @@ var userSchema=new mongoose.Schema({
  * 则只更新updated_at为当前时间
  */
 userSchema.pre('save',function(next){
+    var user=this;
     /*
      * 可以通过isNew判断当前数据是否为新的
      * 如果是新的则返回true,
@@ -59,7 +60,7 @@ userSchema.pre('save',function(next){
      * 再回调函数中可以用生成以后的盐加给密码进行hash
      */
     bcrypt.genSalt(10,function(err,salt){
-        var user=this;
+        
         if(err){
             return next(err);
         }else{
@@ -73,7 +74,7 @@ userSchema.pre('save',function(next){
              * 第一个参数是err,
              * 第二个参数是hash后生成的值
              */
-            bcrypt.hash('214519',salt,function(err,hashresult){
+            bcrypt.hash(user.password,salt,function(err,hashresult){
                 if(err){
                     console.log(err);
                     return next(err);
@@ -83,7 +84,7 @@ userSchema.pre('save',function(next){
                      * 就把密码和salt经过hash后得出的结果作为用户的密码
                      * 保存到数据库中
                      */
-                    this.password=hashresult;
+                    user.password=hashresult;
                     console.log('hello lucy'+hashresult);
                     //进行下一步
                     next();
