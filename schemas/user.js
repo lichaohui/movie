@@ -75,6 +75,7 @@ userSchema.pre('save',function(next){
              */
             bcrypt.hash(user.password,salt,function(err,hashresult){
                 if(err){
+                    console.log('this is wrong');
                     return next(err);
                 }else{
                     /*
@@ -83,6 +84,7 @@ userSchema.pre('save',function(next){
                      * 保存到数据库中
                      */
                     user.password=hashresult;
+                    console.log('hello lucy');
                     //进行下一步
                     next();
                 }
