@@ -93,9 +93,6 @@ userSchema.pre('save',function(next){
             });
         }
     });
-    
-    //然后通过next()进行下一步操作
-    //next(); 
 });
 
 /*

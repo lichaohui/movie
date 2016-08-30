@@ -82,12 +82,13 @@ app.post('/doregister',function(req,res){
         'name':postuser.name,
         'password':postuser.password
     });
+    console.log(postuser);
     //将数据保存到数据库
     newuser.save(function(err,user){
-        
         if(err){
             console.log(err);
         }else{
+            console.log('数据保存成功');
             res.redirect('/movie');
         }
     });
