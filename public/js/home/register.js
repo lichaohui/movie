@@ -9,7 +9,7 @@ $(function(){
                 if(data.isError){
                     $("#warning").text(data.message).removeClass('hidden');
                 }else{
-                    $("#success").text(data.essage).removeClass('hidden');
+                    $("#success").text(data.message).removeClass('hidden');
                     setTimeout(function(){location.href='/';},1500);
                 }
             },
