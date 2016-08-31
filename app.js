@@ -16,6 +16,8 @@ var mongoose=require('mongoose');
 var mongoStore=require('connect-mongo')(session);
 //引入moment模块用来格式化时间
 app.locals.moment=require('moment');
+//引入Morgan模块用来设置日志的输出格式
+var morgan=require('morgan');
 
 //设置一个存储数据库地址的变量
 var dbUrl='mongodb://localhost/imooc';
@@ -60,7 +62,7 @@ if(app.get('env')=='development'){
     //在页面上显示异常信息
     app.set('showStackError',true);
     //log日志的输出格式
-    app.use(express.logger(':method:url:status'));
+    app.use(morgan(':method:url:status'));
     //编译jade模板的额时候格式化html代码
     app.locals.pretty=true;
     //开始数据库的debug调试
