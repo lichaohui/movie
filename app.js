@@ -25,7 +25,7 @@ var dbUrl='mongodb://localhost/imooc';
 //设置模板引擎
 app.set('view engine','jade');
 //设置视图的根目录
-app.set('views','./views');
+app.set('views','./resource/views');
 
 //设置资源文件的存放位置
 var serveStatic = require('serve-static');
@@ -80,4 +80,4 @@ app.listen(port);
 
 console.log('server running at port: '+port);
 
-require('./route/route.js')(app);
+require('./app/route.js')(app);
