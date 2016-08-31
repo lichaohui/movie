@@ -179,7 +179,7 @@ app.post('/dologin',function(req,res){
                          * 注意session是req（请求体）的，
                          * 所以session信息会在发生http请求的时候包含在请求体中
                          */
-                        req.session.user=user;
+                        req.session.user=data;
                         res.json({'isError':false,'message':'登录成功，即将进入首页！！'});
                     }else{
                         //如果密码不匹配则返回错误信息
