@@ -33,8 +33,8 @@ app.use(cookieParser());
 //使用session
 app.use(express.session({
     secret:'imooc'
-    resave:false,
-	saveUninitialized:true
+    //resave:false,
+	//saveUninitialized:true
 }));
 
 //连接数据库
