@@ -144,7 +144,10 @@ app.post('/doregister',function(req,res){
                      * 所以session信息会在发生http请求的时候包含在请求体中
                      */
                     req.session.user=user;
-                    
+                    /*
+                     * 将session信息存入本地的变量中
+                     * 这样在模板张就可以使用这些变量了
+                     */
                     app.locals.user=req.session.user;
                     res.json({'isError':false,'message':'注册成功，即将跳转到首页!'});
                 }
@@ -182,8 +185,11 @@ app.post('/dologin',function(req,res){
                          * 所以session信息会在发生http请求的时候包含在请求体中
                          */
                         req.session.user=data;
+                        /*
+                         * 将session信息存入本地的变量中
+                         * 这样在模板张就可以使用这些变量了
+                         */
                         app.locals.user=req.session.user;
-                        
                         res.json({'isError':false,'message':'登录成功，即将进入首页！！'});
                     }else{
                         //如果密码不匹配则返回错误信息
@@ -196,6 +202,16 @@ app.post('/dologin',function(req,res){
             res.json({'isError':true,'message':'该用户不存在！'});
         }
     });
+});
+
+//用户登出的路由
+app.get('/logout',function(req,res){
+    //删除session
+    delete req.session.user;
+    //将本地的user变量置空
+    app.locals.user=null;
+    //跳转到登录界面 
+    res.redirect('/login');
 });
 
 /*----后台路由----*/
