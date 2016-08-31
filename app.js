@@ -13,7 +13,7 @@ var mongoose=require('mongoose');
  * 引入connect-mongo模块用来做会话持久化
  * 可以将用户的session信息存储到mongodb中
  */
-var mongoStore=require('connect-mongo')(express);
+var mongoStore=require('connect-mongo')(session);
 //引入underscore模块可以用来更新数据
 var underscore=require('underscore');
 //引入moment模块用来格式化时间
@@ -41,7 +41,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 //使用session之前必须use一下cookieParser
 app.use(cookieParser());
 //使用session
-app.use(session({
+app.use(express.session({
     secret:'imooc',
     /*
      * 传入一个store参数

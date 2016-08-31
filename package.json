@@ -20,6 +20,7 @@
     "mongoose": "^4.5.9",
     "pug": "^0.1.0",
     "serve-static": "^1.11.1",
+    "session": "^0.1.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
