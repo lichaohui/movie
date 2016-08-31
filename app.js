@@ -62,7 +62,7 @@ if(app.get('env')=='development'){
     //在页面上显示异常信息
     app.set('showStackError',true);
     //log日志的输出格式
-    app.use(morgan(':method:url:status'));
+    app.use(morgan(':method : url : status'));
     //编译jade模板的额时候格式化html代码
     app.locals.pretty=true;
     //开始数据库的debug调试
