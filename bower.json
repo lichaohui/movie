@@ -1,6 +1,6 @@
 {
   "name": "imooc",
-  "description": "项目的前端配置",
+  "description": "项目的前端依赖包",
   "main": "app.js",
   "authors": [
     "lichaohui"
