@@ -88,6 +88,9 @@ app.post('/doregister',function(req,res){
         if(data.length>0){
             //如果有重名用户存在则返回json格式的错误信息
             res.json({'isError':true,'message':'该用户名已经存在了，请换个用户名重新注册！'});
+        }else if(postuser.password!=postuser.passwordrepeat){
+            //如果两次输入的密码不一致则返回错误信息
+            res.json({'isError':true,'message':'两次输入的密码不一致，请重新输入密码！'});
         }else{
             /*
              * 如果用户名可以使用
