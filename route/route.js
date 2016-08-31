@@ -1,3 +1,7 @@
+//引入model模型
+var user=require('./models/user');
+var movie=require('./models/movie');
+
 module.exports=function(app){
     /*
      * 设置“/”前台首页路由

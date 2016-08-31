@@ -19,9 +19,7 @@ var underscore=require('underscore');
 //引入moment模块用来格式化时间
 app.locals.moment=require('moment');
 
-//引入model模型
-var user=require('./models/user');
-var movie=require('./models/movie');
+
 
 //设置一个存储数据库地址的变量
 var dbUrl='mongodb://localhost/imooc';
