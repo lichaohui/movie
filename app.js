@@ -9,6 +9,11 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 //引入mongoose模块用来操作mongo数据库
 var mongoose=require('mongoose');
+/*
+ * 引入connect-mongo模块用来做会话持久化
+ * 可以将用户的session信息存储到mongodb中
+ */
+var mongoStore=require('connect-mongo')(expres);
 //引入underscore模块可以用来更新数据
 var underscore=require('underscore');
 //引入moment模块用来格式化时间
@@ -17,6 +22,9 @@ app.locals.moment=require('moment');
 //引入model模型
 var user=require('./models/user');
 var movie=require('./models/movie');
+
+//设置一个存储数据库地址的变量
+var dbUrl='mongodb://localhost/imooc';
 
 //设置模板引擎
 app.set('view engine','jade');
@@ -34,11 +42,24 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 //使用session
 app.use(session({
-    secret:'imooc'
+    secret:'imooc',
+    /*
+     * 传入一个store参数
+     * store参数表示存入session信息
+     * 可以处处到mongodb中
+     * 通过实例化一个mongoStore对象存储session信息到mongo中
+     * 实例化mongoStroe对象的时候需要传入一个json格式的参数
+     * url表示数据库的地址
+     * collection表示存储到哪个集合中
+     */
+    store:new mongoStore({
+        url:dbUrl,
+        collection:'sessions'
+    })
 }));
 
-//连接数据库
-mongoose.connect('mongodb://localhost/imooc');
+//连接数据库,传入上面定义好的dbUrl
+mongoose.connect(dbUrl);
 
 //设置服务端口为环境变量总的port，如果不存在就设置为3000
 var port=process.env.PORT || 3000;
