@@ -31,7 +31,7 @@ module.exports=function(app){
     //前台电影列表页路由
     app.get('/movie',movie.index);
 
-    //设置前台详情页路由
+    //设置前台电影详情页路由
     app.get('/movie/detail/:id',movie.show);
 
     //展示用户注册界面的路由
@@ -43,6 +43,9 @@ module.exports=function(app){
     app.get('/login',user.login);
     //实现用户登录功能的路由
     app.post('/dologin',user.doLogin);
+    
+    //用户登出的路由
+    app.get('/logout',user.logout);
 
     /*----后台路由----*/
     //后台展示用户列表的路由

@@ -94,8 +94,6 @@ exports.doLogin=function(req,res){
 exports.logout=function(req,res){
     //删除session
     delete req.session.user;
-    //将本地的user变量置空
-    app.locals.user=null;
     //跳转到登录界面 
     res.redirect('/login');
 };
