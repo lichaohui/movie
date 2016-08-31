@@ -4,7 +4,7 @@ var app=express();
 //引入bodyParser用来格式化表单数据
 var bodyParser = require('body-parser');
 //引入cookie-parser来使用cookie
-var cookieParser = require('cookie-parser')
+var cookieParser = require('cookie-parser');
 //引入mongoose模块用来操作mongo数据库
 var mongoose=require('mongoose');
 //引入underscore模块可以用来更新数据
@@ -29,10 +29,12 @@ app.use(serveStatic('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 //使用session之前必须use一下cookieParser
-app.use(express.cookieParser());
+app.use(cookieParser());
 //使用session
 app.use(express.session({
     secret:'imooc'
+    resave:false,
+	saveUninitialized:true
 }));
 
 //连接数据库
