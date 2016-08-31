@@ -79,7 +79,7 @@ console.log('server running at port: '+port);
  */
 app.get('/',function(req,res){
     //跳转到首页的时候把存储到session中的用户信息赋值给user变量
-    res.render('home/index',{'title':'home','user':req.session.user});
+    res.render('home/index',{'title':'home'});
 });
 
 //前台电影列表页路由
@@ -89,7 +89,7 @@ app.get('/movie',function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.render('home/movie/index',{'title':'movie','movies':data,'user':req.session.user});
+            res.render('home/movie/index',{'title':'movie','movies':data});
         }
     });
 });
@@ -100,7 +100,7 @@ app.get('/movie/detail/:id',function(req,res){
     var id=req.params.id;
     //通过id获取数据并将数据发送给前台视图
     var data=movie.findById(id,function(err,data){
-        res.render('home/movie/detail',{'title':'detail','movie':data,'user':req.session.user});
+        res.render('home/movie/detail',{'title':'detail','movie':data});
     });
 });
 
@@ -144,6 +144,8 @@ app.post('/doregister',function(req,res){
                      * 所以session信息会在发生http请求的时候包含在请求体中
                      */
                     req.session.user=user;
+                    
+                    app.locals.user=req.session.user;
                     res.json({'isError':false,'message':'注册成功，即将跳转到首页!'});
                 }
             });
@@ -180,6 +182,8 @@ app.post('/dologin',function(req,res){
                          * 所以session信息会在发生http请求的时候包含在请求体中
                          */
                         req.session.user=data;
+                        app.locals.user=req.session.user;
+                        
                         res.json({'isError':false,'message':'登录成功，即将进入首页！！'});
                     }else{
                         //如果密码不匹配则返回错误信息
