@@ -2,7 +2,8 @@ include ../../common/header
 block content
   section(class='container')
     include ../common/nav
-    div(class="alert alert-warning" role="alert")
+    div(class="alert alert-warning hidden" id='warning' role="alert")
+    div(class="alert alert-success hidden" id='success' role="alert")
     form(class="form-horizontal" action='/doregister' method='post')
       div(class="form-group")
         label(for="name" class="col-sm-2 control-label") Name
@@ -19,6 +20,7 @@ block content
       div(class='form-group')
         lael(for='sub' class='col-sm-2')
         div(class='col-sm-10')
-          button(type='submit' id='sub' class='btn btn-primary') Register
+          button(type='button' id='sub' class='btn btn-primary') Register
 include ../../common/footer    
+script(src='/js/home/jquery.form.js')
 script(src='/js/home/register.js')

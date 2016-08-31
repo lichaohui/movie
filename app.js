@@ -87,7 +87,9 @@ app.post('/doregister',function(req,res){
     user.find({name:postuser.name},function(err,data){
         if(data.length>0){
             //如果有重名的用户存在，则显示错误提示页面
-            res.render('error',{'message':'该用户名已经存在了，请换个用户名重新注册！'});
+            //res.render('error',{'message':'该用户名已经存在了，请换个用户名重新注册！'});
+            //如果有重名用户存在则返回json格式的错误信息
+            res.json({'isError':true,'message':'该用户名已经存在了，请换个用户名重新注册！'});
         }else{
             /*
              * 如果用户名可以使用
@@ -102,7 +104,8 @@ app.post('/doregister',function(req,res){
                 if(err){
                     console.log(err);
                 }else{
-                    res.redirect('/movie');
+                    //如果注册成功则返回成功信息
+                    res.json({'isError':false,'message':'注册成功，即将跳转到首页!'});
                 }
             });
         }
