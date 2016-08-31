@@ -41,11 +41,6 @@ exports.doRegister=function(req,res){
                      * 所以session信息会在发生http请求的时候包含在请求体中
                      */
                     req.session.user=user;
-                    /*
-                     * 将session信息存入本地的变量中
-                     * 这样在模板张就可以使用这些变量了
-                     */
-                    app.locals.user=req.session.user;
                     res.json({'isError':false,'message':'注册成功，即将跳转到首页!'});
                 }
             });
@@ -81,11 +76,6 @@ exports.doLogin=function(req,res){
                          * 所以session信息会在发生http请求的时候包含在请求体中
                          */
                         req.session.user=data;
-                        /*
-                         * 将session信息存入本地的变量中
-                         * 这样在模板张就可以使用这些变量了
-                         */
-                        app.locals.user=req.session.user;
                         res.json({'isError':false,'message':'登录成功，即将进入首页！！'});
                     }else{
                         //如果密码不匹配则返回错误信息
