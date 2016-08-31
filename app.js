@@ -26,6 +26,13 @@ app.use(serveStatic('public'));
 //设置表单提交数据的格式化
 app.use(bodyParser.urlencoded({extended: true}));
 
+//使用session之前必须use一下cookieParser
+app.use(express.cookieParser());
+//使用session
+app.use(express.session({
+    secret:'imooc'
+}));
+
 //连接数据库
 mongoose.connect('mongodb://localhost/imooc');
 
@@ -46,7 +53,7 @@ console.log('server running at port: '+port);
  * 传递的变量用一个json格式表示
  */
 app.get('/',function(req,res){
-    res.render('home/index',{'title':'home'});
+    res.render('home/index',{'title':'home','user':req.session.user.name});
 });
 
 //前台电影列表页路由
@@ -105,7 +112,8 @@ app.post('/doregister',function(req,res){
                 if(err){
                     console.log(err);
                 }else{
-                    //如果注册成功则返回成功信息
+                    //如果注册成功则保存用户session并返回成功信息
+                    req.session.user=user;
                     res.json({'isError':false,'message':'注册成功，即将跳转到首页!'});
                 }
             });
