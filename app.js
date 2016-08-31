@@ -86,8 +86,6 @@ app.post('/doregister',function(req,res){
     //先验证数据库中是否有重名的用户存在
     user.find({name:postuser.name},function(err,data){
         if(data.length>0){
-            //如果有重名的用户存在，则显示错误提示页面
-            //res.render('error',{'message':'该用户名已经存在了，请换个用户名重新注册！'});
             //如果有重名用户存在则返回json格式的错误信息
             res.json({'isError':true,'message':'该用户名已经存在了，请换个用户名重新注册！'});
         }else{
@@ -121,7 +119,6 @@ app.get('/login',function(req,res){
 app.post('/dologin',function(req,res){
     //获取到表单提交的数据
     var postuser=req.body;
-    console.log(postuser);
     /*
      * 通过findOne方法搜索指定的用户是否存在
      */
@@ -137,16 +134,16 @@ app.post('/dologin',function(req,res){
                 }else{
                     if(isMatch){
                         //如果密码匹配则跳转到首页
-                        res.redirect('/');
+                        res.json({'isError':false,'message':'登录成功，即将进入首页！！'});
                     }else{
                         //如果密码不匹配则返回错误信息
-                        res.render('error',{'message':'密码错误！'});
+                        res.json({'isError':true,'message':'密码错误！'});
                     }
                 }
             });
         }else{
             //如果用户不存在则返回错误信息
-            res.render('error',{'message':'用户不存在！'});
+            res.json({'isError':true,'message':'该用户不存在！'});
         }
     });
 });
