@@ -57,7 +57,8 @@ console.log('server running at port: '+port);
  * 传递的变量用一个json格式表示
  */
 app.get('/',function(req,res){
-    res.render('home/index',{'title':'home','user':req.session.user.name});
+    //跳转到首页的时候把存储到session中的用户信息赋值给user变量
+    res.render('home/index',{'title':'home','user':req.session.user});
 });
 
 //前台电影列表页路由
@@ -116,7 +117,11 @@ app.post('/doregister',function(req,res){
                 if(err){
                     console.log(err);
                 }else{
-                    //如果注册成功则保存用户session并返回成功信息
+                    /*
+                     * 如果注册成功则保存用户信息到req.session并返回成功信息
+                     * 注意session是req（请求体）的，
+                     * 所以session信息会在发生http请求的时候包含在请求体中
+                     */
                     req.session.user=user;
                     res.json({'isError':false,'message':'注册成功，即将跳转到首页!'});
                 }
