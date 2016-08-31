@@ -41,7 +41,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 //使用session之前必须use一下cookieParser
 app.use(cookieParser());
 //使用session
-app.use(express.session({
+app.use(session({
     secret:'imooc',
     /*
      * 传入一个store参数
