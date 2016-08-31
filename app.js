@@ -69,4 +69,4 @@ app.listen(port);
 
 console.log('server running at port: '+port);
 
-require(./route/route.js);
+require(./route/route.js)(app);
