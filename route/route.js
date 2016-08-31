@@ -1,6 +1,6 @@
 //引入model模型
-var user=require('./models/user');
-var movie=require('./models/movie');
+var user=require('../models/user');
+var movie=require('../models/movie');
 
 module.exports=function(app){
     /*
