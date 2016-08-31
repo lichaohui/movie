@@ -5,6 +5,8 @@ var app=express();
 var bodyParser = require('body-parser');
 //引入cookie-parser来使用cookie
 var cookieParser = require('cookie-parser');
+//引入session模块
+var session = require('express-session');
 //引入mongoose模块用来操作mongo数据库
 var mongoose=require('mongoose');
 //引入underscore模块可以用来更新数据
@@ -33,8 +35,6 @@ app.use(cookieParser());
 //使用session
 app.use(session({
     secret:'imooc'
-    //resave:false,
-	//saveUninitialized:true
 }));
 
 //连接数据库
