@@ -52,6 +52,21 @@ app.use(session({
     })
 }));
 
+/*
+ * 根据环境来设置一些属性
+ * 比如在开发环境下开启debug等
+ */
+if(app.get('env')=='development'){
+    //在页面上显示异常信息
+    app.set('showStackError',true);
+    //log日志的输出格式
+    app.use(express.logger(':method:url:status'));
+    //编译jade模板的额时候格式化html代码
+    app.locals.pretty=true;
+    //开始数据库的debug调试
+    mongoose.set('debug',true);
+};
+
 //连接数据库,传入上面定义好的dbUrl
 mongoose.connect(dbUrl);
 
