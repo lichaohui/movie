@@ -14,12 +14,8 @@ var mongoose=require('mongoose');
  * 可以将用户的session信息存储到mongodb中
  */
 var mongoStore=require('connect-mongo')(session);
-//引入underscore模块可以用来更新数据
-var underscore=require('underscore');
 //引入moment模块用来格式化时间
 app.locals.moment=require('moment');
-
-
 
 //设置一个存储数据库地址的变量
 var dbUrl='mongodb://localhost/imooc';

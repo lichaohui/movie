@@ -1,3 +1,6 @@
+//引入underscore模块可以用来更新数据
+var underscore=require('underscore');
+
 //引入model模型
 var user=require('../models/user');
 var movie=require('../models/movie');
