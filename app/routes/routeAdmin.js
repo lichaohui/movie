@@ -12,14 +12,37 @@ module.exports=function(app){
      */
     app.use(function(req,res,next){
         /*
-         * 将session信息存入本地的变量中
-         * 这样在模板张就可以使用这些变量了
+         * 因为我们每次登录的时候都会把管理员的信息存入到req.session中
+         * 然后我们将session信息赋值给本地变量admin
+         * 如果有登录的话本地变量admin是有值的
+         * 如果没有登录的话本地变量admin就是null
+         * 所以我们还可以通过判断本地变量admin是否为空
+         * 来判断管理员是否有登录
          */
-        if(req.session.admin==null){
-            res.redirect('/admin/login');
+        app.locals.admin=req.session.admin;
+        
+        if(req.path=='/admin/login'||req.path=='/admin/logout'){
+            /*
+             * 如果访问的是登录或登出页面，
+             * 则不检查管理员是否登录
+             * 直接next();
+             */
+            next();
         }else{
-            app.locals.admin=req.session.admin;
-            next(); 
+            /*
+             * 如果访问的是后台的其他页面，
+             * 则都需要验证管理员是否已经登录
+             */
+            if(app.locals.admin==null){
+                //如果管理员没有登录则重定向到登录页面
+                res.redirect('/admin/login');
+            }else{
+                /*
+                 * 如果管理员已经登录了
+                 * 则可以进行 next()
+                 */
+                next(); 
+            }
         }
     });
 
