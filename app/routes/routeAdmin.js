@@ -41,7 +41,7 @@ module.exports=function(app){
              */
             next(); 
         }
-    );
+    });
     
     /*
      * 定义一个
