@@ -54,6 +54,8 @@ module.exports=function(app){
     app.get('/admin/login',admin.login);
     //执行管理员登录动作的路由
     app.post('/admin/doLogin',admin.doLogin);
+    //管理员退出登录操作的路由
+    app.get('/admin/logout',admin.logout);
     
     //显示所有管理员列表的路由
     app.get('/admin/admin',admin.index);
