@@ -16,7 +16,7 @@ exports.verifyLogin=function(req,res,next){
      * 所以我们还可以通过判断本地变量admin是否为空
      * 来判断管理员是否有登录
      */
-    app.locals.adminer=req.session.admin; 
+    app.locals.admin=req.session.admin; 
     if(req.path=='/admin/login'||req.path=='/admin/doLogin'||req.path=='/admin/logout'){
         /*
          * 如果访问的是登录或登出页面，
@@ -24,7 +24,7 @@ exports.verifyLogin=function(req,res,next){
          * 直接next();
          */
         next();
-    }else if(app.locals.adminer==undefined){
+    }else if(app.locals.admin==undefined){
         /*
          * 如果访问的是后台的其他页面，
          * 则都需要验证管理员是否已经登录
@@ -36,7 +36,7 @@ exports.verifyLogin=function(req,res,next){
          * 如果管理员已经登录了
          * 则可以进行 next()
          */
-        console.log('adminhahahh '+app.locals.adminer.name);
+        console.log('adminhahahh '+app.locals.admin.name);
         next(); 
     }
 };
