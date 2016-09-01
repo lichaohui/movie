@@ -20,7 +20,6 @@ module.exports=function(app){
          * 来判断管理员是否有登录
          */
         app.locals.admin=req.session.admin;
-        console.log('hello');
         
         if(req.path=='/admin/login'||req.path=='/admin/logout'){
             /*
@@ -28,6 +27,7 @@ module.exports=function(app){
              * 则不检查管理员是否登录
              * 直接next();
              */
+            concole.log('aaa');
             next();
         }else if(app.locals.admin=='undefined'){
             /*
@@ -35,12 +35,14 @@ module.exports=function(app){
              * 则都需要验证管理员是否已经登录
              */
             //如果管理员没有登录则重定向到登录页面
+            console.log('bbb');
             res.redirect('/admin/login');
         }else{
             /*
              * 如果管理员已经登录了
              * 则可以进行 next()
              */
+            console.log('ccc');
             next(); 
         }
     });
