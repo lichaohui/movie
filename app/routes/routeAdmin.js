@@ -6,6 +6,8 @@ module.exports=function(app){
     /*
      * 定义一个中间件，
      * 所有路由被执行之前都会先执行这个中间件
+     * 这个中间件就用来看管理员是否登录吧
+     * 只有登录的管理员才可以进入后台页面
      */
     app.use(function(req,res,next){
         /*
@@ -17,6 +19,30 @@ module.exports=function(app){
     });
 
     /*----后台路由----*/
+    /*
+     * 后台首页的路由，
+     * 暂时先跳转到电影的列表页吧
+     */
+    app.get('/admin',movie.index);
+    
+    //显示管理员登录界面的路由
+    app.get('/admin/login',admin.login);
+    //执行管理员登录动作的路由
+    app.post('/admin/doLogin',admin.doLogin);
+    
+    //显示所有管理员列表的路由
+    app.get('/admin/index',admin.index);
+    //显示添加管理员页面的路由
+    app.get('/admin/create',admin.create);
+    //执行添加管理员操作的路由
+    app.post('/admin/store',admin.store);
+    //获取指定管理员记录的路由
+    app.get('/admin/show/:id',admin.show);
+    //执行更新管理员操作的路由
+    app.put('/admin/update',admin.update);
+    //执行删除管理员操作的路由
+    app.delete('/admin/delete/:id',admin.delete);
+    
     //后台展示用户列表的路由
     app.get('/admin/user',user.index);
 
