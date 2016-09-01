@@ -42,7 +42,7 @@ module.exports=function(app){
              * 如果管理员已经登录了
              * 则可以进行 next()
              */
-            console.log('ccc');
+            console.log('ccc '+app.locals.admin);
             next(); 
         }
     });
