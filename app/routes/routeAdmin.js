@@ -1,7 +1,7 @@
 //引入后台控制器文件
 var movie=require('../controllers/admin/movie');
 var user=require('../controllers/admin/user');
-var admin=require('../controllers/admin/admin');
+var admin=require('../controllers/admin/admin')(app);
 
 module.exports=function(app){
     /*
