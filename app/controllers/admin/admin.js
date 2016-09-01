@@ -4,6 +4,40 @@ var admin=require('../../models/admin');
 //引入underscore模块可以用来更新数据
 var underscore=require('underscore');
 
+//验证管理员是否登录的方法
+exports.verifyLogin=function(req,res,next){
+    /*
+     * 因为我们每次登录的时候都会把管理员的信息存入到req.session中
+     * 然后我们将session信息赋值给本地变量admin
+     * 如果有登录的话本地变量admin是有值的
+     * 如果没有登录的话本地变量admin就是null
+     * 所以我们还可以通过判断本地变量admin是否为空
+     * 来判断管理员是否有登录
+     */
+    app.locals.admin=req.session.admin; 
+    if(req.path=='/admin/login'||req.path=='/admin/doLogin'||req.path=='/admin/logout'){
+        /*
+         * 如果访问的是登录或登出页面，
+         * 则不检查管理员是否登录
+         * 直接next();
+         */
+        next();
+    }else if(app.locals.admin==undefined){
+        /*
+         * 如果访问的是后台的其他页面，
+         * 则都需要验证管理员是否已经登录
+         */
+        //如果管理员没有登录则重定向到登录页面
+        res.redirect('/admin/login');
+    }else{
+        /*
+         * 如果管理员已经登录了
+         * 则可以进行 next()
+         */
+        next(); 
+    }
+};
+
 //展示管理员登录界面的方法
 exports.login=function(req,res){
     res.render('admin/admin/login',{'title':'login'}); 
