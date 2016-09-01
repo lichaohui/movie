@@ -26,12 +26,14 @@ module.exports=function(app){
              * 则不检查管理员是否登录
              * 直接next();
              */
+            console.log('ccc '+app.locals.admin);
             next();
         }else if(app.locals.admin==undefined){
             /*
              * 如果访问的是后台的其他页面，
              * 则都需要验证管理员是否已经登录
              */
+            console.log('aaa '+app.locals.admin);
             //如果管理员没有登录则重定向到登录页面
             res.redirect('/admin/login');
         }else{
@@ -39,6 +41,7 @@ module.exports=function(app){
              * 如果管理员已经登录了
              * 则可以进行 next()
              */
+            console.log('bbb '+app.locals.admin)
             next(); 
         }
     });
