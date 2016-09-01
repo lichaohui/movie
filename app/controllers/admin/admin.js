@@ -77,6 +77,7 @@ exports.store=function(req,res){
     var newadmin=new admin({
         'name':postadmin.name,
         'password':postadmin.password,
+        'level':0
     });
     //调用save方法保存数据并在回调函数中重定向页面
     newadmin.save(function(err,data){
