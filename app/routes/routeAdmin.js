@@ -20,7 +20,7 @@ module.exports=function(app){
          * 来判断管理员是否有登录
          */
         app.locals.admin=req.session.admin; 
-        if(req.path=='/admin/login'||req.path='/admin/doLogin'||req.path=='/admin/logout'){
+        if(req.path=='/admin/login'||req.path=='/admin/doLogin'||req.path=='/admin/logout'){
             /*
              * 如果访问的是登录或登出页面，
              * 则不检查管理员是否登录
