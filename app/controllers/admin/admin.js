@@ -76,12 +76,7 @@ exports.store=function(req,res){
     var postadmin=req.body;
     var newadmin=new admin({
         'name':postadmin.name,
-        'director':postadmin.director,
-        'type':postadmin.type,
-        'src':postadmin.src,
-        'country':postadmin.country,
-        'playbill':postadmin.playbill,
-        'intro':postadmin.intro,
+        'password':postadmin.password,
     });
     //调用save方法保存数据并在回调函数中重定向页面
     newadmin.save(function(err,data){
