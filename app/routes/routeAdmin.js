@@ -40,7 +40,7 @@ module.exports=function(app){
              * 则可以进行 next()
              */
             next(); 
-        })
+        }
     );
     
     /*
