@@ -45,6 +45,7 @@ module.exports=function(app){
     
     /*
      * 检测用户是否为超级管理员的中间件
+     * 只有超级管理员才有权力访问admin下的admin（管理员）模块
      */
     app.use('/admin/admin*',admin.verifyAdmin);
 
