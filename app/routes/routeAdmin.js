@@ -19,32 +19,26 @@ module.exports=function(app){
          * 所以我们还可以通过判断本地变量admin是否为空
          * 来判断管理员是否有登录
          */
-        var sessionadmin=req.session.admin;
-        
-        if(req.path=='/admin/login'||req.path=='/admin/logout'){
+        app.locals.admin=req.session.admin; 
+        if(req.path=='/admin/login'||req.path='/admin/doLogin'||req.path=='/admin/logout'){
             /*
              * 如果访问的是登录或登出页面，
              * 则不检查管理员是否登录
              * 直接next();
              */
-            console.log('aaa');
             next();
-        }else if(sessionadmin==undefined){
+        }else if(app.locals.admin=='undefined'){
             /*
              * 如果访问的是后台的其他页面，
              * 则都需要验证管理员是否已经登录
              */
             //如果管理员没有登录则重定向到登录页面
-            console.log('bbb');
             res.redirect('/admin/login');
         }else{
             /*
              * 如果管理员已经登录了
              * 则可以进行 next()
              */
-            app.locals.admin=sessionadmin;
-            console.log('ccc '+app.locals.admin);
-            
             next(); 
         }
     });
