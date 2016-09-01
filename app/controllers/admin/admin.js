@@ -23,7 +23,7 @@ exports.verifyLogin=function(req,res,next){
          * 则不检查管理员是否登录
          * 直接next();
          */
-        next();
+        next(app);
     }else if(app.locals.admin==undefined){
         /*
          * 如果访问的是后台的其他页面，
@@ -37,7 +37,7 @@ exports.verifyLogin=function(req,res,next){
          * 则可以进行 next()
          */
         console.log('adminhahahh '+app.locals.admin.name);
-        next(); 
+        next(app); 
     }
 };
 
