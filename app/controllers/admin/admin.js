@@ -1,3 +1,4 @@
+var app = express();
 /*----后台操作admin的控制器----*/
 //引入model模型
 var admin=require('../../models/admin');
