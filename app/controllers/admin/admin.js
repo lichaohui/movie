@@ -12,7 +12,7 @@ exports.verifyAdmin=function(req,res,next){
         next();
     }else{
         //如果不是则返回错误页面
-        res.render('/error',{'message':'The page you are looking for is not found!'});
+        res.render('error',{'message':'The page you are looking for is not found!'});
     }
 };
 
