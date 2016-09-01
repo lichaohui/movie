@@ -29,7 +29,7 @@ module.exports=function(app){
              */
             console.log('aaa');
             next();
-        }else if(app.locals.admin==undefined){
+        }else if(app.locals.admin===undefined){
             /*
              * 如果访问的是后台的其他页面，
              * 则都需要验证管理员是否已经登录
