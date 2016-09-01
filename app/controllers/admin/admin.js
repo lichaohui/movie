@@ -36,7 +36,7 @@ exports.verifyLogin=function(req,res,next){
          * 如果管理员已经登录了
          * 则可以进行 next()
          */
-        console.log('aaa '+app.locals.admin);
+        console.log('adminhahahh '+app.locals.admin.name);
         next(); 
     }
 };
