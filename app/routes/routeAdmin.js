@@ -37,8 +37,8 @@ module.exports=function(app){
     app.get('/admin/create',admin.create);
     //执行添加管理员操作的路由
     app.post('/admin/store',admin.store);
-    //获取指定管理员记录的路由
-    app.get('/admin/show/:id',admin.show);
+    //更新管理员时获取指定管理员记录的路由
+    app.get('/admin/edit/id',admin.edit);
     //执行更新管理员操作的路由
     app.put('/admin/update',admin.update);
     //执行删除管理员操作的路由
