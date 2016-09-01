@@ -29,21 +29,19 @@ module.exports=function(app){
              * 直接next();
              */
             next();
-        }else{
+        }else if(app.locals.admin=='undefined'){
             /*
              * 如果访问的是后台的其他页面，
              * 则都需要验证管理员是否已经登录
              */
-            if(app.locals.admin=='undefined'){
-                //如果管理员没有登录则重定向到登录页面
-                res.redirect('/admin/login');
-            }else{
-                /*
-                 * 如果管理员已经登录了
-                 * 则可以进行 next()
-                 */
-                next(); 
-            }
+            //如果管理员没有登录则重定向到登录页面
+            res.redirect('/admin/login');
+        }else{
+            /*
+             * 如果管理员已经登录了
+             * 则可以进行 next()
+             */
+            next(); 
         }
     });
 
