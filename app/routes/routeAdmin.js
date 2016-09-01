@@ -27,7 +27,7 @@ module.exports=function(app){
              * 则不检查管理员是否登录
              * 直接next();
              */
-            concole.log('aaa');
+            console.log('aaa');
             next();
         }else if(app.locals.admin==undefined){
             /*
