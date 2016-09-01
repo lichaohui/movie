@@ -10,7 +10,7 @@ nav(class='navbar navbar-default')
     div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")
       ul(class='nav navbar-nav')
         li(role='presentation' id='page-movie' class="dropdown")
-          a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") movie
+          a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") Movie
             span(class="caret")
           ul(class="dropdown-menu")  
             li
@@ -18,14 +18,14 @@ nav(class='navbar navbar-default')
             li
               a(href='/admin/movie/create') Create
         li(role='presentation' id='page-user' class="dropdown")
-          a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") user
+          a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") User
             span(class="caret")
           ul(class="dropdown-menu")  
             li
               a(href='/admin/user/') List 
         if(admin.name=='admin')      
           li(role='presentation' id='page-admin' class="dropdown")
-            a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")  admin
+            a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")  Admin
               span(class="caret")
             ul(class="dropdown-menu")  
               li
