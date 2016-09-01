@@ -1,4 +1,23 @@
 $(function(){
+    //异步登录操作
+    $("#login").click(function(){
+        var url=$("#form").attr('action');
+        $("#form").ajaxSubmit({
+            type:'post',
+            url:url,
+            success:function(data){
+                if(data.isError){
+                    $("#warning").text(data.message).removeClass('hidden');
+                }else{
+                    $("#warning").addClass('hidden');
+                    $("#sub").attr('disabled','disabled');
+                    $("#success").text(data.message).removeClass('hidden');
+                    setTimeout(function(){location.href='/';},3000);
+                }
+            },
+        });
+    });
+    
     /*----异步编辑管理员----*/
     $(".edit").click(function(){
         //通过id获取特定的那条数据
