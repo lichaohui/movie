@@ -15,8 +15,12 @@ module.exports=function(app){
          * 将session信息存入本地的变量中
          * 这样在模板张就可以使用这些变量了
          */
-        app.locals.user=req.session.user; 
-        next();
+        if(req.session.admin==null){
+            res.redirect('/admin/login');
+        }else{
+            app.locals.admin=req.session.admin;
+            next(); 
+        }
     });
 
     /*----后台路由----*/
