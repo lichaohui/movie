@@ -1,11 +1,7 @@
-//引入express
-var express=require("express");
-var app=express();
-
 //引入后台控制器文件
 var movie=require('../controllers/admin/movie');
 var user=require('../controllers/admin/user');
-var admin=require('../controllers/admin/admin')(app);
+var admin=require('../controllers/admin/admin');
 
 module.exports=function(app){
     /*
