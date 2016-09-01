@@ -44,8 +44,9 @@ module.exports=function(app){
     });
     
     /*
-     * 定义一个
+     * 检测用户是否为超级管理员的中间件
      */
+    app.use('/admin/admin*',admin.verifyAdmin);
 
     /*----后台路由----*/
     /*

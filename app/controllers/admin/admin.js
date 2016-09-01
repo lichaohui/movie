@@ -4,6 +4,15 @@ var admin=require('../../models/admin');
 //引入underscore模块可以用来更新数据
 var underscore=require('underscore');
 
+//验证管理员是否是admin的方法
+exports.verifyAdmin=function(req,res,next){
+    if(req.session.admin.name=='admin'){
+        next();
+    }else{
+        res.redirect('error',{'message':'The page you are looking for is not found!'});
+    }
+};
+
 //展示管理员登录界面的方法
 exports.login=function(req,res){
     res.render('admin/admin/login',{'title':'login'}); 
