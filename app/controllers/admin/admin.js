@@ -32,6 +32,7 @@ exports.doLogin=function(req,res){
                          * 所以session信息会在发生http请求的时候包含在请求体中
                          */
                         req.session.admin=data;
+                        console.log(req.session.admin);
                         res.json({'isError':false,'message':'登录成功，即将进入首页！！'});
                     }else{
                         //如果密码不匹配则返回错误信息
