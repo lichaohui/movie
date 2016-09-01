@@ -24,13 +24,9 @@ ul(class='nav nav-tabs pull-left')
       li
         a(href='/admin/admin/create') Create    
 ul(class="nav navbar-tabs navbar-right")
-  li
-    a(href="#") Link
-    li(class="dropdown")
-      a(href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") Dropdown
-        span(class="caret")
-      ul(class="dropdown-menu")
-        li
-          a(href="#") Action
-        li
-          a(href="#") Another action
+  li(class="dropdown")
+    a(href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") #{admin.name}
+      span(class="caret")
+    ul(class="dropdown-menu")
+      li
+        a(href="/admin/logout") Logout
