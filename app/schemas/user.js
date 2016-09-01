@@ -10,6 +10,10 @@ var userSchema=new mongoose.Schema({
         type:String
     },
     password:String,
+    level:{
+        type:Number,
+        default:0
+    },
     meta:{
         created_at:{
             type:Date,

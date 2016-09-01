@@ -1,14 +1,9 @@
 //引入前台控制器文件
-var index=require('./controllers/home/index');
-var movie=require('./controllers/home/movie');
-var user=require('./controllers/home/user');
-
-//引入后台控制器文件
-var adminMovie=require('./controllers/admin/movie');
-var adminUser=require('./controllers/admin/user');
+var index=require('../controllers/home/index');
+var movie=require('../controllers/home/movie');
+var user=require('../controllers/home/user');
 
 module.exports=function(app){
-    
     /*
      * 定义一个中间件，
      * 所有路由被执行之前都会先执行这个中间件
@@ -45,22 +40,5 @@ module.exports=function(app){
     app.post('/dologin',user.doLogin);
     
     //用户登出的路由
-    app.get('/logout',user.logout);
-
-    /*----后台路由----*/
-    //后台展示用户列表的路由
-    app.get('/admin/user',adminUser.index);
-
-    //后台电影列表页的路由
-    app.get('/admin/movie',adminMovie.index);
-    //展示后台添加电影页面的路由
-    app.get('/admin/movie/create',adminMovie.create);
-    //后台执行添加电影操作的路由
-    app.post('/admin/movie/store',adminMovie.store);
-    //更新某个电影记录获取该记录的路由
-    app.get('/admin/movie/edit/:id',adminMovie.edit);
-    //执行更新电影操作的路由
-    app.put('/admin/movie/update/:id',adminMovie.update);
-    //执行删除电影操作的路由
-    app.delete('/admin/movie/delete/:id',adminMovie.delete);    
+    app.get('/logout',user.logout);  
 }
