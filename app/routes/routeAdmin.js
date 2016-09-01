@@ -32,17 +32,17 @@ module.exports=function(app){
     app.post('/admin/doLogin',admin.doLogin);
     
     //显示所有管理员列表的路由
-    app.get('/admin/index',admin.index);
+    app.get('/admin/admin',admin.index);
     //显示添加管理员页面的路由
-    app.get('/admin/create',admin.create);
+    app.get('/admin/admin/create',admin.create);
     //执行添加管理员操作的路由
-    app.post('/admin/store',admin.store);
+    app.post('/admin/admin/store',admin.store);
     //更新管理员时获取指定管理员记录的路由
-    app.get('/admin/edit/id',admin.edit);
+    app.get('/admin/admin/edit/id',admin.edit);
     //执行更新管理员操作的路由
-    app.put('/admin/update',admin.update);
+    app.put('/admin/admin/update',admin.update);
     //执行删除管理员操作的路由
-    app.delete('/admin/delete/:id',admin.delete);
+    app.delete('/admin/admin/delete/:id',admin.delete);
     
     //后台展示用户列表的路由
     app.get('/admin/user',user.index);

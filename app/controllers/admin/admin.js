@@ -6,7 +6,7 @@ var underscore=require('underscore');
 
 //展示管理员登录界面的方法
 exports.login=function(req,res){
-    res.render('admin/login',{'title':'login'}); 
+    res.render('admin/admin/login',{'title':'login'}); 
 };
 //执行管理员登录的方法
 exports.doLogin=function(req,res){
