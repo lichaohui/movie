@@ -1,4 +1,5 @@
-//var app = express();
+var express=require('express');
+var app = express();
 /*----后台操作admin的控制器----*/
 //引入model模型
 var admin=require('../../models/admin');
@@ -6,7 +7,7 @@ var admin=require('../../models/admin');
 var underscore=require('underscore');
 
 //验证管理员是否登录的方法
-exports.verifyLogin=function(req,res,next,app){
+exports.verifyLogin=function(req,res,next){
     /*
      * 因为我们每次登录的时候都会把管理员的信息存入到req.session中
      * 然后我们将session信息赋值给本地变量admin
