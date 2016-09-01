@@ -40,7 +40,7 @@ module.exports=function(app){
     //更新管理员时获取指定管理员记录的路由
     app.get('/admin/admin/edit/:id',admin.edit);
     //执行更新管理员操作的路由
-    app.put('/admin/admin/update',admin.update);
+    app.put('/admin/admin/update/:id',admin.update);
     //执行删除管理员操作的路由
     app.delete('/admin/admin/delete/:id',admin.delete);
     
