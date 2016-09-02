@@ -14,7 +14,7 @@ $(function(){
             type:'post',
             url:url,
             success:function(data){
-                alert(data);
+                alert(data.message);
                 setTimeout(function(){window.location.reload();},1000);
             },
         });
