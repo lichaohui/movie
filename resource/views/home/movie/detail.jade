@@ -3,8 +3,8 @@ block content
   section(class='container')
     include ../common/nav
     div
-      h2 #{movie.name}
-      video(src='#{movie.src}', controls='controls',width='600')
+      h2(class='text-center') #{movie.name}
+      video(src='#{movie.src}', controls='controls',width='100%')
       dl(class='dl-horizontal')
         dt name:
         dd #{movie.name}
