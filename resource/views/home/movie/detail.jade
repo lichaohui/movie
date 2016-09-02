@@ -50,6 +50,8 @@ block content
             span(aria-hidden="true") &times;
           h4(class="modal-title" id="myModalLabel") Login
         div(class='modal-body')
+          div(class="alert alert-warning hidden" id='warning' role="alert")
+          div(class="alert alert-success hidden" id='success' role="alert")
           form(class='form-horizontal' action='/doLogin' id='form')
             div(class='form-group')
               label(class='col-sm-2 control-label' for='name') name

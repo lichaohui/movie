@@ -14,8 +14,13 @@ $(function(){
             type:'post',
             url:url,
             success:function(data){
-                alert(data.message);
-                setTimeout(function(){window.location.reload();},1000);
+                if(data.isError){
+                    $("#warning").text(data.message).removeClass('hidden');
+                }else{
+                    $('#warning').addClass('hidden');
+                    $("#success").text(data.message).removeClass('hidden');
+                    setTimeout(function(){window.location.reload();},1000);
+                }
             },
         });
     });
