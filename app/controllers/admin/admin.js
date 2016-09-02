@@ -6,7 +6,7 @@ var underscore=require('underscore');
 
 //验证管理员是否是admin的方法
 exports.verifyAdmin=function(req,res,next){
-    //判断管理员是否是残疾管理员
+    //判断管理员是否是超级管理员
     if(req.session.admin.name=='admin'){
         //如果是则next()
         next();

@@ -48,6 +48,15 @@ exports.doRegister=function(req,res){
     });
 };
 
+//验证用户是否登录的方法
+exports.verifyLogin=function(req,res,next){
+    if(req.session.user){
+        next();
+    }else{
+        res.redirect('');
+    }
+};
+
 //显示用户登录页面的方法
 exports.login=function(req,res){
     res.render('home/user/login',{'title':'login'});
