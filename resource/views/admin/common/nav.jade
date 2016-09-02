@@ -1,41 +1,40 @@
-nav(class='navbar navbar-default')
-  div(class='container')
-    div(class='navbar-header')
-      button(type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1' aria-expanded="false")
-        span(class="sr-only") Toggle navigation
-        span(class="icon-bar")
-        span(class="icon-bar")
-        span(class="icon-bar")
-      a(class="navbar-brand" href="/" id='page-home') Home
-    div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")
-      ul(class='nav navbar-nav')
-        li(role='presentation' id='page-movie' class="dropdown")
-          a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") Movie
+nav(class='navbar navbar-default container')
+  div(class='navbar-header')
+    button(type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1' aria-expanded="false")
+      span(class="sr-only") Toggle navigation
+      span(class="icon-bar")
+      span(class="icon-bar")
+      span(class="icon-bar")
+    a(class="navbar-brand" href="/" id='page-home') Home
+  div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")
+    ul(class='nav navbar-nav')
+      li(role='presentation' id='page-movie' class="dropdown")
+        a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") Movie
+          span(class="caret")
+        ul(class="dropdown-menu")  
+          li
+            a(href='/admin/movie/') List
+          li
+            a(href='/admin/movie/create') Create
+      li(role='presentation' id='page-user' class="dropdown")
+        a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") User
+          span(class="caret")
+        ul(class="dropdown-menu")  
+          li
+            a(href='/admin/user/') List 
+      if(admin.name=='admin')      
+        li(role='presentation' id='page-admin' class="dropdown")
+          a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")  Admin
             span(class="caret")
           ul(class="dropdown-menu")  
             li
-              a(href='/admin/movie/') List
+              a(href='/admin/admin') List    
             li
-              a(href='/admin/movie/create') Create
-        li(role='presentation' id='page-user' class="dropdown")
-          a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") User
-            span(class="caret")
-          ul(class="dropdown-menu")  
-            li
-              a(href='/admin/user/') List 
-        if(admin.name=='admin')      
-          li(role='presentation' id='page-admin' class="dropdown")
-            a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")  Admin
-              span(class="caret")
-            ul(class="dropdown-menu")  
-              li
-                a(href='/admin/admin') List    
-              li
-                a(href='/admin/admin/create') Create
-      ul(class='nav navbar-nav navbar-right')
-        li(class="dropdown")
-          a(href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false")  #{admin.name} 
-            span(class="caret")
-          ul(class="dropdown-menu")
-            li
-              a(href="/admin/logout") Logout
+              a(href='/admin/admin/create') Create
+    ul(class='nav navbar-nav navbar-right')
+      li(class="dropdown")
+        a(href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") #{admin.name} 
+          span(class="caret")
+        ul(class="dropdown-menu")
+          li
+            a(href="/admin/logout") Logout
