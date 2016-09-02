@@ -5,7 +5,7 @@ var mongoose=require('mongoose');
  * 每个Schema都会默认配置这个属性，属性名为_id，
  * 除非自己定义，方可覆盖
  */
-var _id=mongoose.Schema.types.ObjectId;
+var _id=mongoose.Schema.Types.ObjectId;
 
 //设计comment数据表结构
 var commentSchema=new mongoose.Schema({
