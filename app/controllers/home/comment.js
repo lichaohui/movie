@@ -8,7 +8,7 @@ var comment=require('../../models/comment');
 //展示某个电影或某个用户下所有评论的方法
 exports.index=function(req,res){
     var key=req.params.key;
-    var value=req.params.val;
+    var val=req.params.val;
     comment.fetch(key,val,function(err,data){
         if(err){
             console.log(err);
