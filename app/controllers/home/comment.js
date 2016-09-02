@@ -11,7 +11,8 @@ exports.store=function(req,res){
     var newcomment=new comment({
         'movie':postcomment.movie,
         'from':postcomment.from,
-        'to':postcomment.to,
+        'toWho':postcomment.toWho,
+        'toWhichComment':postcomment.toWhichComment,
         'content':postcomment.content,
     });
     //调用save方法保存数据并在回调函数中重定向页面

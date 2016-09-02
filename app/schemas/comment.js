@@ -12,7 +12,8 @@ var commentSchema=new mongoose.Schema({
     //ref属性表示主键来源与哪个集合
     movie:{type:_id,ref:'movie'},
     from:{type:_id,ref:'user'},
-    to:{type:_id,ref:'user'},
+    toWho:{type:_id,ref:'user'},
+    toWhichComment:{type:_id,ref:'comment'},
     content:String,
     meta:{
         created_at:{
