@@ -94,7 +94,7 @@ exports.store=function(req,res){
     //调用save方法保存数据并在回调函数中重定向页面
     newadmin.save(function(err,data){
         if(err){
-            res.render('error',{'message':'error'})
+            res.render('error',{'message':'The administrator has existed'});
         }else{
             res.redirect('/admin/admin');
         }; 
