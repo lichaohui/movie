@@ -104,5 +104,5 @@ exports.logout=function(req,res){
     //删除session
     delete req.session.user;
     //跳转到登录界面 
-    res.redirect('/login');
+    res.redirect('back');
 };
