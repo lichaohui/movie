@@ -1,6 +1,6 @@
 $(function(){
     $('.reply').click(function(){
-        var user=$("#user");
+        var user=$("#user").text();
         if(user){
             alert(user);
             alert('你已经登录了');
