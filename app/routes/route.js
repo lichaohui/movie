@@ -2,6 +2,7 @@
 var index=require('../controllers/home/index');
 var movie=require('../controllers/home/movie');
 var user=require('../controllers/home/user');
+var comment=require('../controllers/home/comment');
 
 module.exports=function(app){
     /*
@@ -22,23 +23,23 @@ module.exports=function(app){
      * 执行index控制器中的index方法
      */
     app.get('/',index.index);
-
+    
     //前台电影列表页路由
     app.get('/movie',movie.index);
-
     //设置前台电影详情页路由
     app.get('/movie/detail/:id',movie.show);
-
+    
     //展示用户注册界面的路由
     app.get('/register',user.register);
     //实现用户注册功能的路由
     app.post('/doregister',user.doRegister);
-
     //用户登录的路由
     app.get('/login',user.login);
     //实现用户登录功能的路由
     app.post('/dologin',user.doLogin);
-    
     //用户登出的路由
     app.get('/logout',user.logout);  
+    
+    //发表评论的路由
+    app.post('/comment/store',comment.store);
 }
