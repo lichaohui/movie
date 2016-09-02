@@ -36,8 +36,8 @@ block content
     if(user)  
       form(action='/comment/store' method='post' role='form')
         input(type='hidden' name='from' value='#{user._id}')
-        input(type='hidden' name='toWho' value='')
-        input(type='hidden' name='toWhichComment' value='')
+        input(type='hidden' name='toWho' value='#{user._id}')
+        input(type='hidden' name='toWhichComment' value='#{user._id}')
         input(type='hidden' name='movie' value='#{movie._id}')
         div(class='form-group')
           label(for='content') comment
