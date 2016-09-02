@@ -8,7 +8,7 @@ $(function(){
                 if(data.isError){
                     $("#warning").text(data.message).removeClass('hidden');
                 }else{
-                    $("#success").textr(data.message).removeClass('hidden');
+                    $("#success").text(data.message).removeClass('hidden');
                 }
             },
         });
