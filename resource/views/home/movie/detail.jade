@@ -21,7 +21,7 @@ block content
       button(type='button' class='btn btn-default btn-xs' id='viewComment') user comment
     else
       button(type="button" class='btn btn-default btn-xs' data-toggle="modal" data-target="#myModal") login to view the comments
-    input(type='hidden' name='movieId' value='#{movie._id}')  
+    input(type='hidden' id='movieId' name='movieId' value='#{movie._id}')  
     ul(id='comments')
   div(class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby="myModalLabel")
     div(class="modal-dialog" role="document")
