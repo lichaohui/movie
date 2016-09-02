@@ -19,7 +19,6 @@ block content
       dd #{movie.intro}
     form(action='/comment/store' method='post' role='form')
       div(class='form-group')
-        label(for='content' class='col-sm-2 control-label') comment
-        div(class='col-sm-10')
-          textarea(class='form-control' id='content' name='content' placeholder='Please input your comment here')
+        label(for='content') comment
+        textarea(class='form-control' id='content' name='content' placeholder='Please input your comment here')
 include ../../common/footer        
