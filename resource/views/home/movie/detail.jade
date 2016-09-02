@@ -35,6 +35,9 @@ block content
           button(type="button" class='btn btn-default btn-xs' data-toggle="modal" data-target="#myModal") login and reply
     if(user)  
       form(action='/comment/store' method='post' role='form')
+        input(type='hidden' name='from' value='#{user._id}')
+        input(type='hidden' name='to' value='')
+        input(type='hidden' name='movie' value='#{movie._id}')
         div(class='form-group')
           label(for='content') comment
           textarea(class='form-control' id='content' name='content' placeholder='Please input your comment here')

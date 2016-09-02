@@ -5,7 +5,7 @@
 //引入model模型
 var comment=require('../../models/comment');
 
-exports.store=function(req,res,next){
+exports.store=function(req,res){
     //获取到表单传递过来的数据
     var postcomment=req.body;
     var newcomment=new comment({
