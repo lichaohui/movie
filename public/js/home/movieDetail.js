@@ -1,7 +1,9 @@
 $(function(){
-    $(".reply").toggle(function(){
-        $(this).siblings('.replyForm').removeClass('hidden');
-    },function(){
-        $(this).siblings('.replyForm').addClass('hidden');
+    $('.reply').click(function(){
+        if($(this).siblings('.replyForm').hasClass('hidden')){
+            $(this).siblings('.replyForm').removeClass('hidden');
+        }else{
+            $(this).siblings('.replyForm').addClass('hidden');
+        }
     });
 })
