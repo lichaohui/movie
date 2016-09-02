@@ -17,35 +17,37 @@ block content
       dd #{moment(movie.meta.created_at).format('YYYY MM DD')}
       dt intro:
       dd #{movie.intro}
+    if(user)
+      button(type='button' class='btn btn-default btn-xs' id='viewComment') user comment
+    else
+      button(type="button" class='btn btn-default btn-xs' data-toggle="modal" data-target="#myModal") login to view the comments
     div(class='panel panel-default')
       div(class="panel-heading") 
         b Lucy:
       div(class='panel-body') This film is boring!
       div(class='panel-footer')
-        if(user)
-          button(type='button' class='reply btn btn-default btn-xs') reply
-          br
-          br
-          form(action='/comment/store' method='post' role='form' class='replyForm hidden')
-            div(class='form-group')
-              textarea(class='form-control' name='content' placeholder='Please input your comment here')
-            div(class='form-group') #{user.name}   
-              button(type='submit' class='btn btn-default btn-xs') submit
-        else
-          button(type="button" class='btn btn-default btn-xs' data-toggle="modal" data-target="#myModal") login and reply
-    if(user)  
-      form(action='/comment/store' method='post' role='form')
-        input(type='hidden' name='from' value='#{user._id}')
-        input(type='hidden' name='toWho' value='')
-        input(type='hidden' name='toWhichComment' value='')
-        input(type='hidden' name='movie' value='#{movie._id}')
-        div(class='form-group')
-          label(for='content') comment
-          textarea(class='form-control' id='content' name='content' placeholder='Please input your comment here')
-        div(class='form-group')
-          button(type='submit' class='btn btn-default btn-xs') submit
-    else
-      button(type="button" class='btn btn-default btn-xs' data-toggle="modal" data-target="#myModal") login and comment
+        button(type='button' class='reply btn btn-default btn-xs') reply
+        br
+        br
+        form(action='/comment/store' method='post' role='form' class='replyForm hidden')
+          input(type='hidden' name='from' value='#{user._id}')
+          input(type='hidden' name='toWho' value='')
+          input(type='hidden' name='toWhichComment' value='')
+          input(type='hidden' name='movie' value='#{movie._id}')
+          div(class='form-group')
+            textarea(class='form-control' name='content' placeholder='Please input your comment here')
+          div(class='form-group') #{user.name}   
+            button(type='submit' class='btn btn-default btn-xs') submit  
+    form(action='/comment/store' method='post' role='form')
+      input(type='hidden' name='from' value='#{user._id}')
+      input(type='hidden' name='toWho' value='')
+      input(type='hidden' name='toWhichComment' value='')
+      input(type='hidden' name='movie' value='#{movie._id}')
+      div(class='form-group')
+        label(for='content') comment
+        textarea(class='form-control' id='content' name='content' placeholder='Please input your comment here')
+      div(class='form-group')
+        button(type='submit' class='btn btn-default btn-xs') submit
   div(class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby="myModalLabel")
     div(class="modal-dialog" role="document")
       div(class="modal-content")

@@ -37,8 +37,8 @@ commentSchema.statics={
      * 方法中必须有一个参数callback,
      * 该参数就是方法的回调函数
      */
-    fetch:function(callback){
-        return this.find({}).sort('meta.created_at').exec(callback);
+    fetch:function(key,val,callback){
+        return this.find({key:val}).sort('meta.created_at').exec(callback);
     },
     
     /*
