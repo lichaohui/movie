@@ -94,9 +94,9 @@ exports.store=function(req,res){
     //调用save方法保存数据并在回调函数中重定向页面
     newadmin.save(function(err,data){
         if(err){
-            res.json({'isError':true,'message':err});
+            res.render('error',{'message':'error'})
         }else{
-            res.json({'isError':false,'message':'create successfully'});
+            res.redirect('/admin/admin');
         }; 
     });
 };
