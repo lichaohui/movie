@@ -17,7 +17,9 @@ block content
       dd #{moment(movie.meta.created_at).format('YYYY MM DD')}
       dt intro:
       dd #{movie.intro}
-      
+    div(class='panel panel-default')
+      div(class="panel-heading") Lucy said:
+      div(class='panel-body') This film is boring!
     form(action='/comment/store' method='post' role='form')
       div(class='form-group')
         label(for='content') comment
