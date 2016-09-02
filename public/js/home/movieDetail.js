@@ -12,13 +12,13 @@ $(function(){
     });
     
     //展示和收起回复表单
-    $('.reply').click(function(){
+    $(document).on("click",".reply",function(){
         if($(this).siblings('.replyForm').hasClass('hidden')){
             $(this).siblings('.replyForm').removeClass('hidden');
         }else{
             $(this).siblings('.replyForm').addClass('hidden');
         }
-    });
+    }); 
     
     //异步提交登录表单
     $("#login").click(function(){
