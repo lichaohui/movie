@@ -17,9 +17,9 @@ block content
       dd #{moment(movie.meta.created_at).format('YYYY MM DD')}
       dt intro:
       dd #{movie.intro}
-    form(class='form-horizontal' role='form')
+    form(action='/comment/store' method='post' role='form')
       div(class='form-group')
-        label(for='content' class='col-sm-2 control-label')
+        label(for='content' class='col-sm-2 control-label') comment
         div(class='col-sm-10')
           textarea(class='form-control' id='content' name='content' placeholder='Please input your comment here')
 include ../../common/footer        
