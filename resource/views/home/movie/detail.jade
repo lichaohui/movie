@@ -14,4 +14,8 @@ block content
         dd #{movie.type}  
         dt country:
         dd #{movie.country}
+        dt created_at:
+        dd #{moment(movie.meta.created_at).format('YYYY MM DD')}
+        dt intro:
+        dd #{movie.intro}
 include ../../common/footer        
