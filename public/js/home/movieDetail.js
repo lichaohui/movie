@@ -1,5 +1,6 @@
 $(function(){
     $('.reply').click(function(){
+        alert(user.name);
         if($(this).siblings('.replyForm').hasClass('hidden')){
             $(this).siblings('.replyForm').removeClass('hidden');
         }else{
