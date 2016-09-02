@@ -1,6 +1,11 @@
 $(function(){
     $('.reply').click(function(){
-        alert(user.name);
+        var user=$("#user");
+        if(uesr){
+            alert('你已经登录了');
+        }else{
+            alert('对不起 你还没有登录过');
+        }
         if($(this).siblings('.replyForm').hasClass('hidden')){
             $(this).siblings('.replyForm').removeClass('hidden');
         }else{
