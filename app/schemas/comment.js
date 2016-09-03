@@ -30,9 +30,17 @@ var commentSchema=new mongoose.Schema({
  * 来为对象添加静态方法
  */
 commentSchema.statics={
+    /*
+     * 获取某个电影下所有评论的方法
+     */
     findByMovie:function(movieId,callback){
         return this.find({movie:movieId}).exec(callback);
-    }
+    },
+    
+    //获取某个用户所有评论的方法
+    findByUser:function(userId,callback){
+        return this.find({from:userId}).exec(callback);
+    },
     
     /*
      * 添加一个叫做findById的静态方法
