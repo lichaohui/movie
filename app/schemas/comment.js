@@ -30,6 +30,10 @@ var commentSchema=new mongoose.Schema({
  * 来为对象添加静态方法
  */
 commentSchema.statics={
+    fetch:function(callback){
+        return this.find({}).exec(callback);
+    },
+    
     /*
      * 获取某个电影下所有评论的方法
      */
