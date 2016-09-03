@@ -26,9 +26,9 @@ block content
             time(class='pull-right') #{moment(comment.meta.created_at).format('YYYY-MM-DD H:m:s')}
           div(class='panel-body') #{comment.content}
           div(class='panel-footer')
+            input(type='hidden' id='movieId' name='movieId' value='#{movie._id}')
             if(user)
               button(type='button' class='reply btn btn-default btn-xs') reply
-              input(type='hidden' id='movieId' name='movieId' value='#{movie._id}')
               input(type='hidden' id='userid' value='#{user._id}')
               input(type='hidden' id='username' name='username' value='#{user.name}')
               form(action='/reply/store' method='post' role='form' class='replyForm hidden')
