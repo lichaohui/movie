@@ -975,13 +975,13 @@
     
     // IE6/7 specifically need some special love when it comes to back-button
     // support, so let's do a little browser sniffing..
-    browser = $.browser,
+   /* browser = $.browser,
     mode = document.documentMode,
     is_old_ie = browser.msie && ( mode === undefined || mode < 8 ),
     
     // Does the browser support window.onhashchange? Test for IE version, since
     // IE8 incorrectly reports this when in "IE7" or "IE8 Compatibility View"!
-    supports_onhashchange = 'on' + str_hashchange in window && !is_old_ie;
+    supports_onhashchange = 'on' + str_hashchange in window && !is_old_ie;*/
   
   // Get location.hash (or what you'd expect location.hash to be) sans any
   // leading #. Thanks for making this necessary, Firefox!
