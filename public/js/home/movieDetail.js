@@ -1,5 +1,4 @@
 $(function(){
-    $('#comments').scrollTop(500);
     /*----异步加载更多评论---*/
     $("#viewMore").click(function(){
         var n=$("#comments li").length;
@@ -86,6 +85,7 @@ $(function(){
                     }else{
                         var panel='<li class="panel panel-default"><div class="panel-heading">'+data.comment.from+'<time class="pull-right">'+date2str(new Date(), "yyyy-MM-d h:m:s")+'</time></div><div class="panel-body">'+data.comment.content+'</div><div class="panel-footer"><button type="button" class="reply btn btn-default btn-xs">reply</button><form action="/comment/store" method="post" role="form" class="replyForm hidden"><input type="hidden" name="from" value='+data.comment.from+'><input type="hidden" name="movie" value='+data.comment.movie+'><input type="hidden" name="toWho" value='+data.comment.from+'><input type="hidden" name="toWhichComment" value='+data.comment._id+'><div class="form-group"><textarea class="form-control" name="content" placeholder="Please input your comment here"></textarea></div><div class="form-group">'+data.comment.from+'<button type="submit" class="btn btn-default btn-xs">submit</button></div></form></div></li>';
                         $("#comments").prepend(panel);
+                        $.scrollTo('#comments',800); 
                     }
                 }
             })
