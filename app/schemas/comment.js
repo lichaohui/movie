@@ -32,12 +32,12 @@ commentSchema.statics={
      * 获取某个电影下所有评论的方法
      */
     findByMovie:function(movieId,callback){
-        return this.find({movie:movieId}).sort({'meta.created_at':-1}).exec(callback);
+        return this.find({movie:movieId,limit:3}).sort({'meta.created_at':-1}).exec(callback);
     },
     
     //获取某个用户所有评论的方法
     findByUser:function(userId,callback){
-        return this.find({from:userId}).sort({'meta.created_at':-1}).exec(callback);
+        return this.find({from:userId,limit:3}).sort({'meta.created_at':-1}).exec(callback);
     },
     
     /*
