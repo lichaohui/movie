@@ -41,6 +41,11 @@ commentSchema.statics={
         return this.find({movie:movieId}).exec(callback);
     },
     
+    /**/
+    findByContent:function(con,callback){
+        return this.find({content:con}).exec(callback);
+    },
+    
     //获取某个用户所有评论的方法
     findByUser:function(userId,callback){
         return this.find({from:userId}).exec(callback);
