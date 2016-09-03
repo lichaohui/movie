@@ -1,4 +1,5 @@
 $(function(){
+    $('#content').scrollTop(400);
     /*----异步加载更多评论---*/
     $("#viewMore").click(function(){
         var n=$("#comments li").length;
