@@ -30,17 +30,9 @@ var commentSchema=new mongoose.Schema({
  * 来为对象添加静态方法
  */
 commentSchema.statics={
-    /*
-     * 添加一个叫做fetch的静态方法
-     * 该方法返回所有通过更新时间排序后的数据
-     * 然后通过exec()方法执行回调函数
-     * 方法中必须有一个参数callback,
-     * 该参数就是方法的回调函数
-     */
-    fetch:function(key,val,callback){
-        key=key;
-        return this.find({key:val}).sort('meta.created_at').exec(callback);
-    },
+    findByMovie:function(movieId,callback){
+        return this.find({movie:movieId}).exec(callback);
+    }
     
     /*
      * 添加一个叫做findById的静态方法
