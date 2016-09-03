@@ -6,7 +6,7 @@ $(function(){
         var movieId=$("#movieId").val();
         $.get('/comment/more',{from:n,limit:5,movieId:movieId},function(data,status){
             for(var i=0;i<data.length;i++){
-                panel='<li class="panel panel-default"><div class="panel-heading">'+data[i].from+'<time class="pull-right">'+data[i].meta.created_at+'</time></div><div class="panel-body">'+data[i].content+'</div><div class="panel-footer"><button type="button" class="reply btn btn-default btn-xs">reply</button><form action="/reply/store" method="post" role="form" class="replyForm hidden"><input type="hidden" name="from" value='+data[i].from+'><input type="hidden" name="toWho" value='+data[i].from+'><input type="hidden" name="toWhichComment" value='+data[i].toWhichComment+'><input type="hidden" name="movie" value='+data[i].movie+'><div class="form-group"><textarea class="form-control" name="content" placeholder="Please input your comment here"></textarea></div><div class="form-group">'+user.name+'<button type="submit" class="btn btn-default btn-xs">submit</button></div></form></div></li>';
+                panel='<li class="panel panel-default"><div class="panel-heading">'+data[i].from+'<time class="pull-right">'+data[i].meta.created_at+'</time></div><div class="panel-body">'+data[i].content+'</div><div class="panel-footer"><button type="button" class="reply btn btn-default btn-xs">reply</button><form action="/reply/store" method="post" role="form" class="replyForm hidden"><input type="hidden" name="from" value=''><input type="hidden" name="toWho" value='+data[i].from+'><input type="hidden" name="toWhichComment" value='+data[i]._id+'><input type="hidden" name="movie" value='+data[i].movie+'><div class="form-group"><textarea class="form-control" name="content" placeholder="Please input your comment here"></textarea></div><div class="form-group"><b class="username"></b><button type="submit" class="btn btn-default btn-xs">submit</button></div></form></div></li>';
                 $("#comments").append(panel);
             }
         })
@@ -29,6 +29,8 @@ $(function(){
     
     //展示和收起回复表单
     $(document).on("click",".reply",function(){
+        var username=$("#username").val();
+        $('.username').text(username);
         if($(this).siblings('.replyForm').hasClass('hidden')){
             $(this).siblings('.replyForm').removeClass('hidden');
         }else{
