@@ -32,7 +32,7 @@ exports.store=function(req,res){
         if(err){
             res.json({'isError':true,'message':'comment failed!'})
         }else{
-            res.json({'isError':true,'message':'comment success!','data':data});
+            res.json({'isError':false,'message':'comment success!','data':data});
         }; 
     });
 };
