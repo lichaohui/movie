@@ -44,6 +44,7 @@ $(function(){
         var con=$("#content").val();
         if(con==""){
             alert('请先填写评论内容！');
+            $("#content").focus();
         }else{
             $("#commentForm").ajaxSubmit({
                 type:'post',
@@ -52,7 +53,7 @@ $(function(){
                     if(data.isError){
                         
                     }else{
-                        var panel='<li class="panel panel-default"><div class="panel-heading">'+data.from+'</div><div class="panel-body">'+data.content+'</div><div class="panel-footer"><button type="button" class="reply btn btn-default btn-xs">reply</button><br><br><form action="/comment/store" method="post" role="form" class="replyForm hidden"><input type="hidden" name="from" value='+data.from+'><input type="hidden" name="movie" value='+data.movie+'><div class="form-group"><textarea class="form-control" name="content" placeholder="Please input your comment here"></textarea></div><div class="form-group">'+user.name+'<button type="submit" class="btn btn-default btn-xs">submit</button></div></form></div></li>';
+                        var panel='<li class="panel panel-default"><div class="panel-heading">'+data.from+'</div><div class="panel-body">'+data.content+'</div><div class="panel-footer"><button type="button" class="reply btn btn-default btn-xs">reply</button><form action="/comment/store" method="post" role="form" class="replyForm hidden"><input type="hidden" name="from" value='+data.from+'><input type="hidden" name="movie" value='+data.movie+'><div class="form-group"><textarea class="form-control" name="content" placeholder="Please input your comment here"></textarea></div><div class="form-group">'+user.name+'<button type="submit" class="btn btn-default btn-xs">submit</button></div></form></div></li>';
                         $("#comments").prepend(panel);
                     }
                 }
