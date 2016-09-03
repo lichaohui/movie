@@ -7,11 +7,13 @@ var mongoose=require('mongoose');
  */
 var _id=mongoose.Schema.Types.ObjectId;
 
-//设计comment数据表结构
-var commentSchema=new mongoose.Schema({
+//设计reply数据表结构
+var replySchema=new mongoose.Schema({
     //ref属性表示主键来源与哪个集合
     movie:{type:_id,ref:'movie'},
     from:{type:_id,ref:'user'},
+    toWho:{type:_id,ref:'user'},
+    toWhichreply:{type:_id,ref:'reply'},
     content:String,
     meta:{
         created_at:{
@@ -22,12 +24,12 @@ var commentSchema=new mongoose.Schema({
 });
 
 /*
- * 为commentSchema添加一些自定义的静态方法
+ * 为replySchema添加一些自定义的静态方法
  * scheme对象的静态方法都在其statics的属性中保存
  * 所以可以通过为schema对象的statics属性添加成员，
  * 来为对象添加静态方法
  */
-commentSchema.statics={    
+replySchema.statics={    
     /*
      * 获取某个电影下所有评论的方法
      */
@@ -50,7 +52,7 @@ commentSchema.statics={
 };
 
 /*
- * 通过module.exports将commentSchema对外公开，
- * 这样外部就可以访问到commentSchema
+ * 通过module.exports将replySchema对外公开，
+ * 这样外部就可以访问到replySchema
  */
-module.exports=commentSchema;
+module.exports=replySchema;
