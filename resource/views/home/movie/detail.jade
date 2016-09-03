@@ -19,6 +19,7 @@ block content
       dd #{moment(movie.meta.created_at).format('YYYY MM DD')}
       dt intro:
       dd #{movie.intro}
+    h3(id='comments-tis') Comments  
     ul(id='comments' class='list-unstyled')
       each comment in comments
         li(class='panel panel-default')
