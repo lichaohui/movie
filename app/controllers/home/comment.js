@@ -5,18 +5,20 @@
 //引入model模型
 var comment=require('../../models/comment');
 
-//展示某个电影或某个用户下所有评论的方法
-exports.index=function(req,res){
-    var key=req.params.key;
-    var val=req.params.val;
-    comment.fetch(key,val,function(err,data){
+//加载某个电影下更多评论的方法
+exports.viewMore=function(req,res){
+    //获取参数中的值
+    var movieId=req.query.movieId;
+    var from=req.query.from;
+    var limit=req.query.limit;
+    comment.findMoreByMovie(movieId,from,limit,function(err,data){
         if(err){
-            console.log(err);
+            res.json({'isError':true,'message':'加载失败，请稍后再试！'});
         }else{
-            res.json(data);
+            res.json({'isError':false,'message':'加载成功','data':data});
         }
     });
-};
+},
 
 //保存评论的方法
 exports.store=function(req,res){

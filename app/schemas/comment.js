@@ -29,10 +29,14 @@ var commentSchema=new mongoose.Schema({
  */
 commentSchema.statics={    
     /*
-     * 获取某个电影下所有评论的方法
+     * 初始化页面的时候获取当前电影下最新的三条评论的方法
      */
     findByMovie:function(movieId,callback){
         return this.find({movie:movieId}).sort({'meta.created_at':-1}).limit(3).exec(callback);
+    },
+    //查看当前电影下更多评论的方法
+    findMoreByMovie:function(movieId,from,limit,callback){
+        return this.find({movie:movieId}).skip(from).sort({'meta.created_at':-1}).limit(limit).exec(callback);
     },
     
     //获取某个用户所有评论的方法
