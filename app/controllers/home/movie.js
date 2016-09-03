@@ -24,7 +24,7 @@ exports.show=function(req,res){
     //获取参数中的id
     var id=req.params.id;
     //获取当前电影下的评论
-    var comments=comment.fetch('movie','57c3dcae6803fad12c8b4567');
+    var comments=comment.fetch('movie',ObjectId("57c3dcae6803fad12c8b4567"));
     //通过id获取数据并将数据发送给前台视图
     var data=movie.findById(id,function(err,data){
         res.render('home/movie/detail',{'title':'detail','movie':data,'comments':comments});
