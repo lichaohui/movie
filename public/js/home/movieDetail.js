@@ -18,7 +18,7 @@ $(function(){
     });
     //收起评论
     $('#hiddenall').click(function(){
-        $("#comments").empty();
+        $("#comments li:gt(2)").remove();
         $("#viewMore").text('查看更多').attr('disabled',false);
         $(this).addClass('hidden');
     });
