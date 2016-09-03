@@ -25,7 +25,7 @@ exports.show=function(req,res){
     var id=req.params.id;
     //通过id获取数据并将数据发送给前台视图
     movie.findById(id,function(err,data){
-        comment.fetch(function(err,comments){
+        comment.findByMovie(id,function(err,comments){
             console.log('aaa');
             console.log(comments.length);
             res.render('home/movie/detail',{'title':'detail','movie':data,'comments':comments});
