@@ -29,21 +29,12 @@ var commentSchema=new mongoose.Schema({
  * 所以可以通过为schema对象的statics属性添加成员，
  * 来为对象添加静态方法
  */
-commentSchema.statics={
-    fetch:function(callback){
-        return this.find({}).exec(callback);
-    },
-    
+commentSchema.statics={    
     /*
      * 获取某个电影下所有评论的方法
      */
     findByMovie:function(movieId,callback){
         return this.find({movie:movieId}).exec(callback);
-    },
-    
-    /**/
-    findByContent:function(con,callback){
-        return this.find({content:con}).exec(callback);
     },
     
     //获取某个用户所有评论的方法
