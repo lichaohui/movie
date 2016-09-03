@@ -55,6 +55,7 @@ block content
       button(type="button" class='btn btn-default btn-xs' data-toggle="modal" data-target="#myModal") login and comments
     br
     input(type='hidden' id='movieId' name='movieId' value='#{movie._id}')
+    input(type='hidden' id='userid' value='#{user._id}')
     input(type='hidden' id='username' name='username' value='#{user.name}')
   div(class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby="myModalLabel")
     div(class="modal-dialog" role="document")

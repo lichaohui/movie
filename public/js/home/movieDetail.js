@@ -29,8 +29,10 @@ $(function(){
     
     //展示和收起回复表单
     $(document).on("click",".reply",function(){
+        var userid=$("#userid").val();
         var username=$("#username").val();
         $('.username').text(username);
+        $("[name='from']").val(userid);
         if($(this).siblings('.replyForm').hasClass('hidden')){
             $(this).siblings('.replyForm').removeClass('hidden');
         }else{
