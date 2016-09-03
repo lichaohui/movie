@@ -6,9 +6,11 @@ $(function(){
         var panel;
         var movieId=$("#movieId").val();
         $.get('/comment/more',{from:n,limit:5,movieId:movieId},function(data,status){
+            alert(data.length);
+            alert(data[i].data.from);
             for(var i=0;i<data.length;i++){
                 panel='<li class="panel panel-default"><div class="panel-heading">'+data[i].data.from+'</div><div class="panel-body">'+data[i].data.content+'</div><div class="panel-footer"><button type="button" class="reply btn btn-default btn-xs">reply</button><br><br><form action="/comment/store" method="post" role="form" class="replyForm hidden"><input type="hidden" name="from" value='+data[i].data.from+'><input type="hidden" name="toWho" value='+data[i].data.toWho+'><input type="hidden" name="toWhichComment" value='+data[i].data.toWhichComment+'><input type="hidden" name="movie" value='+data[i].data.movie+'><div class="form-group"><textarea class="form-control" name="content" placeholder="Please input your comment here"></textarea></div><div class="form-group">'+user.name+'<button type="submit" class="btn btn-default btn-xs">submit</button></div></form></div></li>';
-                $("#comments").prepend(panel);
+                $("#comments").append(panel);
             }
         })
     });
