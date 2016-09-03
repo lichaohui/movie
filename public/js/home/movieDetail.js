@@ -1,5 +1,5 @@
 $(function(){
-    $('body').scrollTop('500px');
+    $('#comments').scrollTop(500);
     /*----异步加载更多评论---*/
     $("#viewMore").click(function(){
         var n=$("#comments li").length;
