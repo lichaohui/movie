@@ -22,8 +22,8 @@ block content
     ul(id='comments' class='list-unstyled')
       each comment in comments
         li(class='panel panel-default')
-          div(class="panel-heading") 
-            b #{comment.from}:
+          div(class="panel-heading") #{comment.from}:
+            time(class='pull-right') #{moment(comment.meta.created_at).format('YYYY MM DD')}
           div(class='panel-body') #{comment.content}
           div(class='panel-footer')
             if(user)
