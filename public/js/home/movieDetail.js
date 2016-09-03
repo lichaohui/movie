@@ -51,8 +51,9 @@ $(function(){
                 url:'/comment/store',
                 success:function(data){
                     if(data.isError){
-                        
+                        alert(data.message);
                     }else{
+                        alert(user.name);
                         var panel='<li class="panel panel-default"><div class="panel-heading">'+data.comment.from+'</div><div class="panel-body">'+data.comment.content+'</div><div class="panel-footer"><button type="button" class="reply btn btn-default btn-xs">reply</button><form action="/comment/store" method="post" role="form" class="replyForm hidden"><input type="hidden" name="from" value='+data.comment.from+'><input type="hidden" name="movie" value='+data.comment.movie+'><div class="form-group"><textarea class="form-control" name="content" placeholder="Please input your comment here"></textarea></div><div class="form-group">'+user.name+'<button type="submit" class="btn btn-default btn-xs">submit</button></div></form></div></li>';
                         $("#comments").prepend(panel);
                     }
