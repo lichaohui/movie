@@ -30,9 +30,9 @@ exports.store=function(req,res){
     //调用save方法保存数据并在回调函数中重定向页面
     newcomment.save(function(err,data){
         if(err){
-            console.log(err);
+            res.json({'isError':true,'message':'comment failed!'})
         }else{
-            res.redirect('back');
+            res.json({'isError':true,'message':'comment success!','data':data});
         }; 
     });
 };

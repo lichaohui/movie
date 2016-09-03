@@ -1,6 +1,6 @@
 $(function(){
-    /*----ajax请求展示当前电影下的所有评论----*/
-    $("#viewMoreComment").click(function(){
+    /*----ajax请求展示当前电影下的所有评论,暂时还没用到----*/
+    /*$("#viewMoreComment").click(function(){
         $("#comments").empty();
         var panel;
         var movieId=$("#movieId").val();
@@ -10,7 +10,7 @@ $(function(){
                 $("#comments").append(panel);
             }
         })
-    });
+    });*/
     
     //展示和收起回复表单
     $(document).on("click",".reply",function(){
@@ -37,5 +37,26 @@ $(function(){
                 }
             },
         });
+    });
+    
+    //异步发表评论
+    $("#subComment").click(function(){
+        var con=$("#content").val();
+        if(con==""){
+            alert('请先填写评论内容！');
+        }else{
+            $("#commentForm").ajaxSubmit({
+                type:'post',
+                url:'/comment/store',
+                success:function(data){
+                    if(data.isError){
+                        
+                    }else{
+                        var panel='<li class="panel panel-default"><div class="panel-heading">'+data.from+'</div><div class="panel-body">'+data.content+'</div><div class="panel-footer"><button type="button" class="reply btn btn-default btn-xs">reply</button><br><br><form action="/comment/store" method="post" role="form" class="replyForm hidden"><input type="hidden" name="from" value='+data.from+'><input type="hidden" name="movie" value='+data.movie+'><div class="form-group"><textarea class="form-control" name="content" placeholder="Please input your comment here"></textarea></div><div class="form-group">'+user.name+'<button type="submit" class="btn btn-default btn-xs">submit</button></div></form></div></li>';
+                        $("#comments").prepend(panel);
+                    }
+                }
+            })
+        }
     });
 })

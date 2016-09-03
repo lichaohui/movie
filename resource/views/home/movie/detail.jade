@@ -28,7 +28,7 @@ block content
           div(class='panel-footer')
             if(user)
               button(type='button' class='reply btn btn-default btn-xs') reply
-              form(action='/comment/store' method='post' role='form' class='replyForm hidden')
+              form(action='/reply/store' method='post' role='form' class='replyForm hidden')
                 input(type='hidden' name='from' value='#{user._id}')
                 input(type='hidden' name='toWho' value='#{comment.from}')
                 input(type='hidden' name='toWhichComment' value='#{comment._id}')
@@ -40,16 +40,14 @@ block content
             else
               button(type="button" class='btn btn-default btn-xs' data-toggle="modal" data-target="#myModal") login and reply
     if(user)  
-      form(action='/comment/store' method='post' role='form')
+      form(action='/comment/store' method='post' role='form' id='commentForm')
         input(type='hidden' name='from' value='#{user._id}')
-        input(type='hidden' name='toWho' value='#{user._id}')
-        input(type='hidden' name='toWhichComment' value='#{user._id}')
         input(type='hidden' name='movie' value='#{movie._id}')
         div(class='form-group')
           label(for='content') comment
-          textarea(class='form-control' id='content' name='content' placeholder='Please input your comment here')
+          textarea(class='form-control' id='content' required name='content' placeholder='Please input your comment here')
         div(class='form-group')
-          button(type='submit' class='btn btn-default btn-xs') submit
+          button(type='button' class='btn btn-default btn-xs' id='subComment') submit
     else
       button(type="button" class='btn btn-default btn-xs' data-toggle="modal" data-target="#myModal") login and comments
     br
