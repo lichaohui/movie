@@ -23,12 +23,9 @@ exports.index=function(req,res){
 exports.show=function(req,res){
     //获取参数中的id
     var id=req.params.id;
-    //获取当前电影下的评论
-    comment.fetch("movie",id,function(err,comments){
-        console.log("aaaaaa ");
-        //通过id获取数据并将数据发送给前台视图
-        movie.findById(id,function(err,data){
-            res.render('home/movie/detail',{'title':'detail','movie':data,'comments':comments});
-        });
+    //通过id获取数据并将数据发送给前台视图
+    movie.findById(id,function(err,data){
+        var comments=comment.find({'movie':id});
+        res.render('home/movie/detail',{'title':'detail','movie':data,'comments':comments});
     });
 }
