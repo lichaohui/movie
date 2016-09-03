@@ -28,6 +28,8 @@ exports.show=function(req,res){
         comment.findByMovie(id,function(err,comments){
             console.log('aaa');
             console.log(comments.length);
+            var hhh=comment.find();
+            console.log(hhh.length);
             res.render('home/movie/detail',{'title':'detail','movie':data,'comments':comments});
         });
     });
