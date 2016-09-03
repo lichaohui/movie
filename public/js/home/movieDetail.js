@@ -1,6 +1,6 @@
 $(function(){
     /*----ajax请求展示当前电影下的所有评论----*/
-    $("#viewComment").click(function(){
+    $("#viewMoreComment").click(function(){
         $("#comments").empty();
         var panel;
         var movieId=$("#movieId").val();

@@ -4,6 +4,8 @@
  */
 //引入model模型
 var movie=require('../../models/movie');
+//引用下comment控制器
+var comment=require('../../models/comment');
 
 //显示movie列表的方法
 exports.index=function(req,res){
@@ -21,8 +23,10 @@ exports.index=function(req,res){
 exports.show=function(req,res){
     //获取参数中的id
     var id=req.params.id;
+    //获取当前电影下的评论
+    var comments=comment.fetch('movie',id);
     //通过id获取数据并将数据发送给前台视图
     var data=movie.findById(id,function(err,data){
-        res.render('home/movie/detail',{'title':'detail','movie':data});
+        res.render('home/movie/detail',{'title':'detail','movie':data,'comments':comments});
     });
 }
