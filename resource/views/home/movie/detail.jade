@@ -23,7 +23,7 @@ block content
       each comment in comments
         li(class='panel panel-default')
           div(class="panel-heading") #{comment.from}:
-            time(class='pull-right') #{moment(comment.meta.created_at).format('YYYY MM DD')}
+            time(class='pull-right') #{moment(comment.meta.created_at).format('YYYY MM DD H:i:s')}
           div(class='panel-body') #{comment.content}
           div(class='panel-footer')
             if(user)
