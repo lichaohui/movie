@@ -112,6 +112,7 @@ $(function(){
     $(document).on('click',".replyBtn",function(){
         alert('hello');
         var con=$(this).parent('.replyForm').find("[name='content']").val();
+        alert(con);
         if(con==""){
             alert("请先填写回复内容！");
             $(this).parent('.replyForm').find("[name='content']").focus();
