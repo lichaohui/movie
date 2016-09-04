@@ -8,7 +8,7 @@ var reply=require('../../models/reply');
 //获取某个评论下所有回复的方法
 exports.index=function(req,res){
     var cid=req.query.cid;
-    reply.getByComment(cid,function(err,data){
+    reply.findByComment(cid,function(err,data){
         if(err){
             res.json({'isError':true,'message':'load failed!'});
         }else{
