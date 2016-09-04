@@ -21,7 +21,7 @@ exports.store=function(req,res){
             res.json({'isError':true,'message':'reply failed!'})
         }else{
             reply.findById(data._id,function(err,data){
-                res.json({'isError':false,'message':'reply success!','reply':data});
+                res.send(data);
             });
         }; 
     });
