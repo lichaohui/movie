@@ -7,7 +7,8 @@ $(function(){
         //发送ajax请求获取评论
         $.get('/comment/more',{from:n,limit:5,movieId:movieId},function(data,status){
             if(data.length==0){
-                $("#viewMore").text('已经到底了').attr('disabled',true);
+                $("#more").text('已经到底了');
+                $("#viewMore").attr('disabled',true);
             }else{
                 //显示出收起评论按钮
                 $("#hiddenall").removeClass('hidden');
@@ -32,7 +33,8 @@ $(function(){
     //收起评论
     $('#hiddenall').click(function(){
         $("#comments li:gt(2)").remove();
-        $("#viewMore").text('查看更多').attr('disabled',false);
+        $("#more").text('查看更多');
+        $("#viewMore").attr('disabled',false);
         $(this).addClass('hidden');
     });
     
