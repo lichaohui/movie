@@ -129,7 +129,7 @@ $(function(){
     });
 
     //异步加载某条评论下的所有回复
-    $(document).on('click',".replyBtn",function(){
+    $(document).on('click',".viewreply",function(){
         var cid=$(this).attr('data-cid');
         var name=$(this).attr('data-name');
         var con=$(this).attr('data-con');
