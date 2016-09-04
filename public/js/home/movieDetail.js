@@ -131,12 +131,13 @@ $(function(){
     //异步加载某条评论下的所有回复
     $(".viewreply ").click(function(){
         var cid=$(this).attr('data-cid');
-        var li;
         $.get('/reply/index',{"cid":cid},function(data,status){
             if(data.isError){
                 alert(data.message);
             }else{
                 $("#replies-list").empty();
+                var li;
+                alert(data.replise.length);
                 for(var i=0;i<data.replies.length;i++){
                     li='<li class="list-group-item"><h5 class="list-group-item-heading"><b>'+data.replies[i].from.name+'</b> replied to <b>'+data.replied[i].toWho.name+'</b><time class="pull-right">'+data.replied[i].meta.created_at+'</time></h5><p class="list-group-item-text">'+data.replied[i].content+'</p></li>';
                     $("#replies-list").append(li);
