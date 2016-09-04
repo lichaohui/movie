@@ -41,7 +41,7 @@ commentSchema.statics={
     
     //获取某个用户所有评论的方法
     findByUser:function(userId,callback){
-        return this.find({from:userId}).sort({'meta.created_at':-1}).limit(3).exec(callback);
+        return this.find({from:userId}).sort({'meta.created_at':-1}).limit(3).populate('movie','name').exec(callback);
     },
     
     /*

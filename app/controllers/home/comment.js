@@ -15,7 +15,6 @@ exports.viewMore=function(req,res){
         if(err){
             res.json({'isError':true,'message':'加载失败，请稍后再试！'});
         }else{
-            console.log(data);
             res.send(data);
         }
     });
@@ -31,11 +30,18 @@ exports.store=function(req,res){
         'content':postcomment.content,
     });
     //调用save方法保存数据并在回调函数中重定向页面
-    newcomment.save(function(err,data){
+    newcomment.save().populate('from','name').exec(function(err,data){
         if(err){
             res.json({'isError':true,'message':'comment failed!'})
         }else{
             res.json({'isError':false,'message':'comment success!','comment':data});
         }; 
     });
+    /*newcomment.save(function(err,data){
+        if(err){
+            res.json({'isError':true,'message':'comment failed!'})
+        }else{
+            res.json({'isError':false,'message':'comment success!','comment':data});
+        }; 
+    });*/
 };
