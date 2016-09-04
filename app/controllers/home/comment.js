@@ -30,21 +30,13 @@ exports.store=function(req,res){
         'content':postcomment.content,
     });
     //调用save方法保存数据并在回调函数中重定向页面
-   /* newcomment.save().exec(function(err,data){
-        if(err){
-            res.json({'isError':true,'message':'comment failed!'})
-        }else{
-            
-            res.json({'isError':false,'message':'comment success!','comment':data});
-        }; 
-    });*/
     newcomment.save(function(err,data){
         if(err){
             res.json({'isError':true,'message':'comment failed!'})
         }else{
-            data=data.populate('from','name');
-            console.log(data);
-            res.json({'isError':false,'message':'comment success!','comment':data});
+            comment.findById(data._id,function(err,data){
+                res.json({'isError':false,'message':'comment success!','comment':data});
+            });
         }; 
     });
 };
