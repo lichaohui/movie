@@ -2,7 +2,8 @@ include ../../common/header
 block content
   style.
     .replyForm{margin-top:9px;}
-    .list-group{margin-top:10px; margin-bottom:0;}
+    .commentCon{margin-bottom:10px;}
+    .list-group{margin-bottom:0;}
   section(class='container')
     include ../common/nav
     h2(class='text-center') #{movie.name}
@@ -26,7 +27,8 @@ block content
         li(class='panel panel-default')
           div(class="panel-heading") #{comment.from.name}:
             time(class='pull-right') #{moment(comment.meta.created_at).format('YYYY-MM-DD H:m:s')}
-          div(class='panel-body') #{comment.content}
+          div(class='panel-body') 
+            p(class='commentCon') #{comment.content}
           div(class='panel-footer')
             input(type='hidden' id='movieId' name='movieId' value='#{movie._id}')
             if(user)
