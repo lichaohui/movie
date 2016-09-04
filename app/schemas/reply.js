@@ -42,6 +42,11 @@ replySchema.statics={
     findByUser:function(userId,callback){
         return this.find({from:userId}).sort({'meta.created_at':-1}).exec(callback);
     },
+    
+    //通过id获取某条回复的方法
+    findById:function(id,callback){
+        return this.findOne({_id:id}).populate('toWhichComment','from').exec(callback);
+    }
 };
 
 /*
