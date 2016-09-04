@@ -46,7 +46,7 @@ replySchema.statics={
     
     //通过id获取某条回复的方法
     findById:function(id,callback){
-        return this.findOne({_id:id}).populate({'from':'name','toWho':'name'}).exec(callback);
+        return this.findOne({_id:id}).populate('from','name').populate('toWho','name').exec(callback);
     }
 };
 
