@@ -15,6 +15,7 @@ exports.viewMore=function(req,res){
         if(err){
             res.json({'isError':true,'message':'加载失败，请稍后再试！'});
         }else{
+            console.log(data);
             res.send(data);
         }
     });
