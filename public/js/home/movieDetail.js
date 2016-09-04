@@ -111,13 +111,14 @@ $(function(){
     //异步提交回复
     $(".replyBtn").click(function(){
         var con=$(this).parent('.replyForm').find("[name='content']").val();
-        alert(con);
         if(con==""){
             alert("请先填写回复内容！");
             $(this).parent('.replyForm').find("[name='content']").focus();
         }else{
             $("#replyFlag").attr('id','');
+            alert('aaa');
             $(this).parentsUntil('#comments').find('panel-body').attr('id','replyFlag');
+            alert('hello');
             $(this).parent('.replyFomr').ajaxSubmit({
                 type:'post',
                 success:function(data){
