@@ -29,14 +29,13 @@ block content
           div(class='panel-footer')
             input(type='hidden' id='movieId' name='movieId' value='#{movie._id}')
             if(user)
-              button(type='button' class='reply btn btn-default btn-xs') reply
+              button(type='button' class='reply btn btn-primary btn-xs') reply
+              button(type='button' class='reply btn btn-default btn-xs') view replies
               input(type='hidden' id='userid' value='#{user._id}')
               input(type='hidden' id='username' name='username' value='#{user.name}')
               form(action='/reply/store' method='post' role='form' class='replyForm hidden')
                 input(type='hidden' name='from' value='#{user._id}')
-                input(type='hidden' name='toWho' value='#{comment.from._id}')
                 input(type='hidden' name='toWhichComment' value='#{comment._id}')
-                input(type='hidden' name='movie' value='#{movie._id}')
                 div(class='form-group')
                   textarea(class='form-control' name='content' placeholder='Please input your comment here' required)
                 b #{user.name}   

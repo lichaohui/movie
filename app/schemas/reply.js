@@ -10,10 +10,9 @@ var _id=mongoose.Schema.Types.ObjectId;
 //设计reply数据表结构
 var replySchema=new mongoose.Schema({
     //ref属性表示主键来源与哪个集合
-    movie:{type:_id,ref:'movie'},
     from:{type:_id,ref:'user'},
-    toWho:{type:_id,ref:'user'},
-    toWhichreply:{type:_id,ref:'reply'},
+    toWhichComment:{type:_id,ref:'comment'},
+    toWhichReply:{type:_id,ref:'reply'},
     content:String,
     meta:{
         created_at:{
@@ -31,24 +30,18 @@ var replySchema=new mongoose.Schema({
  */
 replySchema.statics={    
     /*
-     * 获取某个电影下所有评论的方法
+     * 获取某个评论下所有回复的方法
      */
-    findByMovie:function(movieId,callback){
-        return this.find({movie:movieId}).exec(callback);
-    },
-    
-    //获取某个用户所有评论的方法
-    findByUser:function(userId,callback){
-        return this.find({from:userId}).exec(callback);
+    findByComment:function(commentId,callback){
+        return this.find({comment:commentId}).sort({'meta.created_at':-1}).exec(callback);
     },
     
     /*
-     * 添加一个叫做findById的静态方法
-     * 该方法返回通过id查找出来的那条数据
+     * 获取某个用户所有回复的方法
      */
-    findById:function(id,callback){
-        return this.findOne({_id:id}).exec(callback);
-    }
+    findByUser:function(userId,callback){
+        return this.find({from:userId}).sort({'meta.created_at':-1}).exec(callback);
+    },
 };
 
 /*
