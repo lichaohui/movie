@@ -17,13 +17,13 @@ $(function(){
                 if(isLogin=='yes'){
                     //用户登录状态下填充的内容
                     for(var i=0;i<data.length;i++){
-                        panel='<li class="panel panel-default"><div class="panel-heading">'+data[i].from.name+'<time class="pull-right">'+data[i].meta.created_at+'</time></div><div class="panel-body">'+data[i].content+'</div><div class="panel-footer"><button type="button" class="reply btn btn-primary btn-xs">reply</button> <button type="button" class="viewreply btn btn-default btn-xs" data-toggle="modal" data-target="#replies">view replies</button><form action="/reply/store" method="post" role="form" class="replyForm hidden"><input type="hidden" name="from" value=""><input type="hidden" name="toWho" value='+data[i].from._id+'><input type="hidden" name="toWhichComment" value='+data[i]._id+'><input type="hidden" name="movie" value='+data[i].movie+'><div class="form-group"><textarea class="form-control" name="content" placeholder="Please input your comment here"></textarea></div><div class="form-group"><b class="username"></b><button type="submit" class="btn btn-default btn-xs">submit</button></div></form></div></li>';
+                        panel='<li class="panel panel-default"><div class="panel-heading">'+data[i].from.name+'<time class="pull-right">'+data[i].meta.created_at+'</time></div><div class="panel-body">'+data[i].content+'</div><div class="panel-footer"><button type="button" class="reply btn btn-primary btn-xs">reply</button> <button type="button" class="viewreply btn btn-default btn-xs" data-toggle="modal" data-target="#replies" data-cid='+data[i]._id+' data-time='+data[i].meta.created_at+' data-con='+data[i].content+'>view replies</button><form action="/reply/store" method="post" role="form" class="replyForm hidden"><input type="hidden" name="from" value=""><input type="hidden" name="toWho" value='+data[i].from._id+'><input type="hidden" name="toWhichComment" value='+data[i]._id+'><input type="hidden" name="movie" value='+data[i].movie+'><div class="form-group"><textarea class="form-control" name="content" placeholder="Please input your comment here"></textarea></div><div class="form-group"><b class="username"></b><button type="submit" class="btn btn-default btn-xs">submit</button></div></form></div></li>';
                         $("#comments").append(panel);
                     }
                 }else{
                     //用户登录状态下填充的内容
                     for(var i=0;i<data.length;i++){
-                        panel='<li class="panel panel-default"><div class="panel-heading">'+data[i].from.name+'<time class="pull-right">'+data[i].meta.created_at+'</time></div><div class="panel-body">'+data[i].content+'</div><div class="panel-footer"><button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-xs">login and reply</button><button type="button" class="viewreply btn btn-default btn-xs" data-toggle="modal" data-target="#replies">view replies</button></div></li>';
+                        panel='<li class="panel panel-default"><div class="panel-heading">'+data[i].from.name+'<time class="pull-right">'+data[i].meta.created_at+'</time></div><div class="panel-body">'+data[i].content+'</div><div class="panel-footer"><button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-xs">login and reply</button><button type="button" class="viewreply btn btn-default btn-xs" data-toggle="modal" data-target="#replies" data-cid='+data[i]._id+' data-time='+data[i].meta.created_at+' data-con='+data[i].content+'>view replies</button></div></li>';
                         $("#comments").append(panel);
                     }
                 }    
@@ -109,7 +109,7 @@ $(function(){
     });
     
     //异步提交回复
-    $(".replyBtn").click(function(){
+    $(document).on('click',".replyBtn",function(){
         var con=$(this).parent('.replyForm').find("[name='content']").val();
         if(con==""){
             alert("请先填写回复内容！");
@@ -125,9 +125,9 @@ $(function(){
                     $("#replyFlag").append(rep);
                 }
             })
-        }
+        }           
     });
-    
+
     //异步加载某条评论下的所有回复
     $(".viewreply ").click(function(){
         var cid=$(this).attr('data-cid');
@@ -137,11 +137,11 @@ $(function(){
         $("#who").text(name);
         $("#time").text(time);
         $("#whatcon").text(con);
+        $("#replies-list").empty();
         $.get('/reply/index',{"cid":cid},function(data,status){
             if(data.isError){
                 alert(data.message);
             }else{
-                $("#replies-list").empty();
                 var li;
                 for(var i=0;i<data.replies.length;i++){
                     li='<li class="list-group-item"><h5 class="list-group-item-heading"><b>'+data.replies[i].from.name+'</b> replied to <b>'+data.replies[i].toWho.name+'</b><time class="pull-right">'+data.replies[i].meta.created_at+'</time></h5><p class="list-group-item-text">'+data.replies[i].content+'</p></li>';
