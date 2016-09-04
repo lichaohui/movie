@@ -31,7 +31,7 @@ block content
             input(type='hidden' id='movieId' name='movieId' value='#{movie._id}')
             if(user)
               button(type='button' class='reply btn btn-primary btn-xs') reply
-              button(type='button' class='viewreply btn btn-default btn-xs' data-toggle="modal" data-target="#replies" data-cid="#{comment._id}") view replies
+              button(type='button' class='viewreply btn btn-default btn-xs' data-toggle="modal" data-target="#replies" data-cid="#{comment._id}" data-name="#{comment.from.name}" data-con="#{comment.content}" data-time="#{moment(comment.meta.created_at).format('YYYY-MM-DD H:m:s')}") view replies
               input(type='hidden' id='userid' value='#{user._id}')
               input(type='hidden' id='username' name='username' value='#{user.name}')
               form(action='/reply/store' method='post' role='form' class='replyForm hidden')
@@ -96,9 +96,9 @@ block content
           h4(class="modal-title") Replies
         div(class='modal-body')
           div(class='panel panel-default')
-            div(class='panel-heading') lily
-              time(class='pull-right') 2016-09-04 16:08:34
-            div(class='panel-body') 我是第六条了吧 
+            div(class='panel-heading' id='fromWho') 
+              time(class='pull-right' id='time')
+            div(class='panel-body' id='whatCon') 
               ul(class='list-group' id='replies-list')
 include ../../common/footer      
 script(src='/js/common/jquery.form.js')

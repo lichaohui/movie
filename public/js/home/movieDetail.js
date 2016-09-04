@@ -122,7 +122,7 @@ $(function(){
                 url:'/reply/store',
                 success:function(data){
                     var rep='<ul class="list-group"><li class="list-group-item"><h5 class="list-group-item-heading"><b>'+data.reply.from.name+' </b>replied to<b> '+data.reply.toWho.name+'</b><time class="pull-right">'+date2str(new Date(), "yyyy-MM-d h:m:s")+'</time></h5><p class="list-group-item-text">'+data.reply.content+'</p></li></ul>';
-                    $("#replyFlag").prepend(rep);
+                    $("#replyFlag").append(rep);
                 }
             })
         }
@@ -131,6 +131,12 @@ $(function(){
     //异步加载某条评论下的所有回复
     $(".viewreply ").click(function(){
         var cid=$(this).attr('data-cid');
+        var name=$(this).attr('data-name');
+        var con=$(this).attr('data-con');
+        var time=$(this).attr('data-time');
+        $("#fromWho").text(name);
+        $("#time").text(time);
+        $("#whatCon").text(con);
         $.get('/reply/index',{"cid":cid},function(data,status){
             if(data.isError){
                 alert(data.message);
