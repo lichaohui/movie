@@ -110,6 +110,7 @@ $(function(){
     
     //异步提交回复
     $(document).on('click',".replyBtn",function(){
+        alert('hello');
         var con=$(this).parent('.replyForm').find("[name='content']").val();
         if(con==""){
             alert("请先填写回复内容！");
