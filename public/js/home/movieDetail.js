@@ -116,9 +116,8 @@ $(function(){
             $(this).parent('.replyForm').find("[name='content']").focus();
         }else{
             $("#replyFlag").attr('id','');
-            alert('aaa');
             $(this).parent('.panel').find('panel-body').attr('id','replyFlag');
-            alert('hello');
+            alert($(this).parent('.panel').find('panel-body').text());
             $(this).parent('.replyForm').ajaxSubmit({
                 type:'post',
                 url:'/reply/store',
