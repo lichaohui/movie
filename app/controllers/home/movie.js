@@ -25,14 +25,22 @@ exports.show=function(req,res){
     var id=req.params.id;
     //通过id获取数据并将数据发送给前台视图
     movie.findById(id,function(err,data){
-        
-        comment.findByMovie(id).populate('from','name').exec(function(err,comments){
+        comment.findByMovie(id,function(err,comments){
+            comments.populate('from','name').exec(function(err,comments){
+                if(err){
+                    console.log(err);
+                }else{
+                    res.render('home/movie/detail',{'title':'detail','movie':data,'comments':comments});
+                }
+            })
+        })
+        /*comment.findByMovie(id).populate('from','name').exec(function(err,comments){
             if(err){
                 console.log(err);
             }else{
                 res.render('home/movie/detail',{'title':'detail','movie':data,'comments':comments});
             }
-        });
+        });*/
         /*comment.findByMovie(id,function(err,comments){
             res.render('home/movie/detail',{'title':'detail','movie':data,'comments':comments});
         });*/
