@@ -30,7 +30,7 @@ block content
             input(type='hidden' id='movieId' name='movieId' value='#{movie._id}')
             if(user)
               button(type='button' class='reply btn btn-primary btn-xs') reply
-              button(type='button' class='reply btn btn-default btn-xs') view replies
+              button(type='button' class='viewreply btn btn-default btn-xs' data-toggle="modal" data-target="#replies") view replies
               input(type='hidden' id='userid' value='#{user._id}')
               input(type='hidden' id='username' name='username' value='#{user.name}')
               form(action='/reply/store' method='post' role='form' class='replyForm hidden')
@@ -84,7 +84,19 @@ block content
             div(class='form-group')
               label(class='col-sm-2 control-label' for='sub')
               div(class='col-sm-10')
-                button(type='button' class='form-control btn-primary' id='login') login         
+                button(type='button' class='form-control btn-primary' id='login') login 
+  div(class='modal fade' id='replies' tabindex='-1' role='dialog' aria-labelledby="myModalLabel")
+    div(class="modal-dialog" role="document")
+      div(class="modal-content")
+        div(class="modal-header")
+          button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+            span(aria-hidden="true") &times;
+          h4(class="modal-title") Replies
+        div(class='modal-body')
+          ul(class='list-group')
+            li(class="list-group-item")
+              h4(class="list-group-item-heading") Jack at 2019-05-10 20:22:21
+              p(class="list-group-item-text") 我认为你说的很对          
 include ../../common/footer      
 script(src='/js/common/jquery.form.js')
 script(src='/js/home/jquery.scrollto.js')
