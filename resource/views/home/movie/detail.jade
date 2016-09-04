@@ -31,7 +31,7 @@ block content
             input(type='hidden' id='movieId' name='movieId' value='#{movie._id}')
             if(user)
               button(type='button' class='reply btn btn-primary btn-xs') reply
-              button(type='button' class='viewreply btn btn-default btn-xs' data-toggle="modal" data-target="#replies") view replies
+              button(type='button' class='viewreply btn btn-default btn-xs' data-toggle="modal" data-target="#replies" data-cid="#{comment._id}") view replies
               input(type='hidden' id='userid' value='#{user._id}')
               input(type='hidden' id='username' name='username' value='#{user.name}')
               form(action='/reply/store' method='post' role='form' class='replyForm hidden')
@@ -99,21 +99,7 @@ block content
             div(class='panel-heading') lily
               time(class='pull-right') 2016-09-04 16:08:34
             div(class='panel-body') 我是第六条了吧 
-              ul(class='list-group')
-                li(class="list-group-item")
-                  h5(class="list-group-item-heading")
-                    b Jack 
-                    replied to 
-                    b lily  
-                    time(class='pull-right') 2019-05-10 20:22:21
-                  p(class="list-group-item-text") 我认为你说的很对 
-                li(class="list-group-item")
-                  h5(class="list-group-item-heading")
-                    b Jack 
-                    replied to 
-                    b lily  
-                    time(class='pull-right') 2019-05-10 20:22:21
-                  p(class="list-group-item-text") 我认为你说的很对   
+              ul(class='list-group' id='replies')
 include ../../common/footer      
 script(src='/js/common/jquery.form.js')
 script(src='/js/home/jquery.scrollto.js')

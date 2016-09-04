@@ -116,7 +116,7 @@ $(function(){
             $(this).parent('.replyForm').find("[name='content']").focus();
         }else{
             $("#replyFlag").attr('id','');
-            $(this).parentsUntil('#comments').find('.panel-body').attr('id','replyFlag').find(".list-group").remove();
+            $(this).parentsUntil('#comments').find('.panel-body').attr('id','replyFlag');
             $(this).parent('.replyForm').ajaxSubmit({
                 type:'post',
                 url:'/reply/store',
@@ -126,5 +126,22 @@ $(function(){
                 }
             })
         }
+    });
+    
+    //异步加载某条评论下的所有回复
+    $(".viewreply ").click(function(){
+        var cid=$(this).attr('data-cid');
+        var li;
+        $.get('/reply/index',{"cid":cid},function(data,status){
+            if(data.isError){
+                alert(data.message);
+            }else{
+                $("#replies").empty();
+                for(var i=0;i<data.replies.length;i++){
+                    li='<li class="list-group-item"><h5 class="list-group-item-heading"><b>'+data.replies[i].from.name+'</b> replied to <b>'+data.replied[i].toWho.name+'</b><time class="pull-right">'+data.replied[i].meta.created_at+'</time></h5><p class="list-group-item-text">'+data.replied[i].content+'</p></li>';
+                    $("#replies").append(li);
+                }
+            }
+        });
     });
 })

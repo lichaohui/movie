@@ -46,6 +46,8 @@ module.exports=function(app){
     //发表评论的路由
     app.post('/comment/store',comment.store);
     
+    //获取某个评论下所有回复的路由
+    app.get('/reply/index',reply.index);
     //提交回复的路由
     app.post('/reply/store',reply.store);
 }

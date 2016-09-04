@@ -34,7 +34,7 @@ replySchema.statics={
      * 获取某个评论下所有回复的方法
      */
     findByComment:function(commentId,callback){
-        return this.find({comment:commentId}).sort({'meta.created_at':-1}).exec(callback);
+        return this.find({comment:commentId}).sort({'meta.created_at':-1}).populate('from','name').populate('toWho','name').exec(callback);
     },
     
     /*
