@@ -23,7 +23,7 @@ $(function(){
                 }else{
                     //用户没有登录状态下填充的内容
                     for(var i=0;i<data.length;i++){
-                        panel='<li class="panel panel-default"><div class="panel-heading">'+data[i].from.name+'<time class="pull-right">'+data[i].meta.created_at+'</time></div><div class="panel-body">'+data[i].content+'</div><div class="panel-footer"><button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-xs">login and reply</button> <button type="button" class="viewreply btn btn-default btn-xs" data-toggle="modal" data-target="#replies" data-cid='+data[i]._id+' data-time='+data[i].meta.created_at+' data-con='+data[i].content+'>view replies</button></div></li>';
+                        panel='<li class="panel panel-default"><div class="panel-heading">'+data[i].from.name+'<time class="pull-right">'+data[i].meta.created_at+'</time></div><div class="panel-body">'+data[i].content+'</div><div class="panel-footer"><button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-xs">login and reply</button> <button type="button" class="viewreply btn btn-default btn-xs" data-toggle="modal" data-target="#replies" data-cid='+data[i]._id+' data-name='+data[i].from.name+' data-time='+data[i].meta.created_at+' data-con='+data[i].content+'>view replies</button></div></li>';
                         $("#comments").append(panel);
                     }
                 }    
