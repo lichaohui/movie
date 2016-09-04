@@ -12,7 +12,7 @@ exports.index=function(req,res){
         if(err){
             res.json({'isError':true,'message':'load failed!'});
         }else{
-            res.json({'isError':false,'message':'comment success!','replies':data});
+            res.json({'isError':false,'message':'load success!','replies':data});
         }
     });
 }
