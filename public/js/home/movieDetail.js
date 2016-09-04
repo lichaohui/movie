@@ -4,11 +4,13 @@ $(function(){
         var n=$("#comments li").length;
         var panel;
         var movieId=$("#movieId").val();
+        //发送ajax请求获取评论
         $.get('/comment/more',{from:n,limit:5,movieId:movieId},function(data,status){
             if(data.length==0){
                 $("#viewMore").text('已经到底了').attr('disabled',true);
-                $("#hiddenall").removeClass('hidden');
             }else{
+                //显示出收起评论按钮
+                $("#hiddenall").removeClass('hidden');
                 //判断用户是否登录
                 var isLogin=$('#isLogin').val();
                 if(isLogin=='yes'){
