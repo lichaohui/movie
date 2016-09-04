@@ -3,6 +3,7 @@ var index=require('../controllers/home/index');
 var movie=require('../controllers/home/movie');
 var user=require('../controllers/home/user');
 var comment=require('../controllers/home/comment');
+var reply=require('../controllers/home/reply');
 
 module.exports=function(app){
     /*
@@ -44,4 +45,7 @@ module.exports=function(app){
     app.get('/comment/more',comment.viewMore);
     //发表评论的路由
     app.post('/comment/store',comment.store);
+    
+    //提交回复的路由
+    app.post('/reply/store',reply.store);
 }
