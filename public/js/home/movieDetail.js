@@ -11,7 +11,8 @@ $(function(){
             }else{
                 //判断用户是否登录
                 var isLogin=$('#isLogin').val();
-                if(isLogin){
+                alert(isLogin);
+                if(isLogin==true){
                     //用户登录状态下填充的内容
                     for(var i=0;i<data.length;i++){
                         panel='<li class="panel panel-default"><div class="panel-heading">'+data[i].from.name+'<time class="pull-right">'+data[i].meta.created_at+'</time></div><div class="panel-body">'+data[i].content+'</div><div class="panel-footer"><button type="button" class="reply btn btn-default btn-xs">reply</button><form action="/reply/store" method="post" role="form" class="replyForm hidden"><input type="hidden" name="from" value=""><input type="hidden" name="toWho" value='+data[i].from._id+'><input type="hidden" name="toWhichComment" value='+data[i]._id+'><input type="hidden" name="movie" value='+data[i].movie+'><div class="form-group"><textarea class="form-control" name="content" placeholder="Please input your comment here"></textarea></div><div class="form-group"><b class="username"></b><button type="submit" class="btn btn-default btn-xs">submit</button></div></form></div></li>';
