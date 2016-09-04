@@ -37,7 +37,7 @@ block content
               form(action='/reply/store' method='post' role='form' class='replyForm hidden')
                 input(type='hidden' name='from' value='#{user._id}')
                 input(type='hidden' name='toWhichComment' value='#{comment._id}')
-                input(type='hidden' name='toWho' value='#{comment.from}')
+                input(type='hidden' name='toWho' value='#{comment.from._id}')
                 div(class='form-group')
                   textarea(class='form-control' name='content' placeholder='Please input your comment here' required)
                 b #{user.name}   
