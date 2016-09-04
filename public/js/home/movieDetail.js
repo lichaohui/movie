@@ -116,7 +116,7 @@ $(function(){
             $(this).parent('.replyForm').find("[name='content']").focus();
         }else{
             $("#replyFlag").attr('id','');
-            $(this).parentsUntil('#comments').find('.panel-body').attr('id','replyFlag');
+            $(this).parentsUntil('#comments').find('.panel-body').attr('id','replyFlag').find(".list-group").remove();
             $(this).parent('.replyForm').ajaxSubmit({
                 type:'post',
                 url:'/reply/store',
