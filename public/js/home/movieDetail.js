@@ -117,12 +117,12 @@ $(function(){
         }else{
             $("#replyFlag").attr('id','');
             $(this).parentsUntil('#comments').find('.panel-body').attr('id','replyFlag');
-            alert($(this).parentsUntil('#comments').find('.panel-body').text());
             $(this).parent('.replyForm').ajaxSubmit({
                 type:'post',
                 url:'/reply/store',
                 success:function(data){
                     var rep='<ul class="list-group"><li class="list-group-item"><h5 class="list-group-item-heading"><b>'+data.from+'</b>repliedto<b>'+data.toWhichComment.from+'</b><time class="pull-right">'+date2str(new Date(), "yyyy-MM-d h:m:s")+'</time></h5><p class="list-group-item-text">'+data.content+'</p></li></ul>';
+                    alert(rep);
                     $("#replyFlag").append(rep);
                 }
             })
