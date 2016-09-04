@@ -122,7 +122,7 @@ $(function(){
                 url:'/reply/store',
                 success:function(data){
                     var rep='<ul class="list-group"><li class="list-group-item"><h5 class="list-group-item-heading"><b>'+data.reply.from.name+' </b>replied to<b> '+data.reply.toWho.name+'</b><time class="pull-right">'+date2str(new Date(), "yyyy-MM-d h:m:s")+'</time></h5><p class="list-group-item-text">'+data.reply.content+'</p></li></ul>';
-                    $("#replyFlag").append(rep);
+                    $("#replyFlag").prepend(rep);
                 }
             })
         }
