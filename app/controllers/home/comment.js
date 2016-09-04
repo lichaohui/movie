@@ -42,7 +42,8 @@ exports.store=function(req,res){
         if(err){
             res.json({'isError':true,'message':'comment failed!'})
         }else{
-            data.populate('from','name');
+            data=data.populate('from','name');
+            console.log(data);
             res.json({'isError':false,'message':'comment success!','comment':data});
         }; 
     });
