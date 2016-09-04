@@ -32,7 +32,7 @@ $(function(){
     //收起评论
     $('#hiddenall').click(function(){
         $("#comments li:gt(2)").remove();
-        $("#viewMore").text('查看更多').attr('disabled',false);
+        $("#viewMore").html("查看更多span(class='glyphicon glyphicon-chevron-down')").attr('disabled',false);
         $(this).addClass('hidden');
     });
     
