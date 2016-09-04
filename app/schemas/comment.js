@@ -49,7 +49,7 @@ commentSchema.statics={
      * 该方法返回通过id查找出来的那条数据
      */
     findById:function(id,callback){
-        return this.findOne({_id:id}).exec(callback);
+        return this.findOne({_id:id}).populate('from','name').exec(callback);
     }
 };
 

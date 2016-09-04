@@ -35,6 +35,7 @@ exports.store=function(req,res){
             res.json({'isError':true,'message':'comment failed!'})
         }else{
             comment.findById(data._id,function(err,data){
+                console.log(data);
                 res.json({'isError':false,'message':'comment success!','comment':data});
             });
         }; 
