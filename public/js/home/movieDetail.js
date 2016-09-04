@@ -134,7 +134,7 @@ $(function(){
         var name=$(this).attr('data-name');
         var con=$(this).attr('data-con');
         var time=$(this).attr('data-time');
-        $("#time").before(name);
+        $("#who").text(name);
         $("#time").text(time);
         $("#whatCon").text(con);
         $.get('/reply/index',{"cid":cid},function(data,status){
