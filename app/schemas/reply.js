@@ -9,9 +9,9 @@ var _id=mongoose.Schema.Types.ObjectId;
 
 //设计reply数据表结构
 var replySchema=new mongoose.Schema({
-    //ref属性表示主键来源与哪个集合
+    //ref属性表示主键来源与哪个model
     from:{type:_id,ref:'user'},
-    toWhichComment:{type:_id,ref:'comment'},
+    toWhichComment:{type:_id,ref:'comments'},
     toWhichReply:{type:_id,ref:'reply'},
     content:String,
     meta:{
