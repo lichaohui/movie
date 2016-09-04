@@ -117,9 +117,9 @@ $(function(){
         }else{
             $("#replyFlag").attr('id','');
             alert('aaa');
-            $(this).parentsUntil('#comments').find('panel-body').attr('id','replyFlag');
+            $(this).parent('.panel').find('panel-body').attr('id','replyFlag');
             alert('hello');
-            $(this).parent('.replyFomr').ajaxSubmit({
+            $(this).parent('.replyForm').ajaxSubmit({
                 type:'post',
                 success:function(data){
                     var rep='<ul class="list-group"><li class="list-group-item"><h5 class="list-group-item-heading"><b>'+data.from+'</b>repliedto<b>'+data.toWhichComment.from+'</b><time class="pull-right">'+date2str(new Date(), "yyyy-MM-d h:m:s")+'</time></h5><p class="list-group-item-text">'+data.content+'</p></li></ul>';
