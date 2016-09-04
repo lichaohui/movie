@@ -30,6 +30,7 @@ block content
             input(type='hidden' id='movieId' name='movieId' value='#{movie._id}')
             if(user)
               button(type='button' class='reply btn btn-default btn-xs') reply
+              input(type='hidden' id='isLogin' value='true')
               input(type='hidden' id='userid' value='#{user._id}')
               input(type='hidden' id='username' name='username' value='#{user.name}')
               form(action='/reply/store' method='post' role='form' class='replyForm hidden')
@@ -42,6 +43,7 @@ block content
                 b #{user.name}   
                 button(type='submit' class='btn btn-default btn-xs') submit
             else
+              input(type='hidden' id='isLogin' value='false')
               button(type="button" class='btn btn-default btn-xs' data-toggle="modal" data-target="#myModal") login and reply
     div(class='text-center') 
       button(type='button' class='btn btn-sm btn-primary' id='viewMore') 查看更多
