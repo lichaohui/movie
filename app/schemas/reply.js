@@ -10,7 +10,8 @@ var _id=mongoose.Schema.Types.ObjectId;
 //设计reply数据表结构
 var replySchema=new mongoose.Schema({
     //ref属性表示主键来源与哪个model
-    from:{type:_id,ref:'user'},
+    from:{type:_id,ref:'users'},
+    toWho:{type:_id,ref:'users'},
     toWhichComment:{type:_id,ref:'comments'},
     toWhichReply:{type:_id,ref:'reply'},
     content:String,
@@ -45,7 +46,7 @@ replySchema.statics={
     
     //通过id获取某条回复的方法
     findById:function(id,callback){
-        return this.findOne({_id:id}).populate('toWhichComment','from').exec(callback);
+        return this.findOne({_id:id}).populate({'from':'name','toWho':'name'}).exec(callback);
     }
 };
 

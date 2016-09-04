@@ -11,6 +11,7 @@ exports.store=function(req,res){
     var postreply=req.body;
     var newreply=new reply({
         'from':postreply.from,
+        'toWho':postreply.toWho,
         'toWhichComment':postreply.toWhichComment,
         'toWhichReply':postreply.toWhichReply,
         'content':postreply.content,
