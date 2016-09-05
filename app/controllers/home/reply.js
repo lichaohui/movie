@@ -4,6 +4,7 @@
  */
 //引入model模型
 var reply=require('../../models/reply');
+var comment=require('../../models/comment');
 
 //获取某个评论下所有回复的方法
 exports.index=function(req,res){
@@ -33,8 +34,19 @@ exports.store=function(req,res){
         if(err){
             res.json({'isError':true,'message':'reply failed!'});
         }else{
-            reply.findById(data._id,function(err,data){
-                res.json({'isError':false,'message':'comment success!','reply':data});
+            //查询出回复的哪条评论然后更新该条评论的回复总是
+            comment.findById(data.toWhichComment,function(err,data){
+                if(err){
+                    console.log(err);
+                }else{
+                    var newTotal=data.totalReply+1;
+                    data.totalReply=newTotal;
+                    data.save(function(err){
+                        reply.findById(data._id,function(err,data){
+                            res.json({'isError':false,'message':'comment success!','reply':data});
+                        });
+                    })
+                }
             });
         }; 
     });
