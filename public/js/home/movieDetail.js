@@ -122,6 +122,7 @@ $(function(){
                     success:function(data){
                         var rep='<li class="list-group-item"><h5 class="list-group-item-heading"><b>'+data.reply.from.name+'</b> replied to <b>'+data.reply.toWho.name+'</b><time class="pull-right">'+date2str(new Date(), "yyyy-MM-d h:m:s")+'</time></h5><p class="list-group-item-text">'+data.reply.content+'</p><button type="button" class="reply btn btn-default btn-xs">reply '+data.reply.from.name+'</button><form action="/reply/store" method="post" role="form" class="replyForm hidden"><input type="hidden" name="from" value=""><input type="hidden" name="toWho" value='+data.reply.from._id+'><input type="hidden" name="toWhichComment" value='+data.reply.toWhichComment+'><input type="hidden" name="toWhichReply" value='+data.reply.toWhichReply+'><div class="form-group"><textarea name="content" placeholder="Please input your comment here" required="" class="form-control"></textarea></div><button type="button" class="replyBtn btn btn-primary btn-xs" istoreply="yes">submit</button></form></li>';
                         $("#replies-list").prepend(rep);
+                        $("#totalReply").text('view replies ('+data.totalReply+')');
                     }
                 })
             }else{
@@ -135,10 +136,10 @@ $(function(){
                     success:function(data){
                         var rep='<ul class="list-group"><li class="list-group-item"><h5 class="list-group-item-heading"><b>'+data.reply.from.name+' </b>replied to<b> '+data.reply.toWho.name+'</b><time class="pull-right">'+date2str(new Date(), "yyyy-MM-d h:m:s")+'</time></h5><p class="list-group-item-text">'+data.reply.content+'</p></li></ul>';
                         $("#replyFlag").append(rep);
+                        $("#totalReply").text('view replies ('+data.totalReply+')');
                     }
                 })
             }
-            $("#totalReply").text('view replies ('+data.totalReply+')');
         }           
     });
 
