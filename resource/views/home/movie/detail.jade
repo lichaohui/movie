@@ -32,7 +32,7 @@ block content
           div(class='panel-footer')
             if(user)
               button(type='button' class='reply btn btn-primary btn-xs') reply
-              button(type='button' class='viewreply btn btn-default btn-xs' data-toggle="modal" data-target="#replies" data-cid="#{comment._id}" data-name="#{comment.from.name}" data-con="#{comment.content}" data-time="#{moment(comment.meta.created_at).format('YYYY-MM-DD H:m:s')}") view replies(#{comment.totalReply})
+              button(type='button' class='viewreply btn btn-default btn-xs' data-toggle="modal" data-target="#replies" data-cid="#{comment._id}" data-name="#{comment.from.name}" data-con="#{comment.content}" data-time="#{moment(comment.meta.created_at).format('YYYY-MM-DD H:m:s')}") view replies (#{comment.totalReply})
               input(type='hidden' id='userid' value='#{user._id}')
               input(type='hidden' id='username' name='username' value='#{user.name}')
               form(action='/reply/store' method='post' role='form' class='replyForm hidden')
@@ -45,7 +45,7 @@ block content
                 button(type='button' class='replyBtn btn btn-default btn-xs') submit
             else
               button(type="button" class='btn btn-primary btn-xs' data-toggle="modal" data-target="#myModal") login and reply
-              button(type='button' class='viewreply btn btn-default btn-xs' data-toggle="modal" data-target="#replies" data-cid="#{comment._id}" data-name="#{comment.from.name}" data-con="#{comment.content}" data-time="#{moment(comment.meta.created_at).format('YYYY-MM-DD H:m:s')}") view replies(#{comment.totalReply})
+              button(type='button' class='viewreply btn btn-default btn-xs' data-toggle="modal" data-target="#replies" data-cid="#{comment._id}" data-name="#{comment.from.name}" data-con="#{comment.content}" data-time="#{moment(comment.meta.created_at).format('YYYY-MM-DD H:m:s')}") view replies (#{comment.totalReply})
     div(class='text-center') 
       button(type='button' class='btn btn-sm btn-primary' id='viewMore') 
         span(id='more') 查看更多
