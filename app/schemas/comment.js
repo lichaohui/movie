@@ -13,6 +13,7 @@ var commentSchema=new mongoose.Schema({
     movie:{type:_id,ref:'movie'},
     from:{type:_id,ref:'users'},
     content:String,
+    totalReply:Number,
     meta:{
         created_at:{
             type:Date,
