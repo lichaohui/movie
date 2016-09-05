@@ -35,13 +35,13 @@ exports.store=function(req,res){
             res.json({'isError':true,'message':'reply failed!'});
         }else{
             //查询出回复的哪条评论然后更新该条评论的回复总是
-            comment.findById(data.toWhichComment,function(err,data){
+            comment.findById(data.toWhichComment,function(err,comment){
                 if(err){
                     console.log(err);
                 }else{
-                    var newTotal=data.totalReply+1;
-                    data.totalReply=newTotal;
-                    data.save(function(err){
+                    var newTotal=comment.totalReply+1;
+                    comment.totalReply=newTotal;
+                    comment.save(function(err){
                         reply.findById(data._id,function(err,data){
                             res.json({'isError':false,'message':'comment success!','reply':data});
                         });
