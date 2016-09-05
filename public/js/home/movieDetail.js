@@ -143,9 +143,18 @@ $(function(){
                 alert(data.message);
             }else{
                 var li;
-                for(var i=0;i<data.replies.length;i++){
-                    li='<li class="list-group-item"><h5 class="list-group-item-heading"><b>'+data.replies[i].from.name+'</b> replied to <b>'+data.replies[i].toWho.name+'</b><time class="pull-right">'+data.replies[i].meta.created_at+'</time></h5><p class="list-group-item-text">'+data.replies[i].content+'</p></li>';
-                    $("#replies-list").append(li);
+                //判断用户是否登录
+                var isLogin=$('#isLogin').val();
+                if(isLogin=='yes'){
+                    for(var i=0;i<data.replies.length;i++){
+                        li='<li class="list-group-item"><h5 class="list-group-item-heading"><b>'+data.replies[i].from.name+'</b> replied to <b>'+data.replies[i].toWho.name+'</b><time class="pull-right">'+data.replies[i].meta.created_at+'</time></h5><p class="list-group-item-text">'+data.replies[i].content+'</p><button type="button" class="replytoreply btn btn-primary btn-xs">reply</button></li>';
+                        $("#replies-list").append(li);
+                    }
+                }else{
+                    for(var i=0;i<data.replies.length;i++){
+                        li='<li class="list-group-item"><h5 class="list-group-item-heading"><b>'+data.replies[i].from.name+'</b> replied to <b>'+data.replies[i].toWho.name+'</b><time class="pull-right">'+data.replies[i].meta.created_at+'</time></h5><p class="list-group-item-text">'+data.replies[i].content+'</p></li>';
+                        $("#replies-list").append(li);
+                    }
                 }
             }
         });
