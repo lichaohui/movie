@@ -154,7 +154,7 @@ $(function(){
                 alert(data.message);
             }else{
                 var li;
-                if(data.length==0){
+                if(data.replies.length==0){
                     //如果没有回复则显示一个no reply
                     li='<li class="list-group-item">No reply!</li>'
                 }else{
