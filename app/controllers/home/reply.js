@@ -39,11 +39,13 @@ exports.store=function(req,res){
                 if(err){
                     console.log(err);
                 }else{
+                    //更新评论的回复条数
                     var newTotal=comment.totalReply+1;
                     comment.totalReply=newTotal;
                     comment.save(function(err){
+                        //在save的回调方法查找数据并返回给客户端
                         reply.findById(data._id,function(err,data){
-                            res.json({'isError':false,'message':'comment success!','reply':data});
+                            res.json({'isError':false,'message':'comment success!','reply':data,'totalReply':newTotal});
                         });
                     })
                 }
