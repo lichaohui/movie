@@ -115,8 +115,7 @@ $(function(){
             alert("请先填写回复内容！");
             $(this).parent('.replyForm').find("[name='content']").focus();
         }else{
-            $("#replyFlag").attr('id','');
-            $(this).parentsUntil('#comments').find('.panel-body').attr('id','replyFlag');
+            
             $(this).parent('.replyForm').ajaxSubmit({
                 type:'post',
                 url:'/reply/store',
@@ -124,6 +123,8 @@ $(function(){
                     if(data.reply.toWhichReply){
                         
                     }else{
+                        $("#replyFlag").attr('id','');
+                        $(this).parentsUntil('#comments').find('.panel-body').attr('id','replyFlag');
                         var rep='<ul class="list-group"><li class="list-group-item"><h5 class="list-group-item-heading"><b>'+data.reply.from.name+' </b>replied to<b> '+data.reply.toWho.name+'</b><time class="pull-right">'+date2str(new Date(), "yyyy-MM-d h:m:s")+'</time></h5><p class="list-group-item-text">'+data.reply.content+'</p></li></ul>';
                         $("#replyFlag").append(rep);
                     }
