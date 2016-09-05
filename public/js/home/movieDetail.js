@@ -156,7 +156,8 @@ $(function(){
                 var li;
                 if(data.replies.length==0){
                     //如果没有回复则显示一个no reply
-                    li='<li class="list-group-item">No reply!</li>'
+                    li='<li class="list-group-item">No reply!</li>';
+                    $("#replies-list").append(li);
                 }else{
                     //判断用户是否登录
                     var isLogin=$('#isLogin').val();
