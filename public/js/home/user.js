@@ -14,7 +14,7 @@ $(function(){
                     $("#warning").addClass('hidden');
                     $("#sub").attr('disabled','disabled');
                     $("#success").text(data.message).removeClass('hidden');
-                    setTimeout(function(){location.href='/';},3000);
+                    setTimeout(function(){window.location.reload();},2000);
                 }
             },
         });
