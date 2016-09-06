@@ -18,6 +18,8 @@ nav(class='navbar navbar-default')
               span(class="caret")
             ul(class="dropdown-menu")
               li
+                a(href="/user?uid=#{user._id}")
+              li
                 a(href="/logout") Logout
         else        
           li(role='presentation' id='page-login')
