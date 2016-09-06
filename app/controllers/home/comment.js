@@ -44,7 +44,7 @@ exports.store=function(req,res){
 
 //获取某个用户所有评论的方法
 exports.index=function(req,res){
-    var uid=req.params.uid;
+    var uid=req.query.uid;
     comment.findByUser(uid,function(err,data){
         res.render('home/user/comment',{'title':'我的评论','comments':data});
     });
