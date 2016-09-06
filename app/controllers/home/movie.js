@@ -24,7 +24,7 @@ exports.show=function(req,res){
     //获取参数中的id
     var id=req.params.id;
     var url=req.baseUrl;
-    console.log(url);
+    console.log("hhh"+url);
     //通过id获取数据并将数据发送给前台视图
     movie.findById(id,function(err,data){
         comment.findByUrl(url,function(err,comments){
