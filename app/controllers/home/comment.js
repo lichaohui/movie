@@ -46,6 +46,6 @@ exports.store=function(req,res){
 exports.index=function(req,res){
     var uid=req.query.uid;
     comment.findByUser(uid,function(err,data){
-        res.render('home/user/comment',{'title':'我的评论','comment':data});
+        res.render('home/user/comment',{'title':'我的评论','comments':data});
     });
 };
