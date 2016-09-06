@@ -41,9 +41,9 @@ module.exports=function(app){
     //用户登出的路由
     app.get('/logout',user.logout);  
     //展示用户主页的路由
-    app.get('/user',user.index);
+    app.get('/user/:id',user.index);
     //展示某个用户所有评论的路由
-    app.get('/user/comments',comment.index);
+    app.get('/user/comments/:uid',comment.index);
     
     //展示某个电影下更多评论的路由
     app.get('/comment/more',comment.viewMore);
