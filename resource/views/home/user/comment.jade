@@ -4,7 +4,7 @@ include ./common
   ul(class='list-group')
   each comment in comments
     li(class='list-group-item')
-      span(class='badge') #{comment.totalReply}
+      button(class='badge' type='button') #{comment.totalReply}
       a(class="list-group-item-heading" href='http://192.168.44.128:3000#{comment.url}' target='_blank') #{comment.pageTitle}
       p(class="list-group-item-text") #{comment.content}
 include ../../common/footer 
