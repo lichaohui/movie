@@ -109,8 +109,8 @@ exports.logout=function(req,res){
 
 //显示用户主页的方法
 exports.index=function(req,res){
-    var uid=req.params.uid;
-    user.findById(uid,function(err,data){
+    var id=req.params.id;
+    user.findById(id,function(err,data){
         res.render('home/user/index',{'title':data.name,'user':data});
     });
 };
