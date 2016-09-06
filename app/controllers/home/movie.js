@@ -22,7 +22,7 @@ exports.index=function(req,res){
 //播放指定movie的方法
 exports.show=function(req,res){
     //获取参数中的id
-    var id=req.query.id;
+    var id=req.params.id;
     var url=req.url;
     console.log(url);
     //通过id获取数据并将数据发送给前台视图
