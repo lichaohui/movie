@@ -104,7 +104,7 @@ exports.logout=function(req,res){
     //删除session
     delete req.session.user;
     //跳转到登录界面 
-    res.redirect('back');
+    res.redirect('/login');
 };
 
 //显示用户主页的方法
