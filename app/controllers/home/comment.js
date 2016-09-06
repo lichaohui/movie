@@ -26,6 +26,7 @@ exports.store=function(req,res){
     var postcomment=req.body;
     var newcomment=new comment({
         'url':postcomment.url,
+        'pageTitle':postcomment.pageTitle,
         'from':postcomment.from,
         'totalReply':0,
         'content':postcomment.content,

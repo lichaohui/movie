@@ -12,6 +12,7 @@ var commentSchema=new mongoose.Schema({
     //ref属性表示主键来源与哪个集合
     from:{type:_id,ref:'users'},
     url:String,
+    pageTitle:String,
     content:String,
     totalReply:Number,
     meta:{
