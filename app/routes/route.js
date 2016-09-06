@@ -42,8 +42,10 @@ module.exports=function(app){
     app.get('/logout',user.logout);  
     //展示用户主页的路由
     app.get('/user',user.index);
+    //展示某个用户所有评论的路由
+    app.get('/user/comment',comment.index);
     
-    //展示某个电影或某个用户所有评论列表的路由
+    //展示某个电影下更多评论的路由
     app.get('/comment/more',comment.viewMore);
     //发表评论的路由
     app.post('/comment/store',comment.store);
