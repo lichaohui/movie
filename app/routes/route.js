@@ -40,6 +40,8 @@ module.exports=function(app){
     app.post('/dologin',user.doLogin);
     //用户登出的路由
     app.get('/logout',user.logout);  
+    //展示用户主页的路由
+    app.get('/user',user.index);
     
     //展示某个电影或某个用户所有评论列表的路由
     app.get('/comment/more',comment.viewMore);

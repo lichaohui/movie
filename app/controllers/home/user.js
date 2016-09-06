@@ -106,3 +106,11 @@ exports.logout=function(req,res){
     //跳转到登录界面 
     res.redirect('back');
 };
+
+//显示用户主页的方法
+exports.index=function(req,res){
+    var uid=req.query.uid;
+    user.findById(uid,function(err,data){
+        res.render('home/user/index',{'title':data.name,'user':data});
+    });
+};
