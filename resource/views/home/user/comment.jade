@@ -1,5 +1,10 @@
 include ../../common/header
 include ./common
   block content 
-  
+  ul(class='list-group')
+  each comment in comments
+    li(class='list-group-item')
+      span(class='badge') #{comment.totalReply}
+      a(class="list-group-item-heading" href='192.168.44.128:3000/#{comment.url}') 查看地址
+      p(class="list-group-item-text") #{comment.content}
 include ../../common/footer 
