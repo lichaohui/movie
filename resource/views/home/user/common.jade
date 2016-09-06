@@ -6,8 +6,8 @@ section(class='container')
         li(class='active')
           a(href='/user/#{user._id}') 我的主页
         li    
-          a(href='/user/comments?uid=#{user._id}') 我的评论
+          a(href='/comments?uid=#{user._id}') 我的评论
         li    
-          a(href='/user/replies?uid=#{user._id}') 我的回复
+          a(href='/replies?uid=#{user._id}') 我的回复
     div(class='col-md-9')
       block content
