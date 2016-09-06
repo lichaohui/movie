@@ -7,9 +7,8 @@ $(function(){
     $("#viewMore").click(function(){
         var n=$("#comments li").length;
         var panel;
-        var movieId=$("#movieId").val();
         //发送ajax请求获取评论
-        $.get('/comment/more',{from:n,limit:5,movieId:movieId},function(data,status){
+        $.get('/comment/more',{from:n,limit:5,url:url},function(data,status){
             if(data.length==0){
                 $("#more").text('已经到底了');
                 $("#viewMore").attr('disabled',true);
