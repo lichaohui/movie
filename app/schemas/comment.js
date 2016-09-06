@@ -10,8 +10,8 @@ var _id=mongoose.Schema.Types.ObjectId;
 //设计comment数据表结构
 var commentSchema=new mongoose.Schema({
     //ref属性表示主键来源与哪个集合
-    movie:{type:_id,ref:'movie'},
     from:{type:_id,ref:'users'},
+    url:String,
     content:String,
     totalReply:Number,
     meta:{
@@ -32,12 +32,12 @@ commentSchema.statics={
     /*
      * 初始化页面的时候获取当前电影下最新的三条评论的方法
      */
-    findByMovie:function(movieId,callback){
-        return this.find({movie:movieId}).sort({'meta.created_at':-1}).limit(3).populate('from','name').exec(callback);
+    findByUrl:function(url,callback){
+        return this.find({url:url}).sort({'meta.created_at':-1}).limit(3).populate('from','name').exec(callback);
     },
     //查看当前电影下更多评论的方法
-    findMoreByMovie:function(movieId,from,limit,callback){
-        return this.find({movie:movieId}).skip(from).sort({'meta.created_at':-1}).limit(limit).populate('from','name').exec(callback);
+    findMoreByUrl:function(url,from,limit,callback){
+        return this.find({url:url}).skip(from).sort({'meta.created_at':-1}).limit(limit).populate('from','name').exec(callback);
     },
     
     //获取某个用户所有评论的方法

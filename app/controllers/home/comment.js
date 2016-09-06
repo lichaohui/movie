@@ -8,10 +8,10 @@ var comment=require('../../models/comment');
 //加载某个电影下更多评论的方法
 exports.viewMore=function(req,res){
     //获取参数中的值
-    var movieId=req.query.movieId;
+    var url=req.query.url;
     var from=req.query.from;
     var limit=req.query.limit;
-    comment.findMoreByMovie(movieId,from,limit,function(err,data){
+    comment.findMoreByUrl(url,from,limit,function(err,data){
         if(err){
             res.json({'isError':true,'message':'加载失败，请稍后再试！'});
         }else{
@@ -25,7 +25,7 @@ exports.store=function(req,res){
     //获取到表单传递过来的数据
     var postcomment=req.body;
     var newcomment=new comment({
-        'movie':postcomment.movie,
+        'url':postcomment.url,
         'from':postcomment.from,
         'totalReply':0,
         'content':postcomment.content,

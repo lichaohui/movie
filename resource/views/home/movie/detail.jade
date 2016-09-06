@@ -22,7 +22,6 @@ block content
       dt intro:
       dd #{movie.intro}
     h3(id='comments-tit') Comments  
-    input(type='hidden' id='movieId' name='movieId' value='#{movie._id}')
     ul(id='comments' class='list-unstyled')
       each comment in comments
         li(class='panel panel-default')
@@ -56,7 +55,7 @@ block content
       input(type='hidden' id='isLogin' value='yes')
       form(action='/comment/store' method='post' role='form' id='commentForm')
         input(type='hidden' name='from' value='#{user._id}')
-        input(type='hidden' name='movie' value='#{movie._id}')
+        input(type='hidden' name='url')
         div(class='form-group')
           label(for='content') comment
           textarea(class='form-control' id='content' required name='content' placeholder='Please input your comment here')
