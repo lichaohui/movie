@@ -1,6 +1,6 @@
 $(function(){
     //在页面刚加载的时候就初始化 url input标识框的值为当前页面的url
-    var url=window.location.href;
+    var url=window.location.pathname;
     $("[name='url']").val(url);
     
     /*----异步加载更多评论---*/
