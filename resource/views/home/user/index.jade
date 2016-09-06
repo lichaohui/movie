@@ -1,14 +1,7 @@
 include ../../common/header
+include ./common
 block content
-  section(class='container')
-    include ../common/nav
-    div(class='row')
-      div(class='col-md-3')
-        ul(class='nav bs-docs-sidenav')
-          li
-            a(href='/user/index?uid=#{user._id}') 我的主页
-            a(href='/user/comments?uid=#{user._id}') 我的评论
-            a(href='/user/replies?uid=#{user._id}') 我的回复
-      div(class='col-md-9')
-        h2 Hello #{user.name}
-include ../../common/footer  
+  h2
+    hello #{user.name}
+include ../../common/footer 
+ 
