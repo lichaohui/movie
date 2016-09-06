@@ -5,6 +5,6 @@ include ./common
   each comment in comments
     li(class='list-group-item')
       span(class='badge') #{comment.totalReply}
-      a(class="list-group-item-heading" href='http://192.168.44.128:3000#{comment.url}' target='_blank') 查看地址
+      a(class="list-group-item-heading" href='http://192.168.44.128:3000#{comment.url}' target='_blank') #{comment.pageTitle}
       p(class="list-group-item-text") #{comment.content}
 include ../../common/footer 
