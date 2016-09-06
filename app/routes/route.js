@@ -43,9 +43,9 @@ module.exports=function(app){
     //展示用户主页的路由
     app.get('/user/:id',user.index);
     //展示某个用户所有评论的路由
-    /*app.get('/user/comments',function(req,res){
+    app.get('/user/comment',function(req,res){
         res.end('hello');
-    });*/
+    });
     
     //展示某个电影下更多评论的路由
     app.get('/comment/more',comment.viewMore);
