@@ -7,13 +7,27 @@ include ./common
         span(class='badge' data-toggle="modal" data-target="#myModal") #{comment.totalReply}
         a(class="list-group-item-heading" href='http://192.168.44.128:3000#{comment.url}' target='_blank') #{comment.pageTitle}
         p(class="list-group-item-text") #{comment.content}
-div(class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
-  div(class="modal-dialog")
-    div(class="model-content")
-      div(class='model-header')
-        button(type='button' class="close" data-dismiss="modal")
-          span(aria-hidden="true") &times;
-          span(class="sr-only") Close
-        h4(class="modal-title" id="myModalLabel") 查看回复
-      div(class='model-body')
+div(class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby="myModalLabel")
+    div(class="modal-dialog" role="document")
+      div(class="modal-content")
+        div(class="modal-header")
+          button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+            span(aria-hidden="true") &times;
+          h4(class="modal-title" id="myModalLabel") Login
+        div(class='modal-body')
+          div(class="alert alert-warning hidden" id='warning' role="alert")
+          div(class="alert alert-success hidden" id='success' role="alert")
+          form(class='form-horizontal' action='/doLogin' id='form')
+            div(class='form-group')
+              label(class='col-sm-2 control-label' for='name') name
+              div(class='col-sm-10')
+                input(type='text' class='form-control' id='name' placeholder='name' name='name')
+            div(class='form-group')
+              label(class='col-sm-2 control-label' for='password') password
+              div(class='col-sm-10')
+                input(type='password' class='form-control' id='password' placeholder='password' name='password')
+            div(class='form-group')
+              label(class='col-sm-2 control-label' for='sub')
+              div(class='col-sm-10')
+                button(type='button' class='form-control btn-primary' id='login') login 
 include ../../common/footer 
