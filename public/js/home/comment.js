@@ -1,4 +1,5 @@
 $(function(){
+    //查看回复列表
     $('.viewreply').click(function(){
         var cid=$(this).attr('data-cid');
         $("#replies-list").empty();
@@ -13,11 +14,24 @@ $(function(){
                     $("#replies-list").append(li);
                 }else{
                     for(var i=0;i<data.replies.length;i++){
-                        li='<li class="list-group-item"><h5 class="list-group-item-heading"><b>'+data.replies[i].from.name+'</b> replied to you<time class="pull-right">'+data.replies[i].meta.created_at+'</time></h5><p class="list-group-item-text">'+data.replies[i].content+'</p></li>';
+                        li='<li class="list-group-item"><h5 class="list-group-item-heading"><b>'+data.replies[i].from.name+'</b> replied to you<time class="pull-right">'+data.replies[i].meta.created_at+'</time></h5><p class="list-group-item-text">'+data.replies[i].content+'</p><button type="button" class="reply btn btn-default btn-xs" >reply '+data.replies[i].from.name+'</button><form action="/reply/store" method="post" role="form" class="replyForm hidden"><input type="hidden" name="from" value=""><input type="hidden" name="toWho" value='+data.replies[i].from._id+'><input type="hidden" name="toWhichComment" value='+cid+'><input type="hidden" name="toWhichReply" value='+data.replies[i]._id+'><div class="form-group"><textarea name="content" placeholder="Please input your comment here" required="" class="form-control"></textarea></div><b></b> <button type="button" class="replyBtn btn btn-primary btn-xs" isToReply="yes">submit</button></form></li>';
                         $("#replies-list").prepend(li);
                     }
                 }
             }
         });
     });
+    
+    ////展示和收起回复表单
+    $(document).on("click",".reply",function(){
+        var userid=$("#userid").val();
+        //var username=$("#username").val();
+        //$('.username').text(username);
+        $("[name='from']").val(userid);
+        if($(this).siblings('.replyForm').hasClass('hidden')){
+            $(this).siblings('.replyForm').removeClass('hidden');
+        }else{
+            $(this).siblings('.replyForm').addClass('hidden');
+        }
+    }); 
 })
