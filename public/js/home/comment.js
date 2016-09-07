@@ -13,7 +13,7 @@ $(function(){
                     $("#replies-list").append(li);
                 }else{
                     for(var i=0;i<data.replies.length;i++){
-                        li='<li class="list-group-item"><h5 class="list-group-item-heading"><b>'+data.replies[i].from.name+'</b> replied to <b>'+data.replies[i].toWho.name+'</b><time class="pull-right">'+data.replies[i].meta.created_at+'</time></h5><p class="list-group-item-text">'+data.replies[i].content+'</p></li>';
+                        li='<li class="list-group-item"><h5 class="list-group-item-heading"><b>'+data.replies[i].from.name+'</b> replied to you<time class="pull-right">'+data.replies[i].meta.created_at+'</time></h5><p class="list-group-item-text">'+data.replies[i].content+'</p></li>';
                         $("#replies-list").prepend(li);
                     }
                 }
