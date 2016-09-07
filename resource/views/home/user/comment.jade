@@ -4,7 +4,7 @@ include ./common
   ul(class='list-group')
     each comment in comments
       li(class='list-group-item')
-        button(class='btn btn-default btn-xs pull-right' data-toggle="modal" data-target="#myModal" title='点击查看所有回复' data-cid='#{comment._id}') #{comment.totalReply}
+        button(class='viewreply btn btn-default btn-xs pull-right' data-toggle="modal" data-target="#myModal" title='点击查看所有回复' data-cid='#{comment._id}') #{comment.totalReply}
         a(class="list-group-item-heading" href='http://192.168.44.128:3000#{comment.url}' target='_blank') #{comment.pageTitle}
         p(class="list-group-item-text") #{comment.content}
 div(class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby="myModalLabel")
@@ -16,10 +16,12 @@ div(class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby=
         h4(class="modal-title" id="myModalLabel") 查看回复
       div(class='modal-body')
         ul(id='replies-list' class='list-group')
+          
           li(class="list-group-item")
             h5(class="list-group-item-heading")
-              b lucy replied to 
               b lucy
+              replied to you
               time(class="pull-right") 2016-09-07T05:26:48.083Z
             p(class="list-group-item-text") 你不是第一条
 include ../../common/footer 
+script(src='/js/home/comment.js')
