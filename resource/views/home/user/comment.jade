@@ -8,11 +8,11 @@ include ./common
         a(class="list-group-item-heading" href='http://192.168.44.128:3000#{comment.url}' target='_blank') #{comment.pageTitle}
         p(class="list-group-item-text") #{comment.content}
 div(class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
-  div(class="modal-dialog")
+  div(class="modal-dialog" role="document")
     div(class="model-content")
       div(class='model-header')
-        button(type='button' class="close" data-dismiss="modal")
-          span(class="sr-only") Close
+        button(type='button' class="close" data-dismiss="modal" aria-label="Close")
+          span(aria-hidden="true") &times;
         h4(class="modal-title" id="myModalLabel") 查看回复
-      div(class='model-body')
+      div(class='model-body')    
 include ../../common/footer 
