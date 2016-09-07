@@ -14,5 +14,12 @@ div(class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby=
         button(type="button" class="close" data-dismiss="modal" aria-label="Close")
           span(aria-hidden="true") &times;
         h4(class="modal-title" id="myModalLabel") 查看回复
-      div(class='modal-body')      
+      div(class='modal-body')
+        ul(id='replies-list' class='list-group')
+          li(class="list-group-item")
+            h5(class="list-group-item-heading")
+              b lucy replied to 
+              b lucy
+              time(class="pull-right") 2016-09-07T05:26:48.083Z
+            p(class="list-group-item-text") 你不是第一条
 include ../../common/footer 
