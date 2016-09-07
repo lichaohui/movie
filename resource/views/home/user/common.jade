@@ -2,13 +2,12 @@ section(class='container')
   include ../common/nav
   div(class='row')
     div(class='col-md-3')
-      div(class='bs-docs-sidebar hidden-print hidden-xs hidden-sm affix' role='complementary')
-        ul(class='nav bs-docs-sidenav')
-          li(class='active')
-            a(href='/user/#{user._id}') 我的主页
-          li    
-            a(href='/comments?uid=#{user._id}') 我的评论
-          li    
-            a(href='/replies?uid=#{user._id}') 我的回复
+      ul(class='nav bs-docs-sidenav')
+        li(class='active')
+          a(href='/user/#{user._id}') 我的主页
+        li    
+          a(href='/comments?uid=#{user._id}') 我的评论
+        li    
+          a(href='/replies?uid=#{user._id}') 我的回复
     div(class='col-md-9')
       block content
