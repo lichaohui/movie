@@ -4,7 +4,16 @@ include ./common
   ul(class='list-group')
   each comment in comments
     li(class='list-group-item')
-      span(class='badge') #{comment.totalReply}
+      span(class='badge' data-toggle="modal" data-target="#myModal") #{comment.totalReply}
       a(class="list-group-item-heading" href='http://192.168.44.128:3000#{comment.url}' target='_blank') #{comment.pageTitle}
       p(class="list-group-item-text") #{comment.content}
+  div(class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+    div(class="modal-dialog")
+      div(class="model-content")
+        div(class='model-header')
+          button(type='button' class="close" data-dismiss="modal")
+            span(aria-hidden="true") &times;
+            span(class="sr-only") Close
+          h4(class="modal-title" id="myModalLabel") 查看回复
+        div(class='model-body')
 include ../../common/footer 
