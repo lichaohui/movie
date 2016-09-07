@@ -4,6 +4,7 @@ include ./common
   style.
     .replyForm{margin-top:9px;}
     .list-group-item-text{margin-bottom:5px;}
+  input(type='hidden' id='userid' value='#{user._id}')    
   ul(class='list-group')
     each comment in comments
       li(class='list-group-item')
