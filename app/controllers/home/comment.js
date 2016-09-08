@@ -53,7 +53,7 @@ exports.index=function(req,res){
 
 //删除某条评论及评论下所有回复的方法
 exports.delete=function(req,res){
-    var cid=req.params.id;
+    var id=req.params.id;
     comment.findByIdAndRemove(id,function(err,data){
         if(err){
             console.log(err);
