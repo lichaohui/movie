@@ -87,7 +87,7 @@ $(function(){
                         alert(data.message);
                     }else{
                         $(".panel-info").removeClass('panel-info').addClass('panel-default');
-                        var panel='<li class="panel panel-info"><div class="panel-heading">'+data.comment.from.name+'<time class="pull-right">'+date2str(new Date(), "yyyy-MM-d h:m:s")+'</time></div><div class="panel-body">'+data.comment.content+'</div><div class="panel-footer"><button type="button" class="reply btn btn-primary btn-xs">reply</button> <button type="button" class="viewreply btn btn-default btn-xs" data-toggle="modal" data-target="#replies" data-cid='+data.comment._id+' data-name='+data.comment.from.name+' data-time='+date2str(new Date(), "yyyy-MM-d h:m:s")+' data-con='+data.comment.content+'>view replies '+data.comment.totalReply+'</button><form action="/comment/store" method="post" role="form" class="replyForm hidden"><input type="hidden" name="from" value='+data.comment.from._id+'><input type="hidden" name="url" value='+data.comment.url+'><input type="hidden" name="toWho" value='+data.comment.from._id+'><input type="hidden" name="toWhichComment" value='+data.comment._id+'><div class="form-group"><textarea class="form-control" name="content" placeholder="Please input your comment here" required></textarea></div><div class="form-group"><b class="username"></b><button type="button" class="replyBtn btn btn-default btn-xs">submit</button></div></form></div></li>';
+                        var panel='<li class="panel panel-info"><div class="panel-heading">'+data.comment.from.name+'<time class="pull-right">'+date2str(new Date(), "yyyy-MM-d h:m:s")+'</time></div><div class="panel-body">'+data.comment.content+'</div><div class="panel-footer"><button type="button" class="reply btn btn-primary btn-xs">reply</button> <button type="button" class="viewreply btn btn-default btn-xs" data-toggle="modal" data-target="#replies" data-cid='+data.comment._id+' data-name='+data.comment.from.name+' data-time='+date2str(new Date(), "yyyy-MM-d h:m:s")+' data-con='+data.comment.content+'>view replies '+data.comment.totalReply+'</button><form action="/comment/store" method="post" role="form" class="replyForm hidden"><input type="hidden" name="from" value='+data.comment.from._id+'><input type="hidden" name="url" value='+data.comment.url+'><input type="hidden" name="toWho" value='+data.comment.from._id+'><input type="hidden" name="toWhichComment" value='+data.comment._id+'><div class="form-group"><textarea class="form-control" name="content" placeholder="Please input your comment here" required></textarea></div><div class="form-group"><b class="username"></b> <button type="button" class="replyBtn btn btn-default btn-xs">submit</button></div></form></div></li>';
                         $("#comments").prepend(panel);
                         $("#comments-tit").ScrollTo(800);
                     }
@@ -99,6 +99,7 @@ $(function(){
     //异步提交回复
     $(document).on('click',".replyBtn",function(){
         var con=$(this).parent('.replyForm').find("[name='content']").val();
+        alert(con);
         if(con==""){
             alert("请先填写回复内容！");
             $(this).parent('.replyForm').find("[name='content']").focus();
