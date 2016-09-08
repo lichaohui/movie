@@ -49,6 +49,8 @@ module.exports=function(app){
     app.get('/comment/more',comment.viewMore);
     //发表评论的路由
     app.post('/comment/store',comment.store);
+    //删除评论及该条评论下所有回复的路由
+    app.delete('/comment/:id',comment.delete);
     
     //获取某个评论下所有回复的路由
     app.get('/reply/index',reply.index);

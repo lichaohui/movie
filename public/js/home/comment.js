@@ -69,4 +69,15 @@ $(function(){
             }
         }           
     });
+    
+    //删除评论及评论下的所有回复
+    $(".del").click(function(){
+        if(confirm('确定要删除该条评论及评论下的所有回复吗？')){
+            var id=$(this).attr('data-cid');
+            $.delete('/comment/'+id,function(data,status){
+                alert(data.message);
+                setTimeout(function(){location.reload;},1500);
+            });
+        }
+    });
 })
