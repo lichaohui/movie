@@ -79,7 +79,7 @@ $(function(){
                 type:'delete',
                 success:function(data,status){
                     alert(data.message);
-                    setTimeout(function(){location.reload;},1500);
+                    location.reload();
                 }
             })
         }

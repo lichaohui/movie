@@ -4,6 +4,7 @@
  */
 //引入model模型
 var comment=require('../../models/comment');
+var reply=require('../../models/reply');
 
 //加载某个电影下更多评论的方法
 exports.viewMore=function(req,res){
@@ -58,7 +59,10 @@ exports.delete=function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.json({'message':'删除成功!'});
+            reply.findByComment(id,function(err,data){
+                
+                res.json({'message':'删除成功!'});
+            });
         }
     });
 }
