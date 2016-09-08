@@ -50,3 +50,15 @@ exports.index=function(req,res){
         res.render('home/user/comment',{'title':'我的评论','comments':data});
     });
 };
+
+//删除某条评论及评论下所有回复的方法
+exports.delete=function(req,res){
+    var cid=req.params.id;
+    comment.findByIdAndRemove(id,function(err,data){
+        if(err){
+            console.log(err);
+        }else{
+            res.json({'message:删除成功!'});
+        }
+    });
+}
