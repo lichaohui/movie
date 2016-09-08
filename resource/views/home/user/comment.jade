@@ -9,8 +9,8 @@ include ./common
   ul(class='list-group')
     each comment in comments
       li(class='list-group-item')
-        button(class='viewreply btn btn-default btn-xs pull-right' data-toggle="modal" data-target="#myModal" title='点击查看所有回复' data-cid='#{comment._id}') #{comment.totalReply}
         button(type='button' class='del btn btn-danger btn-xs pull-right' data-cid='#{comment._id}' title='删除该条记录') x
+        button(class='viewreply btn btn-default btn-xs pull-right' data-toggle="modal" data-target="#myModal" title='点击查看所有回复' data-cid='#{comment._id}') #{comment.totalReply}
         a(class="list-group-item-heading" href='http://192.168.44.128:3000#{comment.url}' target='_blank') #{comment.pageTitle}
         p(class="list-group-item-text") #{comment.content}
 div(class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby="myModalLabel")
