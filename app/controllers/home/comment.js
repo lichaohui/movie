@@ -59,8 +59,7 @@ exports.delete=function(req,res){
         if(err){
             console.log(err);
         }else{
-            reply.findByComment(id,function(err,data){
-                
+            reply.remove({'toWhichComment':id},function(err,data){
                 res.json({'message':'删除成功!'});
             });
         }
