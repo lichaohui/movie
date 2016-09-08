@@ -58,7 +58,7 @@ exports.delete=function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.json({'message:删除成功!'});
+            res.json({'message':'删除成功!'});
         }
     });
 }
