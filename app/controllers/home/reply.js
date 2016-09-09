@@ -27,7 +27,7 @@ exports.viewMore=function(req,res){
         if(err){
             res.json({'isError':true,'message':'加载失败，请稍后再试！'});
         }else{
-            res.json({'isError':false,'message':'加载成功！','replies'：data});
+            res.json({'isError':false,'message':'load success!','replies':data});
         }
     });
 };
