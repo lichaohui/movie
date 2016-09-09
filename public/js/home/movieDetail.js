@@ -175,7 +175,7 @@ $(function(){
     //加载某条评论下更多回复的方法
     $('#morereply').click(function(){
         var cid=$(this).attr('data-cid');
-        var from=$("#replies-list li").length;
+        var from=$("#replies-list .list-group-item").length;
         $.get('/reply/more',{'cid':cid,'from':from,'limit':3},function(data,status){
             if(data.isError){
                 alert(data.message);
@@ -201,5 +201,11 @@ $(function(){
                 }
             }
         });
+    });
+    
+    //收起回复
+    $("#hiddenreply").click(function(){
+        $("#replies-list .list-group-item:gt(2)").remove();
+        $(this).addClass('hidden');
     });
 })
