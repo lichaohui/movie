@@ -176,6 +176,7 @@ $(function(){
     $('#morereply').click(function(){
         var cid=$(this).attr('data-cid');
         var from=$("#replies-list li").length;
+        alert(from);
         $.get('/reply/more',{'cid':cid,'from':from,'limit':3},function(data,status){
             if(data.isError){
                 alert(data.message);
