@@ -133,6 +133,8 @@ $(function(){
 
     //异步加载某条评论下的回复
     $(document).on('click',".viewreply",function(){
+        $("#hiddenreply").addClass("hidden");
+        $("#morereply").attr('disabled',false);
         $("#totalReply").attr('id','');
         $(this).attr('id','totalReply');
         var cid=$(this).attr('data-cid');
