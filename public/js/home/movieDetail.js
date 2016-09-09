@@ -131,11 +131,12 @@ $(function(){
         }           
     });
 
-    //异步加载某条评论下的所有回复
+    //异步加载某条评论下的回复
     $(document).on('click',".viewreply",function(){
         $("#totalReply").attr('id','');
         $(this).attr('id','totalReply');
         var cid=$(this).attr('data-cid');
+        $("#morereply").attr('data-cid',cid);
         var name=$(this).attr('data-name');
         var con=$(this).attr('data-con');
         var time=$(this).attr('data-time');
@@ -169,5 +170,11 @@ $(function(){
                 }
             }
         });
+    });
+    
+    //加载某条评论下更多回复的方法
+    $('#morereply').click(function(){
+        var cid=$(this).attr('data-cid');
+        $.get('/')
     });
 })

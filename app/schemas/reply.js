@@ -31,15 +31,19 @@ var replySchema=new mongoose.Schema({
  */
 replySchema.statics={    
     /*
-     * 获取某个评论下所有回复的方法
+     * 获取某个评论下前三条回复的方法
      */
     findByComment:function(commentId,callback){
         return this.find({toWhichComment:commentId}).sort({'meta.created_at':-1}).populate('from','name').populate('toWho','name').limit(3).exec(callback);
     },
     
+    //查看当前评论下更多回复的方法
+    findMoreByComment:function(comment,from,limit,callback){
+        return this.find({toWhichComment:comment}).skip(from).sort({'meta.created_at':-1}).limit(limit).populate('from','name').exec(callback);
+    },
     
     /*
-     * 获取某个用户所有回复的方法
+     * 获取某个用户前三条回复的方法
      */
     findByUser:function(userId,callback){
         return this.find({from:userId}).sort({'meta.created_at':-1}).exec(callback);
