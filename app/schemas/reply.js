@@ -39,7 +39,7 @@ replySchema.statics={
     
     //查看当前评论下更多回复的方法
     findMoreByComment:function(comment,from,limit,callback){
-        return this.find({toWhichComment:comment}).skip(from).sort({'meta.created_at':-1}).limit(limit).populate('from','name').exec(callback);
+        return this.find({toWhichComment:comment}).skip(from).sort({'meta.created_at':-1}).limit(limit).populate('from','name').populate('toWho','name').exec(callback);
     },
     
     /*
