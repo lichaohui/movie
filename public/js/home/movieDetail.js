@@ -197,6 +197,7 @@ $(function(){
                             $("#replies-list").append(li);
                         }
                     }
+                    $("#hiddenreply").removeClass('hidden');
                 }
             }
         });
