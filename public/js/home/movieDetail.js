@@ -175,7 +175,7 @@ $(function(){
     //加载某条评论下更多回复的方法
     $('#morereply').click(function(){
         var cid=$(this).attr('data-cid');
-        var from=$("#replies-list li").lenth;
+        var from=$("#replies-list li").length;
         $.get('/reply/more',{'cid':cid,'from':from,'limit':3},function(data,status){
             if(data.isError){
                 alert(data.message);
