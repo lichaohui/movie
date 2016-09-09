@@ -52,8 +52,10 @@ module.exports=function(app){
     //删除评论及该条评论下所有回复的路由
     app.delete('/comment/:id',comment.delete);
     
-    //获取某个评论下所有回复的路由
+    //获取某个评论下回复的路由
     app.get('/reply/index',reply.index);
+    //获取某个评论下更多回复的路由
+    app.get('/reply/more',reply.viewMore);
     //提交回复的路由
     app.post('/reply/store',reply.store);
 }

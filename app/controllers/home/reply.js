@@ -6,7 +6,7 @@
 var reply=require('../../models/reply');
 var comment=require('../../models/comment');
 
-//获取某个评论下所有回复的方法
+//获取某个评论下回复的方法
 exports.index=function(req,res){
     var cid=req.query.cid;
     reply.findByComment(cid,function(err,data){
@@ -16,7 +16,21 @@ exports.index=function(req,res){
             res.json({'isError':false,'message':'load success!','replies':data});
         }
     });
-}
+};
+
+//加载某个评论下更多回复的方法
+exports.viewMore=function(req,res){
+    var cid=req.query.cid;
+    var from=req.query.from;
+    var limit=req.query.limit;
+    comment.findMoreByComment(cid,from,limit,function(err,data){
+        if(err){
+            res.json({'isError':true,'message':'加载失败，请稍后再试！'});
+        }else{
+            res.send(data);
+        }
+    });
+};
 
 //保存回复的方法
 exports.store=function(req,res){
