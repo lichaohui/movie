@@ -23,7 +23,7 @@ exports.viewMore=function(req,res){
     var cid=req.query.cid;
     var from=req.query.from;
     var limit=req.query.limit;
-    comment.findMoreByComment(cid,from,limit,function(err,data){
+    reply.findMoreByComment(cid,from,limit,function(err,data){
         if(err){
             res.json({'isError':true,'message':'加载失败，请稍后再试！'});
         }else{
