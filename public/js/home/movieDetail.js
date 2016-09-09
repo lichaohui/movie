@@ -207,5 +207,6 @@ $(function(){
     $("#hiddenreply").click(function(){
         $("#replies-list .list-group-item:gt(2)").remove();
         $(this).addClass('hidden');
+        $("#morereply").attr("disabled",false);
     });
 })
