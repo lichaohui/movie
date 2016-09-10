@@ -27,6 +27,7 @@ exports.store=function(req,res){
     var postsecondcate=req.body;
     var newsecondcate=new secondcate({
         'name':postsecondcate.name,
+        'parentcate':postsecondcate.parentcate
     });
     //调用save方法保存数据并在回调函数中重定向页面
     newsecondcate.save(function(err,data){
