@@ -3,12 +3,14 @@ $(function(){
     $(".edit").click(function(){
         //通过id获取特定的那条数据
         var id=$(this).attr('data-id');
-        $("#form").attr("action","/admin/firstcate/update/"+id);
-        $.get('/admin/firstcate/edit/'+id,function(data,status){
+        $("#form").attr("action","/admin/secondcate/update/"+id);
+        $.get('/admin/secondcate/edit/'+id,function(data,status){
             $("#id").val(data._id);
             $("#name").val(data.name);
+            $("#parentcate").val(data.parentcate);
         });
     });
+    
     /*----点击提交按钮时候通过jquery.form.js插件异步提交表单----*/
     $("#sub").click(function(){
         var url=$("#form").attr('action');
@@ -27,7 +29,7 @@ $(function(){
         if(confirm('Are your sure remove it?')){
             var id=$(this).attr('data-id');
             $.ajax({
-                url: '/admin/firstcate/delete/'+id,
+                url: '/admin/secondcate/delete/'+id,
                 type:'DELETE',
                 success:function(result){
                     alert(result.message);
