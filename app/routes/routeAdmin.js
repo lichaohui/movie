@@ -93,7 +93,7 @@ module.exports=function(app){
     //执行删除视频操作的路由
     app.delete('/admin/video/delete/:id',video.delete);    
     
-    //展示一级分类列表的路由
+    //展示一级分类列表的路由 
     app.get('/admin/firstcate',firstcate.index);
     //展示添加一级分类页面的路由
     app.get('/admin/firstcate/create',firstcate.create);
