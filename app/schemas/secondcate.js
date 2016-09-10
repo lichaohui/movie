@@ -33,7 +33,7 @@ var secondcateSchema=new mongoose.Schema({
  * 如果数据不是新添加的是新修改的，
  * 则只更新updated_at为当前时间
  */
-secondCateSchema.pre('save',function(next){
+secondcateSchema.pre('save',function(next){
     /*
      * 可以通过isNew判断当前数据是否为新的
      * 如果是新的则返回true,
