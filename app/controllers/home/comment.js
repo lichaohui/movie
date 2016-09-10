@@ -14,6 +14,7 @@ exports.viewMore=function(req,res){
     var url=req.query.url;
     var uid=req.query.uid;
     if(uid==""){
+        console.log('这是获取的url的');
         comment.findMoreByUrl(url,from,limit,function(err,data){
             if(err){
                 res.json({'isError':true,'message':'加载失败，请稍后再试！'});
@@ -22,6 +23,7 @@ exports.viewMore=function(req,res){
             }
         });
     }else{
+        console.log('这是获取的用户的');
         comment.findMoreByUser(uid,from,limit,function(err,data){
             if(err){
                 res.json({'isError':true,'message':'加载失败，请稍后再试！'});
