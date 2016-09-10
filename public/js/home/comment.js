@@ -1,7 +1,5 @@
 $(function(){
-    //在页面刚加载的时候就初始化 url input标识框的值为当前页面的url
     var uid=$("#userid").val();
-    
     /*----异步加载更多评论---*/
     $("#viewMore").click(function(){
         var n=$("#comments li").length;
@@ -14,21 +12,10 @@ $(function(){
             }else{
                 //显示出收起评论按钮
                 $("#hiddenall").removeClass('hidden');
-                //判断用户是否登录
-                var isLogin=$('#isLogin').val();
-                if(isLogin=='yes'){
-                    //用户登录状态下填充的内容
-                    for(var i=0;i<data.length;i++){
-                        panel='<li class="panel panel-default"><div class="panel-heading">'+data[i].from.name+'<time class="pull-right">'+data[i].meta.created_at+'</time></div><div class="panel-body">'+data[i].content+'</div><div class="panel-footer"><button type="button" class="reply btn btn-primary btn-xs">reply</button> <button type="button" class="viewreply btn btn-default btn-xs" data-toggle="modal" data-target="#replies" data-cid='+data[i]._id+' data-name='+data[i].from.name+' data-time='+data[i].meta.created_at+' data-con='+data[i].content+'>view replies '+data[i].totalReply+'</button><form action="/reply/store" method="post" role="form" class="replyForm hidden"><input type="hidden" name="from" value=""><input type="hidden" name="toWho" value='+data[i].from._id+'><input type="hidden" name="toWhichComment" value='+data[i]._id+'><div class="form-group"><textarea class="form-control" name="content" placeholder="Please input your comment here"></textarea></div><b class="username"></b> <button type="button" class="replyBtn btn btn-default btn-xs">submit</button></form></div></li>';
-                        $("#comments").append(panel);
-                    }
-                }else{
-                    //用户没有登录状态下填充的内容
-                    for(var i=0;i<data.length;i++){
-                        panel='<li class="panel panel-default"><div class="panel-heading">'+data[i].from.name+'<time class="pull-right">'+data[i].meta.created_at+'</time></div><div class="panel-body">'+data[i].content+'</div><div class="panel-footer"><button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-xs">login and reply</button> <button type="button" class="viewreply btn btn-default btn-xs" data-toggle="modal" data-target="#replies" data-cid='+data[i]._id+' data-name='+data[i].from.name+' data-time='+data[i].meta.created_at+' data-con='+data[i].content+'>view replies '+data[i].totalReply+'</button></div></li>';
-                        $("#comments").append(panel);
-                    }
-                }    
+                for(var i=0;i<data.length;i++){
+                    panel='<li class="list-group-item"><button type="button" data-cid='+data[i]._id+' title="删除该条记录" class="del btn btn-danger btn-xs pull-right">x</button><button data-toggle="modal" data-target="#myModal" title="点击查看所有回复" data-cid='+data[i]._id+' class="viewreply btn btn-default btn-xs pull-right">'+data[i].totalReply+'</button><a href="http://192.168.44.128:3000'+data[i].url+'" target="_blank" class="list-group-item-heading">'+data[i].pageTitle+'</a><p class="list-group-item-text">'+data[i].content+'</p></li>';
+                    $("#comments").append(panel);
+                }
             }
         })
     });
