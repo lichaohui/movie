@@ -66,6 +66,19 @@ secondcateSchema.statics={
     fetch:function(callback){
         return this.find({}).sort('meta.updated_at').populate('parentcate','name').exec(callback);
     },
+    
+    //查找同个一级分类下所有二级的分类
+    findByParent:function(pid,callback){
+        return this.find({parentcate:pid}).sort('meta.updated_at').exec(callback);
+    },
+    
+    /*
+     * 添加一个叫做findById的静态方法
+     * 该方法返回通过id查找出来的那条数据
+     */
+    findById:function(id,callback){
+        return this.findOne({_id:id}).exec(callback);
+    }
 };
 
 /*

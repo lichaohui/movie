@@ -109,6 +109,8 @@ module.exports=function(app){
     
     //展示二级分类列表的路由 
     app.get('/admin/secondcate',secondcate.index);
+    //获取同个一级分类下所有二级分类的路由
+    app.get('/admin/secondcate/query',secondcate.query);
     //展示添加二级分类页面的路由
     app.get('/admin/secondcate/create',secondcate.create);
     //执行添加二级分类操作的路由
