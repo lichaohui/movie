@@ -6,6 +6,7 @@ include ./common
     .list-group-item-text{margin-bottom:5px;}
     .del{margin-left:6px;}
   input(type='hidden' id='userid' value='#{user._id}')    
+  input(type='hidden' id='isLogin' value='yes')
   ul(class='list-group')
     each comment in comments
       li(class='list-group-item')
@@ -29,3 +30,4 @@ include ../../common/footer
 script(src='/js/common/jquery.form.js')
 script(src='/js/common/dateToString.js')
 script(src='/js/home/comment.js')
+script(src='/js/home/morereply.js')
