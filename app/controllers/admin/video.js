@@ -1,45 +1,45 @@
-/*----后台操作movie的控制器----*/
+/*----后台操作video的控制器----*/
 //引入model模型
-var movie=require('../../models/movie');
+var video=require('../../models/video');
 //引入underscore模块可以用来更新数据
 var underscore=require('underscore');
 
-//展示电影列表的方法
+//展示视频列表的方法
 exports.index=function(req,res){
-    //调用movie模型的fetch方法遍历数据传递给前台展示
-    movie.fetch(function(err,data){
+    //调用video模型的fetch方法遍历数据传递给前台展示
+    video.fetch(function(err,data){
         if(err){
             console.log(err);
         }else{
-            res.render('admin/movie/list',{'title':'movie','movies':data});
+            res.render('admin/video/list',{'title':'video','videos':data});
         }
     })
 };
 
-//展示添加电影页面的方法
+//展示添加视频页面的方法
 exports.create=function(req,res){
-    res.render('admin/movie/create',{'title':'movie'}); 
+    res.render('admin/video/create',{'title':'video'}); 
 };
 
-//实现添加电影操作的方法
+//实现添加视频操作的方法
 exports.store=function(req,res){
     //获取到表单传递过来的数据
-    var postmovie=req.body;
-    var newmovie=new movie({
-        'name':postmovie.name,
-        'director':postmovie.director,
-        'type':postmovie.type,
-        'src':postmovie.src,
-        'country':postmovie.country,
-        'playbill':postmovie.playbill,
-        'intro':postmovie.intro,
+    var postvideo=req.body;
+    var newvideo=new video({
+        'name':postvideo.name,
+        'director':postvideo.director,
+        'type':postvideo.type,
+        'src':postvideo.src,
+        'country':postvideo.country,
+        'playbill':postvideo.playbill,
+        'intro':postvideo.intro,
     });
     //调用save方法保存数据并在回调函数中重定向页面
-    newmovie.save(function(err,data){
+    newvideo.save(function(err,data){
         if(err){
             console.log(err);
         }else{
-            res.redirect('/admin/movie');
+            res.redirect('/admin/video');
         }; 
     });
 };
@@ -47,7 +47,7 @@ exports.store=function(req,res){
 //获取某条具体记录的方法
 exports.edit=function(req,res){
     var id=req.params.id;
-    movie.findById(id,function(err,data){
+    video.findById(id,function(err,data){
         if(err){
             console.log(err);
         }else{
@@ -61,9 +61,9 @@ exports.update=function(req,res){
     //拿到表单提交过来的要修改的数据的_id
     var id=req.body.id;
     //拿到表单提交过来的数据
-    var postmovie=req.body;
+    var postvideo=req.body;
     //通过findById获取到要修改的那条数据
-    movie.findById(id,function(err,data){
+    video.findById(id,function(err,data){
         if(err){
             console.log(err);
         }else{
@@ -73,9 +73,9 @@ exports.update=function(req,res){
              * 第一个参数是要被替换掉的旧的数据
              * 第二个参数是新的数据
              */
-            newmovie=underscore.extend(data,postmovie);
+            newvideo=underscore.extend(data,postvideo);
             //通过save方法保存数据并在回调函数中进行页面重定向
-            newmovie.save(function(err,data){
+            newvideo.save(function(err,data){
                 if(err){
                     console.log(err);
                 }else{
@@ -89,7 +89,7 @@ exports.update=function(req,res){
 //删除某条记录的方法
 exports.delete=function(req,res){
     var id=req.params.id;
-    movie.remove({_id:id},function(err,result){
+    video.remove({_id:id},function(err,result){
         if(err){
             console.log(err);
         }else{

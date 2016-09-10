@@ -1,7 +1,7 @@
 //引入Mogoose建模工具模块
 var mongoose=require('mongoose');
-//设计movie数据表结构
-var movieSchema=new mongoose.Schema({
+//设计video数据表结构
+var videoSchema=new mongoose.Schema({
     director:String,
     name:String,
     intro:String,
@@ -26,13 +26,13 @@ var movieSchema=new mongoose.Schema({
  * 有两个参数，
  * 第一个参数是要为哪个操作设置回调，
  * 第二个参数就是要设置的回调方法
- * 为movieSchema设置保存数据的方法，
+ * 为videoSchema设置保存数据的方法，
  * 当保存的数据是新添加的时候，
  * 更新created_at和updated_at都为当前时间，
  * 如果数据不是新添加的是新修改的，
  * 则只更新updated_at为当前时间
  */
-movieSchema.pre('save',function(next){
+videoSchema.pre('save',function(next){
     /*
      * 可以通过isNew判断当前数据是否为新的
      * 如果是新的则返回true,
@@ -49,12 +49,12 @@ movieSchema.pre('save',function(next){
 });
 
 /*
- * 为movieSchema添加一些自定义的静态方法
+ * 为videoSchema添加一些自定义的静态方法
  * scheme对象的静态方法都在其statics的属性中保存
  * 所以可以通过为schema对象的statics属性添加成员，
  * 来为对象添加静态方法
  */
-movieSchema.statics={
+videoSchema.statics={
     /*
      * 添加一个叫做fetch的静态方法
      * 该方法返回所有通过更新时间排序后的数据
@@ -76,7 +76,7 @@ movieSchema.statics={
 };
 
 /*
- * 通过module.exports将movieSchema对外公开，
- * 这样外部就可以访问到movieSchema
+ * 通过module.exports将videoSchema对外公开，
+ * 这样外部就可以访问到videoSchema
  */
-module.exports=movieSchema;
+module.exports=videoSchema;

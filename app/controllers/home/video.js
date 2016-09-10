@@ -1,34 +1,34 @@
 /*
- * 前台movie模块控制器
- * 该控制器定义了所有关于movie模块的方法
+ * 前台video模块控制器
+ * 该控制器定义了所有关于video模块的方法
  */
 //引入model模型
-var movie=require('../../models/movie');
+var video=require('../../models/video');
 //引用下comment控制器
 var comment=require('../../models/comment');
 
-//显示movie列表的方法
+//显示video列表的方法
 exports.index=function(req,res){
-    //调用movie模型的fetch方法遍历数据传递给前台展示
-    movie.fetch(function(err,data){
+    //调用video模型的fetch方法遍历数据传递给前台展示
+    video.fetch(function(err,data){
         if(err){
             console.log(err);
         }else{
-            res.render('home/movie/index',{'title':'movie','movies':data});
+            res.render('home/video/index',{'title':'video','videos':data});
         }
     });
 };
 
-//播放指定movie的方法
+//播放指定video的方法
 exports.show=function(req,res){
     //获取参数中的id
     var id=req.params.id;
     //获取当前页面的url地址(不包含协议和域名)
     var url=req.url;
     //通过id获取数据并将数据发送给前台视图
-    movie.findById(id,function(err,data){
+    video.findById(id,function(err,data){
         comment.findByUrl(url,function(err,comments){
-            res.render('home/movie/detail',{'title':data.name,'movie':data,'comments':comments});
+            res.render('home/video/detail',{'title':data.name,'video':data,'comments':comments});
         });
     });
 }

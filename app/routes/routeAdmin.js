@@ -1,5 +1,5 @@
 //引入后台控制器文件
-var movie=require('../controllers/admin/movie');
+var video=require('../controllers/admin/video');
 var user=require('../controllers/admin/user');
 var admin=require('../controllers/admin/admin');
 
@@ -54,7 +54,7 @@ module.exports=function(app){
      * 后台首页的路由，
      * 暂时先跳转到电影的列表页吧
      */
-    app.get('/admin',movie.index);
+    app.get('/admin',video.index);
     
     //显示管理员登录界面的路由
     app.get('/admin/login',admin.login);
@@ -80,15 +80,15 @@ module.exports=function(app){
     app.get('/admin/user',user.index);
 
     //后台电影列表页的路由
-    app.get('/admin/movie',movie.index);
+    app.get('/admin/video',video.index);
     //展示后台添加电影页面的路由
-    app.get('/admin/movie/create',movie.create);
+    app.get('/admin/video/create',video.create);
     //后台执行添加电影操作的路由
-    app.post('/admin/movie/store',movie.store);
+    app.post('/admin/video/store',video.store);
     //更新某个电影记录获取该记录的路由
-    app.get('/admin/movie/edit/:id',movie.edit);
+    app.get('/admin/video/edit/:id',video.edit);
     //执行更新电影操作的路由
-    app.put('/admin/movie/update/:id',movie.update);
+    app.put('/admin/video/update/:id',video.update);
     //执行删除电影操作的路由
-    app.delete('/admin/movie/delete/:id',movie.delete);    
+    app.delete('/admin/video/delete/:id',video.delete);    
 }

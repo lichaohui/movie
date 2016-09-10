@@ -3,8 +3,8 @@ $(function(){
     $(".edit").click(function(){
         //通过id获取特定的那条数据
         var id=$(this).attr('data-id');
-        $("#form").attr("action","/admin/movie/update/"+id);
-        $.get('/admin/movie/edit/'+id,function(data,status){
+        $("#form").attr("action","/admin/video/update/"+id);
+        $.get('/admin/video/edit/'+id,function(data,status){
             $("#id").val(data._id);
             $("#name").val(data.name);
             $("#director").val(data.director);
@@ -33,7 +33,7 @@ $(function(){
         if(confirm('Are your sure remove it?')){
             var id=$(this).attr('data-id');
             $.ajax({
-                url: '/admin/movie/delete/'+id,
+                url: '/admin/video/delete/'+id,
                 type:'DELETE',
                 success:function(result){
                     alert(result.message);

@@ -1,6 +1,6 @@
 //引入前台控制器文件
 var index=require('../controllers/home/index');
-var movie=require('../controllers/home/movie');
+var video=require('../controllers/home/video');
 var user=require('../controllers/home/user');
 var comment=require('../controllers/home/comment');
 var reply=require('../controllers/home/reply');
@@ -26,9 +26,9 @@ module.exports=function(app){
     app.get('/',index.index);
     
     //前台电影列表页路由
-    app.get('/movie',movie.index);
+    app.get('/video',video.index);
     //设置前台电影详情页路由
-    app.get('/movie/detail/:id',movie.show);
+    app.get('/video/detail/:id',video.show);
     
     //展示用户注册界面的路由
     app.get('/register',user.register);
