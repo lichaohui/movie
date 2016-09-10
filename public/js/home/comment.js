@@ -26,9 +26,9 @@ $(function(){
         $("#viewMore").attr('disabled',false);
         $(this).addClass('hidden');
     });
-    
+        
     //查看回复列表
-    $('.viewreply').click(function(){
+    $(document).on('click','.viewreply',function(){
         $("#totalReply").attr('id','');
         $(this).attr('id','totalReply');
         var cid=$(this).attr('data-cid');
