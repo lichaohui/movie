@@ -6,21 +6,21 @@ block content
     .list-group-item-text{margin-bottom:5px;}
   section(class='container')
     include ../common/nav
-    h2(class='text-center') #{movie.name}
-    video(src='#{movie.src}', controls='controls',width='100%')
+    h2(class='text-center') #{video.name}
+    video(src='#{video.src}', controls='controls',width='100%')
     dl(class='dl-horizontal')
       dt name:
-      dd #{movie.name} 
+      dd #{video.name} 
       dt director:
-      dd #{movie.director} 
+      dd #{video.director} 
       dt type:
-      dd #{movie.type}  
+      dd #{video.type}  
       dt country:
-      dd #{movie.country}
+      dd #{video.country}
       dt created_at:
-      dd #{moment(movie.meta.created_at).format('YYYY MM DD')}
+      dd #{moment(video.meta.created_at).format('YYYY MM DD')}
       dt intro:
-      dd #{movie.intro}
+      dd #{video.intro}
     h3(id='comments-tit') Comments  
     ul(id='comments' class='list-unstyled')
       each comment in comments
@@ -111,5 +111,5 @@ include ../../common/footer
 script(src='/js/common/jquery.form.js')
 script(src='/js/common/dateToString.js')
 script(src='/js/home/jquery.scrollto.js')
-script(src='/js/home/movieDetail.js')
+script(src='/js/home/videoDetail.js')
 script(src='/js/home/morereply.js')

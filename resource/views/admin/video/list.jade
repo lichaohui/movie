@@ -13,18 +13,18 @@ block content
         th created_at
         th playbill
         th operating
-      each movie in movies
+      each video in videos
         tr
-          td #{movie.name}
-          td #{movie.director}
-          td #{movie.country}
-          td #{movie.type}
-          td #{moment(movie.meta.created_at).format('YYYY MM DD')}
-          td: img(src='#{movie.playbill}' width='100')
+          td #{video.name}
+          td #{video.director}
+          td #{video.country}
+          td #{video.type}
+          td #{moment(video.meta.created_at).format('YYYY MM DD')}
+          td: img(src='#{video.playbill}' width='100')
           td
-            a(href='/movie/detail/#{movie._id}' target='_blank' class='btn btn-default btn-xs') view
-            button(type='button' class='edit btn btn-primary btn-xs' data-id='#{movie._id}' data-toggle="modal" data-target="#myModal") edit
-            button(type='button' class='del btn btn-danger btn-xs' data-id='#{movie._id}') delete
+            a(href='/video/detail/#{video._id}' target='_blank' class='btn btn-default btn-xs') view
+            button(type='button' class='edit btn btn-primary btn-xs' data-id='#{video._id}' data-toggle="modal" data-target="#myModal") edit
+            button(type='button' class='del btn btn-danger btn-xs' data-id='#{video._id}') delete
   div(class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby="myModalLabel")
     div(class="modal-dialog" role="document")
       div(class="modal-content")
