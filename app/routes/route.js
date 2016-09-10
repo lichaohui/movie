@@ -25,9 +25,9 @@ module.exports=function(app){
      */
     app.get('/',index.index);
     
-    //前台电影列表页路由
+    //前台视频列表页路由
     app.get('/video',video.index);
-    //设置前台电影详情页路由
+    //设置前台视频详情页路由
     app.get('/video/detail/:id',video.show);
     
     //展示用户注册界面的路由

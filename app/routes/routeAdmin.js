@@ -52,7 +52,7 @@ module.exports=function(app){
     /*----后台路由----*/
     /*
      * 后台首页的路由，
-     * 暂时先跳转到电影的列表页吧
+     * 暂时先跳转到视频的列表页吧
      */
     app.get('/admin',video.index);
     
@@ -79,16 +79,29 @@ module.exports=function(app){
     //后台展示用户列表的路由
     app.get('/admin/user',user.index);
 
-    //后台电影列表页的路由
+    //后台视频列表页的路由
     app.get('/admin/video',video.index);
-    //展示后台添加电影页面的路由
+    //展示后台添加视频页面的路由
     app.get('/admin/video/create',video.create);
-    //后台执行添加电影操作的路由
+    //后台执行添加视频操作的路由
     app.post('/admin/video/store',video.store);
-    //更新某个电影记录获取该记录的路由
+    //更新某个视频记录获取该记录的路由
     app.get('/admin/video/edit/:id',video.edit);
-    //执行更新电影操作的路由
+    //执行更新视频操作的路由
     app.put('/admin/video/update/:id',video.update);
-    //执行删除电影操作的路由
+    //执行删除视频操作的路由
     app.delete('/admin/video/delete/:id',video.delete);    
-}
+    
+    //展示一级分类列表的路由
+    app.get('/admin/firstcate',firstcate.index);
+    //展示添加一级分类页面的路由
+    app.get('/admin/firstcate/create',firstcate.create);
+    //执行添加一级分类操作的路由
+    app.post('/admin/firstcate/store',firstcate.store);
+    //更新某个一级分类获取该记录的路由
+    app.get('/admin/firstcate/edit/:id',firstcate.edit);
+    //执行更新一级分类操作的路由
+    app.put('/admin/firstcate/update/:id',firstcate.update);
+    //执行删除一级分类操作的路由
+    app.delete('/admin/firstcate/delete/:id',firstcate.delete);  
+};

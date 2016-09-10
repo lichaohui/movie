@@ -9,28 +9,41 @@ nav(class='navbar navbar-default container')
   div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")
     ul(class='nav navbar-nav')
       li(role='presentation' id='page-video' class="dropdown")
-        a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") Video
+        a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") 视频管理
           span(class="caret")
         ul(class="dropdown-menu")  
           li
-            a(href='/admin/video/') List
+            a(href='/admin/video/') 视频列表
           li
-            a(href='/admin/video/create') Create
+            a(href='/admin/video/create') 添加视频
       li(role='presentation' id='page-user' class="dropdown")
-        a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") User
+        a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") 用户管理
           span(class="caret")
         ul(class="dropdown-menu")  
           li
-            a(href='/admin/user/') List 
+            a(href='/admin/user/') 用户列表 
       if(admin.name=='admin')      
         li(role='presentation' id='page-admin' class="dropdown")
-          a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")  Admin
+          a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") 管理员管理
             span(class="caret")
           ul(class="dropdown-menu")  
             li
-              a(href='/admin/admin') List    
+              a(href='/admin/admin') 管理员列表    
             li
-              a(href='/admin/admin/create') Create
+              a(href='/admin/admin/create') 添加管理员
+      li(role='presentation' id='page-user' class="dropdown")
+        a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") 分类管理
+          span(class="caret")
+        ul(class="dropdown-menu")  
+          li
+            a(href='/admin/firstcate') 一级分类列表
+          li 
+            a(href='/admin/firstcate/create') 添加一级分类
+          li(class="divider")
+          li
+            a(href='/admin/secondcate') 二级分类列表
+          li
+            a(href='/admin/secondcata/create') 添加二级分类
     ul(class='nav navbar-nav navbar-right')
       li(class="dropdown")
         a(href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") #{admin.name} 
