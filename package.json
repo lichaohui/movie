@@ -9,6 +9,7 @@
   "author": "lichaohui",
   "license": "ISC",
   "dependencies": {
+    "ali-oss": "^4.4.4",
     "bcrypt": "^0.8.7",
     "body-parser": "^1.15.2",
     "connect-mongo": "^1.3.2",
