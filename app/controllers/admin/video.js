@@ -27,10 +27,10 @@ exports.store=function(req,res){
     var postvideo=req.body;
     var newvideo=new video({
         'name':postvideo.name,
-        'director':postvideo.director,
-        'type':postvideo.type,
+        'author':postvideo.author,
+        'firstcate':postvideo.firstcate,
+        'secondcate':postvideo.secondcate,
         'src':postvideo.src,
-        'country':postvideo.country,
         'playbill':postvideo.playbill,
         'intro':postvideo.intro,
     });
