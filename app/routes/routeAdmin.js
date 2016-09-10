@@ -3,6 +3,7 @@ var video=require('../controllers/admin/video');
 var user=require('../controllers/admin/user');
 var admin=require('../controllers/admin/admin');
 var firstcate=require('../controllers/admin/firstcate');
+var secondcate=require('../controllers/admin/secondcate');
 
 module.exports=function(app){
     /*
@@ -105,4 +106,17 @@ module.exports=function(app){
     app.put('/admin/firstcate/update/:id',firstcate.update);
     //执行删除一级分类操作的路由
     app.delete('/admin/firstcate/delete/:id',firstcate.delete);  
+    
+    //展示二级分类列表的路由 
+    app.get('/admin/secondcate',secondcate.index);
+    //展示添加二级分类页面的路由
+    app.get('/admin/secondcate/create',secondcate.create);
+    //执行添加二级分类操作的路由
+    app.post('/admin/secondcate/store',secondcate.store);
+    //更新某个二级分类获取该记录的路由
+    app.get('/admin/secondcate/edit/:id',secondcate.edit);
+    //执行更新二级分类操作的路由
+    app.put('/admin/secondcate/update/:id',secondcate.update);
+    //执行删除二级分类操作的路由
+    app.delete('/admin/secondcate/delete/:id',secondcate.delete);  
 };
