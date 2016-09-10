@@ -4,7 +4,7 @@ var secondcate=require('../../models/secondcate');
 //引入underscore模块可以用来更新数据
 var underscore=require('underscore');
 
-//展示一级分类列表的方法
+//展示二级分类列表的方法
 exports.index=function(req,res){
     //调用secondcate模型的fetch方法遍历数据传递给前台展示
     secondcate.fetch(function(err,data){
@@ -16,12 +16,12 @@ exports.index=function(req,res){
     })
 };
 
-//展示添加一级分类页面的方法
+//展示添加二级分类页面的方法
 exports.create=function(req,res){
     res.render('admin/secondcate/create',{'title':'secondcate'}); 
 };
 
-//实现添加一级分类操作的方法
+//实现添加二级分类操作的方法
 exports.store=function(req,res){
     //获取到表单传递过来的数据
     var postsecondcate=req.body;
