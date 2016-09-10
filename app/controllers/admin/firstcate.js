@@ -11,7 +11,11 @@ exports.index=function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.render('admin/firstcate/index',{'title':'firstcate','firstcates':data});
+            if(req.query.isAjax){
+                res.send(data);
+            }else{
+                res.render('admin/firstcate/index',{'title':'firstcate','firstcates':data});
+            }
         }
     })
 };
