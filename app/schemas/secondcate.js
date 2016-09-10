@@ -64,7 +64,7 @@ secondcateSchema.statics={
      * 该参数就是方法的回调函数
      */
     fetch:function(callback){
-        return this.find({}).sort('meta.updated_at').exec(callback);
+        return this.find({}).sort('meta.updated_at').populate('parentcate','name').exec(callback);
     },
 };
 

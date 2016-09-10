@@ -13,7 +13,7 @@ block content
       each secondcate in secondcates
         tr
           td #{secondcate.name}
-          td #{secondcate.parentcate}
+          td #{secondcate.parentcate.name}
           td #{moment(secondcate.meta.created_at).format('YYYY MM DD')}
           td
             button(type='button' class='edit btn btn-primary btn-xs' data-id='#{secondcate._id}' data-toggle="modal" data-target="#myModal") edit
