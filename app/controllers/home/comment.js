@@ -13,7 +13,7 @@ exports.viewMore=function(req,res){
     var limit=req.query.limit;
     var url=req.query.url;
     var uid=req.query.uid;
-    if(uid==""){
+    if(uid==null){
         console.log('这是获取的url的');
         comment.findMoreByUrl(url,from,limit,function(err,data){
             if(err){
