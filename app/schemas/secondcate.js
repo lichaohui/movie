@@ -9,7 +9,7 @@ var secondcateSchema=new mongoose.Schema({
         unique:true,
         type:String
     },
-    parentcate:{type:_id,ref:'firstcate'},
+    parentcate:{type:_id,ref:'firstcates'},
     meta:{
         created_at:{
             type:Date,
