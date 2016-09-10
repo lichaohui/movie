@@ -7,18 +7,16 @@ block content
     table(class='table table-bordered table-hover text-center')
       tr
         th name
-        th director
-        th country
-        th type
+        th author
+        th category
         th created_at
         th playbill
         th operating
       each video in videos
         tr
           td #{video.name}
-          td #{video.director}
-          td #{video.country}
-          td #{video.type}
+          td #{video.author}
+          td #{video.firstcate.name} - #{video.secondcate.name}
           td #{moment(video.meta.created_at).format('YYYY MM DD')}
           td: img(src='#{video.playbill}' width='100')
           td
@@ -36,31 +34,29 @@ block content
           form(class='form-horizontal' action='' id='form')
             input(type='hidden',name='id',id='id')
             div(class='form-group')
-              label(class='col-sm-2 control-label' for='name') name
+              label(class='col-sm-2 control-label' for='name') 名称
               div(class='col-sm-10')
                 input(type='text' class='form-control' id='name' placeholder='name' name='name')
             div(class='form-group')
-              label(class='col-sm-2 control-label' for='director') director
+              label(class='col-sm-2 control-label' for='author') 作者
               div(class='col-sm-10')
-                input(type='text' class='form-control' id='director' placeholder='director' name='director')
+                input(type='text' class='form-control' id='author' placeholder='author' name='author')
             div(class='form-group')
-              label(class='col-sm-2 control-label' for='country') country
+              label(class='col-sm-2 control-label' for='firstcate') 一级分类
               div(class='col-sm-10')
-                input(type='text' class='form-control' id='country' placeholder='country' name='country')
             div(class='form-group')
-              label(class='col-sm-2 control-label' for='type') type
-              div(class='col-sm-10')
-                input(type='text' class='form-control' id='type' placeholder='type' name='type')
+              label(class='col-sm-2 control-label' for='secondcate') 二级分类
+              div(class='col-sm-10')  
             div(class='form-group')
-              label(class='col-sm-2 control-label' for='playbill') playbill
+              label(class='col-sm-2 control-label' for='playbill') 海报
               div(class='col-sm-10')
                 input(type='text' class='form-control' id='playbill' placeholder='playbill' name='playbill')
             div(class='form-group')
-              label(class='col-sm-2 control-label' for='src') src
+              label(class='col-sm-2 control-label' for='src') 视频地址
               div(class='col-sm-10')
                 input(type='text' class='form-control' id='src' placeholder='src' name='src')
             div(class='form-group')
-              label(class='col-sm-2 control-label' for='intro') intro
+              label(class='col-sm-2 control-label' for='intro') 介绍
               div(class='col-sm-10')
                 textarea(class='form-control' id='intro' name='intro' placeholder='intro')
             div(class='form-group')

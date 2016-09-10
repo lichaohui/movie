@@ -1,13 +1,16 @@
 //引入Mogoose建模工具模块
 var mongoose=require('mongoose');
+
+var _id=mongoose.Schema.Types.ObjectId;
+
 //设计video数据表结构
 var videoSchema=new mongoose.Schema({
-    director:String,
+    author:String,
     name:String,
     intro:String,
-    country:String,
     playbill:String,
-    type:String,
+    firstcate:{type:_id,ref:'firstcates'},
+    secondcate:{type:_id,ref:'secondcates'},
     src:String,
     meta:{
         created_at:{
