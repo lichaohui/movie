@@ -4,6 +4,7 @@ $(function(){
         $("#totalReply").attr('id','');
         $(this).attr('id','totalReply');
         var cid=$(this).attr('data-cid');
+        $("#morereply").attr('data-cid',cid);
         $("#replies-list").empty();
         $.get('/reply/index',{"cid":cid},function(data,status){
             if(data.isError){
