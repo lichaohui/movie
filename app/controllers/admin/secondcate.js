@@ -21,7 +21,7 @@ exports.query=function(req,res){
     var pid=req.query.pid;
     secondcate.findByParent(pid,function(err,data){
         if(err){
-            res.json({'isError':true,'message':'加载出错，请稍后再试！'});
+            res.json({'message':'加载出错，请稍后再试！'});
         }else{
             res.send(data);
         }
