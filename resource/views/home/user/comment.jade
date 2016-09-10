@@ -7,7 +7,7 @@ include ./common
     .del{margin-left:6px;}
   input(type='hidden' id='userid' value='#{user._id}')    
   input(type='hidden' id='isLogin' value='yes')
-  ul(class='list-group')
+  ul(class='list-group' id='comments')
     each comment in comments
       li(class='list-group-item')
         button(type='button' class='del btn btn-danger btn-xs pull-right' data-cid='#{comment._id}' title='删除该条记录') x

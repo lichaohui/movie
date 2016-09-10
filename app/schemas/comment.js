@@ -31,19 +31,23 @@ var commentSchema=new mongoose.Schema({
  */
 commentSchema.statics={    
     /*
-     * 初始化页面的时候获取当前电影下最新的三条评论的方法
+     * 初始化页面的时候获取当前url下最新的三条评论的方法
      */
     findByUrl:function(url,callback){
         return this.find({url:url}).sort({'meta.created_at':-1}).limit(3).populate('from','name').exec(callback);
     },
-    //查看当前电影下更多评论的方法
+    //查看当前url下更多评论的方法
     findMoreByUrl:function(url,from,limit,callback){
         return this.find({url:url}).skip(from).sort({'meta.created_at':-1}).limit(limit).populate('from','name').exec(callback);
     },
     
-    //获取某个用户所有评论的方法
+    //获取某个用户评论的方法
     findByUser:function(userId,callback){
         return this.find({from:userId}).sort({'meta.created_at':-1}).limit(3).populate('movie','name').exec(callback);
+    },
+    //加载某个用户更多评论的方法
+    findMoreByUser:function(uid,from,limit,callback){
+        return this.find({from:uid}).skip(from).sort({'meta.created_at':-1}).limit(limit).populate('from','name').exec(callback);
     },
     
     /*

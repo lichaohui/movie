@@ -6,21 +6,32 @@
 var comment=require('../../models/comment');
 var reply=require('../../models/reply');
 
-//加载某个电影下更多评论的方法
+//加载某个url下更多评论的方法
 exports.viewMore=function(req,res){
     //获取参数中的值
-    var url=req.query.url;
     var from=req.query.from;
     var limit=req.query.limit;
-    comment.findMoreByUrl(url,from,limit,function(err,data){
-        if(err){
-            res.json({'isError':true,'message':'加载失败，请稍后再试！'});
-        }else{
-            res.send(data);
-        }
-    });
-},
-
+    var url=req.query.url;
+    var uid=req.query.uid;
+    if(uid==""){
+        comment.findMoreByUrl(url,from,limit,function(err,data){
+            if(err){
+                res.json({'isError':true,'message':'加载失败，请稍后再试！'});
+            }else{
+                res.send(data);
+            }
+        });
+    }else{
+        comment.findMoreByUser(uid,from,limit,function(err,data){
+            if(err){
+                res.json({'isError':true,'message':'加载失败，请稍后再试！'});
+            }else{
+                res.send(data);
+            }
+        });
+    }
+},  
+    
 //保存评论的方法
 exports.store=function(req,res){
     //获取到表单传递过来的数据
