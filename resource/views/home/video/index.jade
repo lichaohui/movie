@@ -3,12 +3,12 @@ block content
   section(class='container')
     include ../common/nav
     ul(class='row')
-      each movie in movies
+      each video in videos
         li(class='media list-unstyled')
           div(class='media-left')
-            a(href='/movie/detail/#{movie.id}',target='_blank')
-              img(class='media-object',src='#{movie.playbill}',alt='#{movie.name}',width='64',height='64')
+            a(href='/video/detail/#{video.id}',target='_blank')
+              img(class='media-object',src='#{video.playbill}',alt='#{video.name}',width='64',height='64')
           div(class='media-boty media-right')
-            h4(class='media-heading') #{movie.name}
-            p #{movie.intro}
+            h4(class='media-heading') #{video.name}
+            p #{video.intro}
 include ../../common/footer          
