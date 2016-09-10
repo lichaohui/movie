@@ -7,11 +7,13 @@ block content
     table(class='table table-bordered table-hover text-center')
       tr
         th name
+        th parentcate
         th created_at
         th operating
       each secondcate in secondcates
         tr
           td #{secondcate.name}
+          td #{secondcate.parentcate}
           td #{moment(secondcate.meta.created_at).format('YYYY MM DD')}
           td
             button(type='button' class='edit btn btn-primary btn-xs' data-id='#{secondcate._id}' data-toggle="modal" data-target="#myModal") edit
