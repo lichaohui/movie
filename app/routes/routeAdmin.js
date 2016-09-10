@@ -2,6 +2,7 @@
 var video=require('../controllers/admin/video');
 var user=require('../controllers/admin/user');
 var admin=require('../controllers/admin/admin');
+var firstcate=require('../controllers/admin/firstcate');
 
 module.exports=function(app){
     /*
