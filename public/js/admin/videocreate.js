@@ -38,13 +38,14 @@ $(function(){
         var uploadName='video/'+new Date().getTime()+'.'+format;
         //上传文件
         client.multipartUpload(uploadName, file).then(function (result) {
-            if(result.url){
-                $("#thumb").attr('src',result.url);
-            }else{
-                $("#thumb").attr('src','http://'+client.options.bucket+'.'+client.options.region+'.'+'aliyuncs.com/'+result.name);
-            }
-            console.log(result);
-            
+            /*
+             * 上传大文件的时候阿里会使用分片上传，
+             * 不会返回url，
+             * 所以为了照顾到大文件上传只能用这种拼接的方式来存储url了
+             */
+            var url='http://'+client.options.bucket+'.'+client.options.region+'.'+'aliyuncs.com/'+result.name;
+            $("#thumb").attr('src',url);
+            $("input[name='playbill']").val(url);
         }).catch(function (err) {
             console.log(err);
         });
