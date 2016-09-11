@@ -35,22 +35,13 @@ $(function(){
     }
     
     $("#playbill").change(function(e){
-        console.log(e);
-        /*var file=$(this).val();
-        console.log(file);
-        var fileName = getFileName(file);
-        alert(fileName);*/
-    });
-    
-    /*document.getElementById('playbill').addEventListener('change', function (e) {
+        //获取上传的文件对象
         var file = e.target.files[0];
-        console.log(file);
-        var storeAs = 'foo.jpg';
-        console.log(file.name + ' => ' + storeAs);
-        client.multipartUpload(storeAs, file).then(function (result) {
+        var fileName=e.target.files[0].name;
+        client.multipartUpload(fileName, file).then(function (result) {
             console.log(result);
         }).catch(function (err) {
             console.log(err);
         });
-    });*/
+    });
 })
