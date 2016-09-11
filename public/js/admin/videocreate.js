@@ -20,7 +20,7 @@ $(function(){
         }
     });
     
-    function uploadFileToAlioss(){
+    function uploadFileToAlioss(e){
         //获取上传的文件对象
         var file = e.target.files[0];
         //获取上传文件的名称
@@ -55,6 +55,6 @@ $(function(){
     });
     
     $("#playbill").change(function(e){
-        uploadFileToAlioss();
+        uploadFileToAlioss(e);
     });
 })
