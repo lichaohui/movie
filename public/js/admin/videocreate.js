@@ -31,8 +31,11 @@ $(function(){
         var fileName=e.target.files[0].name;
         //获取上传文件的格式
         var format=fileName.split('.')[1];
-        //设置上传文件保存到阿里oss的名称为时间戳加后缀名
-        var uploadName=new Date().getTime()+'.'+format;
+        /*
+         * 设置上传文件保存到阿里oss的名称为时间戳加后缀名
+         * video是阿里oss中的一个自建的文件夹
+         */
+        var uploadName='video/'+new Date().getTime()+'.'+format;
         //上传文件
         client.multipartUpload(uploadName, file).then(function (result) {
             console.log(result);
