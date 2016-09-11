@@ -38,8 +38,13 @@ $(function(){
         var uploadName='video/'+new Date().getTime()+'.'+format;
         //上传文件
         client.multipartUpload(uploadName, file).then(function (result) {
+            if(result.url){
+                $("#thumb").attr('src',result.url);
+            }else{
+                $("#thumb").attr('src','http://'+client.bucket+'.'+client.region+'.'+'aliyuncs.com/'+result.name);
+            }
             console.log(result);
-            $("#thumb").attr('src',result.url);
+            
         }).catch(function (err) {
             console.log(err);
         });
