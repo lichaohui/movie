@@ -20,6 +20,10 @@ $(function(){
         }
     });
     
+    $("#form").submit(function(e){
+        console.log(e);
+    });
+    
     $("#playbill").change(function(e){
         //获取上传的文件对象
         var file = e.target.files[0];
