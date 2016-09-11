@@ -8,7 +8,7 @@ var client = new OSS({
 });
 
 exports.delete=function(req,res){
-    var objectKey=req.params.objectKey;
+    var objectKey=req.params;
     console.log("hello"+objectKey);
     co(function* () {
         var result = yield client.delete('video/1473589931783.png');
