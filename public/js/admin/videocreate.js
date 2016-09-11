@@ -42,7 +42,7 @@ $(function(){
              * 所以为了照顾到大文件上传只能用这种拼接的方式来存储url了
              */
             var url='http://'+client.options.bucket+'.'+client.options.region+'.'+'aliyuncs.com/'+result.name;
-            callback();
+            callback(url);
             $("#sub").text('submit').attr("disabled",false);
         }).catch(function (err) {
             console.log(err);
@@ -55,7 +55,7 @@ $(function(){
     
     $("#playbill").change(function(e){
         var path='video/image'
-        var callback=function(){
+        var callback=function(url){
             $("#thumb").attr('src',url);
             $("input[name='playbill']").val(url);
         };
