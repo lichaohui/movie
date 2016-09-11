@@ -64,10 +64,9 @@ $(function(){
              * 所以我们就需要使用Nodejs的sdk在服务器端来进行图片的删除操作
              * 删除完毕之后我们就可以在客户端使用js sdk的浏览器部分来进行图片上传了
              */
-            alert(val);
             $.ajax({
                 url: '/admin/playbill/delete',
-                objectKey:val,
+                data:{objectKey:val},
                 type:'DELETE',
                 success:function(result){
                     alert(result.message);
