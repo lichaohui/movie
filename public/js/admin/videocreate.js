@@ -30,7 +30,7 @@ $(function(){
     
     document.getElementById('playbill').addEventListener('change', function (e) {
         var file = e.target.files[0];
-        var storeAs = 'upload-file';
+        var storeAs = 'foo.jpg';
         console.log(file.name + ' => ' + storeAs);
         client.multipartUpload(storeAs, file).then(function (result) {
             console.log(result);
