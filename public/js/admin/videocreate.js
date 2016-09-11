@@ -38,6 +38,7 @@ $(function(){
         var uploadName='video/image/'+new Date().getTime()+'.'+format;
         //上传文件
         client.multipartUpload(uploadName, file).then(function (result) {
+            $("#load").removeClass('hidden');
             /*
              * 上传大文件的时候阿里会使用分片上传，
              * 不会返回url，
@@ -46,6 +47,7 @@ $(function(){
             var url='http://'+client.options.bucket+'.'+client.options.region+'.'+'aliyuncs.com/'+result.name;
             $("#thumb").attr('src',url);
             $("input[name='playbill']").val(url);
+            $("#load").addClass('hidden');
         }).catch(function (err) {
             console.log(err);
         });

@@ -2,6 +2,7 @@ include ../../common/header
 block content
   include ../common/nav
   section(class='container')
+    div(id='load' class='hidden') 正在上传中
     div(class='row')
       form(class='form-horizontal' action='/admin/video/store' method='post' id='form')
         div(class='form-group')
