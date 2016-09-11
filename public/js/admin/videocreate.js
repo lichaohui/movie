@@ -26,7 +26,7 @@ $(function(){
     });
     $("#playbill").change(function(e){
         //path表示阿里oss中的文件夹
-        var path='video/image';
+        var path='video/image/';
         var callback=function(url){
             $("#thumb").attr('src',url);
             $("input[name='playbill']").val(url);
@@ -36,7 +36,7 @@ $(function(){
     
     //上传视频
     $("#src").change(function(e){
-        var path='video/video';
+        var path='video/video/';
         var callback=function(url){
             $("input[name='src']").val(url);
         };
