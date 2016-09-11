@@ -20,7 +20,7 @@ $(function(){
         }
     });
     
-    function uploadFileToAlioss(e){
+    function uploadFileToAlioss(e,path,callback){
         //获取上传的文件对象
         var file = e.target.files[0];
         //获取上传文件的名称
@@ -29,9 +29,9 @@ $(function(){
         var format=fileName.split('.')[1];
         /*
          * 设置上传文件保存到阿里oss的名称为时间戳加后缀名
-         * video/image是阿里oss中的一个自建的文件夹
+         * path表示阿里oss中的我们自建的文件夹
          */
-        var uploadName='video/image/'+new Date().getTime()+'.'+format;
+        var uploadName=path+new Date().getTime()+'.'+format;
         $("#sub").text('正在上传中').attr("disabled",true);
         //上传文件
         client.multipartUpload(uploadName, file).then(function (result) {
@@ -42,8 +42,7 @@ $(function(){
              * 所以为了照顾到大文件上传只能用这种拼接的方式来存储url了
              */
             var url='http://'+client.options.bucket+'.'+client.options.region+'.'+'aliyuncs.com/'+result.name;
-            $("#thumb").attr('src',url);
-            $("input[name='playbill']").val(url);
+            callback();
             $("#sub").text('submit').attr("disabled",false);
         }).catch(function (err) {
             console.log(err);
@@ -55,6 +54,11 @@ $(function(){
     });
     
     $("#playbill").change(function(e){
-        uploadFileToAlioss(e);
+        var path='video/image'
+        var callback=function(){
+            $("#thumb").attr('src',url);
+            $("input[name='playbill']").val(url);
+        };
+        uploadFileToAlioss(e,path,callback);
     });
 })
