@@ -5,4 +5,3 @@
     accessKeySecret: 'BKXxwSfX4bVTRhCxU5yj99KDDIKV7a',
     bucket: 'xuefengoss'
 });
-console.log(client);

@@ -41,7 +41,7 @@ $(function(){
             if(result.url){
                 $("#thumb").attr('src',result.url);
             }else{
-                $("#thumb").attr('src','http://'+client.bucket+'.'+client.region+'.'+'aliyuncs.com/'+result.name);
+                $("#thumb").attr('src','http://'+client.options.bucket+'.'+client.options.region+'.'+'aliyuncs.com/'+result.name);
             }
             console.log(result);
             
