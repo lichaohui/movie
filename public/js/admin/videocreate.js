@@ -27,10 +27,17 @@ $(function(){
         accessKeySecret: 'BKXxwSfX4bVTRhCxU5yj99KDDIKV7a',
         bucket: 'xuefengoss'
     });
+
+
+    function getFileName(o){
+        var pos=o.lastIndexOf("\\");
+        return o.substring(pos+1);  
+    }
     
     $("#playbill").change(function(){
         var file=$(this).val();
-        alert(file);
+        var fileName = getFileName(file);
+        alert(fileName);
     });
     
     /*document.getElementById('playbill').addEventListener('change', function (e) {
