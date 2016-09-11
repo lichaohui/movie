@@ -1,0 +1,23 @@
+{
+  "name": "ali-oss",
+  "ignore": [
+    "lib",
+    "test",
+    ".*",
+    "browser.js",
+    "package.json"
+  ],
+  "main": "dist/aliyun-oss-sdk.js",
+  "homepage": "https://github.com/ali-sdk/ali-oss",
+  "version": "4.4.4",
+  "_release": "4.4.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "4.4.4",
+    "commit": "97e5a45900fc1770e78ab9fcc78ca6f8e04dc9c6"
+  },
+  "_source": "https://github.com/ali-sdk/ali-oss.git",
+  "_target": "^4.4.4",
+  "_originalSource": "ali-oss",
+  "_direct": true
+}
