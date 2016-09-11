@@ -67,7 +67,7 @@ $(function(){
             alert(val);
             $.ajax({
                 url: '/admin/playbill/delete',
-                {objectKey:val},
+                objectKey:val,
                 type:'DELETE',
                 success:function(result){
                     alert(result.message);
