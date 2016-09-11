@@ -1,4 +1,5 @@
-var co = require('co');
+//测试失败
+/*var co = require('co');
 var OSS = require('ali-oss');
 var client = new OSS({
     region: 'oss-cn-shanghai',
@@ -16,4 +17,4 @@ exports.delete=function(req,res){
     }).catch(function (err) {
         console.log(err);
     });
-}
+}*/
