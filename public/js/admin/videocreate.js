@@ -28,7 +28,12 @@ $(function(){
         bucket: 'xuefengoss'
     });
     
-    document.getElementById('playbill').addEventListener('change', function (e) {
+    $("#playbill").change(function(){
+        var file=$(this).val();
+        alert(file);
+    });
+    
+    /*document.getElementById('playbill').addEventListener('change', function (e) {
         var file = e.target.files[0];
         var storeAs = 'foo.jpg';
         console.log(file.name + ' => ' + storeAs);
@@ -37,5 +42,5 @@ $(function(){
         }).catch(function (err) {
             console.log(err);
         });
-    });
+    });*/
 })

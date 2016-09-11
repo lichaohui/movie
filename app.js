@@ -72,7 +72,7 @@ if(app.get('env')=='development'){
 //连接数据库,传入上面定义好的dbUrl
 mongoose.connect(dbUrl);
 
-//设置服务端口为环境变量总的port，如果不存在就设置为3000
+//设置服务端口为环境变量中的port，如果不存在就设置为3000
 var port=process.env.PORT || 3000;
 
 //启动服务并监听端口
