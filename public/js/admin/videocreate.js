@@ -34,15 +34,16 @@ $(function(){
         return o.substring(pos+1);  
     }
     
-    $("#playbill").change(function(){
+    /*$("#playbill").change(function(){
         var file=$(this).val();
         console.log(file);
         var fileName = getFileName(file);
         alert(fileName);
-    });
+    });*/
     
-    /*document.getElementById('playbill').addEventListener('change', function (e) {
+    document.getElementById('playbill').addEventListener('change', function (e) {
         var file = e.target.files[0];
+        console.log(file);
         var storeAs = 'foo.jpg';
         console.log(file.name + ' => ' + storeAs);
         client.multipartUpload(storeAs, file).then(function (result) {
@@ -50,5 +51,5 @@ $(function(){
         }).catch(function (err) {
             console.log(err);
         });
-    });*/
+    });
 })
