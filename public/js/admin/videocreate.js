@@ -65,7 +65,8 @@ $(function(){
              * 删除完毕之后我们就可以在客户端使用js sdk的浏览器部分来进行图片上传了
              */
             $.ajax({
-                url: '/admin/playbill/delete/'+val,
+                url: '/admin/playbill/delete',
+                objectKey:val,
                 type:'DELETE',
                 success:function(result){
                     alert(result.message);

@@ -95,7 +95,7 @@ module.exports=function(app){
     //执行删除视频操作的路由
     app.delete('/admin/video/delete/:id',video.delete);  
     //删除视频海报的路由
-    app.delete('/admin/playbill/delete/:id',playbill.delete);
+    app.delete('/admin/playbill/delete',playbill.delete);
     
     //展示一级分类列表的路由 
     app.get('/admin/firstcate',firstcate.index);
