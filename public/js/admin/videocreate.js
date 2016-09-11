@@ -36,9 +36,10 @@ $(function(){
          * video/image是阿里oss中的一个自建的文件夹
          */
         var uploadName='video/image/'+new Date().getTime()+'.'+format;
+        $("#load").removeClass('hidden');
         //上传文件
         client.multipartUpload(uploadName, file).then(function (result) {
-            $("#load").removeClass('hidden');
+            
             /*
              * 上传大文件的时候阿里会使用分片上传，
              * 不会返回url，
