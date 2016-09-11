@@ -36,6 +36,7 @@ $(function(){
     
     $("#playbill").change(function(){
         var file=$(this).val();
+        console.log(file);
         var fileName = getFileName(file);
         alert(fileName);
     });
