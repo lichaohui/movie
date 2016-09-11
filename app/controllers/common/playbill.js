@@ -8,7 +8,7 @@ var client = new OSS({
 });
 
 exports.delete=function(req,res){
-    var object=req.query.objectKey;
+    var objectKey=req.query.objectKey;
     co(function* () {
         var result = yield client.delete(objectKey);
         res.json({'message':'删除成功'});
