@@ -20,11 +20,7 @@ $(function(){
         }
     });
     
-    $("#thumb").click(function(){
-        $("#playbill").click();
-    });
-    
-    $("#playbill").change(function(e){
+    function uploadFileToAlioss(){
         //获取上传的文件对象
         var file = e.target.files[0];
         //获取上传文件的名称
@@ -52,5 +48,13 @@ $(function(){
         }).catch(function (err) {
             console.log(err);
         });
+    };
+    
+    $("#thumb").click(function(){
+        $("#playbill").click();
+    });
+    
+    $("#playbill").change(function(e){
+        uploadFileToAlioss();
     });
 })
