@@ -20,20 +20,17 @@ $(function(){
         }
     });
     
-    
-    var client = new OSS.Wrapper({
-        region: 'oss-cn-shanghai',
-        accessKeyId: '36rmkj8Ohcg1k7vR',
-        accessKeySecret: 'BKXxwSfX4bVTRhCxU5yj99KDDIKV7a',
-        bucket: 'xuefengoss'
-    });
-    
     $("#playbill").change(function(e){
         //获取上传的文件对象
         var file = e.target.files[0];
+        //获取上传文件的名称
         var fileName=e.target.files[0].name;
+        //获取上传文件的格式
         var format=fileName.split('.')[1];
-        client.multipartUpload(new Date().getTime()+'.'+format, file).then(function (result) {
+        //设置上传文件保存到阿里oss的名称为时间戳加后缀名
+        var uploadName=new Date().getTime()+'.'+format;
+        //上传文件
+        client.multipartUpload(uploadName, file).then(function (result) {
             console.log(result);
         }).catch(function (err) {
             console.log(err);
