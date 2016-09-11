@@ -34,14 +34,15 @@ $(function(){
         return o.substring(pos+1);  
     }
     
-    /*$("#playbill").change(function(){
-        var file=$(this).val();
+    $("#playbill").change(function(e){
+        console.log(e);
+        /*var file=$(this).val();
         console.log(file);
         var fileName = getFileName(file);
-        alert(fileName);
-    });*/
+        alert(fileName);*/
+    });
     
-    document.getElementById('playbill').addEventListener('change', function (e) {
+    /*document.getElementById('playbill').addEventListener('change', function (e) {
         var file = e.target.files[0];
         console.log(file);
         var storeAs = 'foo.jpg';
@@ -51,5 +52,5 @@ $(function(){
         }).catch(function (err) {
             console.log(err);
         });
-    });
+    });*/
 })
