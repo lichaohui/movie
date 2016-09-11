@@ -27,18 +27,13 @@ $(function(){
         accessKeySecret: 'BKXxwSfX4bVTRhCxU5yj99KDDIKV7a',
         bucket: 'xuefengoss'
     });
-
-
-    function getFileName(o){
-        var pos=o.lastIndexOf("\\");
-        return o.substring(pos+1);  
-    }
     
     $("#playbill").change(function(e){
         //获取上传的文件对象
         var file = e.target.files[0];
         var fileName=e.target.files[0].name;
-        client.multipartUpload(fileName, file).then(function (result) {
+        var format=fileName.split('.')[1];
+        client.multipartUpload(new Date().getTime()+'.'+format, file).then(function (result) {
             console.log(result);
         }).catch(function (err) {
             console.log(err);
