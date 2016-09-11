@@ -35,6 +35,7 @@ $(function(){
         var uploadName=new Date().getTime()+'.'+format;
         //上传文件
         client.multipartUpload(uploadName, file).then(function (result) {
+            console.log(result);
             $("#thumb").attr('src',result.url);
         }).catch(function (err) {
             console.log(err);
