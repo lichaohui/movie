@@ -36,7 +36,7 @@ $(function(){
          * video/image是阿里oss中的一个自建的文件夹
          */
         var uploadName='video/image/'+new Date().getTime()+'.'+format;
-        $("#load").removeClass('hidden');
+        $("#sub").text('正在上传中').attr("disabled",true);
         //上传文件
         client.multipartUpload(uploadName, file).then(function (result) {
             
@@ -48,7 +48,7 @@ $(function(){
             var url='http://'+client.options.bucket+'.'+client.options.region+'.'+'aliyuncs.com/'+result.name;
             $("#thumb").attr('src',url);
             $("input[name='playbill']").val(url);
-            $("#load").addClass('hidden');
+            $("#sub").text('submit').attr("disabled",false);
         }).catch(function (err) {
             console.log(err);
         });
