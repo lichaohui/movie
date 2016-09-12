@@ -25,13 +25,25 @@ $(function(){
         $("#playbill").click();
     });
     $("#playbill").change(function(e){
-        //path表示阿里oss中的文件夹
-        var path='video/image/';
-        var callback=function(url){
-            $("#thumb").attr('src',url);
-            $("input[name='playbill']").val(url);
-        };
-        uploadFileToAlioss(e,path,callback);
+        var val=$('input[name="playbill"]').val();
+        if(val==""){
+            //path表示阿里oss中的文件夹
+            var path='video/image/';
+            var callback=function(url){
+                $("#thumb").attr('src',url);
+                $("input[name='playbill']").val(url);
+            };
+            uploadFileToAlioss(e,path,callback);
+        }else{
+            $.ajax({
+                url:'/admin/playbill/delete',
+                type:'delete',
+                data:{objectKey:val},
+                success:function(data,status){
+                    alert(data.message);
+                }
+            })
+        }
     });
     
     //上传视频
