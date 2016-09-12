@@ -8,11 +8,11 @@ $(function(){
             $("#id").val(data._id);
             $("#name").val(data.name);
             $("#author").val(data.author);
-            $("#country").val(data.country);
             $("#thumb").attr('src',data.playbill);
             $("#playbill").val(data.playbill);
             $("#src").val(data.src);
-            $("#intro").val(data.intro);
+            alert(data.intro);
+            $("#intro").text(data.intro);
         });
     });
     /*----点击提交按钮时候通过jquery.form.js插件异步提交表单----*/
