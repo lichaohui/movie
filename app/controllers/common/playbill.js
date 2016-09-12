@@ -10,9 +10,11 @@ var client = new OSS({
 
 exports.delete=function(req,res){
     var objectKey=req.params.objectKey;
-    console.log('hello'+objectKey);
+    console.log('req:'+req);
+    console.log('params:'+req.params);
+    console.log('hello:'+objectKey);
     co(function* () {
-        var result = yield client.delete('video/image/1473600214057.png');
+        var result = yield client.delete('video/image/1473670883770.png');
         res.json({'message':'删除成功'});
     }).catch(function (err) {
         console.log(err);
