@@ -20,6 +20,20 @@ $(function(){
         }
     });
     
+    //异步删除阿里云的资源
+    function deleteFromOss(url,callback){
+        //分割资源的url来获取资源在阿里云的objectkey
+        var objectKey=url.split(".com/")[1];
+        //发送异步请求删除旧的资源
+        $.ajax({
+            url:'/admin/playbill/delete?objectKey='+objectKey,
+            type:'delete',
+            success:function(result){
+                callback();
+            }
+        })
+    }
+    
     //上传视频海报
     $("#thumb").click(function(){
         $("#playbill").click();
@@ -35,14 +49,13 @@ $(function(){
             };
             uploadFileToAlioss(e,path,callback);
         }else{
-            var objectKey=val.split(".com/")[1];
-            $.ajax({
-                url:'/admin/playbill/delete?objectKey='+objectKey,
-                type:'delete',
-                //data:{objectKey:val},
-                success:function(result){
-                    alert(result.message);
-                }
+            deleteFromOss(val,function(){
+                //path表示阿里oss中的文件夹
+            var path='video/image/';
+            var callback=function(url){
+                $("#thumb").attr('src',url);
+                $("input[name='playbill']").val(url);
+            };
             })
         }
     });
