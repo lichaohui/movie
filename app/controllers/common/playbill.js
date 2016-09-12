@@ -9,12 +9,12 @@ var client = new OSS({
 });
 
 exports.delete=function(req,res){
-    var objectKey=req.params.objectKey;
+    var objectKey=req.params.data.objectKey;
     console.log('req:'+req);
     console.log('params:'+req.params);
     console.log('hello:'+objectKey);
     co(function* () {
-        var result = yield client.delete('video/image/1473670883770.png');
+        var result = yield client.delete('video/image/1473671354810.jpg');
         res.json({'message':'删除成功'});
     }).catch(function (err) {
         console.log(err);
