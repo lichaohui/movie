@@ -10,9 +10,7 @@ $(function(){
             $("#author").val(data.author);
             $("#thumb").attr('src',data.playbill);
             $("#playbill").val(data.playbill);
-            $("#src").val(data.src);
-            alert(data.src);
-            alert(data.intro);
+            $("input[name='src']").val(data.src);
             $("#intro").text(data.intro);
         });
     });
