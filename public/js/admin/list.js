@@ -9,8 +9,8 @@ $(function(){
             $("#name").val(data.name);
             $("#author").val(data.author);
             $("#country").val(data.country);
-            
-            $("#playbill").attr(data.playbill);
+            $("#thumb").attr('src',data.playbill);
+            $("#playbill").val(data.playbill);
             $("#src").val(data.src);
             $("#intro").text(data.intro);
         });
