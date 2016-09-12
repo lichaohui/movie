@@ -21,7 +21,7 @@ $(function(){
     });
     
     //异步删除阿里云的资源
-    function deleteFromOss(url,callback){
+    function deleteFromOss(url){
         //分割资源的url来获取资源在阿里云的objectkey
         var objectKey=url.split(".com/")[1];
         //发送异步请求删除旧的资源
@@ -29,7 +29,7 @@ $(function(){
             url:'/admin/playbill/delete?objectKey='+objectKey,
             type:'delete',
             success:function(result){
-                callback();
+                //callback();
             }
         })
     }
@@ -49,14 +49,15 @@ $(function(){
             };
             uploadFileToAlioss(e,path,callback);
         }else{
-            deleteFromOss(val,function(){
-                //path表示阿里oss中的文件夹
+            
+            deleteFromOss(val);
+            //path表示阿里oss中的文件夹
             var path='video/image/';
             var callback=function(url){
                 $("#thumb").attr('src',url);
                 $("input[name='playbill']").val(url);
             };
-            })
+            uploadFileToAlioss(e,path,callback);
         }
     });
     
