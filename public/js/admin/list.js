@@ -7,10 +7,10 @@ $(function(){
         $.get('/admin/video/edit/'+id,function(data,status){
             $("#id").val(data._id);
             $("#name").val(data.name);
-            $("#director").val(data.director);
+            $("#author").val(data.author);
             $("#country").val(data.country);
-            $("#type").val(data.type);
-            $("#playbill").val(data.playbill);
+            
+            $("#playbill").attr(data.playbill);
             $("#src").val(data.src);
             $("#intro").text(data.intro);
         });
