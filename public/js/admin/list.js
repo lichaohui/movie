@@ -12,7 +12,7 @@ $(function(){
             $("#thumb").attr('src',data.playbill);
             $("#playbill").val(data.playbill);
             $("#src").val(data.src);
-            $("#intro").text(data.intro);
+            $("#intro").val(data.intro);
         });
     });
     /*----点击提交按钮时候通过jquery.form.js插件异步提交表单----*/
