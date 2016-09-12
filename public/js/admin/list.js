@@ -9,7 +9,7 @@ $(function(){
             $("#name").val(data.name);
             $("#author").val(data.author);
             $("#thumb").attr('src',data.playbill);
-            $("#playbill").val(data.playbill);
+            $("input[name='playbill']").val(data.playbill);
             $("input[name='src']").val(data.src);
             $("#intro").text(data.intro);
         });
