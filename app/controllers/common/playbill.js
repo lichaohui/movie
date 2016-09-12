@@ -12,7 +12,7 @@ exports.delete=function(req,res){
     //var objectKey=req.params.data.objectKey;
     console.log('req:'+req);
     console.log('params:'+req.params);
-    console.log('hello:'+objectKey);
+    //console.log('hello:'+objectKey);
     co(function* () {
         var result = yield client.delete('video/image/1473671354810.jpg');
         console.log(result);
