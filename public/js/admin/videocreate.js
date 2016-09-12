@@ -36,6 +36,8 @@ $(function(){
             uploadFileToAlioss(e,path,callback);
         }else{
             var objectKey=val.path;
+            alert(val);
+            alert(objectKey);
             $.ajax({
                 url:'/admin/playbill/delete?objectKey='+objectKey,
                 type:'delete',
