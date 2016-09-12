@@ -36,11 +36,11 @@ $(function(){
             uploadFileToAlioss(e,path,callback);
         }else{
             $.ajax({
-                url:'/admin/playbill/delete',
+                url:'/admin/playbill/delete?objectKey='+val,
                 type:'delete',
-                data:{objectKey:val},
-                success:function(data,status){
-                    alert(data.message);
+                //data:{objectKey:val},
+                success:function(result){
+                    alert(result.message);
                 }
             })
         }
