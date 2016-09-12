@@ -11,6 +11,7 @@ $(function(){
             $("#thumb").attr('src',data.playbill);
             $("#playbill").val(data.playbill);
             $("#src").val(data.src);
+            alert(data.src);
             alert(data.intro);
             $("#intro").text(data.intro);
         });
