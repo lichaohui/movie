@@ -59,7 +59,7 @@ exports.edit=function(req,res){
 //更新某条记录的方法
 exports.update=function(req,res){
     //拿到表单提交过来的要修改的数据的_id
-    var id=req.query.id;
+    var id=req.params.id;
     //拿到表单提交过来的数据
     var postvideo=req.body;
     //通过findById获取到要修改的那条数据
