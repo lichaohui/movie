@@ -11,6 +11,7 @@ $(function(){
          * 将当前电影的二级分类的下拉框设置为默认选中
          */
         //获取当前电影的所属的二级分类
+        $("#secondcate").empty();
         var scate=$(this).attr('data-scate');
         $.get('/admin/secondcate/query',{pid:fcate},function(data,status){
             var opt;
