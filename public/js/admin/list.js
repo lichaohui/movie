@@ -27,7 +27,6 @@ $(function(){
         var id=$(this).attr('data-id');
         $("#form").attr("action","/admin/video/update/"+id);
         $.get('/admin/video/edit/'+id,function(data,status){
-            $("#id").val(data._id);
             $("#name").val(data.name);
             $("#author").val(data.author);
             $("#thumb").attr('src',data.playbill);
