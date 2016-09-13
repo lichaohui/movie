@@ -44,7 +44,7 @@ $(function(){
             url:url,
             success:function(data){
                 alert(data);
-                setTimeout(function(){window.location.reload();},1000);
+                //setTimeout(function(){window.location.reload();},1000);
             },
         });
     });
