@@ -42,8 +42,7 @@ $(function(){
             type:'put',
             url:url,
             headers: {  
-                "Content-Type": 'application/x-www-form-urlencoded',  
-                "Content-Length": data.length  
+                "Content-Type": 'application/x-www-form-urlencoded'
             }, 
             success:function(data){
                 alert(data);
