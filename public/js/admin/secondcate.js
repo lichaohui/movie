@@ -1,5 +1,5 @@
 $(function(){
-    /*----异步编辑一级分类----*/
+    /*----异步编辑二级分类----*/
     $(".edit").click(function(){
         //通过id获取特定的那条数据
         var id=$(this).attr('data-id');
@@ -24,7 +24,7 @@ $(function(){
         });
     });
     
-    /*----异步删除一级分类----*/
+    /*----异步删除二级分类----*/
     $(".del").click(function(){
         if(confirm('Are your sure remove it?')){
             var id=$(this).attr('data-id');
