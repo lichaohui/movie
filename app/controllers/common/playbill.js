@@ -1,4 +1,4 @@
-//测试失败
+//阿里oss nodejs sdk删除资源
 var co = require('co');
 var OSS = require('ali-oss');
 var client = new OSS({
