@@ -41,6 +41,10 @@ $(function(){
         $("#form").ajaxSubmit({
             type:'put',
             url:url,
+            headers: {  
+                "Content-Type": 'application/x-www-form-urlencoded',  
+                "Content-Length": data.length  
+            }, 
             success:function(data){
                 alert(data);
                 //setTimeout(function(){window.location.reload();},1000);
