@@ -1,8 +1,23 @@
 $(function(){
     /*----异步编辑电影----*/
     $(".edit").click(function(){
+        //获取当前电影的一级分类
         var fcate=$(this).attr('data-fcate');
+        //将当前电影的一级分类在分类下拉框中默认选中
         $("#parentcate").find('option[value='+fcate+']').attr("selected",true);
+        /*
+         * 通过当前电影的一级分类异步获取所有该一级分类下的所有二级分类
+         * 然后通过当前电影的二级分类，
+         * 将当前电影的二级分类的下拉框设置为默认选中
+         */
+        $.get('/admin/secondcate/query',{pid:fcate},function(data,status){
+            var opt;
+            for(var i=0;i<data.length;i++){
+                opt='<option value='+data[i]._id+'';
+                $("#secondcate").append(opt);
+            }
+        });
+        
         //通过id获取特定的那条数据
         var id=$(this).attr('data-id');
         $("#form").attr("action","/admin/video/update/"+id);
