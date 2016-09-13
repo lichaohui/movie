@@ -1,6 +1,8 @@
 $(function(){
     /*----异步编辑电影----*/
     $(".edit").click(function(){
+        var fcate=$(this).attr('data-fcate');
+        $("#parentcate").find('option[value='+fcate+']').attr("selected",true);
         //通过id获取特定的那条数据
         var id=$(this).attr('data-id');
         $("#form").attr("action","/admin/video/update/"+id);
