@@ -21,7 +21,7 @@ block content
           td: img(src='#{video.playbill}' width='100')
           td
             a(href='/video/detail/#{video._id}' target='_blank' class='btn btn-default btn-xs') view
-            button(type='button' class='edit btn btn-primary btn-xs' data-id='#{video._id}' data-toggle="modal" data-target="#myModal") edit
+            button(type='button' class='edit btn btn-primary btn-xs' data-id='#{video._id}' data-fcate='#{video.firstcate}' data-scate='#{data.secondcate}' data-toggle="modal" data-target="#myModal") edit
             button(type='button' class='del btn btn-danger btn-xs' data-id='#{video._id}') delete
   div(class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby="myModalLabel")
     div(class="modal-dialog" role="document")
