@@ -13,7 +13,7 @@ $(function(){
         $.get('/admin/secondcate/query',{pid:fcate},function(data,status){
             var opt;
             for(var i=0;i<data.length;i++){
-                opt='<option value='+data[i]._id+'';
+                opt='<option value='+data[i]._id+'>'+data[i].name+'</option>';
                 $("#secondcate").append(opt);
             }
         });
