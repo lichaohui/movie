@@ -32,6 +32,7 @@ $(function(){
             $("#thumb").attr('src',data.playbill);
             $("input[name='playbill']").val(data.playbill);
             $("input[name='src']").val(data.src);
+            $("#video").attr('src',data.src);
             $("#intro").text(data.intro);
         });
     });
