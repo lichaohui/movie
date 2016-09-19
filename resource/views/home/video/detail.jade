@@ -11,12 +11,8 @@ block content
     dl(class='dl-horizontal')
       dt name:
       dd #{video.name} 
-      dt director:
-      dd #{video.director} 
       dt type:
-      dd #{video.type}  
-      dt country:
-      dd #{video.country}
+      dd #{video.firstcate.name} - #{video.secondcate.name}
       dt created_at:
       dd #{moment(video.meta.created_at).format('YYYY MM DD')}
       dt intro:
