@@ -41,6 +41,9 @@ $(function(){
     });
     
     //上传视频
+    $("#uploadvideo").click(function(){
+        $("#src").click();
+    });
     $("#src").change(function(e){
         //先获取之前是否有文件上传如果有则先删除之前的
         var val=$('input[name="src"]').val();
@@ -50,6 +53,7 @@ $(function(){
         var path='video/video/';
         var callback=function(url){
             $("input[name='src']").val(url);
+            $("#video").attr('src',url);
         };
         uploadFileToAlioss(e,path,callback);
     });
