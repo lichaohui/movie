@@ -9,8 +9,12 @@ nav(class='navbar navbar-default')
       a(class="navbar-brand" href="/" id='page-home') Home
     div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")
       ul(class='nav navbar-nav')
-        li(role='presentation' id='page-video')
+        li(role='presentation' id='page-video' class='dropdown')
           a(href='/video') Video
+            span(class='caret')
+          ul(class='dropdown-menu' role='menu')
+            li() 前端开发
+            li() 后端开发
       ul(class='nav navbar-nav navbar-right')
         if(user)
           li(class="dropdown")
