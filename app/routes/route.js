@@ -18,7 +18,9 @@ module.exports=function(app){
          */
         app.locals.user=req.session.user;
         app.locals.firstcates=req.session.firstcates;
+        console.log('hello');
         console.log(app.locals.firstcates+'hello lucy');
+        console.log('lucy');
         next();
     });
     
