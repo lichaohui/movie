@@ -17,10 +17,10 @@ module.exports=function(app){
          * 这样在模板张就可以使用这些变量了
          */
         app.locals.user=req.session.user;
-        var fristcates=firstcate.index;
-        console.log(firstcate);
         next();
     });
+    
+    app.use(firstcate.index);
     
     /*
      * 设置“/”前台首页路由
