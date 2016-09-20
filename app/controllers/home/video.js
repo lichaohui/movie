@@ -9,21 +9,33 @@ var comment=require('../../models/comment');
 
 //显示video列表的方法
 exports.index=function(req,res){
-    var callback=function(err,data){
-        if(err){
-            console.log(err);
-        }else{
-            res.render('home/video/index',{'title':'video','videos':data});
-        }
-    };
+    
     //如果没有按分类搜索
     if(req.query.firstcate=="" && req.query.secondcate==""){
         //调用video模型的fetch方法遍历数据传递给前台展示
-        video.fetch(callback);
+        video.fetch(function(err,data){
+            if(err){
+                console.log(err);
+            }else{
+                res.render('home/video/index',{'title':'video','videos':data});
+            }
+        });
     }else if(req.query.secondcate==""){
-        video.findByFirstcate(callback);
+        video.findByFirstcate(function(err,data){
+            if(err){
+                console.log(err);
+            }else{
+                res.render('home/video/index',{'title':'video','videos':data});
+            }
+        });
     }else{
-        video.findBySecondcate(callback);
+        video.findBySecondcate(function(err,data){
+            if(err){
+                console.log(err);
+            }else{
+                res.render('home/video/index',{'title':'video','videos':data});
+            }
+        });
     }
 };
 
