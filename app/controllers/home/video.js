@@ -11,7 +11,7 @@ var comment=require('../../models/comment');
 exports.index=function(req,res){
     
     //如果没有按分类搜索
-    if(req.query.firstcate=="" && req.query.secondcate==""){
+    if(req.query.firstcate==null && req.query.secondcate==null){
         //调用video模型的fetch方法遍历数据传递给前台展示
         video.fetch(function(err,data){
             if(err){
@@ -20,7 +20,7 @@ exports.index=function(req,res){
                 res.render('home/video/index',{'title':'video','videos':data});
             }
         });
-    }else if(req.query.secondcate==""){
+    }else if(req.query.secondcate==null){
         video.findByFirstcate(req.query.firstcate,function(err,data){
             if(err){
                 console.log(err);
