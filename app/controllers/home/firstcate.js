@@ -8,8 +8,7 @@ exports.index=function(req,res,next){
         if(err){
             console.log(err);
         }else{
-            req.session.firstcates=data;
-            console.log(req.session.firstcates);
+            req.locals.firstcates=data;
             next();
         }
     })

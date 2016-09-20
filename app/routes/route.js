@@ -18,10 +18,6 @@ module.exports=function(app){
          * 这样在模板张就可以使用这些变量了
          */
         app.locals.user=req.session.user;
-        app.locals.firstcates=req.session.firstcates;
-        console.log('hello');
-        console.log(app.locals.firstcates+'hello lucy');
-        console.log('lucy');
         next();
     });
     
