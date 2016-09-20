@@ -2,7 +2,7 @@
 var firstcate=require('../../models/firstcate');
 
 //展示一级分类列表的方法
-exports.index=function(req,res){
+exports.index=function(req,res,next){
     //调用firstcate模型的fetch方法遍历数据传递给前台展示
     firstcate.fetch(function(err,data){
         if(err){
@@ -10,6 +10,7 @@ exports.index=function(req,res){
         }else{
             req.session.firstcates=data;
             console.log(req.session.firstcates);
+            next();
         }
     })
 };
