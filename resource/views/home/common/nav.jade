@@ -15,7 +15,7 @@ nav(class='navbar navbar-default')
           ul(class='dropdown-menu' role='menu')
             each firstcate in firstcates
               li 
-                a(href=)
+                a(href=‘/video?firstcate=#{firstcate._id}) #{firstcate.name}
       ul(class='nav navbar-nav navbar-right')
         if(user)
           li(class="dropdown")
