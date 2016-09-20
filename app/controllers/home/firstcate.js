@@ -8,7 +8,8 @@ exports.index=function(req,res){
         if(err){
             console.log(err);
         }else{
-            req.session.firstcates=data;
+            //req.session.firstcates=data;
+            console.log(data+'哈哈');
         }
     })
 };

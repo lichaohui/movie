@@ -13,7 +13,7 @@ module.exports=function(app){
      * 这个中间件就用来看管理员是否登录吧
      * 只有登录的管理员才可以进入后台页面
      */
-    app.use(function(req,res,next){
+    app.use('/admin/*',function(req,res,next){
         /*
          * 因为我们每次登录的时候都会把管理员的信息存入到req.session中
          * 然后我们将session信息赋值给本地变量admin
