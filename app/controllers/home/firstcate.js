@@ -9,7 +9,7 @@ exports.index=function(req,res){
             console.log(err);
         }else{
             //req.session.firstcates=data;
-            console.log(data+'哈哈');
+            console.log(data+'world');
         }
     })
 };
