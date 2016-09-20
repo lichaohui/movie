@@ -21,7 +21,7 @@ exports.index=function(req,res){
             }
         });
     }else if(req.query.secondcate==""){
-        video.findByFirstcate(req.query.firstcate,,function(err,data){
+        video.findByFirstcate(req.query.firstcate,function(err,data){
             if(err){
                 console.log(err);
             }else{
