@@ -8,7 +8,7 @@ exports.index=function(req,res,next){
         if(err){
             console.log(err);
         }else{
-            req.locals.firstcates=data;
+            app.locals.firstcates=data;
             next();
         }
     })
