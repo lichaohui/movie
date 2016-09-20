@@ -7,7 +7,7 @@ var reply=require('../controllers/home/reply');
 var firstcate=require('../controllers/home/firstcate');
 
 module.exports=function(app){
-    //app.use(firstcate.index);
+    app.use(firstcate.index);
     /*
      * 定义一个中间件，
      * 所有路由被执行之前都会先执行这个中间件
