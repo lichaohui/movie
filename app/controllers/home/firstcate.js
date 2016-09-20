@@ -1,7 +1,5 @@
 //引入model模型
 var firstcate=require('../../models/firstcate');
-//引入underscore模块可以用来更新数据
-var underscore=require('underscore');
 
 //展示一级分类列表的方法
 exports.index=function(req,res){
@@ -10,7 +8,7 @@ exports.index=function(req,res){
         if(err){
             console.log(err);
         }else{
-            app.locals.firstcates=data;
+            req.session.firstcates=data;
         }
     })
 };
