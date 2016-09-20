@@ -69,6 +69,14 @@ videoSchema.statics={
         return this.find({}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').exec(callback);
     },
     
+    findByFirstcate:function(firstcate,callback){
+        return this.find({firstcate:firstcate}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').exec(callback);
+    },
+    
+    findBySecondcate:function(secondcate,callback){
+        return this.find({secondcate:secondcate}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').exec(callback);
+    },
+    
     /*
      * 添加一个叫做findById的静态方法
      * 该方法返回通过id查找出来的那条数据
