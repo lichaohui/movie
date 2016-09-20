@@ -10,7 +10,7 @@ exports.index=function(req,res){
         if(err){
             console.log(err);
         }else{
-            app.locals.firstcates=data;
+            //app.locals.firstcates=data;
         }
     })
 };
