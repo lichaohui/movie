@@ -18,6 +18,7 @@ module.exports=function(app){
          */
         app.locals.user=req.session.user;
         app.locals.firstcates=req.session.firstcates;
+        console.log(app.locals.firstcates);
         next();
     });
     
