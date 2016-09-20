@@ -13,8 +13,9 @@ nav(class='navbar navbar-default')
           a(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle") Video
             span(class='caret')
           ul(class='dropdown-menu' role='menu')
-            li() 前端开发
-            li() 后端开发
+            each firstcate in firstcates
+              li 
+                a(href=)
       ul(class='nav navbar-nav navbar-right')
         if(user)
           li(class="dropdown")

@@ -4,6 +4,7 @@ var video=require('../controllers/home/video');
 var user=require('../controllers/home/user');
 var comment=require('../controllers/home/comment');
 var reply=require('../controllers/home/reply');
+var firstcate=require('../controllers/home/firstcate');
 
 module.exports=function(app){
     /*
@@ -15,7 +16,9 @@ module.exports=function(app){
          * 将session信息存入本地的变量中
          * 这样在模板张就可以使用这些变量了
          */
-        app.locals.user=req.session.user; 
+        app.locals.user=req.session.user;
+        var fristcates=firstcate.index;
+        console.log(firstcate);
         next();
     });
     
