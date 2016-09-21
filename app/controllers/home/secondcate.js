@@ -9,12 +9,9 @@ exports.query=function(req,res,next){
         if(err){
             console.log(err);
         }else{
-            console.log('hello');
             req.session.secondcates=data;
-            console.log(data);
-            console.log('world');
+            next();
         }
     });
-    next();
 };
 
