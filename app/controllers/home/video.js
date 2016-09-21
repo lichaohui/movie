@@ -15,7 +15,7 @@ exports.index=function(req,res){
         }else{
             res.render('home/video/index',{'title':'video','videos':data});
         }
-    }
+    };
     //如果没有按分类搜索
     if(req.query.firstcate==null && req.query.secondcate==null){
         //调用video模型的fetch方法遍历数据传递给前台展示

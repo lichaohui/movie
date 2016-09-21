@@ -2,6 +2,10 @@ include ../../common/header
 block content
   section(class='container')
     include ../common/nav
+    ul(class='list-inline')
+      each secondcate in secondcates
+        li
+          a(href='/video?secondcate=#{secondcate._id}') #{secondcate.name}
     ul(class='row')
       each video in videos
         li(class='media list-unstyled')

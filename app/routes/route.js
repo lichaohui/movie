@@ -5,6 +5,7 @@ var user=require('../controllers/home/user');
 var comment=require('../controllers/home/comment');
 var reply=require('../controllers/home/reply');
 var firstcate=require('../controllers/home/firstcate');
+var secondcate=require('../controllers/home/secondcate');
 
 module.exports=function(app){
     /*
@@ -29,6 +30,11 @@ module.exports=function(app){
     app.get('/',index.index);
     
     //前台视频列表页路由
+    app.get('/video',secondcate.query);
+    app.get('/video',function(req,res,next){
+        app.locals.secondcates=req.session.secondcate;
+        next();
+    });
     app.get('/video',video.index);
     //设置前台视频详情页路由
     app.get('/video/detail/:id',video.show);
