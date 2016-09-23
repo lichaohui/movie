@@ -7,7 +7,7 @@ block content
     ul(class='list-inline')
       each secondcate in secondcates
         li
-          a(href='/video?firstcate=#{firstcate}&?secondcate=#{secondcate._id}') #{secondcate.name}
+          a(href='/video?firstcate=#{firstcate}&secondcate=#{secondcate._id}') #{secondcate.name}
     ul(class='row')
       each video in videos
         li(class='media list-unstyled')
