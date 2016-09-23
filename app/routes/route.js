@@ -32,6 +32,7 @@ module.exports=function(app){
     //前台视频列表页路由
     app.get('/video',secondcate.query);
     app.get('/video',function(req,res,next){
+        app.locals.firstcate=req.session.firstcate;
         app.locals.secondcates=req.session.secondcates;
         next();
     });

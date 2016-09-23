@@ -1,16 +1,16 @@
 $(function(){
-    /*----异步编辑电影----*/
+    /*----异步编辑视频----*/
     $(".edit").click(function(){
-        //获取当前电影的一级分类
+        //获取当前视频的一级分类
         var fcate=$(this).attr('data-fcate');
-        //将当前电影的一级分类在一级分类下拉框中默认选中
+        //将当前视频的一级分类在一级分类下拉框中默认选中
         $("#parentcate").find('option[value='+fcate+']').attr("selected",true);
         /*
-         * 通过当前电影的一级分类异步获取所有该一级分类下的所有二级分类
-         * 然后通过当前电影的二级分类，
-         * 将当前电影的二级分类的下拉框设置为默认选中
+         * 通过当前视频的一级分类异步获取所有该一级分类下的所有二级分类
+         * 然后通过当前视频的二级分类，
+         * 将当前视频的二级分类的下拉框设置为默认选中
          */
-        //获取当前电影的所属的二级分类
+        //获取当前视频的所属的二级分类
         $("#secondcate").empty();
         var scate=$(this).attr('data-scate');
         $.get('/admin/secondcate/query',{pid:fcate},function(data,status){
@@ -19,7 +19,7 @@ $(function(){
                 opt='<option value='+data[i]._id+'>'+data[i].name+'</option>';
                 $("#secondcate").append(opt);
             }
-            //将当前电影的一级分类在二级分类下拉框中默认选中
+            //将当前视频的一级分类在二级分类下拉框中默认选中
             $("#secondcate").find('option[value='+scate+']').attr("selected",true);
         });
         
@@ -50,7 +50,7 @@ $(function(){
         });
     });
     
-    /*----异步删除电影----*/
+    /*----异步删除视频----*/
     $(".del").click(function(){
         if(confirm('Are your sure remove it?')){
             var id=$(this).attr('data-id');
