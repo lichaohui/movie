@@ -13,7 +13,7 @@ exports.index=function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.render('home/video/index',{'title':'video','videos':data,'conditions':condition});
+            res.render('home/video/index',{'title':'video','videos':data,'condition':condition});
         }
     };
     var condition;

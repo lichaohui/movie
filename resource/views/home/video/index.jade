@@ -16,9 +16,9 @@ block content
               img(class='media-object',src='#{video.playbill}',alt='#{video.name}',width='64',height='64')
           div(class='media-boty media-right')
             h4(class='media-heading') #{video.name}
-            p #{video.intro}  
+            p #{video.intro}
     ul(class='pagination')
       -for(var i=0;i<videos.length;i++)
         li()
-          a(href='/video?page=#{i+1}') #{i+1}
+          a(href='/video?#{condition}page=#{i+1}') #{i+1}
 include ../../common/footer          
