@@ -65,16 +65,19 @@ videoSchema.statics={
      * 方法中必须有一个参数callback,
      * 该参数就是方法的回调函数
      */
-    fetch:function(callback){
-        return this.find({}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').exec(callback);
+    fetch:function(start,limit,callback){
+        return this.find({}).skip(start).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').limit(limit).exec(callback);
     },
     
-    findByFirstcate:function(firstcate,callback){
-        return this.find({firstcate:firstcate}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').exec(callback);
+    findByFirstcate:function(firstcate,start,limit,callback){
+        var videos=this.find({firstcate:firstcate}).skip(start).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').limit(limit);
+        var total=datas.length;
+        var data={videos:videos,total:total}
+        return data.exec(callback);
     },
     
-    findBySecondcate:function(secondcate,callback){
-        return this.find({secondcate:secondcate}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').exec(callback);
+    findBySecondcate:function(secondcate,start,limit,callback){
+        return this.find({secondcate:secondcate}).skip(start).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').limit(limit).exec(callback);
     },
     
     /*
