@@ -17,10 +17,9 @@ block content
           div(class='media-boty media-right')
             h4(class='media-heading') #{video.name}
             p #{video.intro}
-    #{conditions.length}
     -var str;
     
-    -for(var j=0;j<conditions.length;j++)
+    -for(var j=0;j<1;j++)
       str+=conditions[j].name+'='+conditions[j].value+'&';
     #{str}  
     ul(class='pagination')
