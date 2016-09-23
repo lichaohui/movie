@@ -22,7 +22,8 @@ exports.index=function(req,res){
         //调用video模型的fetch方法遍历数据传递给前台展示
         video.fetch(callback);
     }else if(req.query.secondcate==null){
-        condition=[{'name':'firstcate','value':req.query.firstcate}];
+        //condition=[{'name':'firstcate','value':req.query.firstcate}];
+        condition='firstcate='+req.query.firstcate+'&';
         video.findByFirstcate(req.query.firstcate,callback);
     }else{
         condition=[{'name':'firstcate','value':req.query.firstcate},{'name':'secondcate','value':req.query.secondcate}];
