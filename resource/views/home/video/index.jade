@@ -17,8 +17,12 @@ block content
           div(class='media-boty media-right')
             h4(class='media-heading') #{video.name}
             p #{video.intro}
+    -var str;
+    -for(var j=0;j<conditions.length;j++)
+      str+=conditions[i].name+'='+conditions[i].value+'&';
+    str  
     ul(class='pagination')
       -for(var i=0;i<videos.length;i++)
-        li(class='disabled')
-          a(href='#') #{i+1}
+        li()
+          a(href='/video?page=#{i+1}') #{i+1}
 include ../../common/footer          

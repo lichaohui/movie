@@ -13,16 +13,19 @@ exports.index=function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.render('home/video/index',{'title':'video','videos':data,});
+            res.render('home/video/index',{'title':'video','videos':data,'conditions':condition});
         }
     };
-    //如果没有按分类搜索
+    var condition;
     if(req.query.firstcate==null && req.query.secondcate==null){
+        condition=null;
         //调用video模型的fetch方法遍历数据传递给前台展示
         video.fetch(callback);
     }else if(req.query.secondcate==null){
+        condition=[{'name':firstcate,'value':firstcate}];
         video.findByFirstcate(req.query.firstcate,callback);
     }else{
+        condition=[{'name':firstcate,'value':firstcate},{'name':secondcate,'value':secondcate}];
         video.findBySecondcate(req.query.secondcate,callback);
     }
 };
