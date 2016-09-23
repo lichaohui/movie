@@ -13,7 +13,7 @@ exports.index=function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.render('home/video/index',{'title':'video','data':data,});
+            res.render('home/video/index',{'title':'video','videos':data,});
         }
     };
     //如果没有按分类搜索
