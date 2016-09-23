@@ -69,7 +69,7 @@ videoSchema.statics={
         return this.find({}).skip(start).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').limit(limit).exec(callback);
     },
     
-    findByFirstcate:function(firstcate,start,limit,callback){
+    findByFirstcate:function(firstcate,callback){
         return this.find({firstcate:firstcate}).skip(1).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').limit(5).exec(callback);
     },
     
