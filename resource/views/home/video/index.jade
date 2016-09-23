@@ -20,8 +20,8 @@ block content
     -var str;
     
     -for(var j=0;j<1;j++)
-      str+=conditions[j].name+'='+conditions[j].value+'&';
-    #{str}  
+      conditions[j].name+':'+conditions[j].value+'&';
+
     ul(class='pagination')
       -for(var i=0;i<videos.length;i++)
         li()
