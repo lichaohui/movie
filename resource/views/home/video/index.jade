@@ -17,7 +17,9 @@ block content
           div(class='media-boty media-right')
             h4(class='media-heading') #{video.name}
             p #{video.intro}
+    #{conditions.length}
     -var str;
+    
     -for(var j=0;j<conditions.length;j++)
       str+=conditions[j].name+'='+conditions[j].value+'&';
     #{str}  
