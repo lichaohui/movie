@@ -17,12 +17,8 @@ block content
           div(class='media-boty media-right')
             h4(class='media-heading') #{video.name}
             p #{video.intro}
-    -var str;
-    each condition in conditions
-      str.='#{condition.name}=#{condition.value}&'
-    div #{str}  
     ul(class='pagination')
       -for(var i=0;i<videos.length;i++)
         li()
-          a(href='/video?page=#{i+1}') #{i+1}
+          a(href='/video?#{condition}page=#{i+1}') #{i+1}
 include ../../common/footer          
