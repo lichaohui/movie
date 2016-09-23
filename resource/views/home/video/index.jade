@@ -18,10 +18,8 @@ block content
             h4(class='media-heading') #{video.name}
             p #{video.intro}
     -var str;
-    
-    -for(var j=0;j<1;j++)
-      conditions[j].name+':'+conditions[j].value+'&';
-
+    each condition in conditions
+      div condition.name
     ul(class='pagination')
       -for(var i=0;i<videos.length;i++)
         li()
