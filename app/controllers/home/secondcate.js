@@ -6,7 +6,7 @@ var secondcate=require('../../models/secondcate');
 exports.query=function(req,res,next){
     //删除session
     delete req.session.secondcates;
-    var pid=req.query.firstcate;
+    var pid=req.session.firstcate;
     secondcate.findByParent(pid,function(err,data){
         if(err){
             console.log(err);
