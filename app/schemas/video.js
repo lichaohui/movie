@@ -71,7 +71,7 @@ videoSchema.statics={
     
     findByFirstcate:function(firstcate,start,limit,callback){
         var videos=this.find({firstcate:firstcate}).skip(start).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').limit(limit);
-        var total=datas.length;
+        var total=videos.length;
         var data={videos:videos,total:total}
         return data.exec(callback);
     },
