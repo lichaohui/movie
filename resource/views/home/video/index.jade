@@ -19,7 +19,8 @@ block content
             p #{video.intro}
     -var str;
     each condition in conditions
-      div #{condition.name}
+      str=#{condition.name}+'='+#{condition.value}
+    div #{str}  
     ul(class='pagination')
       -for(var i=0;i<videos.length;i++)
         li()
