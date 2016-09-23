@@ -16,11 +16,7 @@ block content
               img(class='media-object',src='#{video.playbill}',alt='#{video.name}',width='64',height='64')
           div(class='media-boty media-right')
             h4(class='media-heading') #{video.name}
-            p #{video.intro}
-    -var str;
-    each condition in conditions
-      str.='#{condition.name}=#{condition.value}&'
-    div #{str}  
+            p #{video.intro}  
     ul(class='pagination')
       -for(var i=0;i<videos.length;i++)
         li()
