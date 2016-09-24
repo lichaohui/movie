@@ -13,7 +13,8 @@ nav(class='navbar navbar-default container')
           span(class="caret")
         ul(class="dropdown-menu")  
           li
-            a(href='/admin/video/') 视频列表
+            a(href='/admin/video/') 全部
+          li(class="divider")
           each firstcate in firstcates
             li 
               a(href='/admin/video?firstcate=#{firstcate._id}') #{firstcate.name}    
