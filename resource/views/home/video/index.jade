@@ -35,6 +35,7 @@ block content
         li(class='disabled')
           a(href='javascript:') &raquo;
       -else
+        -var curPage+=1;
         li()
-          a(href='/video?#{condition}page=curPage+1') &raquo;
+          a(href='/video?#{condition}page=#{curPage}') &raquo;
 include ../../common/footer          
