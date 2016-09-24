@@ -12,7 +12,7 @@ module.exports=function(app){
      * 定义一个中间件，
      * 所有路由被执行之前都会先执行这个中间件
      */
-    app.use(firstcate.index);
+    app.use(firstcate.query);
     app.use(function(req,res,next){
         /*
          * 将session信息存入本地的变量中
