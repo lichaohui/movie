@@ -18,7 +18,7 @@ exports.index=function(req,res){
      * 如果不存在则默认为1
      */
     var page;
-    req.query.page ? page=req.query.page : page=1;
+    req.query.page ? page=parseInt(req.query.page) : page=1;
     
     //回调函数
     var callback=function(err,data){
