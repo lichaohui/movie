@@ -18,11 +18,23 @@ block content
             h4(class='media-heading') #{video.name}
             p #{video.intro}
     ul(class='pagination')
+      -if(curPage==1)
+        li(class='disabled')
+          a(href='javascript:') &laquo;
+      -else
+        li()
+          a(href='/video?#{condition}page=#{i}')') &laquo;
       -for(var i=0;i<pageLength;i++)
         if(i+1==curPage)
           li(class='active')
-            a(href='#') #{i+1}
+            a(href='javascript:') #{i+1}
         else    
           li()
             a(href='/video?#{condition}page=#{i+1}') #{i+1}
+      -if(curPage==pageLength-1)
+        li(class='disabled')
+          a(href='javascript:') &laquo;
+      -else
+        li()
+          a(href='/video?#{condition}page=#{i+2}')') &raquo;
 include ../../common/footer          
