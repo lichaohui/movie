@@ -40,9 +40,6 @@ exports.index=function(req,res){
     }else if(req.query.secondcate==null){
         condition='firstcate='+req.query.firstcate+'&';
         video.findByFirstcate(req.query.firstcate,callback);
-    }else if(req.query.firstcate==null){
-        condition='secondcate='+req.query.secondcate+'&';
-        video.findBySecondcate(req.query.secondcate,callback);
     }else{
         condition='firstcate='+req.query.firstcate+'&secondcate='+req.query.secondcate+'&';
         video.findBySecondcate(req.query.secondcate,callback);
