@@ -9,6 +9,7 @@ exports.query=function(req,res,next){
         if(err){
             console.log(err);
         }else{
+            req.session.firstcate=pid;
             req.session.secondcates=data;
             next();
         }
@@ -19,7 +20,6 @@ exports.query=function(req,res,next){
     if(req.query.firstcate){
         //如果请求参数中有一级分类则返回该一级分类下的所有二级分类
         var pid=req.query.firstcate;
-        req.session.firstcate=pid;
         secondcate.findByParent(pid,callback);
     }else{
         //如果请求参数中没有一级分类则返回所有的二级分类
