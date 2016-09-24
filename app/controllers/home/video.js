@@ -30,7 +30,7 @@ exports.index=function(req,res){
             //从所有数据中返回当前页应有的数据
             var pageData=data.slice((page-1)*limit,page*limit);
             
-            res.render('home/video/index',{'title':'video','videos':pageData,'condition':condition,'pageLength':pageLength});
+            res.render('home/video/index',{'title':'video','videos':pageData,'condition':condition,'pageLength':pageLength,'curPage':page});
         }
     };
     

@@ -19,6 +19,10 @@ block content
             p #{video.intro}
     ul(class='pagination')
       -for(var i=0;i<pageLength;i++)
-        li()
-          a(href='/video?#{condition}page=#{i+1}') #{i+1}
+        if(i+1==curpage)
+          li(class='active')
+            a(href='#') #{i+1}
+        else    
+          li()
+            a(href='/video?#{condition}page=#{i+1}') #{i+1}
 include ../../common/footer          
