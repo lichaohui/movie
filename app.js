@@ -79,7 +79,7 @@ var port=process.env.PORT || 3000;
 app.listen(port);
 
 //引入前台和后台的路由文件
-//require('./app/routes/route.js')(app);
+require('./app/routes/route.js')(app);
 require('./app/routes/routeAdmin.js')(app);
 
 console.log('server running at port: '+port);
