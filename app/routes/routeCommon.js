@@ -24,4 +24,4 @@ module.exports=function(app){
         app.locals.secondcates=req.session.secondcates;
         next();
     });
-})
+}
