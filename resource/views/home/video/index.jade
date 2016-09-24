@@ -33,7 +33,7 @@ block content
             a(href='/video?#{condition}page=#{i+1}') #{i+1}
       -if(curPage==pageLength)
         li(class='disabled')
-          a(href='javascript:') &laquo;
+          a(href='javascript:') &raquo;
       -else
         li()
           a(href='/video?#{condition}page=#{curPage=1}') &raquo;
