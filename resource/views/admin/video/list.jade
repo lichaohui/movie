@@ -6,7 +6,7 @@ block content
     ul(class='list-cates list-inline')
       each secondcate in secondcates
         li
-          a(href='/admin/video?firstcate=#{firstcate}&secondcate=#{secondcate._id}') #{secondcate.name}
+          a(href='/admin/video?secondcate=#{secondcate._id}') #{secondcate.name}
     table(class='table table-bordered table-hover text-center')
       tr
         th name
