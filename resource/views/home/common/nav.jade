@@ -13,6 +13,9 @@ nav(class='navbar navbar-default')
           a(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle") Video
             span(class='caret')
           ul(class='dropdown-menu' role='menu')
+            li
+              a(href='/video') 全部
+            li(class='divider')  
             each firstcate in firstcates
               li 
                 a(href='/video?firstcate=#{firstcate._id}') #{firstcate.name}

@@ -30,20 +30,29 @@ exports.index=function(req,res){
             //从所有数据中返回当前页应有的数据
             var pageData=data.slice((page-1)*limit,page*limit);
             
-            res.render('home/video/index',{'title':'video','videos':pageData,'condition':condition,'pageLength':pageLength,'curPage':page});
+            res.render('home/video/index',{'title':'video','videos':pageData,'condition':condition,'pageLength':pageLength,'curPage':page,'isAll':isAll});
         }
     };
     
     //声明一个condition变量用来承载条件
     var condition;
+    //声明一个变量用来承载是否显示的全部的二级分类
+    var isAll;
     if(req.query.firstcate==null && req.query.secondcate==null){
+        isAll=true;
         condition='';
         //调用video模型的fetch方法遍历数据传递给前台展示
         video.fetch(callback);
     }else if(req.query.secondcate==null){
+        isAll=false;
         condition='firstcate='+req.query.firstcate+'&';
         video.findByFirstcate(req.query.firstcate,callback);
+    }else if(req.query.firstcate==null){
+        isAll=true;
+        condition='secondcate='+req.query.secondcate+'&';
+        video.findBySecondcate(req.query.secondcate,callback);
     }else{
+        isAll=false;
         condition='firstcate='+req.query.firstcate+'&secondcate='+req.query.secondcate+'&';
         video.findBySecondcate(req.query.secondcate,callback);
     }
