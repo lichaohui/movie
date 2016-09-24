@@ -29,7 +29,7 @@ exports.index=function(req,res){
     req.query.page ? page=req.query.page : page=1;
     
     //设置每页的显示条数
-    var limit=2;
+    var limit=1;
     
     //声明一个condition变量用来承载条件
     var condition;
