@@ -7,11 +7,11 @@ block content
       -if(isAll==true)
         each secondcate in secondcates
           li
-            a(href='/admin/video?secondcate=#{secondcate._id}') #{secondcate.name}
+            a(href='/video?secondcate=#{secondcate._id}') #{secondcate.name}
       -else
         each secondcate in secondcates
           li
-            a(href='/admin/video?firstcate=#{secondcate.parentcate._id}&secondcate=#{secondcate._id}') #{secondcate.name}
+            a(href='/video?firstcate=#{secondcate.parentcate._id}&secondcate=#{secondcate._id}') #{secondcate.name}
     ul(class='row')
       each video in videos
         li(class='media list-unstyled')
