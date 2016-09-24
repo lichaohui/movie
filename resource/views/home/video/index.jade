@@ -18,7 +18,7 @@ block content
             h4(class='media-heading') #{video.name}
             p #{video.intro}
     ul(class='pagination')
-      -for(var i=0;i<pageLenth;i++)
+      -for(var i=0;i<pageLength;i++)
         li()
           a(href='/video?#{condition}page=#{i+1}') #{i+1}
 include ../../common/footer          
