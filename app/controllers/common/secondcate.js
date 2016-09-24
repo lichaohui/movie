@@ -17,8 +17,8 @@ exports.query=function(req,res,next){
     
     //删除session
     delete req.session.secondcates;
-    if(req.query.firstcate==null){
-        //如果请求参数中没有一级分类则返回所有的二级分类
+    if(req.query.firstcate==null && req.query.secondcate==null){
+        //如果请求参数中没有一级分类和二级分类则返回所有的二级分类
         secondcate.fetch(callback);
     }else{
         //如果请求参数中有一级分类则返回该一级分类下的所有二级分类
