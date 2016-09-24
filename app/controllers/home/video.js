@@ -16,6 +16,7 @@ exports.index=function(req,res){
         }else{
             //一共有多少页就是math.ceil(数据的总长度除以每页显示多少条)
             var pageLength=Math.ceil(data.length/limit);
+            console.log('hellolucy'+data.length);
             res.render('home/video/index',{'title':'video','videos':data,'condition':condition,'pageLength':pageLength});
         }
     };
