@@ -20,19 +20,6 @@ exports.index=function(req,res){
     })
 };
 
-//遍历一级分类列表的方法
-exports.query=function(req,res,next){
-    //调用firstcate模型的fetch方法遍历数据传递给前台展示
-    firstcate.fetch(function(err,data){
-        if(err){
-            console.log(err);
-        }else{
-            req.session.firstcates=data;
-            next();
-        }
-    })
-};
-
 //展示添加一级分类页面的方法
 exports.create=function(req,res){
     res.render('admin/firstcate/create',{'title':'firstcate'}); 

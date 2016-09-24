@@ -1,3 +1,5 @@
+/*----后台路由----*/
+
 //引入后台控制器文件
 var video=require('../controllers/admin/video');
 var user=require('../controllers/admin/user');

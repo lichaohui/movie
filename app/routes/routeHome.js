@@ -1,28 +1,13 @@
+/*----前台路由----*/
+
 //引入前台控制器文件
 var index=require('../controllers/home/index');
 var video=require('../controllers/home/video');
 var user=require('../controllers/home/user');
 var comment=require('../controllers/home/comment');
 var reply=require('../controllers/home/reply');
-var firstcate=require('../controllers/home/firstcate');
-var secondcate=require('../controllers/home/secondcate');
 
 module.exports=function(app){
-    /*
-     * 定义一个中间件，
-     * 所有路由被执行之前都会先执行这个中间件
-     */
-    app.use(firstcate.query);
-    app.use(function(req,res,next){
-        /*
-         * 将session信息存入本地的变量中
-         * 这样在模板张就可以使用这些变量了
-         */
-        app.locals.user=req.session.user;
-        app.locals.firstcates=req.session.firstcates;
-        next();
-    });
-    
     /*
      * 设置“/”前台首页路由
      * 执行index控制器中的index方法
@@ -30,12 +15,6 @@ module.exports=function(app){
     app.get('/',index.index);
     
     //前台视频列表页路由
-    app.get('*/video',secondcate.query);
-    app.get('*/video',function(req,res,next){
-        app.locals.firstcate=req.session.firstcate;
-        app.locals.secondcates=req.session.secondcates;
-        next();
-    });
     app.get('/video',video.index);
     //设置前台视频详情页路由
     app.get('/video/detail/:id',video.show);
