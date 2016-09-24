@@ -9,17 +9,8 @@ var comment=require('../../models/comment');
 
 //显示video列表的方法
 exports.index=function(req,res){
-    //回调函数
-    var callback=function(err,data){
-        if(err){
-            console.log(err);
-        }else{
-            //一共有多少页就是math.ceil(数据的总长度除以每页显示多少条)
-            var pageLength=Math.ceil(data.length/limit);
-            console.log('hellolucy'+data.length);
-            res.render('home/video/index',{'title':'video','videos':data,'condition':condition,'pageLength':pageLength});
-        }
-    };
+    //设置每页的显示条数
+    var limit=2;
     
     /*
      * 通过一个三元表达式来设置page
@@ -29,21 +20,32 @@ exports.index=function(req,res){
     var page;
     req.query.page ? page=req.query.page : page=1;
     
-    //设置每页的显示条数
-    var limit=1;
+    //回调函数
+    var callback=function(err,data){
+        if(err){
+            console.log(err);
+        }else{
+            //一共有多少页就是math.ceil(数据的总长度除以每页显示多少条)
+            var pageLength=Math.ceil(data.length/limit);
+            //从所有数据中返回当前页应有的数据
+            var pageData=data.slice((page-1)*limit,page*limit);
+            
+            res.render('home/video/index',{'title':'video','videos':pageData,'condition':condition,'pageLength':pageLength});
+        }
+    };
     
     //声明一个condition变量用来承载条件
     var condition;
     if(req.query.firstcate==null && req.query.secondcate==null){
         condition='';
         //调用video模型的fetch方法遍历数据传递给前台展示
-        video.fetch(page,limit,callback);
+        video.fetch(callback);
     }else if(req.query.secondcate==null){
         condition='firstcate='+req.query.firstcate+'&';
-        video.findByFirstcate(req.query.firstcate,page,limit,callback);
+        video.findByFirstcate(req.query.firstcate,callback);
     }else{
         condition='firstcate='+req.query.firstcate+'&secondcate='+req.query.secondcate+'&';
-        video.findBySecondcate(req.query.secondcate,page,limit,callback);
+        video.findBySecondcate(req.query.secondcate,callback);
     }
 };
 

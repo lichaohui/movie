@@ -65,16 +65,16 @@ videoSchema.statics={
      * 方法中必须有一个参数callback,
      * 该参数就是方法的回调函数
      */
-    fetch:function(page,limit,callback){
-        return this.find({}).skip(page-1).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').limit(limit).exec(callback);
+    fetch:function(callback){
+        return this.find({}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').exec(callback);
     },
     
-    findByFirstcate:function(firstcate,page,limit,callback){
-        return this.find({firstcate:firstcate}).skip(page-1).sort('meta.updated_at').limit(limit).populate('firstcate','name').populate('secondcate','name').exec(callback);
+    findByFirstcate:function(firstcate,callback){
+        return this.find({firstcate:firstcate}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').exec(callback);
     },
     
-    findBySecondcate:function(secondcate,page,limit,callback){
-        return this.find({secondcate:secondcate}).skip(page-1).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').limit(limit).exec(callback);
+    findBySecondcate:function(secondcate,callback){
+        return this.find({secondcate:secondcate}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').exec(callback);
     },
     
     /*
