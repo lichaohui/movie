@@ -19,7 +19,7 @@ block content
             p #{video.intro}
     ul(class='pagination')
       -for(var i=0;i<pageLength;i++)
-        if(i+1==#{curPage})
+        if(i+1==curPage)
           li(class='active')
             a(href='#') #{i+1}
         else    
