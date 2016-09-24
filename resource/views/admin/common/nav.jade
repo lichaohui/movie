@@ -17,7 +17,8 @@ nav(class='navbar navbar-default container')
           li(class="divider")
           each firstcate in firstcates
             li 
-              a(href='/admin/video?firstcate=#{firstcate._id}') #{firstcate.name}    
+              a(href='/admin/video?firstcate=#{firstcate._id}') #{firstcate.name}  
+          li(class="divider")      
           li
             a(href='/admin/video/create') 添加视频
       li(role='presentation' id='page-user' class="dropdown")
