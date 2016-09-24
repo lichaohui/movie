@@ -1,10 +1,9 @@
 include ../../common/header
 block content
-  style.
-    .list-inline{margin-left:20px;}
+  link(rel='stylesheet' href='/css/home/video.css')
   section(class='container')
     include ../common/nav
-    ul(class='list-inline')
+    ul(class='list-cates list-inline')
       each secondcate in secondcates
         li
           a(href='/video?firstcate=#{firstcate}&secondcate=#{secondcate._id}') #{secondcate.name}
