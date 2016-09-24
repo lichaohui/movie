@@ -10,7 +10,7 @@ var comment=require('../../models/comment');
 //显示video列表的方法
 exports.index=function(req,res){
     //设置每页的显示条数
-    var limit=2;
+    var limit=5;
     
     /*
      * 通过一个三元表达式来设置page
