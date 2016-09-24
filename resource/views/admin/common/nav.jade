@@ -14,6 +14,9 @@ nav(class='navbar navbar-default container')
         ul(class="dropdown-menu")  
           li
             a(href='/admin/video/') 视频列表
+          each firstcate in firstcates
+            li 
+              a(href='/admin/video?firstcate=#{firstcate._id}') #{firstcate.name}    
           li
             a(href='/admin/video/create') 添加视频
       li(role='presentation' id='page-user' class="dropdown")

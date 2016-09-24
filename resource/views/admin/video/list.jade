@@ -4,6 +4,10 @@ block content
     .btn{margin-left:2px;margin-right:2px;}
   include ../common/nav    
   section(class='container')
+    ul(class='list-cates list-inline')
+      each secondcate in secondcates
+        li
+          a(href='/video?firstcate=#{firstcate}&secondcate=#{secondcate._id}') #{secondcate.name}
     table(class='table table-bordered table-hover text-center')
       tr
         th name
@@ -23,6 +27,27 @@ block content
             a(href='/video/detail/#{video._id}' target='_blank' class='btn btn-default btn-xs') view
             button(type='button' class='edit btn btn-primary btn-xs' data-id='#{video._id}' data-fcate='#{video.firstcate._id}' data-scate='#{video.secondcate._id}' data-toggle="modal" data-target="#myModal") edit
             button(type='button' class='del btn btn-danger btn-xs' data-id='#{video._id}') delete
+    -if(pageLength>1)        
+      ul(class='pagination')
+        -if(curPage==1)
+          li(class='disabled')
+            a(href='javascript:') &laquo;
+        -else
+          li()
+            a(href='/admin/video?#{condition}page=#{curPage-1}') &laquo;
+        -for(var i=0;i<pageLength;i++)
+          if(i+1==curPage)
+            li(class='active')
+              a(href='javascript:') #{i+1}
+          else    
+            li()
+              a(href='/admin/video?#{condition}page=#{i+1}') #{i+1}
+        -if(curPage==pageLength)
+          li(class='disabled')
+            a(href='javascript:') &raquo;
+        -else
+          li()
+            a(href='/admin/video?#{condition}page=#{curPage+1}') &raquo;        
   div(class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby="myModalLabel")
     div(class="modal-dialog" role="document")
       div(class="modal-content")
