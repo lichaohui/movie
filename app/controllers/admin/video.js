@@ -47,6 +47,7 @@ exports.index=function(req,res){
     }else if(req.query.firstcate==null){
         isAll=true;
         condition='secondcate='+req.query.secondcate+'&';
+        video.findBySecondcate(req.query.secondcate,callback);
     }else{
         isAll=false;
         condition='firstcate='+req.query.firstcate+'&secondcate='+req.query.secondcate+'&';
