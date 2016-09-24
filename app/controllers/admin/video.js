@@ -33,14 +33,22 @@ exports.index=function(req,res){
     
     //声明一个condition变量用来承载条件
     var condition;
+    //声明一个变量用来承载是否显示的全部的二级分类
+    var isAll;
     if(req.query.firstcate==null && req.query.secondcate==null){
+        isAll=true;
         condition='';
         //调用video模型的fetch方法遍历数据传递给前台展示
         video.fetch(callback);
     }else if(req.query.secondcate==null){
+        isAll=false;
         condition='firstcate='+req.query.firstcate+'&';
         video.findByFirstcate(req.query.firstcate,callback);
+    }else if(req.query.firstcate==null){
+        isAll=true;
+        condition='secondcate='+req.query.secondcate+'&';
     }else{
+        isAll=false;
         condition='firstcate='+req.query.firstcate+'&secondcate='+req.query.secondcate+'&';
         video.findBySecondcate(req.query.secondcate,callback);
     }
