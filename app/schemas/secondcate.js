@@ -69,7 +69,7 @@ secondcateSchema.statics={
     
     //查找同个一级分类下所有二级的分类
     findByParent:function(pid,callback){
-        return this.find({parentcate:pid}).sort('meta.updated_at').exec(callback);
+        return this.find({parentcate:pid}).sort('meta.updated_at').populate('parentcate','name').exec(callback);
     },
     
     /*
