@@ -11,7 +11,7 @@ block content
       -else
         each secondcate in secondcates
           li
-            a(href='/admin/video?firstcate=#{secondcate.parent._id}&secondcate=#{secondcate._id}') #{secondcate.name}
+            a(href='/admin/video?firstcate=#{secondcate.parentcate._id}&secondcate=#{secondcate._id}') #{secondcate.name}
     table(class='table table-bordered table-hover text-center')
       tr
         th name
