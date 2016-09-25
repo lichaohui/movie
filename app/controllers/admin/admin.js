@@ -68,7 +68,7 @@ exports.logout=function(req,res){
 //展示管理员列表的方法
 exports.index=function(req,res){
     //设置每页的显示条数
-    var limit=1;
+    var limit=10;
     //设置condition变量用来承载条件
     var condition;
     /*
