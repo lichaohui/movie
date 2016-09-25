@@ -34,7 +34,7 @@ exports.index=function(req,res){
          * 那么条件condition就等于''
          * 就查询出所有的用户返回给前台
          */
-        condition={};
+        condition={'value':'','string':''};
         user.fetch(callback);
     }else{
         /*
