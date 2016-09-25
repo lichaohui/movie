@@ -7,6 +7,8 @@ block content
     form(class='form-inline text-right' role='form' action='/admin/secondcate' method='get')
       div(class='form-group')
         input(type='text' class='form-control input-sm' name='name' placeholder='name' value='#{condition.value}')
+        select(class='form-control' id='parent' name='parent')
+          option(value='') 全部
       button(type='submit' class='btn btn-primary btn-sm') 筛选
       &nbsp;
       a(href='/admin/secondcate' class='btn btn-default btn-sm') 取消筛选
