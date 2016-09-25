@@ -1,6 +1,7 @@
 /*----后台路由----*/
 
 //引入后台控制器文件
+var index=require('../controllers/admin/index');
 var video=require('../controllers/admin/video');
 var user=require('../controllers/admin/user');
 var admin=require('../controllers/admin/admin');
@@ -57,9 +58,8 @@ module.exports=function(app){
     /*----后台路由----*/
     /*
      * 后台首页的路由，
-     * 暂时先跳转到视频的列表页吧
      */
-    app.get('/admin',video.index);
+    app.get('/admin',index.index);
     
     //显示管理员登录界面的路由
     app.get('/admin/login',admin.login);
