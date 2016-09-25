@@ -7,7 +7,7 @@ var underscore=require('underscore');
 //展示一级分类列表的方法
 exports.index=function(req,res){
     //设置每页的显示条数
-    var limit=2;
+    var limit=10;
     /*
      * 通过一个三元表达式来设置page
      * 如果page参数存在则page等于参数中的page
