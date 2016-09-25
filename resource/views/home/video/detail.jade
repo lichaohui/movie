@@ -9,12 +9,12 @@ block content
     h2(class='text-center') #{video.name}
     video(src='#{video.src}', controls='controls',width='100%')
     dl(class='dl-horizontal')
-      dt name:
-      dd #{video.name} 
       dt type:
       dd #{video.firstcate.name} - #{video.secondcate.name}
       dt created_at:
       dd #{moment(video.meta.created_at).format('YYYY MM DD')}
+      dt views:
+      dd #{video.views}
       dt intro:
       dd #{video.intro}
     h3(id='comments-tit') Comments  
