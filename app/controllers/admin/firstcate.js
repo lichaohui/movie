@@ -6,6 +6,15 @@ var underscore=require('underscore');
 
 //展示一级分类列表的方法
 exports.index=function(req,res){
+    //设置每页的显示条数
+    var limit=2;
+    /*
+     * 通过一个三元表达式来设置page
+     * 如果page参数存在则page等于参数中的page
+     * 如果不存在则默认为1
+     */
+    var page;
+    req.query.page ? page=parseInt(req.query.page) : page=1;
     //调用firstcate模型的fetch方法遍历数据传递给前台展示
     firstcate.fetch(function(err,data){
         if(err){
@@ -14,7 +23,11 @@ exports.index=function(req,res){
             if(req.query.isAjax){
                 res.send(data);
             }else{
-                res.render('admin/firstcate/index',{'title':'firstcate','firstcates':data});
+                //一共有多少页就是math.ceil(数据的总长度除以每页显示多少条)
+                var pageLength=Math.ceil(data.length/limit);
+                //从所有数据中返回当前页应有的数据
+                var pageData=data.slice((page-1)*limit,page*limit);  
+                res.render('admin/firstcate/list',{'title':'firstcate','firstcates':pageData,'pageLength':pageLength,'curPage':page});
             }
         }
     })
