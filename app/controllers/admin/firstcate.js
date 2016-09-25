@@ -27,7 +27,7 @@ exports.index=function(req,res){
                 var pageLength=Math.ceil(data.length/limit);
                 //从所有数据中返回当前页应有的数据
                 var pageData=data.slice((page-1)*limit,page*limit);  
-                res.render('admin/firstcate/list',{'title':'firstcate','firstcates':pageData,'pageLength':pageLength,'curPage':page});
+                res.render('admin/firstcate/index',{'title':'firstcate','firstcates':pageData,'pageLength':pageLength,'curPage':page});
             }
         }
     })
