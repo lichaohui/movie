@@ -138,6 +138,17 @@ adminSchema.statics={
     },
     
     /*
+     * 通过姓名查找用户
+     * 进行的是模糊查找
+     */
+    findByName:function(name,callback){
+        //先通过使用RegExp，来构建正则表达式对象
+        var regName=new RegExp(name);
+        //然后将正则表达式对象作为条件传入来进行查找
+        return this.find({'name':regName}).sort('meta.updated_at').exec(callback);
+    },
+    
+    /*
      * 添加一个叫做findById的静态方法
      * 该方法返回通过id查找出来的那条数据
      */

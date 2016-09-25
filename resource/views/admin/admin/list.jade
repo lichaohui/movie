@@ -4,6 +4,13 @@ block content
     .btn{margin-left:2px;margin-right:2px;}
   include ../common/nav    
   section(class='container')
+    form(class='form-inline text-right' role='form' action='/admin/admin' method='get')
+      div(class='form-group')
+        input(type='text' class='form-control input-sm' id='name' name='name' placeholder='name' value='#{condition.value}')
+      button(type='submit' class='btn btn-primary btn-sm') 筛选
+      &nbsp;
+      a(href='/admin/admin' class='btn btn-default btn-sm') 取消筛选
+    br  
     table(class='table table-bordered table-hover text-center')
       tr
         th name
@@ -18,6 +25,28 @@ block content
           td
             button(type='button' class='edit btn btn-primary btn-xs' data-id='#{admin._id}' data-toggle="modal" data-target="#myModal") edit
             button(type='button' class='del btn btn-danger btn-xs' data-id='#{admin._id}') delete
+    -if(pageLength>1)
+      div(class='text-center')
+        ul(class='pagination')
+          -if(curPage==1)
+            li(class='disabled')
+              a(href='javascript:') &laquo;
+          -else
+            li()
+              a(href='/admin/admin?#{condition.string}page=#{curPage-1}') &laquo;
+          -for(var i=0;i<pageLength;i++)
+            if(i+1==curPage)
+              li(class='active')
+                a(href='javascript:') #{i+1}
+            else    
+              li()
+                a(href='/admin/admin?#{condition.string}page=#{i+1}') #{i+1}
+          -if(curPage==pageLength)
+            li(class='disabled')
+              a(href='javascript:') &raquo;
+          -else
+            li()
+              a(href='/admin/admin?#{condition.string}page=#{curPage+1}') &raquo;        
   div(class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby="myModalLabel")
     div(class="modal-dialog" role="document")
       div(class="modal-content")
