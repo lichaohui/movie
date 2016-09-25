@@ -5,7 +5,8 @@ block content
     form(class='form-inline text-right' role='form' action='/admin/user' method='get')
       div(class='form-group')
         input(type='text' class='form-control input-sm' id='name' name='name' placeholder='name' value='#{condition.value}')
-      button(type='submit' class='btn btn-primary btn-sm') 筛选 &nbsp;
+      button(type='submit' class='btn btn-primary btn-sm') 筛选
+      &nbsp;
       a(href='/admin/user' class='btn btn-default btn-sm') 取消筛选
     br  
     table(class='table table-bordered table-hover text-center')
