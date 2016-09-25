@@ -4,7 +4,7 @@ $(function(){
         var opt;
         for(var i=0;i<data.length;i++){
             opt='<option value='+data[i]._id+'>'+data[i].name+'</option>';
-            $(".parentcate").append(opt);
+            $("#parentcate").append(opt);
         }
     });
 })

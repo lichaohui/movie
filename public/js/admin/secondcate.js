@@ -5,15 +5,21 @@ $(function(){
         location.href=url;
     });
     
-    /*
-     * 如果是通过一级分类进行二级分类的筛选
-     * 页面加载的时候初始化筛选下拉框的选中项
-     */
-    var scate=$("#scate").val();
-    alert(scate);
-    //$("#parent").find('option[value='+scate+']').attr("selected",true);
-    $("#parent").find('option').eq(1).attr("selected",true);
-    alert('hello');
+    
+    //页面加载的时候将所有一级分类加载下拉选择框中
+    $.get('/admin/firstcate',{'isAjax':true},function(data,status){
+        var opt;
+        for(var i=0;i<data.length;i++){
+            opt='<option value='+data[i]._id+'>'+data[i].name+'</option>';
+            $("#parent").append(opt);
+        }
+        /*
+         * 如果是通过一级分类进行二级分类的筛选
+         * 页面加载的时候初始化筛选下拉框的选中项
+         */
+        var scate=$("#scate").val();
+        $("#parent").find('option[value='+scate+']').attr("selected",true);
+    });
     
     /*----异步编辑二级分类----*/
     $(".edit").click(function(){
