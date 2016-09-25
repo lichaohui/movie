@@ -34,7 +34,7 @@ exports.index=function(req,res){
          * 那么条件condition就等于''
          * 就查询出所有的用户返回给前台
          */
-        condition='';
+        condition={};
         user.fetch(callback);
     }else{
         /*
@@ -42,7 +42,10 @@ exports.index=function(req,res){
          * 就查询出指定用户名的用户返回给前台
          * 并将条件condition设置一下
          */
-        condition='name='+req.query.name+'&';
+        condition={
+            'value':req.query.name,
+            'string':'name='+req.query.name+'&'
+        };
         user.findByName(req.query.name,callback);
     }
 };

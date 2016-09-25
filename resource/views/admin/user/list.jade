@@ -4,8 +4,9 @@ block content
   section(class='container')
     form(class='form-inline text-right' role='form' action='/admin/user' method='get')
       div(class='form-group')
-        input(type='text' class='form-control input-sm' id='name' name='name' placeholder='name')
-      button(type='submit' class='btn btn-default btn-sm') Search    
+        input(type='text' class='form-control input-sm' id='name' name='name' placeholder='name' value='#{condition.value}')
+      button(type='submit' class='btn btn-primary btn-sm') 筛选
+      a(href='/admin/user' class='btn btn-default btn-sm') 取消筛选
     br  
     table(class='table table-bordered table-hover text-center')
       tr
@@ -36,6 +37,6 @@ block content
               a(href='javascript:') &raquo;
           -else
             li()
-              a(href='/admin/user?#{condition}page=#{curPage+1}') &raquo;   
+              a(href='/admin/user?#{condition.string}page=#{curPage+1}') &raquo;   
   include ../../common/footer        
         
