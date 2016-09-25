@@ -6,6 +6,8 @@ var user=require('../../models/user');
 exports.index=function(req,res){
     //设置每页的显示条数
     var limit=2;
+    //设置condition变量用来承载条件
+    var condition;
     /*
      * 通过一个三元表达式来设置page
      * 如果page参数存在则page等于参数中的page
@@ -22,9 +24,15 @@ exports.index=function(req,res){
             var pageLength=Math.ceil(data.length/limit);
             //从所有数据中返回当前页应有的数据
             var pageData=data.slice((page-1)*limit,page*limit);  
-            res.render('admin/user/list',{'title':'user','users':pageData,'pageLength':pageLength,'curPage':page});
+            res.render('admin/user/list',{'title':'user','users':pageData,'pageLength':pageLength,'curPage':page,'condition':condition});
         }
     };
     
-    user.fetch(callback);
+    if(req.query.name==null){
+        condition='';
+        user.fetch(callback);
+    }else{
+        condition='name='+req.query.name+'&';
+        user.findByName(req.query.name,callback);
+    }
 };

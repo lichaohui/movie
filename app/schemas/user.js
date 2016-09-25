@@ -138,6 +138,13 @@ userSchema.statics={
     },
     
     /*
+     * 通过姓名查找用户
+     */
+    findByName:function(name,callback){
+        return this.find({'name':/name/}).sort('meta.updated_at').exec(callback);
+    },
+    
+    /*
      * 添加一个叫做findById的静态方法
      * 该方法返回通过id查找出来的那条数据
      */
