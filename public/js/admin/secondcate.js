@@ -12,6 +12,7 @@ $(function(){
     var scate=$("#scate").val();
     alert(scate);
     $("#parent").find('option[value='+scate+']').attr("selected",true);
+    alert('hello');
     
     /*----异步编辑二级分类----*/
     $(".edit").click(function(){
