@@ -5,6 +5,7 @@ block content
   include ../common/nav    
   section(class='container')
     form(class='form-inline text-right' role='form' action='/admin/secondcate' method='get')
+      input(type='hidden' id='scate' value=#{condition.value})
       div(class='form-group')
         select(class='parentcate form-control input-sm' id='parent' name='parentcate')
           option(value='') 全部

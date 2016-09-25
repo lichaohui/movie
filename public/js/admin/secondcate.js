@@ -1,10 +1,16 @@
 $(function(){
     /*----通过一级分类进行二级分类的筛选----*/
     $("#parent").change(function(){
-        alert($(this).val());
         var url='/admin/secondcate?parent='+$(this).val();
         location.href=url;
     });
+    
+    /*
+     * 如果是通过一级分类进行二级分类的筛选
+     * 页面加载的时候初始化筛选下拉框的选中项
+     */
+    var scate=$("#scate").val();
+    $("#parent").find('option[value='+scate+']').attr("selected",true);
     
     /*----异步编辑二级分类----*/
     $(".edit").click(function(){
