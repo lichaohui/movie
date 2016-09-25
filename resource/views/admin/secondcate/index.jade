@@ -6,7 +6,7 @@ block content
   section(class='container')
     form(class='form-inline text-right' role='form' action='/admin/secondcate' method='get')
       div(class='form-group')
-        select(class='form-control input-sm' id='parent' name='parentcate')
+        select(class='parentcate form-control input-sm' id='parent' name='parentcate')
           option(value='/admin/secondcate') 全部
     br
     table(class='table table-bordered table-hover text-center')
@@ -62,7 +62,7 @@ block content
             div(class='form-group')
               label(class='col-sm-2 control-label' for='parentcate') 一级分类
               div(class='col-sm-10')
-                select(class='form-control' name='parentcate' id='parentcate' required)
+                select(class='parentcate form-control' name='parentcate' id='parentcate' required)
                   option(value='') 请选择
             div(class='form-group')
               label(class='col-sm-2 control-label' for='sub')
