@@ -5,7 +5,7 @@ var user=require('../../models/user');
 //展示用户列表的方法
 exports.index=function(req,res){
     //设置每页的显示条数
-    var limit=4;
+    var limit=2;
     /*
      * 通过一个三元表达式来设置page
      * 如果page参数存在则page等于参数中的page
