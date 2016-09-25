@@ -1,7 +1,13 @@
 $(function(){
     /*----通过一级分类进行二级分类的筛选----*/
     $("#parent").change(function(){
-        var url='/admin/secondcate?parent='+$(this).val();
+        var val=$(this).val();
+        var url;
+        if(val==''){
+            url='/admin/secondcate';
+        }else{
+            url='/admin/secondcate?parent='+$(this).val();
+        }
         location.href=url;
     });
     
