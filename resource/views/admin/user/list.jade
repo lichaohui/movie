@@ -25,14 +25,14 @@ block content
               a(href='javascript:') &laquo;
           -else
             li()
-              a(href='/admin/user?#{condition}page=#{curPage-1}') &laquo;
+              a(href='/admin/user?#{condition.string}page=#{curPage-1}') &laquo;
           -for(var i=0;i<pageLength;i++)
             if(i+1==curPage)
               li(class='active')
                 a(href='javascript:') #{i+1}
             else    
               li()
-                a(href='/admin/user?#{condition}page=#{i+1}') #{i+1}
+                a(href='/admin/user?#{condition.string}page=#{i+1}') #{i+1}
           -if(curPage==pageLength)
             li(class='disabled')
               a(href='javascript:') &raquo;
