@@ -6,14 +6,50 @@ var underscore=require('underscore');
 
 //展示二级分类列表的方法
 exports.index=function(req,res){
-    //调用secondcate模型的fetch方法遍历数据传递给前台展示
-    secondcate.fetch(function(err,data){
+    //设置每页的显示条数
+    var limit=1;
+    //设置condition变量用来承载条件
+    var condition;
+    /*
+     * 通过一个三元表达式来设置page
+     * 如果page参数存在则page等于参数中的page
+     * 如果不存在则默认为1
+     */
+    var page;
+    req.query.page ? page=parseInt(req.query.page) : page=1;
+    //回调函数
+    var callback=function(err,data){
         if(err){
             console.log(err);
         }else{
-            res.render('admin/secondcate/index',{'title':'secondcate','secondcates':data});
+            //一共有多少页就是math.ceil(数据的总长度除以每页显示多少条)
+            var pageLength=Math.ceil(data.length/limit);
+            //从所有数据中返回当前页应有的数据
+            var pageData=data.slice((page-1)*limit,page*limit);  
+            res.render('admin/secondcate/index',{'title':'secondcate','secondcates':pageData,'pageLength':pageLength,'curPage':page,'condition':condition});
         }
-    })
+    };
+    
+    if(req.query.parent==null){
+        /*
+         * 如果不是通过父级分类来进行搜索的
+         * 那么条件condition就等于''
+         * 就查询出所有的二级分类返回给前台
+         */
+        condition={'value':'','string':''};
+        secondcate.fetch(callback);
+    }else{
+        /*
+         * 如果是通过父级分类来进行条件搜索的
+         * 就查询出指定父级分类的二级分类返回给前台
+         * 并将条件condition设置一下
+         */
+        condition={
+            'value':req.query.parent,
+            'string':'parent='+req.query.parent+'&'
+        };
+        secondcate.findByParent(req.query.parent,callback);
+    }
 };
 
 //查找同个一级分类下所有二级分类的方法
