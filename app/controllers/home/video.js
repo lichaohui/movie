@@ -66,6 +66,9 @@ exports.show=function(req,res){
     var url=req.url;
     //通过id获取数据并将数据发送给前台视图
     video.findById(id,function(err,data){
+        video.update({_id:id},{$inc:{views:1}},function(err){
+            console.log(err);
+        });
         comment.findByUrl(url,function(err,comments){
             res.render('home/video/detail',{'title':data.name,'video':data,'comments':comments});
         });

@@ -12,6 +12,7 @@ var videoSchema=new mongoose.Schema({
     firstcate:{type:_id,ref:'firstcates'},
     secondcate:{type:_id,ref:'secondcates'},
     src:String,
+    views:{type:number,default:0},
     meta:{
         created_at:{
             type:Date,

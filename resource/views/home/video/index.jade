@@ -20,6 +20,7 @@ block content
               img(class='media-object',src='#{video.playbill}',alt='#{video.name}',width='64',height='64')
           div(class='media-boty media-right')
             h4(class='media-heading') #{video.name}
+              span(class='badge') 观看：#{video.views}
             p #{video.intro}
     -if(pageLength>1)        
       ul(class='pagination')
