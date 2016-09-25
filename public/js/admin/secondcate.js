@@ -10,6 +10,7 @@ $(function(){
      * 页面加载的时候初始化筛选下拉框的选中项
      */
     var scate=$("#scate").val();
+    alert(scate);
     $("#parent").find('option[value='+scate+']').attr("selected",true);
     
     /*----异步编辑二级分类----*/
