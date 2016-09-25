@@ -12,7 +12,7 @@ $(function(){
     var scate=$("#scate").val();
     alert(scate);
     //$("#parent").find('option[value='+scate+']').attr("selected",true);
-    $("#parent").find('option').eq(0).attr("selected",true);
+    $("#parent").find('option').eq(1).attr("selected",true);
     alert('hello');
     
     /*----异步编辑二级分类----*/
