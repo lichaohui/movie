@@ -1,7 +1,9 @@
 $(function(){
     /*----通过一级分类进行二级分类的筛选----*/
     $("#parent").change(function(){
-        alert($(this).val());                 
+        //alert($(this).val());
+        var url='/secondcate?parent='+$(this).val();
+        location.href=url;
     });
     
     /*----异步编辑二级分类----*/
