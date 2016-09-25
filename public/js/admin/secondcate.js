@@ -2,7 +2,7 @@ $(function(){
     /*----通过一级分类进行二级分类的筛选----*/
     $("#parent").change(function(){
         //alert($(this).val());
-        var url='/secondcate?parent='+$(this).val();
+        var url='/admin/secondcate?parent='+$(this).val();
         location.href=url;
     });
     
