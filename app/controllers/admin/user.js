@@ -29,9 +29,19 @@ exports.index=function(req,res){
     };
     
     if(req.query.name==null){
+        /*
+         * 如果不是通过用户名来进行搜索的
+         * 那么条件condition就等于''
+         * 就查询出所有的用户返回给前台
+         */
         condition='';
         user.fetch(callback);
     }else{
+        /*
+         * 如果是通过用户名来进行条件搜索的
+         * 就查询出指定用户名的用户返回给前台
+         * 并将条件condition设置一下
+         */
         condition='name='+req.query.name+'&';
         user.findByName(req.query.name,callback);
     }

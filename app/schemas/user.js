@@ -141,7 +141,7 @@ userSchema.statics={
      * 通过姓名查找用户
      */
     findByName:function(name,callback){
-        return this.find({'name':/name/}).sort('meta.updated_at').exec(callback);
+        return this.where({'name':/name/}).sort('meta.updated_at').exec(callback);
     },
     
     /*
