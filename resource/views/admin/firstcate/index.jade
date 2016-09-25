@@ -9,7 +9,7 @@ block content
         th name
         th created_at
         th operating
-      each firstcate in firstCates
+      each firstcate in firsts
         tr
           td #{firstcate.name}
           td #{moment(firstcate.meta.created_at).format('YYYY MM DD')}
