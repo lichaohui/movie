@@ -1,4 +1,9 @@
 $(function(){
+    /*----通过一级分类进行二级分类的筛选----*/
+    $("#parent").change(function(){
+        alert($(this).val());                 
+    });
+    
     /*----异步编辑二级分类----*/
     $(".edit").click(function(){
         //通过id获取特定的那条数据
