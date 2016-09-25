@@ -2,10 +2,11 @@ include ../../common/header
 block content
   include ../common/nav    
   section(class='container')
-    form(class='form-inline' role='form' action='/admin/user' method='get')
+    form(class='form-inline text-right' role='form' action='/admin/user' method='get')
       div(class='form-group')
-        input(type='text' class='form-control' id='name' placeholder='name')
-      button(type='submit' class='btn btn-default') Search    
+        input(type='text' class='form-control input-sm' id='name' placeholder='name')
+      button(type='submit' class='btn btn-default btn-sm') Search    
+    br  
     table(class='table table-bordered table-hover text-center')
       tr
         th name
