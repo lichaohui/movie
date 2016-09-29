@@ -3,7 +3,9 @@ $(function(){
     
     /*----点击提交按钮时候通过jquery.form.js插件异步提交表单----*/
     $("#sub").click(function(){
-        if($("#name").val==''||$("#password").val==''){
+        var name=$('#name').val();
+        var password=$('#password').val();
+        if(name==''||password==''){
             $("#warning").text('用户名和密码都不能为空').removeClass('hidden');
         }else{
             var url=$("#form").attr('action');
