@@ -31,12 +31,12 @@ function getRandomString(len)
  * 第一个参数是测试套件的名称（"单元测试"），
  * 第二个参数是一个实际执行的函数。
  */
-descripe('单元测试',function(){
+describe('单元测试',function(){
     /*
-     * descripe可以嵌套使用
+     * describe可以嵌套使用
      * 在这里就是unit test这个测试中包含了model user这个测试
      */
-    descripe('User Model的测试:',function(){
+    describe('User Model的测试:',function(){
         /*
          * 测试的具体实现中包含了before和after两部分操作
          * before是测试之前的操作
@@ -51,7 +51,7 @@ descripe('单元测试',function(){
         });
     });
     
-    descripe('如果要添加用户：',function(){
+    describe('如果要添加用户：',function(){
         /*
          * it块称为"测试用例"（test case），
          * 表示一个单独的测试，
