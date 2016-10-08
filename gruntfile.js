@@ -54,6 +54,18 @@ module.exports=function(grunt){
             options:{
                 logConcurrentOutput:true,
             }
+        },
+        
+        /*
+         * 配置mochaTest这个任务
+         * 用来测试项目
+         */
+        mochaTest:{
+            options:{
+                reporter:'spec'
+            },
+            //src属性指定了要测试哪些目录下的文件
+            src:['test/**/*.js']
         }
     });
     
@@ -71,6 +83,11 @@ module.exports=function(grunt){
      * grung-concurrent是针对慢任务（比如sass的编译）的
      */
     grunt.loadNpmTasks('grunt-concurrent');
+    /*
+     * grunt加载mocha模块，
+     * 用于单元测试
+     */
+    grunt.loadNpmTasks('grunt-mocha-test');
     
     //设置grunt不会因为某个语法错误或警告而中断整个服务
     grunt.option('force',true);
@@ -81,4 +98,11 @@ module.exports=function(grunt){
      * concurrent任务中的tasks属性就包含了真正要执行的任务
      */
     grunt.registerTask('default',['concurrent']);
+    
+    /*
+     * 再为grunt注册一个名称为test的任务
+     * 该任务执行一个名称mochaTest的任务
+     * mochatest这个任务需要我们自己在上面配置
+     */
+    grunt.registerTask('test',['mochaTest']);
 }
