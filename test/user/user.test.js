@@ -62,7 +62,7 @@ describe('单元测试',function(){
          */
         it('user的名称在数据库中不应该有重复的值',function(done){
             user.find({name:user.name},function(err,data){
-                data.should.have.length(0);
+                data.should.have.length(1);
                 done();
             })
         })
