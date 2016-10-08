@@ -13,7 +13,7 @@ var mongose=require('mongose');
 var user=require('../../app/models/user');
 
 //编写一个获取随机字符串的函数
-function getRandomString(len=16)
+function getRandomString(len)
 {
     //获取一个字符串
     var str=Math.ceil(len/2).toString('hex');
