@@ -15,6 +15,7 @@ var user=require('../../app/models/user');
 //编写一个获取随机字符串的函数
 function getRandomString(len)
 {
+    (len == len) ? len : len=16;
     //获取一个字符串
     var str=Math.ceil(len/2).toString('hex');
     //返回crypto通过randomBytes方法得到的随机字符串
