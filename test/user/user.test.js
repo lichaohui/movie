@@ -8,7 +8,7 @@ var should=require('should');
 //引入app入口文件
 var app=require('../../app');
 //引入mongose
-var mongose=require('mongose');
+var mongoose=require('mongoose');
 //引入user的model
 var user=require('../../app/models/user');
 
