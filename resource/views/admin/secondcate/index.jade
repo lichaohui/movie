@@ -1,74 +1,74 @@
 include ../../common/header
-block content
-  style.
-    .btn{margin-left:2px;margin-right:2px;}
-  include ../common/nav    
-  section(class='container')
-    form(class='form-inline text-right' role='form' action='/admin/secondcate' method='get')
-      input(type='hidden' id='scate' value='#{condition.value}')
-      div(class='form-group')
-        select(class='parentcate form-control input-sm' id='parent' name='parentcate')
-          option(value='') 全部
-    br
-    table(class='table table-bordered table-hover text-center')
-      tr
-        th name
-        th parentcate
-        th created_at
-        th operating
-      each secondcate in secondcates
+  block content
+    style.
+      .btn{margin-left:2px;margin-right:2px;}
+    include ../common/nav    
+    section(class='container')
+      form(class='form-inline text-right' role='form' action='/admin/secondcate' method='get')
+        input(type='hidden' id='scate' value='#{condition.value}')
+        div(class='form-group')
+          select(class='parentcate form-control input-sm' id='parent' name='parentcate')
+            option(value='') 全部
+      br
+      table(class='table table-bordered table-hover text-center')
         tr
-          td #{secondcate.name}
-          td #{secondcate.parentcate.name}
-          td #{moment(secondcate.meta.created_at).format('YYYY MM DD')}
-          td
-            button(type='button' class='edit btn btn-primary btn-xs' data-id='#{secondcate._id}' data-toggle="modal" data-target="#myModal") edit
-            button(type='button' class='del btn btn-danger btn-xs' data-id='#{secondcate._id}') delete
-    -if(pageLength>1)
-      div(class='text-center')
-        ul(class='pagination')
-          -if(curPage==1)
-            li(class='disabled')
-              a(href='javascript:') &laquo;
-          -else
-            li()
-              a(href='/admin/secondcate?#{condition.string}page=#{curPage-1}') &laquo;
-          -for(var i=0;i<pageLength;i++)
-            if(i+1==curPage)
-              li(class='active')
-                a(href='javascript:') #{i+1}
-            else    
+          th name
+          th parentcate
+          th created_at
+          th operating
+        each secondcate in secondcates
+          tr
+            td #{secondcate.name}
+            td #{secondcate.parentcate.name}
+            td #{moment(secondcate.meta.created_at).format('YYYY MM DD')}
+            td
+              button(type='button' class='edit btn btn-primary btn-xs' data-id='#{secondcate._id}' data-toggle="modal" data-target="#myModal") edit
+              button(type='button' class='del btn btn-danger btn-xs' data-id='#{secondcate._id}') delete
+      -if(pageLength>1)
+        div(class='text-center')
+          ul(class='pagination')
+            -if(curPage==1)
+              li(class='disabled')
+                a(href='javascript:') &laquo;
+            -else
               li()
-                a(href='/admin/secondcate?#{condition.string}page=#{i+1}') #{i+1}
-          -if(curPage==pageLength)
-            li(class='disabled')
-              a(href='javascript:') &raquo;
-          -else
-            li()
-              a(href='/admin/secondcate?#{condition.string}page=#{curPage+1}') &raquo;        
-  div(class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby="myModalLabel")
-    div(class="modal-dialog" role="document")
-      div(class="modal-content")
-        div(class="modal-header")
-          button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-            span(aria-hidden="true") &times;
-          h4(class="modal-title" id="myModalLabel") Edit
-        div(class='modal-body')
-          form(class='form-horizontal' action='' id='form')
-            input(type='hidden',name='id',id='id')
-            div(class='form-group')
-              label(class='col-sm-2 control-label' for='name') name
-              div(class='col-sm-10')
-                input(type='text' class='form-control' id='name' placeholder='name' name='name')
-            div(class='form-group')
-              label(class='col-sm-2 control-label' for='parentcate') 一级分类
-              div(class='col-sm-10')
-                select(class='parentcate form-control' name='parentcate' id='parentcate' required)
-                  option(value='') 请选择
-            div(class='form-group')
-              label(class='col-sm-2 control-label' for='sub')
-              div(class='col-sm-10')
-                button(type='button' class='form-control btn-primary' id='sub') submit 
+                a(href='/admin/secondcate?#{condition.string}page=# {curPage-1}') &laquo;
+            -for(var i=0;i<pageLength;i++)
+              if(i+1==curPage)
+                li(class='active')
+                  a(href='javascript:') #{i+1}
+              else    
+                li()
+                  a(href='/admin/secondcate?#{condition.string}page=#{i+1}') #{i+1}
+            -if(curPage==pageLength)
+              li(class='disabled')
+                a(href='javascript:') &raquo;
+            -else
+              li()
+                a(href='/admin/secondcate?#{condition.string}page=#{curPage+1}') &raquo;        
+    div(class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby="myModalLabel")
+      div(class="modal-dialog" role="document")
+        div(class="modal-content")
+          div(class="modal-header")
+            button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+              span(aria-hidden="true") &times;
+            h4(class="modal-title" id="myModalLabel") Edit
+          div(class='modal-body')
+            form(class='form-horizontal' action='' id='form')
+              input(type='hidden',name='id',id='id')
+              div(class='form-group')
+                label(class='col-sm-2 control-label' for='name') name
+                div(class='col-sm-10')
+                  input(type='text' class='form-control' id='name' placeholder='name' name='name')
+              div(class='form-group')
+                label(class='col-sm-2 control-label' for='parentcate') 一级分类
+                div(class='col-sm-10')
+                  select(class='parentcate form-control' name='parentcate' id='parentcate' required)
+                    option(value='') 请选择
+              div(class='form-group')
+                label(class='col-sm-2 control-label' for='sub')
+                div(class='col-sm-10')
+                  button(type='button' class='form-control btn-primary' id='sub') submit 
   include ../../common/footer            
   script(src='/js/common/jquery.form.js')
   script(src='/js/common/loadfirstcate.js')

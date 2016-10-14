@@ -1,43 +1,43 @@
 include ../../common/header
-block content
-  include ../common/nav    
-  section(class='container')
-    form(class='form-inline text-right' role='form' action='/admin/user' method='get')
-      div(class='form-group')
-        input(type='text' class='form-control input-sm' id='name' name='name' placeholder='name' value='#{condition.value}')
-      button(type='submit' class='btn btn-primary btn-sm') 筛选
-      &nbsp;
-      a(href='/admin/user' class='btn btn-default btn-sm') 取消筛选
-    br  
-    table(class='table table-bordered table-hover text-center')
-      tr
-        th name
-        th created_at
-      each user in users
+  block content
+    include ../common/nav    
+    section(class='container')
+      form(class='form-inline text-right' role='form' action='/admin/user' method='get')
+        div(class='form-group')
+          input(type='text' class='form-control input-sm' id='name' name='name' placeholder='name' value='#{condition.value}')
+        button(type='submit' class='btn btn-primary btn-sm') 筛选
+        &nbsp;
+        a(href='/admin/user' class='btn btn-default btn-sm') 取消筛选
+      br  
+      table(class='table table-bordered table-hover text-center')
         tr
-          td #{user.name}
-          td #{moment(user.meta.created_at).format('YYYY MM DD')}
-    -if(pageLength>1)
-      div(class='text-center')
-        ul(class='pagination')
-          -if(curPage==1)
-            li(class='disabled')
-              a(href='javascript:') &laquo;
-          -else
-            li()
-              a(href='/admin/user?#{condition.string}page=#{curPage-1}') &laquo;
-          -for(var i=0;i<pageLength;i++)
-            if(i+1==curPage)
-              li(class='active')
-                a(href='javascript:') #{i+1}
-            else    
+          th name
+          th created_at
+        each user in users
+          tr
+            td #{user.name}
+            td #{moment(user.meta.created_at).format('YYYY MM DD')}
+      -if(pageLength>1)
+        div(class='text-center')
+          ul(class='pagination')
+            -if(curPage==1)
+              li(class='disabled')
+                a(href='javascript:') &laquo;
+            -else
               li()
-                a(href='/admin/user?#{condition.string}page=#{i+1}') #{i+1}
-          -if(curPage==pageLength)
-            li(class='disabled')
-              a(href='javascript:') &raquo;
-          -else
-            li()
-              a(href='/admin/user?#{condition.string}page=#{curPage+1}') &raquo;   
+                a(href='/admin/user?#{condition.string}page=#{curPage-1}') &laquo;
+            -for(var i=0;i<pageLength;i++)
+              if(i+1==curPage)
+                li(class='active')
+                  a(href='javascript:') #{i+1}
+              else    
+                li()
+                  a(href='/admin/user?#{condition.string}page=#{i+1}') #{i+1}
+            -if(curPage==pageLength)
+              li(class='disabled')
+                a(href='javascript:') &raquo;
+            -else
+              li()
+                a(href='/admin/user?#{condition.string}page=#{curPage+1}') &raquo;   
   include ../../common/footer        
         
