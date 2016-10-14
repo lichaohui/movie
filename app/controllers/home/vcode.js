@@ -1,11 +1,12 @@
 var ccap = require('ccap');
 exports.index=function(req,res){
     var captcha = ccap({
-        width:190,
+        width:180,
         height:34,　
-        offset:20,
+        offset:30,
         quality:100,
         fontsize:30,
+        length:4,
         /*
          * 自定义生成字符串，
          * 此方法可不要
