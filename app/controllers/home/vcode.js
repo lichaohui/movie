@@ -5,7 +5,7 @@ exports.index=function(req,res){
         height:34,　
         offset:30,
         quality:100,
-        fontsize:40,
+        fontsize:30,
         /*
          * 自定义生成字符串，
          * 此方法可不要
