@@ -1,46 +1,46 @@
 include ../../common/header
-block content
-  link(rel='stylesheet' href='/css/home/video.css')
-  section(class='container')
-    include ../common/nav
-    ul(class='list-cates list-inline')
-      -if(isAll==true)
-        each secondcate in secondcates
-          li
-            a(href='/video?secondcate=#{secondcate._id}') #{secondcate.name}
-      -else
-        each secondcate in secondcates
-          li
-            a(href='/video?firstcate=#{secondcate.parentcate._id}&secondcate=#{secondcate._id}') #{secondcate.name}
-    ul(class='row')
-      each video in videos
-        li(class='media list-unstyled')
-          div(class='media-left')
-            a(href='/video/detail/#{video.id}',target='_blank')
-              img(class='media-object',src='#{video.playbill}',alt='#{video.name}',width='64',height='64')
-          div(class='media-boty media-right')
-            h4(class='media-heading') #{video.name}
-              span(class='badge') 观看：#{video.views}
-            p #{video.intro}
-    -if(pageLength>1)        
-      ul(class='pagination')
-        -if(curPage==1)
-          li(class='disabled')
-            a(href='javascript:') &laquo;
+  block content
+    link(rel='stylesheet' href='/css/home/video.css')
+    section(class='container')
+      include ../common/nav
+      ul(class='list-cates list-inline')
+        -if(isAll==true)
+          each secondcate in secondcates
+            li
+              a(href='/video?secondcate=#{secondcate._id}') #{secondcate.name}
         -else
-          li()
-            a(href='/video?#{condition}page=#{curPage-1}') &laquo;
-        -for(var i=0;i<pageLength;i++)
-          if(i+1==curPage)
-            li(class='active')
-              a(href='javascript:') #{i+1}
-          else    
+          each secondcate in secondcates
+            li
+              a(href='/video?firstcate=#{secondcate.parentcate._id}&secondcate=#{secondcate._id}') #{secondcate.name}
+      ul(class='row')
+        each video in videos
+          li(class='media list-unstyled')
+            div(class='media-left')
+              a(href='/video/detail/#{video.id}',target='_blank')
+                img(class='media-object',src='#{video.playbill}',alt='#{video.name}',width='64',height='64')
+            div(class='media-boty media-right')
+              h4(class='media-heading') #{video.name}
+                span(class='badge') 观看：#{video.views}
+              p #{video.intro}
+      -if(pageLength>1)        
+        ul(class='pagination')
+          -if(curPage==1)
+            li(class='disabled')
+              a(href='javascript:') &laquo;
+          -else
             li()
-              a(href='/video?#{condition}page=#{i+1}') #{i+1}
-        -if(curPage==pageLength)
-          li(class='disabled')
-            a(href='javascript:') &raquo;
-        -else
-          li()
-            a(href='/video?#{condition}page=#{curPage+1}') &raquo;
-include ../../common/footer          
+              a(href='/video?#{condition}page=#{curPage-1}') &laquo;
+          -for(var i=0;i<pageLength;i++)
+            if(i+1==curPage)
+              li(class='active')
+                a(href='javascript:') #{i+1}
+            else    
+              li()
+                a(href='/video?#{condition}page=#{i+1}') #{i+1}
+          -if(curPage==pageLength)
+            li(class='disabled')
+              a(href='javascript:') &raquo;
+          -else
+            li()
+              a(href='/video?#{condition}page=#{curPage+1}') &raquo;
+  include ../../common/footer          
