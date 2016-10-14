@@ -1,11 +1,11 @@
 section(class='container')
   include ../common/nav
-    div(class='row')
-      div(class='col-md-3 col-sm-3 col-xs-3')
-        ul(class='nav bs-docs-sidenav')
-          li(class='active')
-            a(href='/user/#{user._id}') 我的主页
-          li    
-            a(href='/comments?uid=#{user._id}') 我的评论
-      div(class='col-md-9 col-sm-9 col-xs-9')
-        block content
+  div(class='row')
+    div(class='col-md-3 col-sm-3 col-xs-3')
+      ul(class='nav bs-docs-sidenav')
+        li(class='active')
+          a(href='/user/#{user._id}') 我的主页
+        li    
+          a(href='/comments?uid=#{user._id}') 我的评论
+    div(class='col-md-9 col-sm-9 col-xs-9')
+      block content
