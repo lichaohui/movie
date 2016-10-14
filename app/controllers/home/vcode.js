@@ -3,7 +3,7 @@ exports.index=function(req,res){
     var captcha = ccap({
         width:190,
         height:34,　
-        offset:30,
+        offset:20,
         quality:100,
         fontsize:30,
         /*
