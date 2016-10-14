@@ -6,7 +6,6 @@ exports.index=function(req,res){
         offset:30,
         quality:100,
         fontsize:30,
-        size:4,
         /*
          * 自定义生成字符串，
          * 此方法可不要
