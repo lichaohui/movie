@@ -1,9 +1,9 @@
 var ccap = require('ccap');
 exports.index=function(req,res){
     var captcha = ccap({
-        width:180,
+        width:100,
         height:34,　
-        offset:30,
+        offset:20,
         quality:100,
         fontsize:30,
         /*
@@ -17,7 +17,6 @@ exports.index=function(req,res){
         }*/
     });
     var ary = captcha.get();
-    console.log(ary);//字符串
     res.write(ary[1]); //
     res.end();
 }
