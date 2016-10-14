@@ -2,7 +2,7 @@ var ccap = require('ccap');
 exports.index=function(req,res){
     var captcha = ccap({
         width:190,
-        height:50,　
+        height:34,　
         offset:30,
         quality:100,
         fontsize:40,
