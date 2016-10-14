@@ -6,13 +6,13 @@ exports.index=function(req,res){
       offset:30,
       quality:100,
       fontsize:40,
-      generate:function(){
+      /*generate:function(){
         //自定义生成字符串
 
         //此方法可不要
                var str = "qQ";
                return str;
-      }
+      }*/
     });
     var ary = captcha.get();
     console.log(ary[0]);//字符串
