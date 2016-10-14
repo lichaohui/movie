@@ -1,39 +1,39 @@
 include ../../common/header
-include ./common
-  block content 
-    style.
-      .replyForm{margin-top:9px;}
-      .list-group-item-text{margin-bottom:5px;}
-      .del{margin-left:6px;}
-    input(type='hidden' id='userid' value='#{user._id}')    
-    input(type='hidden' id='isLogin' value='yes')
-    ul(class='list-group' id='comments')
-      each comment in comments
-        li(class='list-group-item')
-          button(type='button' class='del btn btn-danger btn-xs pull-right' data-cid='#{comment._id}' title='删除该条记录') x
-          button(class='viewreply btn btn-default btn-xs pull-right' data-toggle="modal" data-target="#myModal" title='点击查看所有回复' data-cid='#{comment._id}') #{comment.totalReply}
-          a(class="list-group-item-heading" href='http://192.168.44.128:3000#{comment.url}' target='_blank') #{comment.pageTitle}
-          p(class="list-group-item-text") #{comment.content}
-    div(class='text-center') 
-      button(type='button' class='btn btn-sm btn-primary' id='viewMore') 
-        span(id='more') 查看更多
-        span(class='glyphicon glyphicon-chevron-down')
-      button(type='button' class='btn btn-sm btn-default hidden' id='hiddenall') 收起评论
-        span(class='glyphicon glyphicon-chevron-up')    
-  div(class='modal fade' id='myModal' tabindex='-1' role='dialog'   aria-labelledby="myModalLabel")
-    div(class="modal-dialog" role="document")
-      div(class="modal-content")
-        div(class="modal-header")
-          button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-            span(aria-hidden="true") &times;
-          h4(class="modal-title" id="myModalLabel") 查看回复
-        div(class='modal-body')
-          ul(id='replies-list' class='list-group')
-          div(class='text-center')
-            button(type='button' id='morereply' class='btn btn-primary btn-xs glyphicon glyphicon-chevron-down' title='查看更多')
-            button(type='button' id='hiddenreply' class='btn btn-default btn-xs glyphicon glyphicon-chevron-up hidden' title='收起')
-  include ../../common/footer 
-  script(src='/js/common/jquery.form.js')
-  script(src='/js/common/dateToString.js')
-  script(src='/js/home/comment.js')
-  script(src='/js/home/morereply.js')
+  include ./common
+    block content 
+      style.
+        .replyForm{margin-top:9px;}
+        .list-group-item-text{margin-bottom:5px;}
+        .del{margin-left:6px;}
+      input(type='hidden' id='userid' value='#{user._id}')    
+      input(type='hidden' id='isLogin' value='yes')
+      ul(class='list-group' id='comments')
+        each comment in comments
+          li(class='list-group-item')
+            button(type='button' class='del btn btn-danger btn-xs pull-right' data-cid='#{comment._id}' title='删除该条记录') x
+            button(class='viewreply btn btn-default btn-xs pull-right' data-toggle="modal" data-target="#myModal" title='点击查看所有回复' data-cid='#{comment._id}') #{comment.totalReply}
+            a(class="list-group-item-heading" href='http://192.168.44.128:3000#{comment.url}' target='_blank') #{comment.pageTitle}
+            p(class="list-group-item-text") #{comment.content}
+      div(class='text-center') 
+        button(type='button' class='btn btn-sm btn-primary' id='viewMore') 
+          span(id='more') 查看更多
+          span(class='glyphicon glyphicon-chevron-down')
+        button(type='button' class='btn btn-sm btn-default hidden' id='hiddenall') 收起评论
+          span(class='glyphicon glyphicon-chevron-up')    
+    div(class='modal fade' id='myModal' tabindex='-1' role='dialog'   aria-labelledby="myModalLabel")
+      div(class="modal-dialog" role="document")
+        div(class="modal-content")
+          div(class="modal-header")
+            button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+              span(aria-hidden="true") &times;
+            h4(class="modal-title" id="myModalLabel") 查看回复
+          div(class='modal-body')
+            ul(id='replies-list' class='list-group')
+            div(class='text-center')
+              button(type='button' id='morereply' class='btn btn-primary btn-xs glyphicon glyphicon-chevron-down' title='查看更多')
+              button(type='button' id='hiddenreply' class='btn btn-default btn-xs glyphicon glyphicon-chevron-up hidden' title='收起')
+    include ../../common/footer 
+    script(src='/js/common/jquery.form.js')
+    script(src='/js/common/dateToString.js')
+    script(src='/js/home/comment.js')
+    script(src='/js/home/morereply.js')
