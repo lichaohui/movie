@@ -10,6 +10,8 @@ var userSchema=new mongoose.Schema({
         type:String
     },
     password:String,
+    phone:Number,
+    email:String,
     level:{
         type:Number,
         default:0
@@ -154,6 +156,20 @@ userSchema.statics={
      */
     findById:function(id,callback){
         return this.findOne({_id:id}).exec(callback);
+    },
+    
+    /*
+     * 通过手机号查询用户
+     */
+    findByPhone:function(phone,callback){
+        return this.find({'phone':phone}).exec(callback);
+    },
+    
+    /*
+     * 通过邮箱查询用户
+     */
+    findByEmail:function(email,callback){
+        return this.find({'email':email}).exec(callback);
     }
 };
 
