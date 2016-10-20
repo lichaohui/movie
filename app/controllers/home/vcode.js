@@ -11,10 +11,10 @@ exports.index=function(req,res){
          * 此方法可不要
          * 如果不要则系统会生成默认的随机字符串
          */
-        /*generate:function(){
+        generate:function(){
             var str = "自定义的字符串";
             return str;
-        }*/
+        }
     });
     var ary = captcha.get();
     res.write(ary[1]); //
