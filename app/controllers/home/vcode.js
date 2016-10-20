@@ -12,10 +12,10 @@ exports.index=function(req,res){
          * 如果不要则系统会生成默认的随机字符串
          */
         generate:function(){
+            //通过自定义的方式生成一个四位长度的随机字符串
             var str='';
             for(var i=0;i<4;i++){
-                str += Math.random().toString(36).substr(1);
-                console.log(str);
+                str += Math.random().toString(36).substr(2);
             }
             return str.substr(0,4);
         }
