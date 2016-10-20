@@ -14,7 +14,8 @@ exports.index=function(req,res){
         generate:function(){
             var str='';
             for(var i=0;i<4;i++){
-                str += Math.random().toString(36).substr(2)
+                str += Math.random().toString(36).substr(2);
+                console.log(str);
             }
             return str;
         }
