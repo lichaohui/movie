@@ -14,10 +14,10 @@ exports.index=function(req,res){
         generate:function(){
             var str='';
             for(var i=0;i<4;i++){
-                str += Math.random().toString(36).substr(2);
+                str += Math.random().toString(36).substr(1);
                 console.log(str);
             }
-            return str;
+            return str.substr(0,4);
         }
     });
     var ary = captcha.get();
