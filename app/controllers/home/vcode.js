@@ -4,7 +4,7 @@ exports.index=function(req,res){
         width:100,
         height:34,　
         offset:20,
-        quality:100,
+        quality:50,
         fontsize:30,
         /*
          * 自定义生成字符串，
