@@ -6,7 +6,7 @@ var video=require('../controllers/home/video');
 var user=require('../controllers/home/user');
 var comment=require('../controllers/home/comment');
 var reply=require('../controllers/home/reply');
-var vcode=require('../controllers/home/vcode');
+var captcha=require('../controllers/home/captcha');
 
 module.exports=function(app){
     /*
@@ -21,7 +21,7 @@ module.exports=function(app){
     app.get('/video/detail/:id',video.show);
     
     //生成图片验证码的路由
-    app.get('/vcode',vcode.index);
+    app.get('/captcha',captcha.index);
     //展示用户注册界面的路由
     app.get('/register',user.register);
     //实现用户注册功能的路由
