@@ -22,7 +22,7 @@ exports.index=function(req,res){
     });
     var ary = captcha.get();
     //将验证码存储到session中
-    req.sesson.captcha=ary[1];
+    req.sesson.capt=ary[1];
     //向客户端返回验证码
     res.write(ary[1]); 
     res.end();
