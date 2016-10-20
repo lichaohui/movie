@@ -2,6 +2,7 @@ $(function(){
     //异步提交用户输入的手机号或邮箱
     $(".checkunique").click(function(){
         var way=$(this).attr('data-way');
+        alert(way);
         var pe=$("#"+way).val();
         var captcha=$(this).parentsUntil("form").find('input[name=captcha]').val();
         if(pe==''){
