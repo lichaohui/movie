@@ -12,7 +12,7 @@ exports.index=function(req,res){
          * 如果不要则系统会生成默认的随机字符串
          */
         generate:function(){
-            var str = "自定义的字符串";
+            var str = "aabb";
             return str;
         }
     });
