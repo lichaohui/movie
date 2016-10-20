@@ -23,23 +23,23 @@ include ../../common/header
             div(class='col-sm-2 col-xs-4')
               img(src='/captcha' title='点击刷新' onclick="this.src=this.src+'?t='+Math.random()")
           div(class='form-group')
-            lael(for='checkphone' class='col-sm-2')
-            div(class='col-sm-10')
+            lael(for='checkphone' class='col-md-1 col-sm-2')
+            div(class='col-md-11 col-sm-10')
               button(type='button' id='checkunique' class='btn btn-primary') next >>
         form(role="tabpanel" class="form-horizontal tab-pane" action='/unique' method='post' id='email')
           div(class="form-group")
-            label(for="email" class="col-sm-2 control-label") 邮箱
-            div(class="col-sm-10")
+            label(for="email" class="col-md-1 col-sm-2 control-label") 邮箱
+            div(class="col-md-11 col-sm-10")
               input(type="text" class="form-control" id="email" name='email')
           div(class='form-group')
-            label(for='captcha' class='col-sm-2 col-xs-12 control-label') 验证码
+            label(for='captcha' class='col-md-1 col-sm-2 col-xs-12 control-label') 验证码
             div(class='col-sm-3 col-xs-4')
               input(type='text' class='form-control' id='captcha' name='captcha')
             div(class='col-sm-2 col-xs-4')
               img(src='/captcha' title='点击刷新' onclick="this.src=this.src+'?t='+Math.random()")
           div(class='form-group')
-            lael(for='checkphone' class='col-sm-2')
-            div(class='col-sm-10')
+            lael(for='checkphone' class='col-md-1 col-sm-2')
+            div(class='col-md-11 col-sm-10')
               button(type='button' id='checkunique' class='btn btn-primary') next >>      
       div(class='hidden')
         div(class='form-group')
