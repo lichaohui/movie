@@ -12,7 +12,10 @@ exports.index=function(req,res){
          * 如果不要则系统会生成默认的随机字符串
          */
         generate:function(){
-            var str = "aabb";
+            var str='';
+            for(var i=0;i<4;i++){
+                str += Math.random().toString(36).substr(2)
+            }
             return str;
         }
     });
