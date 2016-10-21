@@ -18,15 +18,17 @@ exports.index=function(req,res){
                 str += Math.random().toString(10).substr(2);
             }
             str=str.substr(0,4);
-            //将验证码存储到session中
-            req.session.captcha=str;
-            console.log('luy'+str);
             //返回生成的字符串
             return str;
         }
     });
+    /*
+     * 
+     */
     var ary = captcha.get();
-    console.log(ary[1]);
+    //将验证码存储到session中
+    req.session.captcha=ary[0];
+    console.log(req.session.captcha);
     //向客户端返回验证码
     res.write(ary[1]); 
     res.end();
