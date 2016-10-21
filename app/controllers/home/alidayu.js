@@ -33,7 +33,7 @@ exports.send=function(req,res){
     alidayu.sms(options,function(err,result){
         if(err){
             console.log('短信发送失败');
-            console.log(err);
+            console.log(err.alibaba_aliqin_fc_sms_num_send_response.result.err_code);
         }else{
             console.log('短信发送成功');
             //如果短信发送成功则返回提示信息
