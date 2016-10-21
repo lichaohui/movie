@@ -10,10 +10,9 @@ exports.send=function(req,res){
     var alidayu = new Alidayu(config);
     //参数 见：http://open.taobao.com/doc2/apiDetail.htm?apiId=25450 
     var options = {
-        sms_free_sign_name: '学疯网会员验证',
+        sms_free_sign_name: '学疯测试',
         sms_param: {
             code: '1234',
-            product: '学疯测试',
         },
         rec_num: '17076467717', 
         sms_template_code: 'SMS_18210077',
