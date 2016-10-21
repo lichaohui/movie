@@ -24,7 +24,7 @@ exports.unique=function(req,res){
             }
         });
     }else{
-        res.json({'isError':true,'message':'验证码输入不正确！'+req.session.captcha});
+        res.json({'isError':true,'message':'验证码输入不正确！'});
     }
     
 };
