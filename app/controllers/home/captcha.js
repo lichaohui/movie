@@ -23,8 +23,9 @@ exports.index=function(req,res){
     var ary = captcha.get();
     //将验证码存储到session中
     req.session.captcha=ary[1];
+    console.log(req.session.captcha.value);
     //向客户端返回验证码
-    res.write(req.session.captcha); 
+    res.write(ary[1]); 
     res.end();
 }
 
