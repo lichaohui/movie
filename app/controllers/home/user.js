@@ -27,8 +27,7 @@ exports.unique=function(req,res,next){
 
 //展示第二个注册页面的方法
 exports.register1=function(req,res){
-    //res.render('home/user/register1',{'title':'register'});
-    res.json({'isError':false,'message':'该手机号可以使用！'});
+    res.render('home/user/register1',{'title':'register'});
 };
 
 //执行用户注册操作的方法
