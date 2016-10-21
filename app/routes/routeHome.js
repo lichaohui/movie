@@ -8,6 +8,7 @@ var comment=require('../controllers/home/comment');
 var reply=require('../controllers/home/reply');
 var captcha=require('../controllers/home/captcha');
 var alidayu=require('../controllers/home/alidayu');
+var vcode=require('../controllers/home/vcode');
 
 module.exports=function(app){
     /*
