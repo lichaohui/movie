@@ -17,7 +17,7 @@ $(function(){
              * 则进行表单的异步提交
              */
             var url=$(this).parents("form").attr('action');
-            $(this).parentsUntil(".tab-content").ajaxSubmit({
+            $(this).parents("form").ajaxSubmit({
                 type:'post',
                 url:url,
                 success:function(data){
