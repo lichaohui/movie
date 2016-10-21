@@ -1,4 +1,7 @@
+//引入ccap模块
 var ccap = require('ccap');
+
+//生成验证码
 exports.index=function(req,res){
     var captcha = ccap({
         width:100,
@@ -15,7 +18,7 @@ exports.index=function(req,res){
             //通过自定义的方式生成一个四位长度的随机字符串
             var str='';
             for(var i=0;i<4;i++){
-                str += Math.random().toString(10).substr(2);
+                str += Math.random().toString(36).substr(2);
             }
             str=str.substr(0,4);
             //返回生成的字符串
@@ -36,5 +39,15 @@ exports.index=function(req,res){
     //向客户端返回验证码图片对象
     res.write(ary[1]); 
     res.end();
-}
+};
 
+//检验验证码
+exports.verify=function(req,res,next){
+    if(req.body.captcha==req.session.captcha){
+        //如果输入的验证码正确则进入下一步
+        next();
+    }else{
+        //否则返回错误信息
+        res.json({'isError':true,'message':'验证码输入不正确！'});
+    }
+}

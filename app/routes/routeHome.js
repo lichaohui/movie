@@ -25,8 +25,8 @@ module.exports=function(app){
     //展示用户注册界面的路由
     app.get('/register',user.register);
     app.get('/register1',user.register1);
-    //检查用户提供手机号的路由
-    app.post('/unique',user.unique);
+    //检查用户提供手机号和邮箱号是否唯一的路由
+    app.post('/unique',captcha.verify,user.unique);
     //实现用户注册功能的路由
     app.post('/doregister',user.doRegister);
     //用户登录的路由

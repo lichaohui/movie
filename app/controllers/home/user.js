@@ -11,26 +11,19 @@ exports.register1=function(req,res){
 };
 //检查用户提供的手机号和邮箱是否可用的方法
 exports.unique=function(req,res){
-    console.log(req.body);
-    //先判断验证码是否输入正确
-    if(req.body.captcha==req.session.captcha){
-        //如果验证码输入正确则继续验证用户的手机号和邮箱是否可用
-        user.findByPhone(req.body.phone,function(err,data){
-            /*
-             * 如果有数据被查询出来
-             * 则证明用户输入的手机和邮箱已经被使用过了
-             * 返回信息给客户端
-             */
-            if(data.length>0){
-                res.json({'isError':true,'message':'该手机号已经被注册过了！'});
-            }else{
-                res.json({'isError':false,'message':'该手机号可以使用！'});
-            }
-        });
-    }else{
-        res.json({'isError':true,'message':'验证码输入不正确！'});
-    }
-    
+    //验证用户的手机号和邮箱是否可用
+    user.findByPhone(req.body.phone,function(err,data){
+        /*
+         * 如果有数据被查询出来
+         * 则证明用户输入的手机和邮箱已经被使用过了
+         * 返回信息给客户端
+         */
+        if(data.length>0){
+            res.json({'isError':true,'message':'该手机号已经被注册过了！'});
+        }else{
+            res.json({'isError':false,'message':'该手机号可以使用！'});
+        }
+    });
 };
 //执行用户注册操作的方法
 exports.doRegister=function(req,res){
