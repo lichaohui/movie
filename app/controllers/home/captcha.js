@@ -15,7 +15,7 @@ exports.index=function(req,res){
             //通过自定义的方式生成一个四位长度的随机字符串
             var str='';
             for(var i=0;i<4;i++){
-                str += Math.random().toString(36).substr(2);
+                str += Math.random().toString(10).substr(2);
             }
             str=str.substr(0,4);
             //将验证码存储到session中
