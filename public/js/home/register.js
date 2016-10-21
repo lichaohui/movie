@@ -23,8 +23,6 @@ $(function(){
                 success:function(data){
                     if(data.isError){
                         $("#warning").text(data.message).removeClass('hidden');
-                    }else{
-                        setTimeout(function(){window.location.href="/register1";},1000);
                     }
                 },
             })
