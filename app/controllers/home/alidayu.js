@@ -21,6 +21,7 @@ exports.send=function(req,res){
         if(err){
             console.log(err);
         }else{
+            console.log('短信发送成功');
             //如果短信发送成功则返回提示信息
             res.json({'isError':false,'message':'短信发送成功！'});
         }
