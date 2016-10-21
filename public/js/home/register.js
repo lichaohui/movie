@@ -24,10 +24,7 @@ $(function(){
                     if(data.isError){
                         $("#warning").text(data.message).removeClass('hidden');
                     }else{
-                        //$("#warning").addClass('hidden');
-                        //$(".checkunique").attr('disabled','disabled');
-                        //$("#success").text(data.message).removeClass('hidden');
-                        setTimeout(function(){window.location.href="/register1";},2000);
+                        setTimeout(function(){window.location.href="/register1";},1000);
                     }
                 },
             })

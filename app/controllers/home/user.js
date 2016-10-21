@@ -10,7 +10,7 @@ exports.register1=function(req,res){
     res.render('home/user/register1',{'title':'register'});
 };
 //检查用户提供的手机号和邮箱是否可用的方法
-exports.unique=function(req,res){
+exports.unique=function(req,res,next){
     //验证用户的手机号和邮箱是否可用
     user.findByPhone(req.body.phone,function(err,data){
         /*
@@ -21,7 +21,8 @@ exports.unique=function(req,res){
         if(data.length>0){
             res.json({'isError':true,'message':'该手机号已经被注册过了！'});
         }else{
-            res.json({'isError':false,'message':'该手机号可以使用！'});
+            //如果手机号可以使用则进入下一步
+            next();
         }
     });
 };
