@@ -32,7 +32,7 @@ module.exports=function(app){
     //展示用户第二个注册界面的路由
     app.get('/register1',user.register1);
     //实现用户注册功能的路由
-    app.post('/doregister',user.doRegister);
+    app.post('/doregister',vcode.verify,user.doRegister);
     //用户登录的路由
     app.get('/login',user.login);
     //实现用户登录功能的路由

@@ -7,11 +7,24 @@ exports.send=function(req,res){
         secret: '557e270b07fea683368fd69caf5927c9' 
     };
     var alidayu = new Alidayu(config);
-    //参数 见：http://open.taobao.com/doc2/apiDetail.htm?apiId=25450 
+    
+    /*
+     * 想办法获取一个四位的随机数
+     * 想通过Math.random()方法获取一个0到1之间的随机数
+     * 该随机数是个位数很长的小数,
+     * 类似于0.24952081912742163
+     * 然后通过toString()方法将该随机数转为string类型的
+     */
+    var num=Math.random().toString();
+    //将随机数转为string类型之后就可以通过字符串截取的方式获取一个随机的四位数了
+    var vcode=num.substr(2,4);
+    //将获取到的四位的随机数保存到session中
+    req.session.vcode=vcode;
+    
     var options = {
         sms_free_sign_name: '学疯测试',
         sms_param: {
-            code: '1234',
+            code: vcode,
         },
         rec_num: req.body.phone, 
         sms_template_code: 'SMS_18210077',
