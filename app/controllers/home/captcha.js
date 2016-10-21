@@ -17,13 +17,14 @@ exports.index=function(req,res){
             for(var i=0;i<4;i++){
                 str += Math.random().toString(36).substr(2);
             }
-            return str.substr(0,4);
+            str=str.substr(0,4);
+            //将验证码存储到session中
+            req.session.captcha=str;
+            //返回生成的字符串
+            return str;
         }
     });
     var ary = captcha.get();
-    //将验证码存储到session中
-    req.session.captcha=ary[1];
-    console.log(req.session.captcha.value);
     //向客户端返回验证码
     res.write(ary[1]); 
     res.end();
