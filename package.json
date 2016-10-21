@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "ali-oss": "^4.4.4",
+    "alidayujs": "^1.0.5",
     "bcrypt": "^0.8.7",
     "body-parser": "^1.15.2",
     "ccap": "^0.6.10",
