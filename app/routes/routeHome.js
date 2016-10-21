@@ -24,6 +24,7 @@ module.exports=function(app){
     app.get('/captcha',captcha.index);
     //展示用户注册界面的路由
     app.get('/register',user.register);
+    app.get('/register1',user.register1);
     //检查用户提供手机号的路由
     app.post('/unique',user.unique);
     //实现用户注册功能的路由

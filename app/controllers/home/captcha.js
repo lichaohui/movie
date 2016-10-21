@@ -23,12 +23,17 @@ exports.index=function(req,res){
         }
     });
     /*
-     * 
+     * 通过captcha的get()方法可以获取一个数组
+     * 数组中的第一个元素表示验证码的文字
+     * 数组中的第二个元素表示验证码的图片对象
      */
     var ary = captcha.get();
-    //将验证码存储到session中
+    /* 
+     * 获取验证码的文字
+     * 并存储到session中
+     */
     req.session.captcha=ary[0];
-    //向客户端返回验证码
+    //向客户端返回验证码图片对象
     res.write(ary[1]); 
     res.end();
 }
