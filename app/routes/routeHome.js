@@ -7,6 +7,7 @@ var user=require('../controllers/home/user');
 var comment=require('../controllers/home/comment');
 var reply=require('../controllers/home/reply');
 var captcha=require('../controllers/home/captcha');
+var alidayu=require('../controllers/home/alidayu');
 
 module.exports=function(app){
     /*
@@ -24,7 +25,12 @@ module.exports=function(app){
     app.get('/captcha',captcha.index);
     //展示用户注册界面的路由
     app.get('/register',user.register);
-    app.post('/register1',captcha.verify,user.unique,user.register1);
+    //向用户发送手机验证码的路由
+    app.post('/phonecode',captcha.verify,user.unique,alidayu.send);
+    //向用户发送邮箱验证码的路由
+    app.post('/emailcode',captcha.verify,user.unique);
+    //展示用户第二个注册界面的路由
+    app.get('/register1',user.register1);
     //实现用户注册功能的路由
     app.post('/doregister',user.doRegister);
     //用户登录的路由

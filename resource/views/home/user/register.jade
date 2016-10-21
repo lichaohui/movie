@@ -11,7 +11,7 @@ include ../../common/header
       div(class="alert alert-warning hidden" id='warning' role="alert")
       div(class="alert alert-success hidden" id='success' role="alert")
       div(class='tab-content')
-        form(role="tabpanel" class="form-horizontal tab-pane active" action='/register1' method='post' id='phoneform')
+        form(role="tabpanel" class="form-horizontal tab-pane active" action='/sendcode' method='post' id='phoneform')
           input(type='hidden' name='type' value='phone')
           div(class="form-group")
             label(for="phone" class="col-md-1 col-sm-2 control-label") 手机号
@@ -27,7 +27,7 @@ include ../../common/header
             lael(for='checkphone' class='col-md-1 col-sm-2')
             div(class='col-md-11 col-sm-10')
               button(type='button' data-way='phone' class='checkunique btn btn-primary') next >>
-        form(role="tabpanel" class="form-horizontal tab-pane" action='/register1' method='post' id='emailform')
+        form(role="tabpanel" class="form-horizontal tab-pane" action='/sendcode' method='post' id='emailform')
           input(type='hidden' name='type' value='email')
           div(class="form-group")
             label(for="email" class="col-md-1 col-sm-2 control-label") 邮箱
