@@ -7,9 +7,9 @@ include ../../common/header
       div(class='tab-content')
         form(role="tabpanel" class="form-horizontal tab-pane active" action='/unique' method='post' id='form')
           div(class='form-group')
-            label(for='vcode' class='col-sm-2 control-label') 验证码
+            label(for='vcode' class='col-sm-2 col-xs-12 control-label') 验证码
             div(class='col-sm-6 col-xs-8')
-              input(type='text' class='form-control' name='vocode' id='vcode' placeholder='(手机短信/邮箱)动态验证码')
+              input(type='text' class='form-control' name='vocode' id='vcode' placeholder='(短信/邮箱)动态验证码')
             div(class='col-sm-6 col-xs-4')
           div(class="form-group")
             label(for="name" class="col-sm-2 control-label") 用户名
