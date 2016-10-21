@@ -8,6 +8,7 @@ exports.register=function(req,res){
 };
 //检查用户提供的手机号和邮箱是否可用的方法
 exports.unique=function(req,res){
+    console.log(req.body.captcha);
     //先判断验证码是否输入正确
     if(req.body.captcha==req.session.captcha){
         //如果验证码输入正确则继续验证用户的手机号和邮箱是否可用

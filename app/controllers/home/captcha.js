@@ -20,6 +20,7 @@ exports.index=function(req,res){
             str=str.substr(0,4);
             //将验证码存储到session中
             req.session.captcha=str;
+            console.log(req.session.captcha);
             //返回生成的字符串
             return str;
         }
