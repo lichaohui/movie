@@ -1,7 +1,6 @@
 //引入alidayu组件
 var Alidayu=require('alidayujs');
-//应用密匙 见：http://www.alidayu.com/help?spm=a3142.7802526.1.24.iEB4Yc&_t=1#create 
-//
+
 exports.send=function(req,res){
     var config = {
         app_key: '23480557',
@@ -14,14 +13,16 @@ exports.send=function(req,res){
         sms_param: {
             code: '1234',
         },
-        rec_num: '17076467717', 
+        rec_num: req.body.phone, 
         sms_template_code: 'SMS_18210077',
     };
     //发送短信
     alidayu.sms(options,function(err,result){
         if(err){
-            console.log('ERROR'+err);
+            console.log(err);
+        }else{
+            //如果短信发送成功则返回提示信息
+            res.json({'isError':false,'message':'短信发送成功！'});
         }
-        console.log(result);
     });
 }
