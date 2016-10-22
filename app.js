@@ -20,7 +20,7 @@ app.locals.moment=require('moment');
 var morgan=require('morgan');
 
 //设置一个存储数据库地址的变量
-var dbUrl='mongodb://localhost/imooc';
+var dbUrl='mongodb://localhost/xuefeng';
 
 //设置模板引擎
 app.set('view engine','jade');
