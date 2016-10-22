@@ -2,7 +2,7 @@
 function countDown(time){
     var t=window.setInterval(function(){
         time--;
-        while(time>1){
+        if(time>1){
             document.getElementById("count").innerHTML=time;
         }else{
             window.clearInterval(t);
