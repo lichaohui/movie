@@ -1,18 +1,17 @@
 //重新发送短信/邮箱验证码的js
-function countDown(time){
-    var t=window.setInterval(function(){
-        time--;
-        if(time==0){
-            document.getElementById("resend").setAttribute('disabled',null);
-            document.getElementById("resend").innerHTML='重新发送';
-            window.clearInterval(t);
-        }else{
-            document.getElementById("count").innerHTML=time;
-        }
-    },1000);
-}
-
-
 $(function(){
+    //倒计时函数
+    function countDown(time){
+        var t=window.setInterval(function(){
+            time--;
+            if(time==0){
+                $("#resend").attr("disabled",false).text('重新发送');
+                window.clearInterval(t);
+            }else{
+                $("#count").text(time);
+            }
+        },1000);
+    }
+    //页面初始化的时候就加载倒计时函数
     countDown(10);
 })
