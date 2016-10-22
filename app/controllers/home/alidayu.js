@@ -31,7 +31,7 @@ exports.send=function(req,res){
     };
     //发送短信
     alidayu.sms(options,function(err,result){
-        if(err){
+        if(err.error_response){
             console.log('短信发送失败');
             console.log(err);
         }else{
