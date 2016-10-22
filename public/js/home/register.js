@@ -7,8 +7,7 @@ $(function(){
         var captcha=$(this).parentsUntil(".tab-content").find('input[name=captcha]').val();
         //alert('is'+way);
         var fun=('is'+way);
-        alert(typeof(fun));
-        if(fun(pe)==false){
+        if(eval(fun(pe))==false){
             alert('请输入正确的手机或者邮箱！');
             $("#"+way).focus();
         }else if(captcha==''){
