@@ -11,7 +11,7 @@ include ../../common/header
             div(class='col-sm-6 col-xs-8')
               input(type='text' class='form-control' name='vcode' id='vcode' placeholder='(短信/邮箱)动态验证码')
             div(class='col-sm-4 col-xs-4')
-              button(type='button' class='btn btn-default' data-type='#{type}' data-val='#{val}' disabled)
+              button(type='button' id='resend' class='btn btn-default' data-type='#{type}' data-val='#{val}' disabled)
                 time(id='count') 
                 秒后可重发
           div(class="form-group")
