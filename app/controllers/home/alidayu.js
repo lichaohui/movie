@@ -30,13 +30,11 @@ exports.send=function(req,res){
         sms_template_code: 'SMS_18210077',
     };
     //发送短信
-    alidayu.sms(options,function(err,result){
-        if(err.error_response){
-            console.log('短信发送失败');
-            console.log(err);
-        }else{
-            console.log('短信发送成功');
+    alidayu.sms(options,function(result){
+        if(result.error_response){
+            //如果短息发送失败则打印失败信息
             console.log(result);
+        }else{
             //如果短信发送成功则返回提示信息
             res.json({'isError':false,'message':'短信发送成功！'});
         }
