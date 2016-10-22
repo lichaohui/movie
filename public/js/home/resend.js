@@ -8,7 +8,7 @@ $(function(){
                 $("#resend").attr("disabled",false).text('重新发送');
                 window.clearInterval(t);
             }else{
-                $("#resend").text(time+'秒后可重发');
+                $("#resend").attr('disabled',true).text(time+'秒后可重发');
             }
         },1000);
     }
