@@ -3,7 +3,7 @@ function countDown(time){
     var t=window.setInterval(function(){
         time--;
         if(time==0){
-            document.getElementById("resend").setAttribute('disabled',false);
+            document.getElementById("resend").setAttribute('disabled',null);
             document.getElementById("resend").innerHTML='重新发送';
             window.clearInterval(t);
         }else{
