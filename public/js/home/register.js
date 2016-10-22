@@ -1,11 +1,3 @@
-function check(how,what){
-    if(how=='phone'){
-        isPhone(what);
-    }else if(how=='email'){
-        isEmail(what);
-    }
-}
-
 $(function(){
     //异步提交用户输入的手机号或邮箱
     $(".checkunique").click(function(){
@@ -13,7 +5,7 @@ $(function(){
         var way=$(this).attr('data-way');
         var pe=$("#"+way).val();
         var captcha=$(this).parentsUntil(".tab-content").find('input[name=captcha]').val();
-        if(check(way,pe)==false){
+        if(isPhone(pe)==false){
             alert('请输入正确的手机或者邮箱！');
             $("#"+way).focus();
         }else if(captcha==''){
