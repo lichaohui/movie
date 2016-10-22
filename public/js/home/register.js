@@ -5,10 +5,13 @@ $(function(){
         var way=$(this).attr('data-way');
         var pe=$("#"+way).val();
         var captcha=$(this).parentsUntil(".tab-content").find('input[name=captcha]').val();
-        //alert('is'+way);
-        var fun=('is'+way);
-        if(eval(fun)(pe)==false){
-            alert('请输入正确的手机或者邮箱！');
+        /*
+         * 通过字符串is+变量way的方式组装一个字符串，
+         * 该字符串就是验check.js文件中验证各个格式的函数名
+         * 然后通过eval方法将表示函数名的字符串动态解析成js函数来执行
+         * 就实现了动态判断用户输入的是那种类型的数据来调用不同的函数进行验证的功能
+         */
+        if(eval('is'+way)(pe)==false){
             $("#"+way).focus();
         }else if(captcha==''){
             alert('请输入验证码！');
