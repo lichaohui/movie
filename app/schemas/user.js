@@ -10,8 +10,14 @@ var userSchema=new mongoose.Schema({
         type:String
     },
     password:String,
-    phone:Number,
-    email:String,
+    phone:{
+        unique:true,
+        type:Number
+    },
+    email:{
+        unique:true,
+        type:String
+    },
     level:{
         type:Number,
         default:0

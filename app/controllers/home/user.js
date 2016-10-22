@@ -27,7 +27,7 @@ exports.unique=function(req,res,next){
 
 //展示第二个注册页面的方法
 exports.register1=function(req,res){
-    res.render('home/user/register1',{'title':'register'});
+    res.render('home/user/register1',{'title':'register','type':req.query.type,'val':req.query.val});
 };
 
 //执行用户注册操作的方法
@@ -52,7 +52,9 @@ exports.doRegister=function(req,res){
              */
             var newuser=new user({
                 'name':postuser.name,
-                'password':postuser.password
+                'password':postuser.password,
+                'phone':req.session.phone,
+                'email':req.session.email,
             });
             //将数据保存到数据库
             newuser.save(function(err,user){

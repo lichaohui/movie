@@ -20,6 +20,8 @@ exports.send=function(req,res){
     var vcode=num.substr(2,4);
     //将获取到的四位的随机数保存到session中
     req.session.vcode=vcode;
+    //将用户手机号也存储到session中以便后期调用
+    req.session.phone=req.body.phone;
     
     var options = {
         sms_free_sign_name: '学疯测试',
@@ -36,7 +38,7 @@ exports.send=function(req,res){
             console.log(result);
         }else{
             //如果短信发送成功则返回提示信息
-            res.json({'isError':false,'message':'短信发送成功！'});
+            res.json({'isError':false,'message':'短信发送成功！','type':'phone','val':req.body.phone});
         }
     });
 }
