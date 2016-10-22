@@ -29,7 +29,7 @@ $(function(){
                     if(data.isError){
                         $("#warning").text(data.message).removeClass('hidden');
                     }else{
-                        setTimeout(function(){window.location.href="/register1?type="+data.type+'val='+data.val;},1000);
+                        setTimeout(function(){window.location.href="/register1?type="+data.type+'&val='+data.val;},1000);
                     }
                 },
             })
