@@ -34,8 +34,9 @@ exports.send=function(req,res){
     //发送短信
     alidayu.sms(options,function(result){
         if(result.error_response){
-            //如果短息发送失败则打印失败信息
+            //如果短息发送失败则打印失败信息并返回
             console.log(result);
+            res.json({'isError':true,'message':'短信发送失败，请稍后再试！'});
         }else{
             //如果短信发送成功则返回提示信息
             res.json({'isError':false,'message':'短信发送成功！','type':'phone','val':req.body.phone});
