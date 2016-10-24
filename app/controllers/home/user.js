@@ -9,20 +9,32 @@ exports.register=function(req,res){
 
 //检查用户提供的手机号和邮箱是否可用的方法
 exports.unique=function(req,res,next){
-    //验证用户的手机号和邮箱是否可用
-    user.findByPhone(req.body.phone,function(err,data){
-        /*
-         * 如果有数据被查询出来
-         * 则证明用户输入的手机和邮箱已经被使用过了
-         * 返回信息给客户端
-         */
-        if(data.length>0){
-            res.json({'isError':true,'message':'该手机号已经被注册过了！'});
-        }else{
-            //若果手机号可以使用则进入下一步
-            next();
-        }
-    });
+    if(req.body.type=='phone'){
+        //如果用户是通过手机注册则验证用户的手机号是否可用
+        user.findByPhone(req.body.phone,function(err,data){
+            /*
+             * 如果有数据被查询出来
+             * 则证明用户输入的手机和邮箱已经被使用过了
+             * 返回信息给客户端
+             */
+            if(data.length>0){
+                res.json({'isError':true,'message':'该手机号已经被注册过了！'});
+            }else{
+                //如果手机号可以使用则进入下一步
+                next();
+            }
+        });
+    }else if(req.body.type=='email'){
+        //如果用户是通过邮箱注册则验证用户的邮箱是否可用
+        user.findByEmail(req.body.email,function(err,data){
+            if(data.length>0){
+                res.json({'isError':true,'message':'该邮箱已经被注册过了！'});
+            }else{
+                //如果邮箱可以使用则进入下一步
+                next();
+            }
+        })
+    }
 };
 
 //展示第二个注册页面的方法
