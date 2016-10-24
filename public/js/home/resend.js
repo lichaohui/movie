@@ -21,7 +21,7 @@ $(function(){
         var val=$(this).attr('data-val');
         //拼装一下url
         var url='re'+type+'code';
-        var postdata={‘+type+’:val};
+        var postdata="{"+type+":val}";
         /*if(type=='phone'){
             postdata={'phone':val};
         }else if(type=='email'){
