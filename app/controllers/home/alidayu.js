@@ -14,7 +14,7 @@ exports.send=function(req,res){
     var options = {
         sms_free_sign_name: '学疯测试',
         sms_param: {
-            code: vcode,
+            code: req.session.vcode,
         },
         rec_num: req.body.phone, 
         sms_template_code: 'SMS_18210077',
