@@ -20,7 +20,7 @@ $(function(){
                     if(data.isError){
                         //如果有错误则显示返回的错误信息并将提交按钮重新设置可点击的状态
                         $("#warning").text(data.message).removeClass('hidden');
-                        $("#sub").attr('disabled',false);
+                        $("#sub").text('register').attr('disabled',false);
                     }else{
                         //如果成功则显示成功信息并进行页面的跳转
                         $("#warning").addClass('hidden');
