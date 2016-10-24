@@ -28,9 +28,9 @@ module.exports=function(app){
     //展示用户注册界面的路由
     app.get('/register',user.register);
     //向用户发送手机短信验证码的路由
-    app.post('/phonecode',captcha.verify,user.unique,alidayu.send);
+    app.post('/phonecode',captcha.verify,user.unique,vcode.index,alidayu.send);
     //重新发送手机短信验证码的路由
-    app.post('/rephonecode',alidayu.send);
+    app.post('/rephonecode',vcode.index,alidayu.send);
     //测试邮箱发送
     app.get('/emailtest',emailer.send);
     //向用户发送邮箱验证码的路由
