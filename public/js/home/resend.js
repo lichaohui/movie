@@ -19,19 +19,24 @@ $(function(){
     $("#resend").click(function(){
         var type=$(this).attr('data-type');
         var val=$(this).attr('data-val');
+        var url;
+        var postdata;
         if(type=='phone'){
-            //如果是手机注册的则通过ajax重发手机短信验证码
-            $.post('/rephonecode',{'phone':val},function(data,status){
-                if(data.isError){
-                    //如果短信重发失败则弹出返回的提示信息
-                    alert(data.message);
-                }else{
-                    //如果短信重发成功则调用countDown()函数进行重新倒计时
-                    countDown(60);
-                }
-            })
+            url='rephonecode';
+            postdata={'phone':val};
         }else if(type=='email'){
-            //如果是邮箱注册则通过ajax重发邮箱验证码
+            url='reemailcode';
+            postdata={'email':val};
         }
+        //如果是手机注册的则通过ajax重发手机短信验证码
+        $.post(url,postdata,function(data,status){
+            if(data.isError){
+                //如果短信重发失败则弹出返回的提示信息
+                alert(data.message);
+            }else{
+                //如果短信重发成功则调用countDown()函数进行重新倒计时
+                countDown(60);
+            }
+        })
     })
 })
