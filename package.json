@@ -27,6 +27,7 @@
     "moment": "^2.14.1",
     "mongoose": "^4.5.9",
     "morgan": "^1.7.0",
+    "nodemailer": "^2.6.4",
     "pug": "^0.1.0",
     "serve-static": "^1.11.1",
     "session": "^0.1.0",
