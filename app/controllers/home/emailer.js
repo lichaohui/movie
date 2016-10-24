@@ -4,7 +4,7 @@ var nodemailer = require("nodemailer");
 exports.send=function(req,res){
     var transporter = nodemailer.createTransport({
         //服务商
-        service: '163',
+        service: 'smtp.163.com',
         //认证配置
         auth: {  
             //使用哪个账号来发送邮件
