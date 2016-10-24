@@ -9,6 +9,7 @@ var reply=require('../controllers/home/reply');
 var captcha=require('../controllers/home/captcha');
 var alidayu=require('../controllers/home/alidayu');
 var vcode=require('../controllers/home/vcode');
+var emailer=require('../controllers/home/emailer');
 
 module.exports=function(app){
     /*
@@ -30,6 +31,8 @@ module.exports=function(app){
     app.post('/phonecode',captcha.verify,user.unique,alidayu.send);
     //重新发送手机短信验证码的路由
     app.post('/rephonecode',alidayu.send);
+    //测试邮箱发送
+    app.get('/emailtest',emailer.send);
     //向用户发送邮箱验证码的路由
     app.post('/emailcode',captcha.verify,user.unique);
     //展示用户第二个注册界面的路由
