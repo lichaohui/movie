@@ -19,15 +19,14 @@ $(function(){
     $("#resend").click(function(){
         var type=$(this).attr('data-type');
         var val=$(this).attr('data-val');
-        var url;
-        var postdata;
-        if(type=='phone'){
-            url='rephonecode';
+        //拼装一下url
+        var url='re'+type+'code';
+        var postdata={type:val};
+        /*if(type=='phone'){
             postdata={'phone':val};
         }else if(type=='email'){
-            url='reemailcode';
             postdata={'email':val};
-        }
+        }*/
         //如果是手机注册的则通过ajax重发手机短信验证码
         $.post(url,postdata,function(data,status){
             if(data.isError){
