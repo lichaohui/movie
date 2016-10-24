@@ -103,10 +103,11 @@ exports.login=function(req,res){
 exports.doLogin=function(req,res){
     //获取到表单提交的数据
     var postuser=req.body;
+    console.log(postuser);
     /*
      * 通过findOne方法搜索指定的用户是否存在
      */
-    user.find({"$or":[{name:postuser.account},{email:postuser.account},{phone:postuser.account}]},function(err,data){
+    user.findOne({"$or":[{name:postuser.account},{email:postuser.account},{phone:postuser.account}]},function(err,data){
         if(data){
             /*
              * 如果用户存在则继续验证密码
