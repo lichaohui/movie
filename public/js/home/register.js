@@ -21,6 +21,7 @@ $(function(){
              * 如果用户输入的数据都合法
              * 则进行表单的异步提交
              */
+            $(this).attr('disabled',true);
             var url=$(this).parents("form").attr('action');
             $(this).parents("form").ajaxSubmit({
                 type:'post',
@@ -28,6 +29,7 @@ $(function(){
                 success:function(data){
                     if(data.isError){
                         $("#warning").text(data.message).removeClass('hidden');
+                        $(this).attr("disabled",false);
                     }else{
                         setTimeout(function(){window.location.href="/register1?type="+data.type+'&val='+data.val;},1000);
                     }
