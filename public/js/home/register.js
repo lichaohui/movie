@@ -20,17 +20,20 @@ $(function(){
             /*
              * 如果用户输入的数据都合法
              * 则进行表单的异步提交
+             * 并将按钮置为不可点击的状态
              */
-            $(this).attr('disabled',true);
+            $(this).text('请稍后...').attr('disabled',true);
             var url=$(this).parents("form").attr('action');
             $(this).parents("form").ajaxSubmit({
                 type:'post',
                 url:url,
                 success:function(data){
                     if(data.isError){
+                        //如果有错误返回则显示错误信息并将按钮置为可点击状态
                         $("#warning").text(data.message).removeClass('hidden');
-                        $(this).attr("disabled",false);
+                        $(".checkunique['disabled'=true]").text('下一步>>').attr("disabled",false);
                     }else{
+                        //提交成功后进入下一个注册页面
                         setTimeout(function(){window.location.href="/register1?type="+data.type+'&val='+data.val;},1000);
                     }
                 },
