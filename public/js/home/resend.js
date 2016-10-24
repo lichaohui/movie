@@ -25,13 +25,8 @@ $(function(){
         var postdata="{'"+type+"':'"+val+"'}";
         alert(postdata);
         alert(typeof(postdata));
-        /*if(type=='phone'){
-            postdata={'phone':val};
-        }else if(type=='email'){
-            postdata={'email':val};
-        }*/
         //如果是手机注册的则通过ajax重发手机短信验证码
-        $.post(url,JSON.parse(postdata),function(data,status){
+        $.post(url,eval('('+postdata+')'),function(data,status){
             if(data.isError){
                 //如果短信重发失败则弹出返回的提示信息
                 alert(data.message);
