@@ -18,17 +18,17 @@ exports.send=function(req,res){
     });
     var mailOptions = {  
         from: '17076467717@163.com', // 发送者  
-        to: '158109640@qq.com', // 接受者,可以同时发送多个,以逗号隔开  
+        to: req.body.email, // 接受者,可以同时发送多个,以逗号隔开  
         subject: '学疯网会员验证', // 标题  
-        //text: 'Hello world', // 文本  
-        html: '<h2>nodemailer基本使用:</h2><h3>' 
+        text: '您好，您的验证码是'+req.session.vcode+'，请及时验证', // 文本  
     };  
-    transporter.sendMail(mailOptions, function (err, info) {  
-        if (err) {  
-            console.log(err);  
-            return;  
+    transporter.sendMail(mailOptions,function(err,info){  
+        if(err){  
+            console.log(err);
+            res.json({'isError':true,'message':'邮件发送失败，请稍后再试！'});
         }else{
-            console.log('发送成功');  
+            //如果短信发送成功则返回提示信息
+            res.json({'isError':false,'message':'邮箱验证码发送成功！','type':'email','val':req.body.email});
         }  
     });  
 }
