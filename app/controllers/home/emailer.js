@@ -17,7 +17,7 @@ exports.send=function(req,res){
         }  
     });
     var mailOptions = {  
-        from: '学疯网', // 发送者  
+        from: '学疯网(17076467717@163.com)', // 发送者  
         to: req.body.email, // 接受者,可以同时发送多个,以逗号隔开  
         subject: '学疯网会员验证', // 标题  
         text: '您好，您的验证码是'+req.session.vcode+'，请及时验证', // 文本  
