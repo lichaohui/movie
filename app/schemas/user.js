@@ -11,10 +11,12 @@ var userSchema=new mongoose.Schema({
     },
     password:String,
     phone:{
+        unique:true,
         sparse:true,
         type:Number
     },
     email:{
+        unique:true,
         sparse:true,
         type:String
     },
