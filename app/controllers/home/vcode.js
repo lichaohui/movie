@@ -13,7 +13,7 @@ exports.index=function(req,res,next){
     //将获取到的四位的随机数保存到session中
     req.session.vcode=vcode;
     //下一步
-    next();
+    next(vcode);
 };
 
 //验证手机短信/邮箱动态验证码是否匹配的方法
