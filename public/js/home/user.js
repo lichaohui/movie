@@ -10,7 +10,8 @@ $(function(){
         }else{
             //如果用户提交的用户名和密码都不为空则通过一个ajax异步提交表单
             //首先将按钮置为不可点击的状态
-            $(this).text("请稍后").attr('disabled',true);
+            var oldTxt=$(this).text();
+            $(this).text("请稍后..").attr('disabled',true);
             //发送ajax请求异步提交表单数据
             var url=$("#form").attr('action');
             $("#form").ajaxSubmit({
@@ -20,7 +21,7 @@ $(function(){
                     if(data.isError){
                         //如果有错误则显示返回的错误信息并将提交按钮重新设置可点击的状态
                         $("#warning").text(data.message).removeClass('hidden');
-                        $("#sub").text('register').attr('disabled',false);
+                        $("#sub").text(oldTxt).attr('disabled',false);
                     }else{
                         //如果成功则显示成功信息并进行页面的跳转
                         $("#warning").addClass('hidden');
