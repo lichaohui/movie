@@ -33,7 +33,8 @@ module.exports=function(app){
     app.post('/rephonecode',vcode.index,alidayu.send);
     //向用户发送邮箱验证码的路由
     app.post('/emailcode',captcha.verify,user.unique,vcode.index,emailer.send);
-    //
+    //重新发送邮件验证码的路由
+    app.post('/reemailcode',vcode.index,emailer.send);
     //展示用户第二个注册界面的路由
     app.get('/register1',user.register1);
     //实现用户注册功能的路由
