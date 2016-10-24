@@ -105,9 +105,9 @@ exports.doLogin=function(req,res){
     var postuser=req.body;
     console.log(postuser.account);
     /*
-     * 通过findOne方法搜索指定的用户是否存在
+     * 通过login方法判断指定的用户是否存在
      */
-    user.find({$or:[{name:postuser.account},{email:postuser.account},{phone:postuser.account}]},function(err,data){
+    user.login(postuser.account,function(err,data){
         if(data){
             /*
              * 如果用户存在则继续验证密码

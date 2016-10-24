@@ -178,7 +178,15 @@ userSchema.statics={
      */
     findByEmail:function(email,callback){
         return this.find({'email':email}).exec(callback);
-    }
+    },
+    
+    /*
+     * login方法，
+     * 通过用户名或者邮箱或者手机号来查找用户是否存在
+     */
+    login:function(account,callback){
+        return this.findOne({"$or":[{name:postuser.account},{email:postuser.account},{phone:postuser.account}]}).exec(callback);
+    },
 };
 
 /*
