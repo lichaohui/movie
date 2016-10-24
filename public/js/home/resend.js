@@ -22,7 +22,7 @@ $(function(){
         //拼装一下url
         var url='re'+type+'code';
         //组装下要发送的数据
-        var postdata="{"+type+":'"+val+"'}";
+        var postdata="{'"+type+"':'"+val+"'}";
         alert(postdata);
         alert(typeof(postdata));
         /*if(type=='phone'){
