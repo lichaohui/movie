@@ -6,7 +6,7 @@ exports.send=function(req,res){
         service: '163',  
         auth: {  
             user: '17076467717@163.com',  
-            pass: 'misswife19900214' //授权码,通过QQ获取  
+            pass: 'misswife19900519' //授权码,通过QQ获取  
         }  
     });  
     var mailOptions = {  
