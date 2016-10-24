@@ -21,6 +21,7 @@ $(function(){
         var val=$(this).attr('data-val');
         //拼装一下url
         var url='re'+type+'code';
+        //组装下要发送的数据
         var postdata="{"+type+":"+val+"}";
         /*if(type=='phone'){
             postdata={'phone':val};
@@ -28,7 +29,7 @@ $(function(){
             postdata={'email':val};
         }*/
         //如果是手机注册的则通过ajax重发手机短信验证码
-        $.post(url,postdata,function(data,status){
+        $.post(url,JSON.parse(postdata),function(data,status){
             if(data.isError){
                 //如果短信重发失败则弹出返回的提示信息
                 alert(data.message);
