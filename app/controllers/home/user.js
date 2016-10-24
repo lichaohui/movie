@@ -103,7 +103,6 @@ exports.login=function(req,res){
 exports.doLogin=function(req,res){
     //获取到表单提交的数据
     var postuser=req.body;
-    console.log(postuser.account);
     /*
      * 通过login方法判断指定的用户是否存在
      */
