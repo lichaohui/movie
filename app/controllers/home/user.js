@@ -53,8 +53,8 @@ exports.doRegister=function(req,res){
             var newuser=new user({
                 'name':postuser.name,
                 'password':postuser.password,
-                'phone':req.session.phone,
-                'email':req.session.email,
+                'phone':postuser.phone,
+                'email':postuser.email,
             });
             //将数据保存到数据库
             newuser.save(function(err,user){

@@ -8,8 +8,6 @@ exports.send=function(req,res){
     };
     var alidayu = new Alidayu(config);
     
-    //将用户手机号存储到session中以便后期调用
-    req.session.phone=req.body.phone;
     //配置短信选项
     var options = {
         sms_free_sign_name: '学疯测试',
