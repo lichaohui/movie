@@ -29,7 +29,7 @@ $(function(){
             postdata={'email':val};
         }*/
         //如果是手机注册的则通过ajax重发手机短信验证码
-        $.post(url,JSON.parse(postdata),function(data,status){
+        $.post(url,postdata.parseJSON(),function(data,status){
             if(data.isError){
                 //如果短信重发失败则弹出返回的提示信息
                 alert(data.message);
