@@ -6,9 +6,5 @@ var mongoose=require('mongoose');
 var userSchema=require('../schemas/user')
 //通过mongoose.model()方法将userSchema添加给users集合
 var user=mongoose.model('users',userSchema);
-
-var data=user.find({"$or" :  [ {'name':'lucy'} , {'email':'lucy'} ] });
-console.log(data);
-
 //到处user模型，使外部可以调用到它
 module.exports=user;
