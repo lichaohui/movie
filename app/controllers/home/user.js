@@ -7,18 +7,18 @@ exports.register=function(req,res){
     res.render('home/user/register',{'title':'register'});
 };
 
+//设置unique和exists方法的公共回调函数
+var errMsg;
+var callback=function(err,data){
+    if(data.length>0){
+        res.json({'isError':true,'message':errMsg});
+    }else{
+        next();
+    }
+};
+
 //检查用户提供的手机号和邮箱是否可用的方法
 exports.unique=function(req,res,next){
-    var errMsg;
-    //设置回调函数
-    var callback=function(err,data){
-        if(data.length>0){
-            res.json({'isError':true,'message':errMsg});
-        }else{
-            next();
-        }
-    };
-    
     //通过switch用户的注册方式来执行不同的查询操作
     switch(req.body.type){
         case 'phone':
@@ -36,32 +36,18 @@ exports.unique=function(req,res,next){
 
 //检查用户提供的手机号或邮箱是否存在的方法
 exports.exists=function(req,res,next){
-    var type=req.body.type;
-    if(req.body.type=='phone'){
-        //如果用户是通过手机验证登录则验证用户的手机号是否存在
-        user.findByPhone(req.body.phone,function(err,data){
-            /*
-             * 如果没有数据被查询出来
-             * 则证明用户输入的手机和邮箱不存在
-             * 返回信息给客户端
-             */
-            if(data.length==0){
-                res.json({'isError':true,'message':'该手机号不存在！'});
-            }else{
-                //如果手机号存在则进入下一步
-                next();
-            }
-        });
-    }else if(req.body.type=='email'){
-        //如果用户是通过邮箱验证登录则验证邮箱是否存在
-        user.findByEmail(req.body.email,function(err,data){
-            if(data.length==0){
-                res.json({'isError':true,'message':'该邮箱不存在！'});
-            }else{
-                //如果邮箱可以使用则进入下一步
-                next();
-            }
-        })
+    //通过switch用户的验证方式来执行不同的查询操作
+    switch(req.body.type){
+        case 'phone':
+            errMsg='该手机号不存在！';
+            //如果用户是通过手机注册则验证用户的手机号是否可用
+            user.findByPhone(req.body.phone,callback);
+        break;
+        case 'email':
+            errMsg='该邮箱不存在！';
+             //如果用户是通过邮箱注册则验证用户的邮箱是否可用
+            user.findByEmail(req.body.email,callback);
+        break;    
     }
 };
 
