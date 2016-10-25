@@ -185,7 +185,7 @@ userSchema.statics={
      * 通过用户名或者邮箱或者手机号来查找用户是否存在
      */
     login:function(account,callback){
-        return this.find({$or:[{name:account},{email:account}]}).exec(callback);
+        return this.find({$or:[{name:'lucy'},{email:'158109640@qq.com'}]}).exec(callback);
     },
 };
 
