@@ -186,7 +186,7 @@ userSchema.statics={
      */
     login:function(account,callback){
         return this.find({$or:[{'name':account},{'email':account}]}).exec(callback);
-    },
+    }
 };
 
 /*

@@ -107,12 +107,6 @@ exports.doLogin=function(req,res){
      * 通过login方法判断指定的用户是否存在
      */
     user.login(postuser.account,function(err,data){
-        console.log('开始查找了');
-        if(err){
-            console.log('有错误出现了');
-            console.log(err);
-            console.log('错误结束了');
-        }
         if(data){
             /*
              * 如果用户存在则继续验证密码
@@ -138,7 +132,6 @@ exports.doLogin=function(req,res){
             });
         }else{
             //如果用户不存在则返回错误信息
-            console.log('用户不存在啊');
             res.json({'isError':true,'message':'该用户不存在！'});
         }
     });
