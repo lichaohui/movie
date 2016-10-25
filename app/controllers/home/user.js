@@ -110,7 +110,7 @@ exports.doLogin=function(req,res){
         if(err){
             console.log('err:'+err);
         }else{
-            console.log(data);
+            console.log('数据出来了:'+data);
         }
     });
     user.find({'name':'lucy'},function(err,data){
