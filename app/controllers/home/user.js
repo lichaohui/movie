@@ -13,7 +13,7 @@ exports.unique=function(req,res,next){
     var type=req.body.type;
     var fun='findBy'+type;
     var val='req.body.'+type;
-    console.log(fun);
+    console.log(typeof(fun));
     console.log('val:'+val);
     eval(user.fun(val,function(err,data){
         if(data.length>0){
