@@ -9,20 +9,26 @@ exports.register=function(req,res){
 
 //检查用户提供的手机号和邮箱是否可用的方法
 exports.unique=function(req,res,next){
-    
-    var type=req.body.type;
-    var fun='findBy'+type;
-    var val='req.body.'+type;
-    console.log(typeof(fun));
-    console.log('val:'+val);
-    eval(user.fun(val,function(err,data){
+    //设置回调函数
+    var callback=function(err,data){
         if(data.length>0){
-            res.json({'isError':true,'message':'该手机/邮箱已经被注册过了！'});
+            res.json({'isError':true,'message':'该手机号/邮箱已经被注册了！'});
         }else{
-            //如果邮箱可以使用则进入下一步
             next();
-        }    
-    }))
+        }
+    };
+    
+    //通过switch用户的注册方式来执行不同的查询操作
+    switch(req.body.type){
+        case 'phone':
+            //如果用户是通过手机注册则验证用户的手机号是否可用
+            user.findByPhone(req.body.phone,callback);
+        break;
+        case 'email':
+             //如果用户是通过邮箱注册则验证用户的邮箱是否可用
+            user.findByEmail(req.body.email,callback);
+        break;    
+    }
 };
 
 //检查用户提供的手机号或邮箱是否存在的方法
