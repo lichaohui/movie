@@ -148,7 +148,7 @@ exports.vlogin=function(req,res){
     res.render('home/user/vlogin',{'title':'login'});
 };
 exports.vlogin1=function(req,res){
-    res.render('home/user/vlogin1',{'title':'login','account':req.query.val});
+    res.render('home/user/vlogin1',{'title':'login','type':req.query.type,'val':req.query.val});
 };
 //实现用户登录功能的路由
 exports.doLogin=function(req,res){
