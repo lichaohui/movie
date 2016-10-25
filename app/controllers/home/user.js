@@ -10,9 +10,9 @@ exports.register=function(req,res){
 //检查用户提供的手机号和邮箱是否可用的方法
 exports.unique=function(req,res,next){
     //设置回调函数
-    var callback=function(err,data){
+    function callback(err,data,message){
         if(data.length>0){
-            res.json({'isError':true,'message':'该手机号/邮箱已经被注册了！'});
+            res.json({'isError':true,'message':message});
         }else{
             next();
         }
@@ -22,11 +22,11 @@ exports.unique=function(req,res,next){
     switch(req.body.type){
         case 'phone':
             //如果用户是通过手机注册则验证用户的手机号是否可用
-            user.findByPhone(req.body.phone,callback);
+            user.findByPhone(req.body.phone,callback(err,data,'该手机号已经被使用过了'));
         break;
         case 'email':
              //如果用户是通过邮箱注册则验证用户的邮箱是否可用
-            user.findByEmail(req.body.email,callback);
+            user.findByEmail(req.body.email,callback(err,data,'该邮箱已经被使用过了'));
         break;    
     }
 };
