@@ -59,13 +59,25 @@ function exists(req,res,next){
     }
 };
 
+/*
+ * check方法通过用户不同的操作来验证用户的手机/邮箱等是否合法
+ */
 exports.check=function(req,res,next){
     switch(req.body.operating){
         case 'register':
+            /*
+             * 当用户的操作为注册(register)时
+             * 就调用unique方法验证用户提交的手机/邮箱是否唯一（还没有被使用过）
+             */
             unique(req,res,next);
         break;
         case 'login':
+            /*
+             * 当用户的操作为登录(login)时
+             * 就调用exists方法验证用户提交的手机/邮箱是否存在
+             */
             exists(req,res,next);
+        break;    
     }
 };
 

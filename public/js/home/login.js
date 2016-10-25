@@ -30,7 +30,7 @@ $(function(){
                 success:function(data){
                     if(data.isError){
                         //如果有错误返回则显示错误信息并将按钮置为可点击状态
-                        $("#warning="+way).text(data.message).removeClass('hidden');
+                        $("#warning-"+way).text(data.message).removeClass('hidden');
                         $(".checkexist").text('下一步 >>').attr("disabled",false);
                     }else{
                         //提交成功后进入下一个验证登录页面
