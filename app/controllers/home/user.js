@@ -106,7 +106,7 @@ exports.doLogin=function(req,res){
     /*
      * 通过login方法判断指定的用户是否存在
      */
-    user.query.or([{'name':'lucy'},{'email':'lucy'}],function(err,data){
+    user.or([{'name':'lucy'},{'email':'lucy'}],function(err,data){
         if(data){
             /*
              * 如果用户存在则继续验证密码
