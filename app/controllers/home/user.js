@@ -106,7 +106,7 @@ exports.doLogin=function(req,res){
     /*
      * 通过login方法判断指定的用户是否存在
      */
-    Model.find.({  $or: [ { name:'lucy' }, { email:'lucy' } ] }, callback);
+    Model.find({  $or: [ { name:'lucy' }, { email:'lucy' } ] }, callback);
     user.find({'name':'lucy'},function(err,data){
         if(data){
             /*
