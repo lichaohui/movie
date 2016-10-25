@@ -14,14 +14,15 @@ exports.unique=function(req,res,next){
     var fun='findBy'+type;
     var val='req.body.'+type;
     console.log(fun);
-    user.fun(val,function(err,data){
+    console.log('val:'+val);
+    eval(user.fun(val,function(err,data){
         if(data.length>0){
-            res.json({'isError':true,'message':'该邮箱已经被注册过了！'});
+            res.json({'isError':true,'message':'该手机/邮箱已经被注册过了！'});
         }else{
             //如果邮箱可以使用则进入下一步
             next();
         }    
-    })
+    }))
 };
 
 //检查用户提供的手机号或邮箱是否存在的方法
