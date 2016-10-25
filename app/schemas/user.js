@@ -169,14 +169,14 @@ userSchema.statics={
     /*
      * 通过手机号查询用户
      */
-    findByphone:function(phone,callback){
+    findByPhone:function(phone,callback){
         return this.find({'phone':phone}).exec(callback);
     },
     
     /*
      * 通过邮箱查询用户
      */
-    findByemail:function(email,callback){
+    findByEmail:function(email,callback){
         return this.find({'email':email}).exec(callback);
     },
 };
