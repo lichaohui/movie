@@ -106,9 +106,8 @@ exports.doLogin=function(req,res){
     /*
      * 通过login方法判断指定的用户是否存在
      */
-    user.findOne({  $or: [ { name:postuser.account }, { email:postuser.account } ] },function(err,data){
+    user.findOne({$or:[{name:postuser.account},{email:postuser.account }]},function(err,data){
         if(data){
-            console.log('数据出来了：'+data);
             /*
              * 如果用户存在则继续验证密码
              * 调用我们自己在schema中定义的comparePassword()方法进行验证
