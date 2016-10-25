@@ -30,11 +30,11 @@ $(function(){
                 success:function(data){
                     if(data.isError){
                         //如果有错误返回则显示错误信息并将按钮置为可点击状态
-                        $("#warning").text(data.message).removeClass('hidden');
-                        $(".checkunique").text('下一步 >>').attr("disabled",false);
+                        $("#warning="+way).text(data.message).removeClass('hidden');
+                        $(".checkexist").text('下一步 >>').attr("disabled",false);
                     }else{
-                        //提交成功后进入下一个注册页面
-                        setTimeout(function(){window.location.href="/register1?type="+data.type+'&val='+data.val;},1000);
+                        //提交成功后进入下一个验证登录页面
+                        setTimeout(function(){window.location.href="/verifylogi1?type="+data.type+'&val='+data.val;},1000);
                     }
                 },
             })

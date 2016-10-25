@@ -8,7 +8,7 @@ exports.register=function(req,res){
 };
 
 //检查用户提供的手机号和邮箱是否可用的方法
-exports.unique=function(req,res,next){
+function unique(req,res,next){
     //设置回调函数
     var errMsg;
     var callback=function(err,data){
@@ -34,7 +34,7 @@ exports.unique=function(req,res,next){
 };
 
 //检查用户提供的手机号或邮箱是否存在的方法
-exports.exists=function(req,res,next){
+function exists(req,res,next){
     //设置回调函数
     var errMsg;
     var callback=function(err,data){
@@ -59,9 +59,15 @@ exports.exists=function(req,res,next){
     }
 };
 
-/*exports.check=Function(req,res,next){
-    
-};*/
+exports.check=function(req,res,next){
+    switch(req.body.operating){
+        case 'register':
+            unique(req,res,next);
+        break;
+        case 'login':
+            exists(req,res,next);
+    }
+};
 
 //展示第二个注册页面的方法
 exports.register1=function(req,res){

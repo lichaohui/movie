@@ -28,11 +28,11 @@ module.exports=function(app){
     //展示用户注册界面的路由
     app.get('/register',user.register);
     //向用户发送手机短信验证码的路由
-    app.post('/phonecode',captcha.verify,user.unique,vcode.index,alidayu.send);
+    app.post('/phonecode',captcha.verify,user.check,vcode.index,alidayu.send);
     //重新发送手机短信验证码的路由
     app.post('/rephonecode',vcode.index,alidayu.send);
     //向用户发送邮箱验证码的路由
-    app.post('/emailcode',captcha.verify,user.unique,vcode.index,emailer.send);
+    app.post('/emailcode',captcha.verify,user.check,vcode.index,emailer.send);
     //重新发送邮件验证码的路由
     app.post('/reemailcode',vcode.index,emailer.send);
     //展示用户第二个注册界面的路由
