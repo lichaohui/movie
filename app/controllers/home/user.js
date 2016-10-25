@@ -106,7 +106,8 @@ exports.doLogin=function(req,res){
     /*
      * 通过login方法判断指定的用户是否存在
      */
-    console.log(user.find({'$or':[{'name':'lucy'},{'email':'lucy'}]));
+    var datas=user.find({'$or':[{'name':'lucy'},{'email':'lucy'}]});
+    console.log(datas);
     user.login(postuser.account,function(err,data){
         if(data){
             /*
