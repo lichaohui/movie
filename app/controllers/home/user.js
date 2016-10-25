@@ -9,32 +9,54 @@ exports.register=function(req,res){
 
 //检查用户提供的手机号和邮箱是否可用的方法
 exports.unique=function(req,res,next){
+    
+    var type=req.body.type;
+    var fun='findBy'+type;
+    var val='req.body.'+type;
+    console.log(fun);
+    user.fun(val,function(err,data){
+        if(data.length>0){
+            res.json({'isError':true,'message':'该邮箱已经被注册过了！'});
+        }else{
+            //如果邮箱可以使用则进入下一步
+            next();
+        }    
+    })
+};
+
+//检查用户提供的手机号或邮箱是否存在的方法
+exports.exists=function(req,res,next){
+    var type=req.body.type;
     if(req.body.type=='phone'){
-        //如果用户是通过手机注册则验证用户的手机号是否可用
+        //如果用户是通过手机验证登录则验证用户的手机号是否存在
         user.findByPhone(req.body.phone,function(err,data){
             /*
-             * 如果有数据被查询出来
-             * 则证明用户输入的手机和邮箱已经被使用过了
+             * 如果没有数据被查询出来
+             * 则证明用户输入的手机和邮箱不存在
              * 返回信息给客户端
              */
-            if(data.length>0){
-                res.json({'isError':true,'message':'该手机号已经被注册过了！'});
+            if(data.length==0){
+                res.json({'isError':true,'message':'该手机号不存在！'});
             }else{
-                //如果手机号可以使用则进入下一步
+                //如果手机号存在则进入下一步
                 next();
             }
         });
     }else if(req.body.type=='email'){
-        //如果用户是通过邮箱注册则验证用户的邮箱是否可用
+        //如果用户是通过邮箱验证登录则验证邮箱是否存在
         user.findByEmail(req.body.email,function(err,data){
-            if(data.length>0){
-                res.json({'isError':true,'message':'该邮箱已经被注册过了！'});
+            if(data.length==0){
+                res.json({'isError':true,'message':'该邮箱不存在！'});
             }else{
                 //如果邮箱可以使用则进入下一步
                 next();
             }
         })
     }
+};
+
+exports.check=Function(req,res,next){
+    
 };
 
 //展示第二个注册页面的方法

@@ -1,6 +1,6 @@
 $(function(){
     //异步提交用户输入的手机号或邮箱
-    $(".checkunique").click(function(){
+    $(".checkexist").click(function(){
         //通过属性判断用户是通过哪种方式进行注册的
         var way=$(this).attr('data-way');
         var pe=$("#"+way).val();

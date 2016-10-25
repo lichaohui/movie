@@ -43,6 +43,7 @@ module.exports=function(app){
     app.get('/login',user.login);
     //显示邮箱/手机验证登录界面的路由
     app.get('/verifylogin',user.verifylogin);
+    
     //实现用户登录功能的路由
     app.post('/dologin',user.doLogin);
     //用户登出的路由
