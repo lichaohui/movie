@@ -55,9 +55,9 @@ exports.exists=function(req,res,next){
     }
 };
 
-exports.check=Function(req,res,next){
+/*exports.check=Function(req,res,next){
     
-};
+};*/
 
 //展示第二个注册页面的方法
 exports.register1=function(req,res){
