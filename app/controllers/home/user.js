@@ -99,6 +99,10 @@ exports.verifyLogin=function(req,res,next){
 exports.login=function(req,res){
     res.render('home/user/login',{'title':'login'});
 };
+//显示邮箱/手机验证登录界面的方法
+exports.verifylogin=function(req,res){
+    res.render('home/user/verifylogin',{'title':'login'});
+};
 //实现用户登录功能的路由
 exports.doLogin=function(req,res){
     //获取到表单提交的数据

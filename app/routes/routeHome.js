@@ -39,8 +39,10 @@ module.exports=function(app){
     app.get('/register1',user.register1);
     //实现用户注册功能的路由
     app.post('/doregister',vcode.verify,user.doRegister);
-    //用户登录的路由
+    //展示用户登录界面的路由
     app.get('/login',user.login);
+    //显示邮箱/手机验证登录界面的路由
+    app.get('/verifylogin',user.verifylogin);
     //实现用户登录功能的路由
     app.post('/dologin',user.doLogin);
     //用户登出的路由
