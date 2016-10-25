@@ -7,18 +7,17 @@ exports.register=function(req,res){
     res.render('home/user/register',{'title':'register'});
 };
 
-//设置unique和exists方法的公共回调函数
-var errMsg;
-var callback=function(err,data){
-    if(data.length>0){
-        res.json({'isError':true,'message':errMsg});
-    }else{
-        next();
-    }
-};
-
 //检查用户提供的手机号和邮箱是否可用的方法
 exports.unique=function(req,res,next){
+    //设置回调函数
+    var errMsg;
+    var callback=function(err,data){
+        if(data.length>0){
+            res.json({'isError':true,'message':errMsg});
+        }else{
+            next();
+        }
+    };
     //通过switch用户的注册方式来执行不同的查询操作
     switch(req.body.type){
         case 'phone':
@@ -36,6 +35,15 @@ exports.unique=function(req,res,next){
 
 //检查用户提供的手机号或邮箱是否存在的方法
 exports.exists=function(req,res,next){
+    //设置回调函数
+    var errMsg;
+    var callback=function(err,data){
+        if(data.length==0){
+            res.json({'isError':true,'message':errMsg});
+        }else{
+            next();
+        }
+    };
     //通过switch用户的验证方式来执行不同的查询操作
     switch(req.body.type){
         case 'phone':
