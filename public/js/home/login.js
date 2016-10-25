@@ -34,7 +34,7 @@ $(function(){
                         $(".checkexist").text('下一步 >>').attr("disabled",false);
                     }else{
                         //提交成功后进入下一个验证登录页面
-                        setTimeout(function(){window.location.href="/verifylogi1?type="+data.type+'&val='+data.val;},1000);
+                        setTimeout(function(){window.location.href="/vlogin1?type="+data.type+'&val='+data.val;},1000);
                     }
                 },
             })

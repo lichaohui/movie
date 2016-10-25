@@ -42,8 +42,8 @@ module.exports=function(app){
     //展示用户登录界面的路由
     app.get('/login',user.login);
     //显示邮箱/手机验证登录界面的路由
-    app.get('/verifylogin',user.verifylogin);
-    
+    app.get('/vlogin',user.vlogin);
+    app.get('/vlogin1',user.vlogin1);
     //实现用户登录功能的路由
     app.post('/dologin',user.doLogin);
     //用户登出的路由
