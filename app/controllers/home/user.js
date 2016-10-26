@@ -9,7 +9,7 @@ exports.register=function(req,res){
     res.render('home/user/register',{'title':'register'});
 };
 
-//检查用户提供的手机号和邮箱是否可用的方法
+//检查用户注册时提供的用户名、手机号或邮箱是否可用的方法
 function unique(req,res,next){
     //设置回调函数
     var errMsg;
@@ -31,11 +31,18 @@ function unique(req,res,next){
             errMsg='该邮箱已经被注册过了';
              //如果用户是通过邮箱注册则验证用户的邮箱是否可用
             user.findByEmail(req.body.email,callback);
-        break;    
+        break;
+        case null:
+            /*
+             * 如果是null则证明用户已经进行到了填写用户名的步骤
+             * 就验证用户名是否唯一就可以了
+             */
+            errMsg='该用户名已经被使用过了！';
+            user.findByName(req.body.name,callback);
     }
 };
 
-//检查用户提供的手机号或邮箱是否存在的方法
+//检查用户登录时提供的用户名、手机号或邮箱是否存在的方法
 function exists(req,res,next){
     //设置回调函数
     var errMsg;
@@ -47,7 +54,7 @@ function exists(req,res,next){
         }
     };
     //通过switch用户的验证方式来执行不同的查询操作
-    switch(req.body.type){
+    switch(req.body.type){    
         case 'phone':
             errMsg='该手机号不存在！';
             //如果用户是通过手机注册则验证用户的手机号是否可用
@@ -57,6 +64,15 @@ function exists(req,res,next){
             errMsg='该邮箱不存在！';
              //如果用户是通过邮箱注册则验证用户的邮箱是否可用
             user.findByEmail(req.body.email,callback);
+        break;
+        case null:    
+            /*
+             * 如果req.body.type不存在则证明用户是通过用户名/手机号/邮箱和密码登录的，
+             * 而不是通过手机/邮箱验证登录的，
+             * 那么就验证用户提供的用户名/手机号/邮箱是否存在
+             */
+            errMsg='该用户不存在！';
+            user.findOne({$or,[{'name':req.body.account},{'email':req.body.account},{'phone':req.body.account}]},callback);
         break;    
     }
 };
@@ -96,39 +112,28 @@ exports.doRegister=function(req,res){
      * 表单数据可以通过req.body拿到
      */
     var postuser=req.body;
-    //先验证数据库中是否有重名的用户存在
-    user.find({name:postuser.name},function(err,data){
-        if(data.length>0){
-            //如果有重名用户存在则返回json格式的错误信息
-            res.json({'isError':true,'message':'该用户名已经存在了，请换个用户名重新注册！'});
-        }else if(postuser.password!=postuser.passwordrepeat){
-            //如果两次输入的密码不一致则返回错误信息
-            res.json({'isError':true,'message':'两次输入的密码不一致，请重新输入密码！'});
+    /*
+     * 如果用户名可以使用
+     * 就通过表单发送的数据实例化user模型
+     */
+    var newuser=new user({
+        'name':postuser.name,
+        'password':postuser.password,
+        'phone':postuser.phone,
+        'email':postuser.email,
+    });
+    //将数据保存到数据库
+    newuser.save(function(err,user){
+        if(err){
+            console.log(err);
         }else{
             /*
-             * 如果用户名可以使用
-             * 就通过表单发送的数据实例化user模型
+             * 如果注册成功则保存用户信息到req.session并返回成功信息
+             * 注意session是req（请求体）的，
+             * 所以session信息会在发生http请求的时候包含在请求体中
              */
-            var newuser=new user({
-                'name':postuser.name,
-                'password':postuser.password,
-                'phone':postuser.phone,
-                'email':postuser.email,
-            });
-            //将数据保存到数据库
-            newuser.save(function(err,user){
-                if(err){
-                    console.log(err);
-                }else{
-                    /*
-                     * 如果注册成功则保存用户信息到req.session并返回成功信息
-                     * 注意session是req（请求体）的，
-                     * 所以session信息会在发生http请求的时候包含在请求体中
-                     */
-                    req.session.user=user;
-                    res.json({'isError':false,'message':'注册成功，即将跳转到首页!'});
-                }
-            });
+            req.session.user=user;
+            res.json({'isError':false,'message':'注册成功，即将跳转到首页!'});
         }
     });
 };
@@ -204,13 +209,22 @@ exports.comparepass=function(req,res,next){
 
 //实现用户忘记密码后用手机/邮箱验证登录并重置密码的方法
 exports.dovlogin=function(req,res){
+    //先查询出符合条件的用户
     user.findOne({$or:[{'email':req.body.name},{'phone':req.body.name}]},function(err,data){
-        //然后更新用户的密码
-        user.update(data,{$set:{'password':req.body.password}},function(err,newdata){
+        /*
+         * 如果用户查询出来了则使用update()方法更新用户的密码
+         * 有三个参数：
+         * 第一个参数表示要更新哪条记录
+         * 第二个参数是json格式，
+         * 表示要更新那些字段成什么样子
+         * update的回调方法中有一个参数err
+         * 表示更新中出的错
+         */
+        user.update(data,{$set:{'password':req.body.password}},function(err){
             if(err){
-                console.log('更新密码失败：'+err);
+                //如果更新中出错就打印错误
+                console.log(err);
             }else{
-                console.log('new'+newdata);
                 //如果密码更新成功则将data存储到session中并返回成功信息
                 req.session.user=data;
                 res.json({'isError':false,'message':'密码更新成功！即将进入首页！'});

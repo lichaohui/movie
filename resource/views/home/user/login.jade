@@ -5,6 +5,7 @@ include ../../common/header
       div(class="alert alert-warning hidden" id='warning' role="alert")
       div(class="alert alert-success hidden" id='success' role="alert")
       form(class="form-horizontal" action='/dologin' method='post' id='form')
+        input(type='hidden' name='operating' value='login')
         div(class="form-group")
           label(for="name" class="col-sm-2 control-label") 账号
           div(class="col-sm-10")

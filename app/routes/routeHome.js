@@ -39,14 +39,14 @@ module.exports=function(app){
     //展示用户第二个注册界面的路由
     app.get('/register1',user.register1);
     //实现用户注册功能的路由
-    app.post('/doregister',vcode.verify,user.doRegister);
+    app.post('/doregister',vcode.verify,user.comparepass,user.check,user.doRegister);
     //展示用户登录界面的路由
     app.get('/login',user.login);
     //显示邮箱/手机验证登录界面的路由
     app.get('/vlogin',user.vlogin);
     app.get('/vlogin1',user.vlogin1);
     //实现用户登录功能的路由
-    app.post('/dologin',user.doLogin);
+    app.post('/dologin',user.check,user.doLogin);
     //实现用户验证登录并重置密码功能的路由
     app.post('/dovlogin',vcode.verify,user.comparepass,encrypt.index,user.dovlogin);
     //用户登出的路由
