@@ -2,7 +2,7 @@
 //引入bcrypt组件
 var bcrypt=require('bcrypt');
 
-exports.index=function(req,res){
+exports.index=function(req,res,next){
     /*
      * 使用bcrypt的genSalt生成盐
      * 然后在回调函数中将生成的盐加给密码,
@@ -35,9 +35,11 @@ exports.index=function(req,res){
                 }else{
                     /*
                      * 如果没有错误
-                     * 就把密码和salt经过hash后得出的结果返回
+                     * 就把密码和salt经过hash后的结果hashresult赋值给req.body.password
+                     * 然后再进入下一步
                      */
-                    return hashresult;
+                    req.body.password=hashresult;
+                    next();
                 }
             });
         }

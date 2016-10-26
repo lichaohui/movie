@@ -10,6 +10,7 @@ var captcha=require('../controllers/home/captcha');
 var alidayu=require('../controllers/home/alidayu');
 var vcode=require('../controllers/home/vcode');
 var emailer=require('../controllers/home/emailer');
+var encrypt=require('../controllers/common/encrypt');
 
 module.exports=function(app){
     /*
@@ -47,7 +48,7 @@ module.exports=function(app){
     //实现用户登录功能的路由
     app.post('/dologin',user.doLogin);
     //实现用户验证登录并重置密码功能的路由
-    app.post('/dovlogin',vcode.verify,user.dovlogin);
+    app.post('/dovlogin',vcode.verify,user.comparepass,encrypt.index,user.dovlogin);
     //用户登出的路由
     app.get('/logout',user.logout);  
     //展示用户主页的路由

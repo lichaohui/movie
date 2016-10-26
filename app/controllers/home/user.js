@@ -191,28 +191,28 @@ exports.doLogin=function(req,res){
     });
 };
 
-//实现用户忘记密码后用手机/邮箱验证登录并重置密码的方法
-exports.dovlogin=function(req,res){
-    //先判断用户两次输入的密码是否一致
+//比较密码和确认密码是否一致的方法
+exports.comparepass=function(req,res,next){
     if(req.body.password==req.body.passwordrepeat){
-        //如果用户两次输入的密码一致则更新该用户的密码
-        //先对密码进行加密出来
-        console.log('开始对新密码进行加密了');
-        var password=encrypt.index(req,res);
-        console.log('新密码加密完成了：'+password);
-        //然后更新用户的密码
-        user.update({$or:[{'phone':req.body.name},{'email':req.body.email}]},{$set:{'password':password}},function(err,data){
-            if(err){
-                console.log('更新密码失败：'+err);
-            }else{
-                //如果两次输入的密码不一致则返回错误信息
-                res.json({'isError':false,'message':'密码更新成功！即将进入首页！'});
-            }
-        });
-    }else{
+        //如果密码和确认密码一致则进入下一步
+        next();
+    }eles{
         //如果两次输入的密码不一致则返回错误信息
         res.json({'isError':true,'message':'两次输入的密码不一致，请重新输入密码！'});
     }
+};
+
+//实现用户忘记密码后用手机/邮箱验证登录并重置密码的方法
+exports.dovlogin=function(req,res){
+    //然后更新用户的密码
+    user.update({$or:[{'phone':req.body.name},{'email':req.body.email}]},{$set:{'password':req.body.password}},function(err,data){
+        if(err){
+            console.log('更新密码失败：'+err);
+        }else{
+            //如果两次输入的密码不一致则返回错误信息
+            res.json({'isError':false,'message':'密码更新成功！即将进入首页！'});
+        }
+    });
 };
 
 //实现用户登出功能的方法
