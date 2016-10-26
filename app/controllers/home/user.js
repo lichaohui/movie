@@ -53,7 +53,6 @@ function exists(req,res,next){
             next();
         }
     };
-    console.log('type:'+req.body.type);
     //通过switch用户的验证方式来执行不同的查询操作
     switch(req.body.type){    
         case 'phone':
@@ -65,16 +64,7 @@ function exists(req,res,next){
             errMsg='该邮箱不存在！';
              //如果用户是通过邮箱注册则验证用户的邮箱是否可用
             user.findByEmail(req.body.email,callback);
-        break;
-        case null:    
-            /*
-             * 如果req.body.type不存在则证明用户是通过用户名/手机号/邮箱和密码登录的，
-             * 而不是通过手机/邮箱验证登录的，
-             * 那么就验证用户提供的用户名/手机号/邮箱是否存在
-             */
-            errMsg='该用户不存在！';
-            user.findOne({$or:[{'name':req.body.account},{'email':req.body.account},{'phone':req.body.account}]},callback);
-        break;    
+        break;   
     }
 };
 
