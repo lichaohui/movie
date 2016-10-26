@@ -196,7 +196,7 @@ exports.comparepass=function(req,res,next){
     if(req.body.password==req.body.passwordrepeat){
         //如果密码和确认密码一致则进入下一步
         next();
-    }eles{
+    }else{
         //如果两次输入的密码不一致则返回错误信息
         res.json({'isError':true,'message':'两次输入的密码不一致，请重新输入密码！'});
     }
