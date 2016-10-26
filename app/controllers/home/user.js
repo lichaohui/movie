@@ -20,6 +20,7 @@ function unique(req,res,next){
             next();
         }
     };
+    console.log('hello world');
     console.log(req.body.type);
     //通过switch用户的注册方式来执行不同的查询操作
     switch(req.body.type){
