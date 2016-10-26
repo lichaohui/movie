@@ -2,7 +2,7 @@
 //引入bcrypt组件
 var bcrypt=require('bcrypt');
 
-function encrypt(pass){
+exports.index=function(req,res){
     /*
      * 使用bcrypt的genSalt生成盐
      * 然后在回调函数中将生成的盐加给密码,
@@ -29,7 +29,7 @@ function encrypt(pass){
              * 第一个参数是err,
              * 第二个参数是hash后生成的值
              */
-            bcrypt.hash(pass,salt,function(err,hashresult){
+            bcrypt.hash(req.body.password,salt,function(err,hashresult){
                 if(err){
                     console.log(err);
                 }else{

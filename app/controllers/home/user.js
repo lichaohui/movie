@@ -198,7 +198,7 @@ exports.dovlogin=function(req,res){
         //如果用户两次输入的密码一致则更新该用户的密码
         //先对密码进行加密出来
         console.log('开始对新密码进行加密了');
-        var password=encrypt.encrypt(req.body.password);
+        var password=encrypt.index(req,res);
         console.log('新密码加密完成了：'+password);
         //然后更新用户的密码
         user.update({$or:[{'phone':req.body.name},{'email':req.body.email}]},{$set:{'password':password}},function(err,data){
