@@ -20,8 +20,6 @@ function unique(req,res,next){
             next();
         }
     };
-    console.log('hello world');
-    console.log(req.body.type);
     //通过switch用户的注册方式来执行不同的查询操作
     switch(req.body.type){
         case 'phone':
@@ -34,13 +32,14 @@ function unique(req,res,next){
              //如果用户是通过邮箱注册则验证用户的邮箱是否可用
             user.findByEmail(req.body.email,callback);
         break;
-        case null:
+        case 'name':
             /*
-             * 如果是null则证明用户已经进行到了填写用户名的步骤
+             * 如果是name则证明用户已经进行到了填写用户名的步骤
              * 就验证用户名是否唯一就可以了
              */
             errMsg='该用户名已经被使用过了！';
             user.findByName(req.body.name,callback);
+        break;    
     }
 };
 
