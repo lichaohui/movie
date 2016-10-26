@@ -2,7 +2,7 @@
 //引入model模型
 var user=require('../../models/user');
 //引入ecrypt控制器来对密码进行加密
-var ecrypt=require('../common/encrypt');
+var encrypt=require('../common/encrypt');
 
 //显示用户注册页面的方法
 exports.register=function(req,res){
