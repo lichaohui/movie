@@ -185,6 +185,7 @@ exports.doLogin=function(req,res){
                 }
             });
         }else{
+            console.log(err);
             //如果用户不存在则返回错误信息
             res.json({'isError':true,'message':'该用户不存在！'});
         }
