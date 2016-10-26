@@ -209,7 +209,8 @@ exports.dovlogin=function(req,res){
         if(err){
             console.log('更新密码失败：'+err);
         }else{
-            //如果两次输入的密码不一致则返回错误信息
+            //如果密码更新成功则将data存储到session中并返回成功信息
+            req.session.user=data;
             res.json({'isError':false,'message':'密码更新成功！即将进入首页！'});
         }
     });
