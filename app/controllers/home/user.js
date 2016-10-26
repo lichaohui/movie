@@ -53,6 +53,7 @@ function exists(req,res,next){
             next();
         }
     };
+    console.log('type:'+req.body.type);
     //通过switch用户的验证方式来执行不同的查询操作
     switch(req.body.type){    
         case 'phone':
