@@ -46,6 +46,8 @@ module.exports=function(app){
     app.get('/vlogin1',user.vlogin1);
     //实现用户登录功能的路由
     app.post('/dologin',user.doLogin);
+    //实现用户验证登录并重置密码功能的路由
+    app.post('/dovlogin',vcode.verify,user.dovlogin);
     //用户登出的路由
     app.get('/logout',user.logout);  
     //展示用户主页的路由

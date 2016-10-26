@@ -1,6 +1,6 @@
 //引入Mogoose建模工具模块
 var mongoose=require('mongoose');
-//引入bcrypt来为密码进行加密
+//引入bcrypt来对密码进行加密
 var bcrypt=require('bcrypt');
 
 //设计user数据表结构

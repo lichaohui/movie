@@ -1,6 +1,8 @@
 /*----定义前台用户模块的所有方法----*/
 //引入model模型
 var user=require('../../models/user');
+//引入ecrypt控制器来对密码进行加密
+var ecrypt=require('../common/ecrypt');
 
 //显示用户注册页面的方法
 exports.register=function(req,res){
@@ -58,6 +60,7 @@ function exists(req,res,next){
         break;    
     }
 };
+
 
 /*
  * check方法通过用户不同的操作来验证用户的手机/邮箱等是否合法
@@ -186,6 +189,28 @@ exports.doLogin=function(req,res){
             res.json({'isError':true,'message':'该用户不存在！'});
         }
     });
+};
+
+//实现用户忘记密码后用手机/邮箱验证登录并重置密码的方法
+exports.dovlogin=function(req,res){
+    //先判断用户两次输入的密码是否一致
+    if(req.body.password==req.body.passwordrepeat){
+        //如果用户两次输入的密码一致则更新该用户的密码
+        //先对密码进行加密出来
+        var password=encrypt.encrypt(req.body.password);
+        //然后更新用户的密码
+        user.update({$or:[{'phone':req.body.name},{'email':req.body.email}]},{$set:{'password':password}},function(err,data){
+            if(err){
+                console.log('更新密码失败：'+err);
+            }else{
+                //如果两次输入的密码不一致则返回错误信息
+                res.json({'isError':false,'message':'密码更新成功！即将进入首页！'});
+            }
+        });
+    }else{
+        //如果两次输入的密码不一致则返回错误信息
+        res.json({'isError':true,'message':'两次输入的密码不一致，请重新输入密码！'});
+    }
 };
 
 //实现用户登出功能的方法
