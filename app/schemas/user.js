@@ -13,7 +13,7 @@ var userSchema=new mongoose.Schema({
     phone:{
         unique:true,
         sparse:true,
-        type:Number
+        type:String
     },
     email:{
         unique:true,
