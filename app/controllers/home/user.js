@@ -204,6 +204,8 @@ exports.comparepass=function(req,res,next){
 
 //实现用户忘记密码后用手机/邮箱验证登录并重置密码的方法
 exports.dovlogin=function(req,res){
+    var data=user.findOne({$or:[{'email':req.body.name},{'phone':req.body.phone}]});
+    console.log('aaa'+data);
     //然后更新用户的密码
     user.update({$or:[{'email':req.body.name}]},{$set:{'password':req.body.password}},function(err,data){
         if(err){
