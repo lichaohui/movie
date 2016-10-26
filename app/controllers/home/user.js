@@ -72,7 +72,7 @@ function exists(req,res,next){
              * 那么就验证用户提供的用户名/手机号/邮箱是否存在
              */
             errMsg='该用户不存在！';
-            user.findOne({$or,[{'name':req.body.account},{'email':req.body.account},{'phone':req.body.account}]},callback);
+            user.findOne({$or:[{'name':req.body.account},{'email':req.body.account},{'phone':req.body.account}]},callback);
         break;    
     }
 };
