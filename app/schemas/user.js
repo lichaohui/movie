@@ -9,7 +9,6 @@ var userSchema=new mongoose.Schema({
         unique:true,
         type:String
     },
-    password:String,
     phone:{
         unique:true,
         sparse:true,
@@ -20,6 +19,7 @@ var userSchema=new mongoose.Schema({
         sparse:true,
         type:String
     },
+    password:String,
     level:{
         type:Number,
         default:0

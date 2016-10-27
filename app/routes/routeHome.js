@@ -4,6 +4,7 @@
 var index=require('../controllers/home/index');
 var video=require('../controllers/home/video');
 var user=require('../controllers/home/user');
+var usermsg=require('../controllers/home/usermsg');
 var comment=require('../controllers/home/comment');
 var reply=require('../controllers/home/reply');
 var captcha=require('../controllers/home/captcha');
@@ -53,6 +54,8 @@ module.exports=function(app){
     app.get('/logout',user.logout);  
     //展示用户主页的路由
     app.get('/user/:id',user.index);
+    //展示用户基本信息的路由
+    app.get('/usermsg',usermsg.index);
     
     //展示某个用户所有评论的路由
     app.get('/comments',comment.index);  
