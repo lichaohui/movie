@@ -84,7 +84,7 @@ $(function(){
     });
     
     //删除评论及评论下的所有回复
-    $(".del").click(function(){
+    $(document).on("click",".del",function(){
         if(confirm('确定要删除该条评论及评论下的所有回复吗？')){
             var id=$(this).attr('data-cid');
             $.ajax({
@@ -96,5 +96,5 @@ $(function(){
                 }
             })
         }
-    });
+    })
 })
