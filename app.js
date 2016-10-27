@@ -52,7 +52,7 @@ app.use(session({
      * 默认放到内存中
      * 这里我们设置存储到redis中
      */
-    store:new redisStore();
+    store:new redisStore()
 }));
 
 /*
