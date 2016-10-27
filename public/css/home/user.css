@@ -2,4 +2,4 @@
 .replyForm{margin-top:9px;}
 .list-group-item-text{margin-bottom:5px;}
 .del{margin-left:6px;}
-.nocmts{color:#999;}
+.nocmts{color:#999; padding: 10px 15px; font-size: 21px;}
