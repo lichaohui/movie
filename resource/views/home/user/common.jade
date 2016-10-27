@@ -9,8 +9,8 @@ section(class='container')
           li    
             a(href='/comments?uid=#{user._id}') 评论
           li 
-            a(href='javascript:') 我的资料
-            ul(class='nav')
+            a(data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne") 我的资料
+            ul(id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne")
               li
                 a(href='/usermsg?uid=#{user._id}') 基本信息
               li
