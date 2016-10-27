@@ -4,20 +4,21 @@ include ../../common/header
       .replyForm{margin-top:9px;}
       .list-group{margin-bottom:0; margin-top:10px;}
       .list-group-item-text{margin-bottom:5px;}
+      .nocmts{color:#999;}
     section(class='container')
       include ../common/nav
       h2(class='text-center') #{video.name}
       video(src='#{video.src}', controls='controls',width='100%')
       dl(class='dl-horizontal')
-        dt type:
+        dt 分类:
         dd #{video.firstcate.name} - #{video.secondcate.name}
-        dt created_at:
+        dt 发布时间:
         dd #{moment(video.meta.created_at).format('YYYY MM DD')}
-        dt views:
+        dt 浏览:
         dd #{video.views}
-        dt intro:
+        dt 简介:
         dd #{video.intro}
-      h3(id='comments-tit') Comments  
+      h3(id='comments-tit') 观众评论  
       ul(id='comments' class='list-unstyled')
         each comment in comments
           li(class='panel panel-default')
@@ -47,7 +48,10 @@ include ../../common/header
             span(id='more') 查看更多
             span(class='glyphicon glyphicon-chevron-down')
         else
-          p() 还没有评论，快来抢沙发吧~
+          button(type='button' class='btn btn-sm btn-primary hidden' id='viewMore') 
+            span(id='more') 查看更多
+            span(class='glyphicon glyphicon-chevron-down')
+          p(class='nocmts' id='nocmts') 还没有评论，快来抢沙发吧~
         button(type='button' class='btn btn-sm btn-default hidden' id='hiddenall') 收起评论
           span(class='glyphicon glyphicon-chevron-up')
       if(user)  
