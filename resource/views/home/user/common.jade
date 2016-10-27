@@ -11,7 +11,7 @@ section(class='container')
             a(href='/comments?uid=#{user._id}') 评论
           li 
             a(data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne") 我的资料
-            ul(id="collapseOne" class="colnav panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne")
+            ul(id="collapseOne" class="colnav panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne")
               li
                 a(href='/usermsg?uid=#{user._id}') 基本信息
               li
