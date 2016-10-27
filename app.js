@@ -10,10 +10,13 @@ var session = require('express-session');
 //引入mongoose模块用来操作mongo数据库
 var mongoose=require('mongoose');
 /*
- * 引入connect-mongo模块用来做会话持久化
- * 可以将用户的session信息存储到mongodb中
+ * 引入connect-redis模块用来做会话持久化
+ * 可以将用户的session信息存储到redis缓存中中
+ * session的存储方式有四种：
+ * 1.内存（默认）2.cookie 3.redis/memcached等缓存 4.数据库
+ * 推荐使用redis/memcathed缓存来存储
  */
-var mongoStore=require('connect-mongo')(session);
+var redisStore=require('connect-redis')(session);
 //引入moment模块用来格式化时间
 app.locals.moment=require('moment');
 //引入Morgan模块用来设置日志的输出格式
@@ -38,20 +41,18 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 //中间件中使用session
 app.use(session({
-    secret:'imooc',
     /*
-     * 传入一个store参数
-     * store参数表示存入session信息
-     * 可以处处到mongodb中
-     * 通过实例化一个mongoStore对象存储session信息到mongo中
-     * 实例化mongoStroe对象的时候需要传入一个json格式的参数
-     * url表示数据库的地址
-     * collection表示存储到哪个集合中
+     * 通过设置的 secret 字符串，
+     * 来计算 hash 值并放在 cookie 中，
+     * 使产生的 signedCookie 防篡改。
      */
-    store:new mongoStore({
-        url:dbUrl,
-        collection:'sessions'
-    })
+    secret:'xuefeng',
+    /*
+     * session 的存储方式,
+     * 默认放到内存中
+     * 这里我们设置存储到redis中
+     */
+    store:new redisStore();
 }));
 
 /*
