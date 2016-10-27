@@ -87,12 +87,13 @@ $(function(){
     $(document).on("click",".del",function(){
         if(confirm('确定要删除该条评论及评论下的所有回复吗？')){
             var id=$(this).attr('data-cid');
+            $(this).parent().attr('waitfordel',true);
             $.ajax({
                 url:'/comment/'+id,
                 type:'delete',
                 success:function(data,status){
                     alert(data.message);
-                    location.reload();
+                    $("[waitfordel=true]").remove();
                 }
             })
         }
