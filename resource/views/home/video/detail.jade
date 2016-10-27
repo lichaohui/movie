@@ -18,8 +18,7 @@ include ../../common/header
         dt intro:
         dd #{video.intro}
       h3(id='comments-tit') Comments  
-      if(comments)
-        
+      if(comments.length>0)
         ul(id='comments' class='list-unstyled')
           each comment in comments
             li(class='panel panel-default')
