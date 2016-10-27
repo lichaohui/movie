@@ -29,7 +29,7 @@ var userMsgSchema=new mongoose.Schema({
     //性别
     sex:String,
     //个性签名
-    signature:Text
+    signature:String
 });
 
 /*
