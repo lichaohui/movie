@@ -1,16 +1,17 @@
+link(rel='stylesheet' href='/css/home/user.css')
 section(class='container')
   include ../common/nav
   div(class='row')
     div(class='col-md-2 col-sm-3 col-xs-4')
       nav(class='bs-docs-sidebar affix' role="complementary" id='sidenav')
-        ul(class='nav bs-docs-sidenav')
+        ul(class='nav bs-docs-sidenav list-unstyled')
           li
             a(href='/user/#{user._id}') 主页
           li    
             a(href='/comments?uid=#{user._id}') 评论
           li 
             a(data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne") 我的资料
-            ul(id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne")
+            ul(id="collapseOne" class="colnav panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne")
               li
                 a(href='/usermsg?uid=#{user._id}') 基本信息
               li
