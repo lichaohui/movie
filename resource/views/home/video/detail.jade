@@ -18,36 +18,38 @@ include ../../common/header
         dt intro:
         dd #{video.intro}
       h3(id='comments-tit') Comments  
-      if(comments.length>0)
-        ul(id='comments' class='list-unstyled')
-          each comment in comments
-            li(class='panel panel-default')
-              div(class="panel-heading") #{comment.from.name}:
-                time(class='pull-right') #{moment(comment.meta.created_at).format('YYYY-MM-DD H:m:s')}
-              div(class='panel-body') #{comment.content}
-              div(class='panel-footer')
-                if(user)
-                  button(type='button' class='reply btn btn-primary btn-xs') reply
-                  button(type='button' class='viewreply btn btn-default btn-xs' data-toggle="modal" data-target="#replies" data-cid="#{comment._id}" data-name="#{comment.from.name}" data-con="#{comment.content}" data-time="#{moment(comment.meta.created_at).format('YYYY-MM-DD H:m:s')}") view replies (#{comment.totalReply})
-                  input(type='hidden' id='userid' value='#{user._id}')
-                  input(type='hidden' id='username' name='username' value='#{user.name}')
-                  form(action='/reply/store' method='post' role='form' class='replyForm hidden')
-                    input(type='hidden' name='from' value='#{user._id}')
-                    input(type='hidden' name='toWhichComment' value='#{comment._id}')
-                    input(type='hidden' name='toWho' value='#{comment.from._id}')
-                    div(class='form-group')
-                      textarea(class='form-control' name='content' placeholder='Please input your comment here' required)
-                    b #{user.name}   
-                    button(type='button' class='replyBtn btn btn-default btn-xs') submit
-                else
-                  button(type="button" class='btn btn-primary btn-xs' data-toggle="modal" data-target="#myModal") login and reply
-                  button(type='button' class='viewreply btn btn-default btn-xs' data-toggle="modal" data-target="#replies" data-cid="#{comment._id}" data-name="#{comment.from.name}" data-con="#{comment.content}" data-time="#{moment(comment.meta.created_at).format('YYYY-MM-DD H:m:s')}") view replies (#{comment.totalReply})
-        div(class='text-center') 
+      ul(id='comments' class='list-unstyled')
+        each comment in comments
+          li(class='panel panel-default')
+            div(class="panel-heading") #{comment.from.name}:
+              time(class='pull-right') #{moment(comment.meta.created_at).format('YYYY-MM-DD H:m:s')}
+            div(class='panel-body') #{comment.content}
+            div(class='panel-footer')
+              if(user)
+                button(type='button' class='reply btn btn-primary btn-xs') reply
+                button(type='button' class='viewreply btn btn-default btn-xs' data-toggle="modal" data-target="#replies" data-cid="#{comment._id}" data-name="#{comment.from.name}" data-con="#{comment.content}" data-time="#{moment(comment.meta.created_at).format('YYYY-MM-DD H:m:s')}") view replies (#{comment.totalReply})
+                input(type='hidden' id='userid' value='#{user._id}')
+                input(type='hidden' id='username' name='username' value='#{user.name}')
+                form(action='/reply/store' method='post' role='form' class='replyForm hidden')
+                  input(type='hidden' name='from' value='#{user._id}')
+                  input(type='hidden' name='toWhichComment' value='#{comment._id}')
+                  input(type='hidden' name='toWho' value='#{comment.from._id}')
+                  div(class='form-group')
+                    textarea(class='form-control' name='content' placeholder='Please input your comment here' required)
+                  b #{user.name}   
+                  button(type='button' class='replyBtn btn btn-default btn-xs') submit
+              else
+                button(type="button" class='btn btn-primary btn-xs' data-toggle="modal" data-target="#myModal") login and reply
+                button(type='button' class='viewreply btn btn-default btn-xs' data-toggle="modal" data-target="#replies" data-cid="#{comment._id}" data-name="#{comment.from.name}" data-con="#{comment.content}" data-time="#{moment(comment.meta.created_at).format('YYYY-MM-DD H:m:s')}") view replies (#{comment.totalReply})          
+      div(class='text-center') 
+        if(comments.length>0)
           button(type='button' class='btn btn-sm btn-primary' id='viewMore') 
             span(id='more') 查看更多
             span(class='glyphicon glyphicon-chevron-down')
-          button(type='button' class='btn btn-sm btn-default hidden' id='hiddenall') 收起评论
-            span(class='glyphicon glyphicon-chevron-up')
+        else
+          p() 还没有评论，快来抢沙发吧~
+        button(type='button' class='btn btn-sm btn-default hidden' id='hiddenall') 收起评论
+          span(class='glyphicon glyphicon-chevron-up')
       if(user)  
         input(type='hidden' id='isLogin' value='yes')
         form(action='/comment/store' method='post' role='form'  id='commentForm')
