@@ -2,9 +2,9 @@ section(class='container')
   include ../common/nav
   div(class='row')
     div(class='col-md-2 col-sm-3 col-xs-4')
-      nav(class='bs-docs-sidebar hidden-print hidden-xs hidden-sm affix' role="complementary")
+      nav(class='bs-docs-sidebar affix' role="complementary")
         ul(class='nav bs-docs-sidenav')
-          li(class='active')
+          li
             a(href='/user/#{user._id}') 主页
           li    
             a(href='/comments?uid=#{user._id}') 评论
