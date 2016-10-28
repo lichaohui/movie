@@ -7,7 +7,7 @@ $(function(){
     $.get('/usermsg/'+uid+'/edit',function(data,status){
         if(data.isError){
             alert(data.message);
-        }else if(data.usermsg.length>0){
+        }else if(data.usermsg!=null){
             //如果成功获取了用户信息则将用户信息遍历到页面中
             $('#avatar').attr({'title':'点击更换头像','src':data.usermsg.avatar});
             $('#name').val(data.usermsg.name);
