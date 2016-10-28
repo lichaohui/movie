@@ -10,9 +10,9 @@ $(function(){
         }else{
             //如果成功获取了用户信息则将用户信息遍历到页面中
             if(data.usermsg.avatar){
-                $('#avatar').attr({'title':'点击更换头像'},{'src':data.usermsg.avatar});
+                $('#avatar').attr('title','点击更换头像').attr('src',data.usermsg.avatar);
             }else{
-                $('#avatar').attr({'title':'点击上传头像'},{'src':'http://xuefengoss.oss-cn-shanghai.aliyuncs.com/user/avatar/defaul.jpg'});
+                $('#avatar').attr('title','点击上传头像').attr('src','http://xuefengoss.oss-cn-shanghai.aliyuncs.com/user/avatar/defaul.jpg');
             }
         }
     });
