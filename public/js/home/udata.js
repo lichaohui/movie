@@ -23,6 +23,7 @@ $(function(){
     
     /*----点击提交按钮时候通过jquery.form.js插件异步提交表单----*/
     $("#sub").click(function(){
+        $(this).text('请稍后..').attr('disabled',true);
         var url=$("#form").attr('action');
         var type=$('#form').attr('method');
         $("#form").ajaxSubmit({
