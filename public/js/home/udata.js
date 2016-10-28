@@ -8,7 +8,6 @@ $(function(){
         if(data.isError){
             alert(data.message);
         }else{
-            alert(data.usermsg.avatar);
             //如果成功获取了用户信息则将用户信息遍历到页面中
             if(data.usermsg.avatar){
                 alert('有头像');
