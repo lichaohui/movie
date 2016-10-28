@@ -21,7 +21,7 @@ $(function(){
              * 并修改表单的属性
              */
             $("#form").attr({'action':'/usermsg/'+uid,'method':'put'});
-            $('#avathum').attr({'title':'点击更换头像','src':data.usermsg.avatar});
+            $('#avathum').attr('src',data.usermsg.avatar);
             $('#avatar').val(data.usermsg.avatar);
             $('#name').val(data.usermsg.name);
             $('input[name=sex][value='+data.usermsg.sex+']').attr('checked',true);
