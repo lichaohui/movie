@@ -18,6 +18,7 @@ include ../../common/header
               label
                 input(type='radio' name='sex' value='男' id='man')
                 b 男
+              &nbsp;&nbsp;    
               label
                 input(type='radio' name='sex' value='女' id='woman')
                 b 女    
@@ -38,7 +39,7 @@ include ../../common/header
             selec(class="form-control" name='county' id='county')
               option 请选择
         div(class='form-group')
-          label(for='signature' class='col-sm-2 control-label') 个性签名
+          label(for='signature' class='col-md-2 col-sm-3 control-label') 个性签名
           div(class='col-md-10 col-sm-9')
             textarea(class='form-control' id='signature' name='signature')
   include ../../common/footer 
