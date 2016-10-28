@@ -44,9 +44,13 @@ function preselect(p_key) {
 }
 function precity(city){
     var index;
-    var cities=document.getElementById('s2').getElementsByTagName('option');
-    var l=cities.length;
-    for (i = 0; i < l; i++) {
+    var cityopts=document.getElementById('s2').getElementsByTagName('option');
+    var cities=[];
+    for(var j=0;j<cityopts.length;j++){
+        cities.push(cityopts[j].innerHTML);
+    }
+    alert(cities[1]);
+    for (i = 0; i < cities.length; i++) {
         if (city == cities[i]) {
             index = i;
             break;
