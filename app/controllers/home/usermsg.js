@@ -74,7 +74,7 @@ exports.update=function(req,res){
                 if(err){
                     console.log(err);
                 }else{
-                    res.redirect('/usermsg?uid='+req.body.uid);
+                    res.redirect('/usermsg?uid='+uid);
                 }; 
             });
         }
