@@ -3,8 +3,10 @@ $(function(){
     
     //首先获取隐藏域中的uid
     var uid=$("#uid").val();
+    alert(uid);
     //发送ajax请求获取用户信息
     $.get('/usermsg/'+uid+'/edit',function(data,status){
+        alert('aaa');
         if(data.isError){
             alert(data.message);
         }else{
