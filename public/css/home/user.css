@@ -2,7 +2,6 @@
 .colnav{margin-left: -20px; list-style: none; font-size: 12px;}
 .colnav li{padding: 5px 0;}
 .active{background-color: #eeeeee;}
-.nav>li>a:focus{background-color: white;}
 
 /*----我的评论----*/
 .replyForm{margin-top:9px;}
