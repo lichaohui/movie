@@ -5,7 +5,7 @@
 
 /*----基本信息----*/
 @media (max-width: 768px) {    
-    .radio {padding-top: 0; min-height: 0;}
+    .form-horizontal .radio {padding-top: 0; min-height: 0;}
     #province,#city,#county{margin-bottom: 10px;}    
 }   
 
