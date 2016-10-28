@@ -42,6 +42,11 @@ function preselect(p_key) {
         change(1);
     }
 }
+function precity(city){
+    var index;
+    var l=document.getElementById('s2').getElementsByTagName('option').length;
+    alert(l);
+}
 
 var dsy = new Dsy();
 
