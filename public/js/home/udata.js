@@ -36,3 +36,12 @@ $(function(){
         });
     });
 })
+
+/*--------省市区三级联动--------*/
+//这个函数是必须的，因为在geo.js里每次更改地址时会调用此函数 
+function promptinfo(){  
+    var s1 = document.getElementById('s1'); 
+    var s2 = document.getElementById('s2'); 
+    var s3 = document.getElementById('s3'); 
+} 
+setup();preselect('省份');promptinfo();
