@@ -59,7 +59,12 @@ include ../../common/header
         div(class='form-group')
           label(for='sub' class='col-md-2 col-sm-3 control-label')
           div(class='col-md-10 col-sm-9')
-            button(type='submit' id-'sub' class='btn btn-default') 保存
-  include ../../common/footer 
+            button(type='button' id-'sub' class='btn btn-default') 保存
+  include ../../common/footer
+  script(src='/js/common/jquery.form.js')
+  script(src='/libs/ali-oss/dist/aliyun-oss-sdk.min.js')
+  script(src='/js/common/ossWrapper.js')
+  script(src='/js/common/deleteFromAli.js')
+  script(src='/js/common/uploadToAli.js')
   script(src='/js/home/uaside.js')
   script(src='/js/home/udata.js')

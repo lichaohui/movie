@@ -21,7 +21,6 @@ exports.edit=function(req,res){
         if(err){
             res.json({'isError':true,'message':'获取用户信息失败，请稍后重试'});
         }else{
-            console.log(data);
             res.json({'isError':false,'usermsg':data});
         }
     });
@@ -44,9 +43,9 @@ exports.store=function(req,res){
     //向数据库中保存数据
     newmsg.save(function(err,data){
         if(err){
-            console.log(err);
+            res.json({'isError':true,'message':'保存失败，请稍后再试！'});
         }else{
-            res.redirect('/usermsg?uid='+req.body.uid);
+            res.json({'isError':false,'message':'保存成功！'});
         }
     })
 };
@@ -55,14 +54,12 @@ exports.store=function(req,res){
 exports.update=function(req,res){
     //拿到表单提交过来的要修改的数据的uid
     var uid=req.params.uid;
-    console.log('uid'+uid);
     //拿到表单提交过来的数据
     var postumsg=req.body;
-    console.log(postumsg);
     //通过findByUid获取到要修改的那条数据
     userMsg.findByUid(uid,function(err,data){
         if(err){
-            console.log(err);
+            res.json({'isError':true,'message':'更新失败，没有找到对应的用户信息！'});
         }else{
             /*
              * 通过underscore模块的extend()方法用表单提交过来的新数据替换之前的数据
@@ -71,14 +68,12 @@ exports.update=function(req,res){
              * 第二个参数是新的数据
              */
             newumsg=underscore.extend(data,postumsg);
-            console.log('新数据'+newumsg);
             //通过save方法保存数据并在回调函数中进行页面重定向
             newumsg.save(function(err,data){
                 if(err){
-                    console.log(err);
+                    res.json({'isError':true,'message':'更新失败，请稍后再试！'});
                 }else{
-                    console.log('开始跳转了');
-                    res.redirect('/usermsg?uid='+uid);
+                    res.json({'isError':false,'message':'更新成功！'});
                 }; 
             });
         }
