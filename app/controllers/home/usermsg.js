@@ -20,6 +20,7 @@ exports.edit=function(req,res){
             res.json({'isError':true,'message':'获取用户信息失败，请稍后重试'});
         }else{
             data==null ? data={} : data=data;
+            console.log(data);
             res.json({'isError':false,'usermsg':data});
         }
     });
