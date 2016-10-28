@@ -57,7 +57,7 @@ module.exports=function(app){
     //展现用户基本信息页面的路由
     app.get('/usermsg',usermsg.index);
     //编辑某个用户基本信息时获取该用户信息的路由
-    app.get('/usermsg/:id/edit',usermsg.edit);
+    app.get('/usermsg/:uid/edit',usermsg.edit);
     
     //展示某个用户所有评论的路由
     app.get('/comments',comment.index);  
