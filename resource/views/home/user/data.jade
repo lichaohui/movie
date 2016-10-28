@@ -42,15 +42,15 @@ include ../../common/header
               option(value='数据库工程师') 数据库工程师
               option(value='产品经理') 产品经理
         div(class='form-group')
-          label(for='province' class='col-md-2 col-sm-3 control-label') 地址
+          label(for='s1' class='col-md-2 col-sm-3 control-label') 地址
           div(class='col-sm-3')
-            selec(class="form-control" name='province' id='province')
+            selec(class="form-control" name='province' id='s1')
               option 请选择 
           div(class='col-sm-3')
-            selec(class="form-control" name='city' id='city')
+            selec(class="form-control" name='city' id='s2')
               option 请选择 
           div(class='col-sm-3')
-            selec(class="form-control" name='county' id='county')
+            selec(class="form-control" name='county' id='s3')
               option 请选择
         div(class='form-group')
           label(for='signature' class='col-md-2 col-sm-3 control-label') 个性签名
@@ -66,5 +66,6 @@ include ../../common/header
   script(src='/js/common/ossWrapper.js')
   script(src='/js/common/deleteFromAli.js')
   script(src='/js/common/uploadToAli.js')
+  script(src='/js/home/geo.js')
   script(src='/js/home/uaside.js')
   script(src='/js/home/udata.js')
