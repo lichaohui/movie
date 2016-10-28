@@ -7,21 +7,19 @@ section(class='container')
         ul(class='nav bs-docs-sidenav list-unstyled')
           li
             a(href='/user/#{user._id}') 主页
-          li    
-            a(href='/comments?uid=#{user._id}') 评论
           li 
-            a(data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne") 我的资料
+            a(data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne") 资料
             ul(id="collapseOne" class="colnav panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne")
               li
                 a(href='/usermsg?uid=#{user._id}') 基本信息
               li
                 a(href='/user/#{user._id}') 账户信息
           li 
-            a(data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne") 我的资料
-            ul(id="collapseOne" class="colnav panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne")
+            a(data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo") 足迹
+            ul(id="collapseTwo" class="colnav panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo")
               li
-                a(href='/usermsg?uid=#{user._id}') 基本信息
+                a(href='') 课程
               li
-                a(href='/user/#{user._id}') 账户信息        
+                a(href='/comments?uid=#{user._id}')评论         
     div(class='col-md-10 col-sm-9 col-xs-8')
       block content
