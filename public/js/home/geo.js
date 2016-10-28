@@ -28,12 +28,9 @@ function change(v) {
     }
 }
 function preselect(p_key) {
-    //alert(p_key);
     var index;
-
     var provinces = new Array("北京市", "天津市", "上海市", "重庆市", "河北省", "山西省", "内蒙古", "辽宁省", "吉林省", "黑龙江省", "江苏省", "浙江省", "安徽省", "福建省", "江西省", "山东省", "河南省", "湖北省", "湖南省", "广东省", "广西", "海南省", "四川省", "贵州省", "云南省", "西藏", "陕西省", "甘肃省", "青海省", "宁夏", "新疆", "香港", "澳门", "台湾省");
     var cnt = provinces.length;
-    //alert(cnt);
     for (i = 0; i < cnt; i++) {
         if (p_key == provinces[i]) {
             index = i;
