@@ -17,6 +17,9 @@ $(function(){
             $('#name').val(data.usermsg.name);
             $('input[name=sex][value='+data.usermsg.sex+']').attr('checked',true);
             $("#position").find('option[value='+data.usermsg.position+']').attr("selected",true);
+            $("#s1").find('option[value='+data.usermsg.province+']').attr("selected",true);
+            $("#s2").find('option[value='+data.usermsg.city+']').attr("selected",true);
+            $("#s3").find('option[value='+data.usermsg.county+']').attr("selected",true);
             $('#signature').val(data.usermsg.signature);
         }
     });
@@ -44,4 +47,4 @@ function promptinfo(){
     var s2 = document.getElementById('s2'); 
     var s3 = document.getElementById('s3'); 
 } 
-setup();preselect('省份');promptinfo();
+setup();promptinfo();
