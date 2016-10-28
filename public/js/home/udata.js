@@ -7,16 +7,12 @@ $(function(){
     $.get('/usermsg/'+uid+'/edit',function(data,status){
         if(data.isError){
             alert(data.message);
-        }else{
+        }else if(data.usermsg.length>0){
             //如果成功获取了用户信息则将用户信息遍历到页面中
-            if(data.usermsg.avatar){
-                $('#avatar').attr({'title':'点击更换头像','src':data.usermsg.avatar});
-            }else{
-                $('#avatar').attr({'title':'点击上传头像','src':'http://xuefengoss.oss-cn-shanghai.aliyuncs.com/user/avatar/defaul.jpg'});
-            }
+            $('#avatar').attr({'title':'点击更换头像','src':data.usermsg.avatar});
             $('#name').val(data.usermsg.name);
             $('input[name=sex][value='+data.usermsg.sex+']').attr('checked',true);
-            alert(data.usermsg.position);
+            $("#position").find('option[value='+data.usermsg.position+']').attr("selected",true);
             $('#signature').val(data.usermsg.signature);
         }
     });

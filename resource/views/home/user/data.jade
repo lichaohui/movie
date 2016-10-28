@@ -2,12 +2,13 @@ include ../../common/header
   include ./common
     block content 
       input(type='hidden' id='pagesign' value='data')
-      form(class="form-horizontal" role="form")
+      form(class="form-horizontal" role="form" action='/usermsg' method='post')
         input(type='hidden' name='uid' id='uid' value='#{uid}')
         div(class='form-group')
-          label(for='avatar' class="col-md-2 col-sm-3 control-label") 头像
+          label(class="col-md-2 col-sm-3 control-label") 头像
           div(class='col-md-10 col-sm-9')
-            img(src="" id='avatar' class="img-rounded")
+            img(src="http://xuefengoss.oss-cn-shanghai.aliyuncs.com/user/avatar/defaul.jpg" id='avathum' class="img-rounded" title='点击上传头像')
+            input(type='hidden' name='avatar' id='avatar')
         div(class='form-group')
           label(for='name' class='col-md-2 col-sm-3 control-label') 真实姓名
           div(class='col-md-10 col-sm-9')
@@ -58,7 +59,7 @@ include ../../common/header
         div(class='form-group')
           label(for='sub' class='col-md-2 col-sm-3 control-label')
           div(class='col-md-10 col-sm-9')
-            button(type='button' id-'sub' class='btn btn-default') 保存
+            button(type='submit' id-'sub' class='btn btn-default') 保存
   include ../../common/footer 
   script(src='/js/home/uaside.js')
   script(src='/js/home/udata.js')

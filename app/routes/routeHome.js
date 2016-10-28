@@ -58,6 +58,10 @@ module.exports=function(app){
     app.get('/usermsg',usermsg.index);
     //编辑某个用户基本信息时获取该用户信息的路由
     app.get('/usermsg/:uid/edit',usermsg.edit);
+    //添加某个用户基本信息的路由
+    app.post('/usermsg',usermsg.store);
+    //更新某个用户基本信息的路由
+    app.put('/usermsg/:uid',usermsg.update);
     
     //展示某个用户所有评论的路由
     app.get('/comments',comment.index);  
