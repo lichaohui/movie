@@ -49,7 +49,6 @@ function precity(city){
     for(var j=0;j<cityopts.length;j++){
         cities.push(cityopts[j].innerHTML);
     }
-    alert(cities[1]);
     for (i = 0; i < cities.length; i++) {
         if (city == cities[i]) {
             index = i;
@@ -58,7 +57,8 @@ function precity(city){
     }
     if (index < cities.length) {
         document.getElementById(s[1]).selectedIndex = index + 1;
-        change(1);
+        alert('hello');
+        change(2);
     }
 }
 
