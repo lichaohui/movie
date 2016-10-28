@@ -74,6 +74,7 @@ exports.update=function(req,res){
                 if(err){
                     console.log(err);
                 }else{
+                    console.log('开始跳转了');
                     res.redirect('/usermsg?uid='+uid);
                 }; 
             });
