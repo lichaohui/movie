@@ -56,8 +56,7 @@ function precity(city){
         }
     }
     if (index < cities.length) {
-        document.getElementById(s[1]).selectedIndex = index + 1;
-        alert('hello');
+        document.getElementById(s[1]).selectedIndex = index;
         change(2);
     }
 }
