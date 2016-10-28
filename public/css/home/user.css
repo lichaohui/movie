@@ -3,6 +3,12 @@
 .colnav li{padding: 5px 0;}
 .active{background-color: #eeeeee;}
 
+/*----基本信息----*/
+@media (max-width: 768px) {    
+    .radio {padding-top: 0; min-height: 0;}
+    #province,#city,#county{margin-bottom: 10px;}    
+}   
+
 /*----我的评论----*/
 .replyForm{margin-top:9px;}
 .list-group-item-text{margin-bottom:5px;}
