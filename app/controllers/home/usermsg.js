@@ -69,6 +69,7 @@ exports.update=function(req,res){
              * 第二个参数是新的数据
              */
             newumsg=underscore.extend(data,postumsg);
+            console.log('新数据'+newumsg);
             //通过save方法保存数据并在回调函数中进行页面重定向
             newumsg.save(function(err,data){
                 if(err){
