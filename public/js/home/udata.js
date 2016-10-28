@@ -10,12 +10,14 @@ $(function(){
         }else{
             //如果成功获取了用户信息则将用户信息遍历到页面中
             if(data.usermsg.avatar){
-                alert('有头像');
                 $('#avatar').attr({'title':'点击更换头像','src':data.usermsg.avatar});
             }else{
-                alert('没头像');
                 $('#avatar').attr({'title':'点击上传头像','src':'http://xuefengoss.oss-cn-shanghai.aliyuncs.com/user/avatar/defaul.jpg'});
             }
+            $('#name').val(data.usermsg.name);
+            $('input[name=sex][value='+data.usermsg.sex+']').attr('checked',true);
+            alert(data.usermsg.position);
+            $('#signature').val(data.usermsg.signature);
         }
     });
 })

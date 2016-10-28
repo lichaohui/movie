@@ -17,17 +17,29 @@ include ../../common/header
           div(class='col-md-10 col-sm-9')
             div(class='radio')
               label
-                input(type='radio' name='sex' value='男' id='man')
+                input(type='radio' name='sex' value='man')
                 b 男
               &nbsp;&nbsp;    
               label
-                input(type='radio' name='sex' value='女' id='woman')
+                input(type='radio' name='sex' value='woman')
                 b 女    
         div(class='form-group')
           label(for='position' class='col-md-2 col-sm-3 control-label') 职位
           div(class='col-md-10 col-sm-9')
             selec(class="form-control" id='position' name='position')
-              option 请选择
+              option(value='') 请选择
+              option(value='web前端工程师') web前端工程师
+              option(value='php开发工程师') php开发工程师
+              option(value='java开发工程师') java开发工程师
+              option(value='android开发工程师') android开发工程师
+              option(value='ios开发工程师') ios开发工程师
+              option(value='linux系统工程师') linux系统工程师
+              option(value='全栈工程师') 全栈工程师
+              option(value='软件测试工程师') 软件测试工程师
+              option(value='交互设计师') 交互设计师
+              option(value='UI设计师') UI设计师
+              option(value='数据库工程师') 数据库工程师
+              option(value='产品经理') 产品经理
         div(class='form-group')
           label(for='province' class='col-md-2 col-sm-3 control-label') 地址
           div(class='col-sm-3')

@@ -19,8 +19,11 @@ exports.edit=function(req,res){
         if(err){
             res.json({'isError':true,'message':'获取用户信息失败，请稍后重试'});
         }else{
+            /*
+             * 通过一个三元运算符设置一下查询出来的数据
+             * 如果查询出来的数据是Null则返回一个空对象给前台
+             */
             data==null ? data={} : data=data;
-            console.log(data);
             res.json({'isError':false,'usermsg':data});
         }
     });
