@@ -60,6 +60,23 @@ function precity(city){
         change(2);
     }
 }
+function precounty(county){
+    var index;
+    var countyopts=document.getElementById('s3').getElementsByTagName('option');
+    var counties=[];
+    for(var j=0;j<countyopts.length;j++){
+        counties.push(countyopts[j].innerHTML);
+    }
+    for (i = 0; i < counties.length; i++) {
+        if (county == counties[i]) {
+            index = i;
+            break;
+        }
+    }
+    if (index < counties.length) {
+        document.getElementById(s[2]).selectedIndex = index;
+    }
+}
 
 var dsy = new Dsy();
 

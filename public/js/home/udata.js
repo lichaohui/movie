@@ -28,8 +28,8 @@ $(function(){
             $("#position").find('option[value='+data.usermsg.position+']').attr("selected",true);
             preselect(data.usermsg.province);
             precity(data.usermsg.city);
+            precounty(data.usermsg.county);
             promptinfo();
-            $("#s3").find('option[value='+data.usermsg.county+']').attr("selected",true);
             $('#signature').val(data.usermsg.signature);
         }
     });
