@@ -55,8 +55,10 @@ exports.store=function(req,res){
 exports.update=function(req,res){
     //拿到表单提交过来的要修改的数据的uid
     var uid=req.params.uid;
+    console.log('uid'+uid);
     //拿到表单提交过来的数据
     var postumsg=req.body;
+    console.log(postumsg);
     //通过findByUid获取到要修改的那条数据
     userMsg.findByUid(uid,function(err,data){
         if(err){
