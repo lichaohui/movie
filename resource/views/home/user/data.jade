@@ -3,14 +3,15 @@ include ../../common/header
     block content 
       input(type='hidden' id='pagesign' value='data')
       form(class="form-horizontal" role="form")
+        input(type='hidden' name='uid' value='#{uid}')
         div(class='form-group')
           label(for='avatar' class="col-md-2 col-sm-3 control-label") 头像
           div(class='col-md-10 col-sm-9')
-            img(src="..." alt="..." class="img-rounded")
+            img(src="" id='avatar' class="img-rounded")
         div(class='form-group')
           label(for='name' class='col-md-2 col-sm-3 control-label') 真实姓名
           div(class='col-md-10 col-sm-9')
-            input(type='text' name='name' id='name' class='form-control')
+            input(type='text' name='name' id='name' class='form-control' value='#{data.name}')
         div(class='form-group')
           label(for='sex' class='col-md-2 col-sm-3 control-label') 性别
           div(class='col-md-10 col-sm-9')
@@ -42,5 +43,10 @@ include ../../common/header
           label(for='signature' class='col-md-2 col-sm-3 control-label') 个性签名
           div(class='col-md-10 col-sm-9')
             textarea(class='form-control' id='signature' name='signature')
+        div(class='form-group')
+          label(for='sub' class='col-md-2 col-sm-3 control-label')
+          div(class='col-md-10 col-sm-9')
+            button(type='button' id-'sub' class='btn btn-default') 保存
   include ../../common/footer 
   script(src='/js/home/uaside.js')
+  script(src='/js/home/udata.js')
