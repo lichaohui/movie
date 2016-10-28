@@ -27,8 +27,8 @@ $(function(){
             $('input[name=sex][value='+data.usermsg.sex+']').attr('checked',true);
             $("#position").find('option[value='+data.usermsg.position+']').attr("selected",true);
             preselect(data.usermsg.province);
-            promptinfo();
             precity('泰安市');
+            promptinfo();
             $("#s2").find('option[value='+data.usermsg.city+']').attr("selected",true);
             $("#s3").find('option[value='+data.usermsg.county+']').attr("selected",true);
             $('#signature').val(data.usermsg.signature);
