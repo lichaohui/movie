@@ -3,5 +3,5 @@ $(function(){
     $("#page-"+sign).addClass('active');
     $(".active").siblings('.colnav').addClass('in');
     
-    alert($(window).width);
+    alert($(window).width());
 })
