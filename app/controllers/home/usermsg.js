@@ -16,11 +16,10 @@ exports.edit=function(req,res){
     var uid=req.params.uid;
     //通过findByUid方法获取指定的用户信息并返回json格式给前台
     userMsg.findByUid(uid,function(err,data){
-        console.log(data);
-        console.log(data.length);
         if(err){
             res.json({'isError':true,'message':'获取用户信息失败，请稍后重试'});
         }else{
+            data==null ? data={} : data=data;
             res.json({'isError':false,'usermsg':data});
         }
     });
