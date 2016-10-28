@@ -1,6 +1,7 @@
 /*----公共----*/
 .colnav{margin-left: -20px; list-style: none; font-size: 12px;}
 .colnav li{padding: 5px 0;}
+.active{background-color: #eeeeee;}
 
 /*----我的评论----*/
 .replyForm{margin-top:9px;}
