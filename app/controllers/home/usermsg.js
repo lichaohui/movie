@@ -14,7 +14,6 @@ exports.index=function(req,res){
 exports.edit=function(req,res){
     //获取请求参数中的关联用户id
     var uid=req.params.uid;
-    console.log(uid);
     //通过findByUid方法获取指定的用户信息并返回json格式给前台
     userMsg.findByUid(uid,function(err,data){
         if(err){

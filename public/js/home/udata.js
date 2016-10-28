@@ -3,14 +3,12 @@ $(function(){
     
     //首先获取隐藏域中的uid
     var uid=$("#uid").val();
-    alert(uid);
     //发送ajax请求获取用户信息
     $.get('/usermsg/'+uid+'/edit',function(data,status){
-        alert('aaa');
         if(data.isError){
             alert(data.message);
         }else{
-            alert(data.usermsg.avatar);
+            alert('获取到了用户信息');
             //如果成功获取了用户信息则将用户信息遍历到页面中
             if(data.usermsg.avatar){
                 $('#avatar').attr({'title':'点击更换头像','src':data.usermsg.avatar});
