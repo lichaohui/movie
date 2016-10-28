@@ -1,3 +1,12 @@
+/*--------省市区三级联动--------*/
+//这个函数是必须的，因为在geo.js里每次更改地址时会调用此函数 
+function promptinfo(){  
+    var s1 = document.getElementById('s1'); 
+    var s2 = document.getElementById('s2'); 
+    var s3 = document.getElementById('s3'); 
+} 
+setup();
+
 $(function(){
     //页面初始化的时候就发送一个ajax请求获取当前用户的基本信息    
     //首先获取隐藏域中的uid
@@ -17,7 +26,8 @@ $(function(){
             $('#name').val(data.usermsg.name);
             $('input[name=sex][value='+data.usermsg.sex+']').attr('checked',true);
             $("#position").find('option[value='+data.usermsg.position+']').attr("selected",true);
-            $("#s1").find('option[value='+data.usermsg.province+']').attr("selected",true);
+            preselect(data.usermsg.province);
+            promptinfo();
             $("#s2").find('option[value='+data.usermsg.city+']').attr("selected",true);
             $("#s3").find('option[value='+data.usermsg.county+']').attr("selected",true);
             $('#signature').val(data.usermsg.signature);
@@ -39,12 +49,3 @@ $(function(){
         });
     });
 })
-
-/*--------省市区三级联动--------*/
-//这个函数是必须的，因为在geo.js里每次更改地址时会调用此函数 
-function promptinfo(){  
-    var s1 = document.getElementById('s1'); 
-    var s2 = document.getElementById('s2'); 
-    var s3 = document.getElementById('s3'); 
-} 
-setup();promptinfo();
