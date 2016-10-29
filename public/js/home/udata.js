@@ -72,7 +72,7 @@ $(function(){
         console.log(blob);
         //上传文件
         //uploadFileToAlioss(blob,path,callback);
-        client.multipartUpload(blob, file).then(function (result) {        
+        client.multipartUpload('hello.png', blob).then(function (result) {        
             /*
              * 上传大文件的时候阿里会使用分片上传，
              * 不会返回url，
