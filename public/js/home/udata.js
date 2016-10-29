@@ -50,8 +50,8 @@ $(function(){
     });
     
     $('.image-editor').cropit({
-        width:140px,
-        height:140px
+        width:140,
+        height:140
     });
         $('.rotate-cw').click(function() {
           $('.image-editor').cropit('rotateCW');
