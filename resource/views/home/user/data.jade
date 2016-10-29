@@ -2,7 +2,7 @@ include ../../common/header
   include ./common
     block content 
       input(type='hidden' id='pagesign' value='data')
-      div(class="form-horizontal")
+      form(class="form-horizontal" role="form" action='/usermsg' method='post' id='form')
         div(class='form-group')
           label(class="col-md-2 col-sm-3 control-label") 头像
           div(class='col-md-10 col-sm-9')
@@ -14,7 +14,6 @@ include ../../common/header
               button(class="rotate-ccw btn btn-xs") 逆时针转
               button(class="rotate-cw btn btn-xs") 顺时针转
               button(class="export btn btn-xs") 导出 
-      form(class="form-horizontal" role="form" action='/usermsg' method='post' id='form')
         input(type='hidden' name='uid' id='uid' value='#{uid}')
         div(class='form-group')
           label(class="col-md-2 col-sm-3 control-label") 头像
