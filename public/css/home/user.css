@@ -13,7 +13,6 @@
 .cropit-preview {background-color: #eeeeee;background-size: cover;border-radius: 3px;margin-top: 7px;width: 140px;height: 140px;}
 .cropit-preview-image-container {cursor: move;}
 .image-size-label {margin-top: 10px;}
-input, .export {display: block;}
 button {margin-top: 10px;}
 
 /*----我的评论----*/
