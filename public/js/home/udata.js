@@ -53,6 +53,8 @@ $(function(){
     $('.image-editor').cropit();
     $('.selpic').click(function(){
         $('.cropit-image-input').click();
+        
+    },function(){
         var imageData = $('.image-editor').cropit('export');
         $('#avathum').attr('src',imageData);
     });
