@@ -54,34 +54,15 @@ $(function(){
     $('.selpic').click(function(){
         $('.cropit-image-input').click();
     });
-    $('.rotate-cw').click(function() {
-        $('.image-editor').cropit('rotateCW');
-    });
-    $('.rotate-ccw').click(function() {
-        $('.image-editor').cropit('rotateCCW');
-    });
-    $('.export').click(function() {
-        var imageData = $('.image-editor').cropit('export');
-        var blob=convertBase64UrlToBlob(imageData);
-        //path表示阿里oss中的文件夹
-        var path='video/image/';
-        var callback=function(url){
-            $('#avathum').attr('src',url);
-            $("#avatar").val(url);
-        };
-        console.log(blob);
-        //上传文件
-        //uploadFileToAlioss(blob,path,callback);
-        client.multipartUpload('hello.png', blob).then(function (result) {        
-            /*
-             * 上传大文件的时候阿里会使用分片上传，
-             * 不会返回url，
-             * 所以为了照顾到大文件上传只能用这种拼接的方式来存储url了
-             */
-            var url='http://'+client.options.bucket+'.'+client.options.region+'.'+'aliyuncs.com/'+result.name;
-            callback(url);
-        }).catch(function (err) {
-            console.log(err);
+    $('.image-editor').cropit();
+        $('form').submit(function() {
+          // Move cropped image data to hidden input
+          var imageData = $('.image-editor').cropit('export');
+          $('.hidden-image-data').val(imageData);
+          // Print HTTP request params
+          var formValue = $(this).serialize();
+          $('#result-data').text(formValue);
+          // Prevent the form from actually submitting
+          return false;
         });
-    });
 })
