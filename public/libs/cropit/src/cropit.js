@@ -1,4 +1,4 @@
-//import $ from 'jquery';
+import $ from 'jquery';
 
 import Zoomer from './Zoomer';
 import { CLASS_NAMES, ERRORS, EVENTS } from './constants';
