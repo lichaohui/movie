@@ -71,6 +71,17 @@ $(function(){
         };
         console.log(blob);
         //上传文件
-        uploadFileToAlioss(blob,path,callback);
+        //uploadFileToAlioss(blob,path,callback);
+        client.multipartUpload(blob, file).then(function (result) {        
+            /*
+             * 上传大文件的时候阿里会使用分片上传，
+             * 不会返回url，
+             * 所以为了照顾到大文件上传只能用这种拼接的方式来存储url了
+             */
+            var url='http://'+client.options.bucket+'.'+client.options.region+'.'+'aliyuncs.com/'+result.name;
+            callback(url);
+        }).catch(function (err) {
+            console.log(err);
+        });
     });
 })
