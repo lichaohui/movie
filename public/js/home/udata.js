@@ -49,18 +49,19 @@ $(function(){
         });
     });
     
-    $('#image-cropper').cropit();
-    // When user clicks select image button,
-    // open select file dialog programmatically
-    $('.select-image-btn').click(function() {
-      $('.cropit-image-input').click();
+    $('.image-editor').cropit({
+          imageState: {
+            src: 'http://lorempixel.com/500/400/',
+          },
     });
-
-    // Handle rotation
-    $('.rotate-cw-btn').click(function() {
-      $('#image-cropper').cropit('rotateCW');
-    });
-    $('.rotate-ccw-btn').click(function() {
-      $('#image-cropper').cropit('rotateCCW');
-    });
+        $('.rotate-cw').click(function() {
+          $('.image-editor').cropit('rotateCW');
+        });
+        $('.rotate-ccw').click(function() {
+          $('.image-editor').cropit('rotateCCW');
+        });
+        $('.export').click(function() {
+          var imageData = $('.image-editor').cropit('export');
+          window.open(imageData);
+        });
 })

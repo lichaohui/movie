@@ -4,11 +4,14 @@ include ../../common/header
       input(type='hidden' id='pagesign' value='data')
       form(class="form-horizontal" role="form" action='/usermsg' method='post' id='form')
         input(type='hidden' name='uid' id='uid' value='#{uid}')
-        div(id="image-cropper")
-          div(class="cropit-preview")
-          input(type="range" class="cropit-image-zoom-input")
+        div(class="image-editor")
           input(type="file" class="cropit-image-input")
-          div(class="select-image-btn") Select new image
+          div(class="cropit-preview")
+          div(class="image-size-label") resize image
+          input(type="range" class="cropit-image-zoom-input")
+          button(class="rotate-ccw") Rotate counterclockwise
+          button(class="rotate-cw") Rotate clockwise
+          button(class="export") Export
         div(class='form-group')
           label(class="col-md-2 col-sm-3 control-label") 头像
           div(class='col-md-10 col-sm-9')
