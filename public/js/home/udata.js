@@ -62,8 +62,7 @@ $(function(){
     });
     $('.export').click(function() {
         var imageData = $('.image-editor').cropit('export');
-        alert(typeof(imageData));
-        alert(imageData);
-        //window.open(imageData);
+        console.log(imageData);
+        window.open(imageData);
     });
 })
