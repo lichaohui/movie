@@ -8,7 +8,6 @@ include ../../common/header
           div(class='col-md-10 col-sm-9')
             div(class="image-editor")
               input(type="file" class="cropit-image-input")
-              div(class="cropit-preview")
               input(type="range" class="cropit-image-zoom-input")
               button(class="rotate-ccw") Rotate counterclockwise
               button(class="rotate-cw") Rotate clockwise
@@ -18,6 +17,7 @@ include ../../common/header
         div(class='form-group')
           label(class="col-md-2 col-sm-3 control-label") 头像
           div(class='col-md-10 col-sm-9')
+            img(src='' class='img-rounded' id='avathum')
             input(type='hidden' name='avatar' id='avatar' value='http://xuefengoss.oss-cn-shanghai.aliyuncs.com/user/avatar/defaul.jpg')
         div(class='form-group')
           label(for='name' class='col-md-2 col-sm-3 control-label') 真实姓名
