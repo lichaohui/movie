@@ -25,7 +25,6 @@ $(function(){
         $("#playbill").click();
     });
     $("#playbill").change(function(e){
-        console.log(e);
         //先获取之前是否有文件上传如果有则先删除之前的
         var val=$('input[name="playbill"]').val();
         if(val!=""){

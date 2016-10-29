@@ -53,6 +53,8 @@ $(function(){
     $('.image-editor').cropit();
     $('.selpic').click(function(){
         $('.cropit-image-input').click();
+        var imageData = $('.image-editor').cropit('export');
+        $('#avathum').attr('src',imageData);
     });
     $('.rotate-cw').click(function() {
         $('.image-editor').cropit('rotateCW');
@@ -60,9 +62,8 @@ $(function(){
     $('.rotate-ccw').click(function() {
         $('.image-editor').cropit('rotateCCW');
     });
-    $('.export').click(function() {
-        var imageData = $('.image-editor').cropit('export');
-        $('#avathum').attr('src',imageData);
+    /*$('.export').click(function() {
+        
         //window.open(imageData);
-    });
+    });*/
 })
