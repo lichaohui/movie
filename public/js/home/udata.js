@@ -48,9 +48,10 @@ $(function(){
             },
         });
     });
+    var avathum=$('#avathum');
     
     $('.image-editor').cropit({
-        preview:$('#avathum'),
+        preview:avathum,
     });
         $('.rotate-cw').click(function() {
           $('.image-editor').cropit('rotateCW');
