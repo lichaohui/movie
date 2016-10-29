@@ -50,6 +50,9 @@ $(function(){
     });
     
     $('.image-editor').cropit();
+    $('.selpic').click(function(){
+        $('.cropit-image-input').click();
+    });
     $('.rotate-cw').click(function() {
         $('.image-editor').cropit('rotateCW');
     });
