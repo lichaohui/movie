@@ -62,6 +62,14 @@ $(function(){
     });
     $('.export').click(function() {
         var imageData = $('.image-editor').cropit('export');
-        $('#avathum').attr('src',imageData);
+        var blob=convertBase64UrlToBlob(imageData);
+        //path表示阿里oss中的文件夹
+        var path='video/image/';
+        var callback=function(url){
+            $('#avathum').attr('src',url);
+            $("#avatar").val(url);
+        };
+        //上传文件
+        uploadFileToAlioss(blob,path,callback);
     });
 })
