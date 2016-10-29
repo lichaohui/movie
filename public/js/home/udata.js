@@ -48,9 +48,9 @@ $(function(){
             },
         });
     });
-    
-    $('#image-cropper').cropit();
+})
 
+$('#image-cropper').cropit();
 // When user clicks select image button,
 // open select file dialog programmatically
 $('.select-image-btn').click(function() {
@@ -64,4 +64,3 @@ $('.rotate-cw-btn').click(function() {
 $('.rotate-ccw-btn').click(function() {
   $('#image-cropper').cropit('rotateCCW');
 });
-})
