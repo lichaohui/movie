@@ -4,6 +4,11 @@ include ../../common/header
       input(type='hidden' id='pagesign' value='data')
       form(class="form-horizontal" role="form" action='/usermsg' method='post' id='form')
         input(type='hidden' name='uid' id='uid' value='#{uid}')
+        div(id="image-cropper")
+          div(class="cropit-preview")
+          input(type="range" class="cropit-image-zoom-input")
+          input(type="file" class="cropit-image-input")
+          div(class="select-image-btn") Select new image
         div(class='form-group')
           label(class="col-md-2 col-sm-3 control-label") 头像
           div(class='col-md-10 col-sm-9')
@@ -63,6 +68,7 @@ include ../../common/header
   include ../../common/footer
   script(src='/js/common/jquery.form.js')
   script(src='/libs/ali-oss/dist/aliyun-oss-sdk.min.js')
+  script(src='/libs/cropit/src/cropit.js')
   script(src='/js/common/ossWrapper.js')
   script(src='/js/common/deleteFromAli.js')
   script(src='/js/common/uploadToAli.js')
