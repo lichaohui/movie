@@ -10,10 +10,12 @@ include ../../common/header
               div(class='cropit-preview')
               input(type="file" class="cropit-image-input")
               input(type="range" class="cropit-image-zoom-input")
+              input(type='hidden' name="image-data" class="hidden-image-data")
               button(class='selpic btn btn-xs') 选择图片
               button(class="rotate-ccw btn btn-xs") 逆时针转
               button(class="rotate-cw btn btn-xs") 顺时针转
               button(class="export btn btn-xs") 导出 
+              div(id='result-data')
         input(type='hidden' name='uid' id='uid' value='#{uid}')
         div(class='form-group')
           label(class="col-md-2 col-sm-3 control-label") 头像
