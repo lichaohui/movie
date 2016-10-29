@@ -69,6 +69,7 @@ $(function(){
             $('#avathum').attr('src',url);
             $("#avatar").val(url);
         };
+        console.log(blob);
         //上传文件
         uploadFileToAlioss(blob,path,callback);
     });
