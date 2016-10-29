@@ -9,6 +9,28 @@
     #province,#city,#county{margin-bottom: 10px;}    
 }   
 
+.cropit-preview {
+        background-color: #f8f8f8;
+        background-size: cover;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-top: 7px;
+        width: 250px;
+        height: 250px;
+      }
+      .cropit-preview-image-container {
+        cursor: move;
+      }
+      .image-size-label {
+        margin-top: 10px;
+      }
+      input, .export {
+        display: block;
+      }
+      button {
+        margin-top: 10px;
+      }
+
 /*----我的评论----*/
 .replyForm{margin-top:9px;}
 .list-group-item-text{margin-bottom:5px;}
