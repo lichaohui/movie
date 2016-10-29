@@ -49,18 +49,15 @@ $(function(){
         });
     });
     
-    $('.image-editor').cropit({
-        width:140,
-        height:140
+    $('.image-editor').cropit();
+    $('.rotate-cw').click(function() {
+        $('.image-editor').cropit('rotateCW');
     });
-        $('.rotate-cw').click(function() {
-          $('.image-editor').cropit('rotateCW');
-        });
-        $('.rotate-ccw').click(function() {
-          $('.image-editor').cropit('rotateCCW');
-        });
-        $('.export').click(function() {
-          var imageData = $('.image-editor').cropit('export');
-          window.open(imageData);
-        });
+    $('.rotate-ccw').click(function() {
+        $('.image-editor').cropit('rotateCCW');
+    });
+    $('.export').click(function() {
+        var imageData = $('.image-editor').cropit('export');
+        window.open(imageData);
+    });
 })
