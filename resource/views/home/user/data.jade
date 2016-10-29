@@ -10,9 +10,9 @@ include ../../common/header
               input(type="file" class="cropit-image-input")
               input(type="range" class="cropit-image-zoom-input")
               div(class='cropit-preview')
-              button(class="rotate-ccw") Rotate counterclockwise
-              button(class="rotate-cw") Rotate clockwise
-              button(class="export") Export
+              button(class="rotate-ccw btn btn-xs") 逆时针转
+              button(class="rotate-cw btn btn-xs") 顺时针转
+              button(class="export btn btn-xs") 导出 
       form(class="form-horizontal" role="form" action='/usermsg' method='post' id='form')
         input(type='hidden' name='uid' id='uid' value='#{uid}')
         div(class='form-group')
