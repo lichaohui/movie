@@ -4,6 +4,7 @@
 function uploadFileToAlioss(e,path,callback){
     //获取上传的文件对象
     var file = e.target.files[0];
+    console.log(file);
     //获取上传文件的名称
     var fileName=e.target.files[0].name;
     //获取上传文件的格式

@@ -63,7 +63,6 @@ $(function(){
     $('.export').click(function() {
         var imageData = $('.image-editor').cropit('export');
         $('#avathum').attr('src',imageData);
-        console.log(imageData);
-        window.open(imageData);
+        //window.open(imageData);
     });
 })
