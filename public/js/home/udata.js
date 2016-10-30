@@ -50,9 +50,11 @@ $(function(){
     });
     
     //图片裁剪代码
-    $('.image-editor').cropit();
+    $('.image-editor').cropit({
+        imageCropper:$('.upavatar'),
+    });
     $('.selpic').click(function(){
-        $('.cropit-image-input').click();
+        //$('.cropit-image-input').click();
         $('.upavatar').click();
     });
     $('.rotate-cw').click(function() {
