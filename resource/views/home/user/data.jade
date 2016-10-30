@@ -2,24 +2,25 @@ include ../../common/header
   include ./common
     block content 
       input(type='hidden' id='pagesign' value='data')
+      div(class='form-group')
+        label(class="col-md-2 col-sm-3 control-label") 头像
+        div(class='col-md-10 col-sm-9')
+          div(class="image-editor")
+            div(class='cropit-preview')
+            
+            input(type="range" class="cropit-image-zoom-input")
+            input(type='hidden' name="image-data" class="hidden-image-data")
+            button(class='selpic btn btn-xs') 选择图片
+            button(class="rotate-ccw btn btn-xs") 逆时针转
+            button(class="rotate-cw btn btn-xs") 顺时针转
+            button(class="export btn btn-xs") 导出 
+            div(id='result-data')
       form(class="form-horizontal" role="form" action='/usermsg' method='post' id='form')
-        div(class='form-group')
-          label(class="col-md-2 col-sm-3 control-label") 头像
-          div(class='col-md-10 col-sm-9')
-            div(class="image-editor")
-              div(class='cropit-preview')
-              input(type="file" class="cropit-image-input")
-              input(type="range" class="cropit-image-zoom-input")
-              input(type='hidden' name="image-data" class="hidden-image-data")
-              button(class='selpic btn btn-xs') 选择图片
-              button(class="rotate-ccw btn btn-xs") 逆时针转
-              button(class="rotate-cw btn btn-xs") 顺时针转
-              button(class="export btn btn-xs") 导出 
-              div(id='result-data')
         input(type='hidden' name='uid' id='uid' value='#{uid}')
         div(class='form-group')
           label(class="col-md-2 col-sm-3 control-label") 头像
           div(class='col-md-10 col-sm-9')
+            input(type="file" class="cropit-image-input")
             img(src='' class='img-rounded' id='avathum')
             input(type='hidden' name='avatar' id='avatar' value='http://xuefengoss.oss-cn-shanghai.aliyuncs.com/user/avatar/defaul.jpg')
         div(class='form-group')

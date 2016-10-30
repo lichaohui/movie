@@ -54,15 +54,25 @@ $(function(){
     $('.selpic').click(function(){
         $('.cropit-image-input').click();
     });
-    $('.image-editor').cropit();
-        $('form').submit(function() {
-          // Move cropped image data to hidden input
-          var imageData = $('.image-editor').cropit('export');
-          $('.hidden-image-data').val(imageData);
-          // Print HTTP request params
-          var formValue = $(this).serialize();
-          $('#result-data').text(formValue);
-          // Prevent the form from actually submitting
-          return false;
-        });
+    $('.rotate-cw').click(function() {
+        $('.image-editor').cropit('rotateCW');
+    });
+    $('.rotate-ccw').click(function() {
+        $('.image-editor').cropit('rotateCCW');
+    });
+    $('.export').click(function() {
+        var imageData = $('.image-editor').cropit('export');
+        //window.open(imageData);
+    });
+    
+    $(".cropit-image-input").change(function(e){
+        //path表示阿里oss中的文件夹
+        var path='video/image/';
+        var callback=function(url){
+            $("#avathum").attr('src',url);
+            $("input[name='avatar']").val(url);
+        };
+        //上传文件
+        uploadFileToAlioss(e,path,callback);
+    });
 })
