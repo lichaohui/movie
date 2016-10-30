@@ -6,7 +6,7 @@ include ../../common/header
       div(class="frame")
         img(id="photo" src="" style='cursor:crosshair')
       form(action="/cropavatar" method="post" enctype="multipart/form-data" id='cform')
-        input(id="upload" type="file" name="file" onchange="change(this)")
+        input(id="upload" type="file" name="orimage" onchange="change(this)")
         input(id="startX" name="x" readonly="readonly")
         input(id="startY" name="y" readonly="readonly")
         input(id="width" name="w" readonly="readonly")
