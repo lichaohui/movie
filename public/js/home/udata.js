@@ -65,13 +65,12 @@ $(function(){
     $('.export').click(function() {
         var imageData = $('.image-editor').cropit('export');
         //window.open(imageData);
-        var path='video/image/';
-        var callback=function(url){
-            $("#avathum").attr('src',url);
-            $("input[name='avatar']").val(url);
-        };
         //上传文件
-        uploadFileToAlioss(imageData,path,callback);
+        client.multipartUpload('hello.png', imageData).then(function (result) {        
+            alert('上传成功')
+        }).catch(function (err) {
+            console.log(err);
+        });
     });
     
     $(".upavatar").change(function(e){
