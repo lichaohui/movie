@@ -50,7 +50,10 @@ $(function(){
     });
     
     //图片裁剪代码
-    $('.image-editor').cropit();
+    $('.image-editor').cropit({
+        imageBackground: true,
+        imageBackgroundBorderWidth: 15 // Width of background border
+    });
     $('.selpic').click(function(){
         $('.cropit-image-input').click();
         //$('.upavatar').click();
