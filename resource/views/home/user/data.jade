@@ -3,10 +3,8 @@ include ../../common/header
     link(rel='stylesheet' href='/css/home/imgareaselect-animated.css')
     block content 
       input(type='hidden' id='pagesign' value='data')
-      div(class="frame" style="float:left;margin-right:50px")
+      div(class="frame")
         img(id="photo" src="" style='cursor:crosshair')
-      div(id="preview" style="width: 100px; height: 100px; overflow: hidden;")
-        img(id="" src="" style="width: 100px;")
       form(action="corp.php" method="post" enctype="multipart/form-data")
         input(id="upload" type="file" name="file" onchange="change(this)")
         button(type='submit') 确定
@@ -16,7 +14,8 @@ include ../../common/header
           label(class="col-md-2 col-sm-3 control-label") 头像
           div(class='col-md-10 col-sm-9')
             input(type='file' class='upavatar')
-            img(src='' class='img-rounded' id='view_photo')
+            div(id="preview" style="width: 100px; height: 100px; overflow: hidden;")
+              img(src='' class='img-rounded' id='view_photo' width='100')
             input(type='hidden' name='avatar' id='avatar' value='http://xuefengoss.oss-cn-shanghai.aliyuncs.com/user/avatar/defaul.jpg')
         div(class='form-group')
           label(for='name' class='col-md-2 col-sm-3 control-label') 真实姓名
