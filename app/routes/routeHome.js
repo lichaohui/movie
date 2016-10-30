@@ -12,6 +12,7 @@ var alidayu=require('../controllers/home/alidayu');
 var vcode=require('../controllers/home/vcode');
 var emailer=require('../controllers/home/emailer');
 var encrypt=require('../controllers/common/encrypt');
+var avatar=require('../controllers/home/avatar');
 
 module.exports=function(app){
     /*
