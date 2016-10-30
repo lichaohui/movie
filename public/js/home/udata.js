@@ -65,7 +65,7 @@ $(function(){
         //window.open(imageData);
     });
     
-    $(".cropit-image-input").change(function(e){
+    $(".upavatar").change(function(e){
         //path表示阿里oss中的文件夹
         var path='video/image/';
         var callback=function(url){
