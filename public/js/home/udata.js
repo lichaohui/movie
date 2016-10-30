@@ -49,39 +49,4 @@ $(function(){
         });
     });
     
-    //图片裁剪代码
-    $('.image-editor').cropit({
-    });
-    $('.selpic').click(function(){
-        $('.cropit-image-input').click();
-        //$('.upavatar').click();
-    });
-    $('.rotate-cw').click(function() {
-        $('.image-editor').cropit('rotateCW');
-    });
-    $('.rotate-ccw').click(function() {
-        $('.image-editor').cropit('rotateCCW');
-    });
-    $('.export').click(function() {
-        var imageData = $('.image-editor').cropit('export');
-        //window.open(imageData);
-        //上传文件
-        client.multipartUpload('hello.png', imageData).then(function (result) {        
-            alert('上传成功')
-        }).catch(function (err) {
-            console.log(err);
-        });
-    });
-    
-    $(".upavatar").change(function(e){
-        alert(e);
-        //path表示阿里oss中的文件夹
-        /*var path='video/image/';
-        var callback=function(url){
-            $("#avathum").attr('src',url);
-            $("input[name='avatar']").val(url);
-        };
-        //上传文件
-        uploadFileToAlioss(e,path,callback);*/
-    });
 })

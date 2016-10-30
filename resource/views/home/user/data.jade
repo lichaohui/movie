@@ -2,18 +2,6 @@ include ../../common/header
   include ./common
     block content 
       input(type='hidden' id='pagesign' value='data')
-      div(class='form-group')
-        label(class="col-md-2 col-sm-3 control-label") 头像
-        div(class='col-md-10 col-sm-9')
-          div(class="image-editor")
-            div(class='cropit-preview')
-            input(type="file" class="cropit-image-input")
-            input(type="range" class="cropit-image-zoom-input")
-            button(class='selpic btn btn-xs') 选择图片
-            button(class="rotate-ccw btn btn-xs") 逆时针转
-            button(class="rotate-cw btn btn-xs") 顺时针转
-            button(class="export btn btn-xs") 导出 
-            div(id='result-data')
       form(class="form-horizontal" role="form" action='/usermsg' method='post' id='form')
         input(type='hidden' name='uid' id='uid' value='#{uid}')
         div(class='form-group')
@@ -76,12 +64,9 @@ include ../../common/header
   include ../../common/footer
   script(src='/js/common/jquery.form.js')
   script(src='/libs/ali-oss/dist/aliyun-oss-sdk.min.js')
-  script(src='/js/home/jquery-2.1.1.js')
-  script(src='/libs/cropit/dist/jquery.cropit.js')
   script(src='/js/common/ossWrapper.js')
   script(src='/js/common/deleteFromAli.js')
   script(src='/js/common/uploadToAli.js')
   script(src='/js/home/geo.js')
-  script(src='/js/home/base64ToBlob.js')
   script(src='/js/home/uaside.js')
   script(src='/js/home/udata.js')
