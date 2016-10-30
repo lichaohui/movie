@@ -6,6 +6,9 @@ include ../../common/header
         img(id="photo" src="")
       div(id="preview" style="width: 100px; height: 100px; overflow: hidden;")
         img(id="view_photo" src="" style="width: 100px;")
+      form(action="corp.php" method="post" enctype="multipart/form-data")
+        input(id="upload" type="file" name="file" onchange="change(this)")
+        button(type='submit') 确定
       form(class="form-horizontal" role="form" action='/usermsg' method='post' id='form')
         input(type='hidden' name='uid' id='uid' value='#{uid}')
         div(class='form-group')
