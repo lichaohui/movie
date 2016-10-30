@@ -50,11 +50,7 @@ $(function(){
     });
     
     //图片裁剪代码
-    $('.image-editor').cropit({
-        'onFileChange':function(e){
-            alert('hello');
-        },
-    });
+    $('.image-editor').cropit();
     $('.selpic').click(function(){
         //$('.cropit-image-input').click();
         $('.upavatar').click();
@@ -67,7 +63,7 @@ $(function(){
     });
     $('.export').click(function() {
         var imageData = $('.image-editor').cropit('export');
-        //window.open(imageData);
+        window.open(imageData);
     });
     
     $(".upavatar").change(function(e){
