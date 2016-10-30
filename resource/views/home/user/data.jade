@@ -5,15 +5,18 @@ include ../../common/header
       input(type='hidden' id='pagesign' value='data')
       div(class="frame")
         img(id="photo" src="" style='cursor:crosshair')
-      form(action="corp.php" method="post" enctype="multipart/form-data")
+      form(action="/cropavatar" method="post" enctype="multipart/form-data" id='cform')
         input(id="upload" type="file" name="file" onchange="change(this)")
-        button(type='submit') 确定
+        input(id="startX" name="x" readonly="readonly")
+        input(id="startY" name="y" readonly="readonly")
+        input(id="width" name="w" readonly="readonly")
+        input(id="height" name="h" readonly="readonly")
+        button(type='button' id='crop') 确定
       form(class="form-horizontal" role="form" action='/usermsg' method='post' id='form')
         input(type='hidden' name='uid' id='uid' value='#{uid}')
         div(class='form-group')
           label(class="col-md-2 col-sm-3 control-label") 头像
           div(class='col-md-10 col-sm-9')
-            input(type='file' class='upavatar')
             div(id="preview" style='width:140px; height:140px; overflow:hidden;')
               img(src='' class='img-rounded' id='view_photo' width='140')
             input(type='hidden' name='avatar' id='avatar' value='http://xuefengoss.oss-cn-shanghai.aliyuncs.com/user/avatar/defaul.jpg')

@@ -62,6 +62,8 @@ module.exports=function(app){
     app.post('/usermsg',usermsg.store);
     //更新某个用户基本信息的路由
     app.put('/usermsg/:uid',usermsg.update);
+    //上传用户头像的路由
+    app.post('/cropavatar',avatar.crop);
     
     //展示某个用户所有评论的路由
     app.get('/comments',comment.index);  

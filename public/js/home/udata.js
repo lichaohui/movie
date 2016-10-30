@@ -48,6 +48,12 @@ $(function(){
             },
         });
     });
+    
+    $('#crop').click(function(){
+        $('#cform').ajaxSubmit({
+            
+        })
+    })
 })
 
 function clacImgZoomParam( maxWidth, maxHeight, width, height ){
