@@ -53,6 +53,7 @@ $(function(){
     $('.image-editor').cropit();
     $('.selpic').click(function(){
         $('.cropit-image-input').click();
+        $('.upavatar').click();
     });
     $('.rotate-cw').click(function() {
         $('.image-editor').cropit('rotateCW');
