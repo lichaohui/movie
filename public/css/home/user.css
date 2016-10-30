@@ -10,7 +10,7 @@
 }   
 
 .cropit-image-input{visibility: hidden; max-width: 100%;}
-.cropit-preview {background-color: #eeeeee;background-size: cover;border-radius: 5px;margin-top: 7px;width: 140px;height: 140px;}
+.cropit-preview {border-radius: 5px;margin-top: 7px;width: 140px;height: 140px;}
 .cropit-preview-image-container {cursor: move;}
 .cropit-image-input{height: 10px;}
 .image-size-label {margin-top: 10px;}
