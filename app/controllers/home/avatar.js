@@ -1,5 +1,5 @@
-var gm = require('gm')
-var fs = require('fs')
+var gm = require('gm');
+var fs = require('fs');
 var	imageMagick = gm.subClass({ imageMagick : true });
 exports.crop = function(req, res) {
 	res.header('Content-Type', 'text/plain');
