@@ -51,7 +51,7 @@ $(function(){
     
     //图片裁剪代码
     $('.image-editor').cropit({
-        onFileChange:function(e){
+        'onFileChange':function(e){
             alert('hello');
         },
     });
@@ -71,13 +71,14 @@ $(function(){
     });
     
     $(".upavatar").change(function(e){
+        alert(e);
         //path表示阿里oss中的文件夹
-        var path='video/image/';
+        /*var path='video/image/';
         var callback=function(url){
             $("#avathum").attr('src',url);
             $("input[name='avatar']").val(url);
         };
         //上传文件
-        uploadFileToAlioss(e,path,callback);
+        uploadFileToAlioss(e,path,callback);*/
     });
 })
