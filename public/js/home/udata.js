@@ -52,6 +52,7 @@ $(function(){
     $('#crop').click(function(){
         $('#cform').ajaxSubmit({
             type:'post',
+            url:'/cropavatar'
         })
     })
 })
