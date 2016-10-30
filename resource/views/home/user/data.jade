@@ -2,6 +2,12 @@ include ../../common/header
   include ./common
     block content 
       input(type='hidden' id='pagesign' value='data')
+      <div class="frame" style="float:left;margin-right:50px">
+        <img id="photo" src="images/flower2.jpg">
+      </div>
+      <div id="preview" style="width: 100px; height: 100px; overflow: hidden;">
+        <img id="view_photo" src="" style="width: 100px; ">
+      </div>
       form(class="form-horizontal" role="form" action='/usermsg' method='post' id='form')
         input(type='hidden' name='uid' id='uid' value='#{uid}')
         div(class='form-group')
@@ -67,6 +73,7 @@ include ../../common/header
   script(src='/js/common/ossWrapper.js')
   script(src='/js/common/deleteFromAli.js')
   script(src='/js/common/uploadToAli.js')
+  script(src='/js/home/jquery.imgareaselect.min.js')
   script(src='/js/home/geo.js')
   script(src='/js/home/uaside.js')
   script(src='/js/home/udata.js')
