@@ -14,8 +14,8 @@ include ../../common/header
           label(class="col-md-2 col-sm-3 control-label") 头像
           div(class='col-md-10 col-sm-9')
             input(type='file' class='upavatar')
-            div(id="preview")
-              img(src='' class='img-rounded' id='view_photo' width='140' height='140')
+            div(id="preview" style='width:140px; height:140px; overflow:hidden;')
+              img(src='' class='img-rounded' id='view_photo' width='140')
             input(type='hidden' name='avatar' id='avatar' value='http://xuefengoss.oss-cn-shanghai.aliyuncs.com/user/avatar/defaul.jpg')
         div(class='form-group')
           label(for='name' class='col-md-2 col-sm-3 control-label') 真实姓名
