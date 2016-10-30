@@ -51,8 +51,6 @@ $(function(){
     
     //图片裁剪代码
     $('.image-editor').cropit({
-        //imageBackground: true,
-        //imageBackgroundBorderWidth: 15 // Width of background border
     });
     $('.selpic').click(function(){
         $('.cropit-image-input').click();
@@ -66,7 +64,14 @@ $(function(){
     });
     $('.export').click(function() {
         var imageData = $('.image-editor').cropit('export');
-        window.open(imageData);
+        //window.open(imageData);
+        var path='video/image/';
+        var callback=function(url){
+            $("#avathum").attr('src',url);
+            $("input[name='avatar']").val(url);
+        };
+        //上传文件
+        uploadFileToAlioss(imageData,path,callback);
     });
     
     $(".upavatar").change(function(e){
