@@ -1,7 +1,7 @@
 var gm = require('gm')
 var fs = require('fs')
 var	imageMagick = gm.subClass({ imageMagick : true });
-exports.upload = function(req, res) {
+exports.crop = function(req, res) {
 	res.header('Content-Type', 'text/plain');
     var path = req.files.img.path;	//获取用户上传过来的文件的当前路径
     imageMagick(path).resize(150, 150, '!').autoOrient().write('public/images/user/'+req.files.img.name, function(err){
