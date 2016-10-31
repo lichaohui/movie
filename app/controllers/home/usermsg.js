@@ -28,7 +28,6 @@ exports.edit=function(req,res){
 
 //添加某个用户基本信息的方法
 exports.store=function(req,res){
-    console.log(req.body);
     //拼装表单数据
     var newmsg=new userMsg({
         'uid':req.body.uid,
@@ -57,6 +56,7 @@ exports.update=function(req,res){
     var uid=req.params.uid;
     //拿到表单提交过来的数据
     var postumsg=req.body;
+    console.log(postumsg);
     //通过findByUid获取到要修改的那条数据
     userMsg.findByUid(uid,function(err,data){
         if(err){
