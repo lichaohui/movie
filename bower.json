@@ -18,7 +18,6 @@
   ],
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "ali-oss": "^4.4.4",
-    "cropit": "^0.5.1"
+    "ali-oss": "^4.4.4"
   }
 }
