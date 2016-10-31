@@ -34,6 +34,24 @@ $(function(){
         }
     });
     
+    //上传头像
+    $("#avathum").click(function(){
+        $("#upavatar").click();
+    });
+    $("#upavatar").change(function(e){
+        //先获取之前是否有文件上传如果有则先删除之前的
+        var val=$('input[name="avatar"]').val();
+        if(val!="http://xuefengoss.oss-cn-shanghai.aliyuncs.com/user/avatar/defaul.jpg"){
+            deleteFromOss(val);
+        };
+        var path='user/avatar/';
+        var callback=function(url){
+            $("input[name='avatar']").val(url);
+            $("#avathum").attr('src',url);
+        };
+        uploadFileToAlioss(e,path,callback);
+    });
+    
     /*----点击提交按钮时候通过jquery.form.js插件异步提交表单----*/
     $("#sub").click(function(){
         $(this).text('请稍后..').attr('disabled',true);
