@@ -8,7 +8,7 @@
     .form-horizontal .radio {padding-top: 0; min-height: 0;}
     #s1,#s2,#s3{margin-bottom: 10px;}    
 }
-#upavatar{visibility: hidden;height: 0;}
+#upavatar{visibility: hidden;height: 0; width: 0;}
 
 /*----我的评论----*/
 .replyForm{margin-top:9px;}
