@@ -28,6 +28,7 @@ exports.edit=function(req,res){
 
 //添加某个用户基本信息的方法
 exports.store=function(req,res){
+    console.log(req.body);
     //拼装表单数据
     var newmsg=new userMsg({
         'uid':req.body.uid,
