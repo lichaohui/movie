@@ -97,9 +97,6 @@ module.exports=function(app){
     //执行删除视频操作的路由
     app.delete('/admin/video/delete/:id',video.delete);  
     
-    //从阿里oss删除资源的路由
-    app.delete('/admin/playbill/delete',alioss.delete);
-    
     //展示一级分类列表的路由 
     app.get('/admin/firstcate',firstcate.index);
     //展示添加一级分类页面的路由

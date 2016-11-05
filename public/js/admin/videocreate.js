@@ -25,11 +25,6 @@ $(function(){
         $("#playbill").click();
     });
     $("#playbill").change(function(e){
-        //先获取之前是否有文件上传如果有则先删除之前的
-        var obj=$('input[name="playbill"]').val();
-        if(obj!=""){
-            deleteFromOss('/admin/alioss/delete',obj);
-        };
         //path表示阿里oss中的文件夹
         var path='video/image/';
         var callback=function(url){
@@ -45,11 +40,6 @@ $(function(){
         $("#src").click();
     });
     $("#src").change(function(e){
-        //先获取之前是否有文件上传如果有则先删除之前的
-        var val=$('input[name="src"]').val();
-        if(val!=""){
-            deleteFromOss(val);
-        };
         var path='video/video/';
         var callback=function(url){
             $("input[name='src']").val(url);

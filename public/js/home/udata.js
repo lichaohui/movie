@@ -39,17 +39,13 @@ $(function(){
         $("#upavatar").click();
     });
     $("#upavatar").change(function(e){
-        //先获取之前是否有文件上传如果有则先删除之前的
-        var obj=$('input[name="avatar"]').val();
-        if(obj!="http://xuefengoss.oss-cn-shanghai.aliyuncs.com/user/avatar/defaul.jpg"){
-            deleteFromOss('/avatar/delete',obj);
-        };
         //设置回调函数
         var path='user/avatar/';
         var callback=function(url){
             $("input[name='avatar']").val(url);
             $("#avathum").attr('src',url);
         };
+        //上传资源
         uploadFileToAlioss(e,path,callback);
     });
     
