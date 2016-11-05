@@ -41,9 +41,7 @@ $(function(){
     $("#upavatar").change(function(e){
         //先获取之前是否有文件上传如果有则先删除之前的
         var val=$('input[name="avatar"]').val();
-        alert(val);
         if(val!="http://xuefengoss.oss-cn-shanghai.aliyuncs.com/user/avatar/defaul.jpg"){
-            alert('要删除了');
             deleteFromOss(val);
         };
         var path='user/avatar/';
