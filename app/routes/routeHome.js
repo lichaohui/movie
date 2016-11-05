@@ -12,6 +12,7 @@ var alidayu=require('../controllers/home/alidayu');
 var vcode=require('../controllers/home/vcode');
 var emailer=require('../controllers/home/emailer');
 var encrypt=require('../controllers/common/encrypt');
+var alioss=require('../controllers/common/alioss');
 
 module.exports=function(app){
     /*
@@ -62,7 +63,8 @@ module.exports=function(app){
     app.post('/usermsg',usermsg.store);
     //更新某个用户基本信息的路由
     app.put('/usermsg/:uid',usermsg.update);
-    
+    //从oss删除用户头像资源的路由
+    app.delete('/avatar/delete',alioss.delete);
     //展示某个用户所有评论的路由
     app.get('/comments',comment.index);  
     //展示某个url或者用户下更多评论的路由

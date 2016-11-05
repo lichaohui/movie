@@ -40,9 +40,10 @@ $(function(){
     });
     $("#upavatar").change(function(e){
         //先获取之前是否有文件上传如果有则先删除之前的
-        var val=$('input[name="avatar"]').val();
+        var obj=$('input[name="avatar"]').val();
         if(val!="http://xuefengoss.oss-cn-shanghai.aliyuncs.com/user/avatar/defaul.jpg"){
-            deleteFromOss(val);
+            var url='/avatar/delete';
+            deleteFromOss(url,obj);
         };
         var path='user/avatar/';
         var callback=function(url){
