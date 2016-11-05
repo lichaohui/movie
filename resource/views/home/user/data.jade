@@ -3,13 +3,12 @@ include ../../common/header
     block content 
       input(type='hidden' id='pagesign' value='data')
       input(type='file' id='upavatar' accept="image/*")
-      form(class="form-horizontal" role="form" action='/usermsg' method='post' id='form' enctype='multipart/form-data')
+      form(class="form-horizontal" role="form" action='/usermsg' method='post' id='form')
         input(type='hidden' name='uid' id='uid' value='#{uid}')
         div(class='form-group')
           label(class="col-md-2 col-sm-3 control-label") 头像
           div(class='col-md-10 col-sm-9')
             img(src='http://xuefengoss.oss-cn-shanghai.aliyuncs.com/user/avatar/defaul.jpg' class='img-rounded' id='avathum' title='更换头像' width='140' height='140')
-            
             input(type='hidden' name='avatar' id='avatar' value='http://xuefengoss.oss-cn-shanghai.aliyuncs.com/user/avatar/defaul.jpg')
         div(class='form-group')
           label(for='name' class='col-md-2 col-sm-3 control-label') 真实姓名
