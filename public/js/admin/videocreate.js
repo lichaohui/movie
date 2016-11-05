@@ -27,10 +27,8 @@ $(function(){
     $("#playbill").change(function(e){
         //先获取之前是否有文件上传如果有则先删除之前的
         var obj=$('input[name="playbill"]').val();
-        if(val!=""){
-            //删除资源的路由地址
-            var url='/admin/alioss/delete';
-            deleteFromOss(url,obj);
+        if(obj!=""){
+            deleteFromOss('/admin/alioss/delete',obj);
         };
         //path表示阿里oss中的文件夹
         var path='video/image/';
