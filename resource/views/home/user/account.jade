@@ -2,7 +2,33 @@ include ../../common/header
   include ./common
     block content 
       input(type='hidden' id='pagesign' value='data')
-      
+      ul()
+        li(class='media')
+          div(class="media-left")
+            span(class='glyphicon glyphicon-envelope')
+          div(class="media-body")
+            if(account.email)
+              h4(class="media-heading") 邮箱 #{account.email} 已绑定
+              p 可用邮箱加密码登录学疯网，可用邮箱找回密码
+            else
+              h4(class="media-heading") 邮箱未绑定
+              p 可用邮箱加密码登录学疯网，可用邮箱找回密码
+        li(class='media')
+          div(class="media-left")
+            span(class='glyphicon glyphicon-phone')
+          div(class="media-body")
+            if(account.phone)
+              h4(class="media-heading") 手机 #{account.phone} 已绑定
+              p 可用手机号加密码登录学疯网，可通过手机号找回密码
+            else
+               h4(class="media-heading") 手机未绑定
+              p 可用手机号加密码登录学疯网，可通过手机号找回密码
+        li(class='media')
+          div(class="media-left")
+            span(class='glyphicon glyphicon-lock')
+          div(class="media-body")
+            h4(class="media-heading") 密码已设置
+            p 用于保护帐号信息和登录安全
   include ../../common/footer
   script(src='/js/home/uaside.js')
  
