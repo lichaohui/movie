@@ -231,6 +231,6 @@ exports.logout=function(req,res){
 exports.index=function(req,res){
     var id=req.params.id;
     user.findById(id,function(err,data){
-        res.render('home/user/index',{'title':'我的主页','user':data});
+        res.render('home/user/index',{'title':'我的主页','data':data});
     });
 };
