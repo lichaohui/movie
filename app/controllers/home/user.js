@@ -163,21 +163,19 @@ exports.doLogin=function(req,res){
              * 调用我们自己在schema中定义的comparePassword()方法进行验证
              */
             data.comparePassword(postuser.password,function(err,isMatch){
-                if(err){
-                    console.log(err);
-                }else{
-                    if(isMatch){
-                        /*
-                         * 如果登录成功则保存用户信息到req.session并返回成功信息
-                         * 注意session是req（请求体）的，
-                         * 所以session信息会在发生http请求的时候包含在请求体中
-                         */
-                        req.session.user=data;
+                if(isMatch){
+                    /*
+                     * 如果登录成功则保存用户信息到req.session并返回成功信息
+                     * 注意session是req（请求体）的，
+                     * 所以session信息会在发生http请求的时候包含在请求体中
+                     */
+                    usermsg.findByUid(data._id,function(err,umsg){
+                        req.session.user=umsg;
                         res.json({'isError':false,'message':'登录成功，即将载入！'});
-                    }else{
-                        //如果密码不匹配则返回错误信息
-                        res.json({'isError':true,'message':'密码错误！'});
-                    }
+                    })
+                }else{
+                    //如果密码不匹配则返回错误信息
+                    res.json({'isError':true,'message':'密码错误！'});
                 }
             });
         }else{
@@ -212,14 +210,11 @@ exports.dovlogin=function(req,res){
          * 表示更新中出的错
          */
         user.update(data,{$set:{'password':req.body.password}},function(err){
-            if(err){
-                //如果更新中出错就打印错误
-                console.log(err);
-            }else{
-                //如果密码更新成功则将data存储到session中并返回成功信息
-                req.session.user=data;
+            //如果密码更新成功则将data存储到session中并返回成功信息
+            usermsg.findByUid(data._id,function(err,umsg){
+                req.session.user=umsg;
                 res.json({'isError':false,'message':'密码更新成功！即将进入首页！'});
-            }
+            })
         });
     });
 };
