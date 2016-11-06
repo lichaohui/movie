@@ -37,7 +37,7 @@ include ../../common/header
                   button(type='button' class='replyBtn btn btn-default btn-xs') submit
               else
                 button(type="button" class='btn btn-primary btn-xs' data-toggle="modal" data-target="#myModal") login and reply
-                button(type='button' class='viewreply btn btn-default btn-xs' data-toggle="modal" data-target="#replies" data-cid="#{comment._id}" data-name="#{comment.from.name}" data-con="#{comment.content}" data-time="#{moment(comment.meta.created_at).format('YYYY-MM-DD H:m:s')}") view replies (#{comment.totalReply})          
+                button(type='button' class='viewreply btn btn-default btn-xs' data-toggle="modal" data-target="#replies" data-cid="#{comment._id}" data-name="#{comment.from.name}" data-con="#{comment.content}" data-time="#{moment(comment.meta.created_at).format('YYYY-MM-DD H:m:s')}") view replies (#{comment.totalReply})   
       div(class='text-center') 
         if(comments.length>0)
           button(type='button' class='btn btn-sm btn-primary' id='viewMore') 
