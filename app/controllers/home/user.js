@@ -1,6 +1,7 @@
 /*----定义前台用户模块的所有方法----*/
 //引入model模型
 var user=require('../../models/user');
+var usermsg=require('../../models/usermsg');
 //引入ecrypt控制器来对密码进行加密
 var encrypt=require('../common/encrypt');
 
@@ -106,17 +107,19 @@ exports.doRegister=function(req,res){
     });
     //将数据保存到数据库
     newuser.save(function(err,user){
-        if(err){
-            console.log(err);
-        }else{
+        var newusermsg=new usermsg({
+            uid:user._id,
+            name:'无名氏'
+        });
+        newusermsg.save(function(err,usermsg){
             /*
              * 如果注册成功则保存用户信息到req.session并返回成功信息
              * 注意session是req（请求体）的，
              * 所以session信息会在发生http请求的时候包含在请求体中
              */
-            req.session.user=user;
+            req.session.user=usermsg;
             res.json({'isError':false,'message':'注册成功，即将跳转到首页!'});
-        }
+        })
     });
 };
 
