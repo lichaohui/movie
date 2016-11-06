@@ -9,7 +9,7 @@ include ../../common/header
           div(class="media-body")
             if(account.email)
               h5(class="media-heading") 邮箱 
-                b #{account.email}
+                b #{account.email} 
                 已绑定
               p(class='font-size-small grey') 可用邮箱加密码登录学疯网，可用邮箱找回密码
             else
@@ -21,7 +21,7 @@ include ../../common/header
           div(class="media-body")
             if(account.phone)
               h5(class="media-heading") 手机
-                b #{account.phone} 
+                b #{account.phone}  
                 已绑定
               p(class='font-size-small grey') 可用手机号加密码登录学疯网，可通过手机号找回密码
             else
