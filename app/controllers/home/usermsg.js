@@ -73,6 +73,8 @@ exports.update=function(req,res){
                 if(err){
                     res.json({'isError':true,'message':'更新失败，请稍后再试！'});
                 }else{
+                    //如果更新成功则刷新一下session并返回成功信息
+                    req.session.user=data;
                     res.json({'isError':false,'message':'更新成功！'});
                 }; 
             });
