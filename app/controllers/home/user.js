@@ -107,6 +107,12 @@ exports.doRegister=function(req,res){
     });
     //将数据保存到数据库
     newuser.save(function(err,user){
+        /*
+         * 如果user表中的数据保存成功，
+         * 则再向usermsg表中插入数据
+         * uid是关联user表中的_id
+         * name就先给个默认的
+         */
         var newusermsg=new usermsg({
             uid:user._id,
             name:'无名氏'
@@ -230,6 +236,6 @@ exports.logout=function(req,res){
 exports.index=function(req,res){
     var id=req.params.id;
     user.findById(id,function(err,data){
-        res.render('home/user/index',{'title':data.name,'user':data});
+        res.render('home/user/index',{'title':'我的主页','user':data});
     });
 };
