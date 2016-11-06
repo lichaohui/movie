@@ -41,7 +41,7 @@ module.exports=function(app){
     //展示用户第二个注册界面的路由
     app.get('/register1',user.register1);
     //实现用户注册功能的路由
-    app.post('/doregister',vcode.verify,user.comparepass,user.check,user.doRegister);
+    app.post('/doregister',vcode.verify,user.comparepass,user.doRegister);
     //展示用户登录界面的路由
     app.get('/login',user.login);
     //显示邮箱/手机验证登录界面的路由
