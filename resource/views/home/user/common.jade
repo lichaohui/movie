@@ -2,7 +2,7 @@ link(rel='stylesheet' href='/css/home/user.css')
 section(class='container')
   include ../common/nav
   div(class='row')
-    div(class='col-md-1 col-sm-2 col-xs-4')
+    div(class='col-md-1 col-sm-2 col-xs-3')
       nav(class='bs-docs-sidebar affix' role="complementary" id='sidenav')
         ul(class='nav bs-docs-sidenav list-unstyled')
           li
@@ -21,5 +21,5 @@ section(class='container')
                 a(href='') 课程
               li
                 a(href='/comments?uid=#{user.uid}') 评论
-    div(class='col-md-11 col-sm-10 col-xs-8')            
+    div(class='col-md-11 col-sm-10 col-xs-9')            
       block content
