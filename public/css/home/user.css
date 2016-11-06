@@ -10,6 +10,9 @@
 }
 #upavatar{visibility: hidden;height: 0; width: 0;}
 
+/*----账户信息----*/
+
+
 /*----我的评论----*/
 .replyForm{margin-top:9px;}
 .list-group-item-text{margin-bottom:5px;}
