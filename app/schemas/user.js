@@ -5,10 +5,6 @@ var bcrypt=require('bcrypt');
 
 //设计user数据表结构
 var userSchema=new mongoose.Schema({
-    name:{
-        unique:true,
-        type:String
-    },
     phone:{
         unique:true,
         sparse:true,
@@ -145,17 +141,6 @@ userSchema.statics={
      */
     fetch:function(callback){
         return this.find({}).sort('meta.updated_at').exec(callback);
-    },
-    
-    /*
-     * 通过姓名查找用户
-     * 进行的是模糊查找
-     */
-    findByName:function(name,callback){
-        //先通过使用RegExp，来构建正则表达式对象
-        var regName=new RegExp(name);
-        //然后将正则表达式对象作为条件传入来进行查找
-        return this.find({'name':regName}).sort('meta.updated_at').exec(callback);
     },
     
     /*

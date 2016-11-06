@@ -9,7 +9,7 @@ exports.register=function(req,res){
     res.render('home/user/register',{'title':'register'});
 };
 
-//检查用户注册时提供的用户名、手机号或邮箱是否可用的方法
+//检查用户注册时提供的手机号或邮箱是否可用的方法
 function unique(req,res,next){
     //设置回调函数
     var errMsg;
@@ -31,19 +31,11 @@ function unique(req,res,next){
             errMsg='该邮箱已经被注册过了';
              //如果用户是通过邮箱注册则验证用户的邮箱是否可用
             user.findByEmail(req.body.email,callback);
-        break;
-        case 'name':
-            /*
-             * 如果是name则证明用户已经进行到了填写用户名的步骤
-             * 就验证用户名是否唯一就可以了
-             */
-            errMsg='该用户名已经被使用过了！';
-            user.findByName(req.body.name,callback);
         break;    
     }
 };
 
-//检查用户登录时提供的用户名、手机号或邮箱是否存在的方法
+//检查用户登录时提供的手机号或邮箱是否存在的方法
 function exists(req,res,next){
     //设置回调函数
     var errMsg;
@@ -105,11 +97,9 @@ exports.doRegister=function(req,res){
      */
     var postuser=req.body;
     /*
-     * 如果用户名可以使用
-     * 就通过表单发送的数据实例化user模型
+     * 通过表单发送的数据实例化user模型
      */
     var newuser=new user({
-        'name':postuser.name,
         'password':postuser.password,
         'phone':postuser.phone,
         'email':postuser.email,
@@ -157,7 +147,7 @@ exports.doLogin=function(req,res){
     /*
      * 通过login方法判断指定的用户是否存在
      */
-    user.findOne({$or:[{name:postuser.account},{email:postuser.account },{phone:postuser.account}]},function(err,data){
+    user.findOne({$or:[{email:postuser.account },{phone:postuser.account}]},function(err,data){
         if(data){
             /*
              * 如果用户存在则继续验证密码
