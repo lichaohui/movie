@@ -2,8 +2,8 @@ include ../../common/header
   include ./common
     block content 
       input(type='hidden' id='pagesign' value='data')
-      ul()
-        li(class='media')
+      div()
+        div(class='media')
           div(class="media-left")
             span(class='glyphicon glyphicon-envelope')
           div(class="media-body")
@@ -13,7 +13,7 @@ include ../../common/header
             else
               h4(class="media-heading") 邮箱未绑定
               p 可用邮箱加密码登录学疯网，可用邮箱找回密码
-        li(class='media')
+        div(class='media')
           div(class="media-left")
             span(class='glyphicon glyphicon-phone')
           div(class="media-body")
@@ -23,7 +23,7 @@ include ../../common/header
             else
                h4(class="media-heading") 手机未绑定
               p 可用手机号加密码登录学疯网，可通过手机号找回密码
-        li(class='media')
+        div(class='media')
           div(class="media-left")
             span(class='glyphicon glyphicon-lock')
           div(class="media-body")
