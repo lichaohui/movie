@@ -15,7 +15,7 @@
 .grey{color: grey;}
 .acc{padding-top: 12px;}
 .f-pr{position: relative;}
-.opera{position: absolute; right: 0; top: 0;}
+.opera{margin-left: 6px;}
 
 /*----我的评论----*/
 .replyForm{margin-top:9px;}

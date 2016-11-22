@@ -6,7 +6,7 @@ include ../../common/header
         div(class='acc media')
           div(class="media-left")
             span(class='glyphicon glyphicon-envelope')
-          div(class="media-body f-pr")
+          div(class="media-body")
             if(account.email)
               h5(class="media-heading") 邮箱 
                 b #{account.email} 
@@ -20,7 +20,7 @@ include ../../common/header
         div(class='media')
           div(class="media-left")
             span(class='glyphicon glyphicon-phone')
-          div(class="media-body f-pr")
+          div(class="media-body")
             if(account.phone)
               h5(class="media-heading") 手机
                 b #{account.phone}  
@@ -32,7 +32,7 @@ include ../../common/header
         div(class='media')
           div(class="media-left")
             span(class='glyphicon glyphicon-lock')
-          div(class="media-body f-pr")
+          div(class="media-body")
             h5(class="media-heading") 密码已设置
             p(class='font-size-small grey') 用于保护帐号信息和登录安全
   include ../../common/footer
