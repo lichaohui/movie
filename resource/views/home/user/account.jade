@@ -6,21 +6,21 @@ include ../../common/header
         div(class='acc media')
           div(class="media-left")
             span(class='glyphicon glyphicon-envelope')
-          div(class="media-body")
+          div(class="media-body f-pr")
             if(account.email)
               h5(class="media-heading") 邮箱 
                 b #{account.email} 
                 已绑定
               p(class='font-size-small grey') 可用邮箱加密码登录学疯网，可用邮箱找回密码
-              button(type='button' class='btn btn-default btn-xs') 更改
+              button(type='button' class='opera btn btn-default btn-xs') 更改
             else
               h5(class="media-heading") 邮箱未绑定
               p(class='font-size-small grey') 可用邮箱加密码登录学疯网，可用邮箱找回密码
-              button(type='button' class='btn btn-primary btn-xs') 立即绑定
+              button(type='button' class='opera btn btn-primary btn-xs') 立即绑定
         div(class='media')
           div(class="media-left")
             span(class='glyphicon glyphicon-phone')
-          div(class="media-body")
+          div(class="media-body f-pr")
             if(account.phone)
               h5(class="media-heading") 手机
                 b #{account.phone}  
@@ -32,7 +32,7 @@ include ../../common/header
         div(class='media')
           div(class="media-left")
             span(class='glyphicon glyphicon-lock')
-          div(class="media-body")
+          div(class="media-body f-pr")
             h5(class="media-heading") 密码已设置
             p(class='font-size-small grey') 用于保护帐号信息和登录安全
   include ../../common/footer
