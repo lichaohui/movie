@@ -48,16 +48,21 @@ include ../../common/header
             div(class='modal-body')
               div(class="alert alert-warning hidden" id='warning' role="alert")
               div(class="alert alert-success hidden" id='success' role="alert")
-              form(class='form-horizontal' action='/doLogin' id='form')
+              form(class='form-horizontal' action='' method='post' id='emailform')
                 div(class='form-group')
                   div(class='col-sm-12')
-                    input(type='email' class='form-control' id='email'  name='email' placeholder='要绑定的邮箱地址或要更改的新邮箱地址')
+                    input(type='email' class='form-control' id='email'  name='email' placeholder='要绑定的邮箱地址或要更改的新邮箱地址' required)
+                div(class='form-group')
+                  div(class='col-sm-6')
+                    input(type='text' class='form-control' id='ecode'  name='ecode' placeholder='邮箱验证码' required)
+                  div(class='col-sm-6')
+                    button(type='button' class='form-control' id='sendecode') 发送邮箱验证码
                 div(class='form-group')
                   div(class='col-sm-12')
-                    input(type='text' class='form-control' id='ecode'  name='ecode' placeholer='邮箱验证码')
-                div(class='form-group')
-                  div(class='col-sm-12')
-                    button(type='button' class='btn btn-primary') 更改
+                    button(type='submit' class='btn btn-primary') 更改
   include ../../common/footer
+  script(src='/libs/validator/validator.js')
+  script(src='/js/home/check.js')
   script(src='/js/home/uaside.js')
+  script(src='/js/home/account.js')
  

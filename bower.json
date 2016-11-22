@@ -18,6 +18,7 @@
   ],
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "ali-oss": "^4.4.4"
+    "ali-oss": "^4.4.4",
+    "validator": "^0.0.5"
   }
 }
