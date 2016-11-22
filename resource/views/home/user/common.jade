@@ -6,14 +6,14 @@ section(class='container')
       nav(class='bs-docs-sidebar affix' role="complementary" id='sidenav')
         ul(class='nav bs-docs-sidenav list-unstyled')
           li
-            a(href='#' id='page-index') 我的主页
+            a(href='/user/#{user.uid}' id='page-index') 我的主页
           li
             a(data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" id='page-data') 我的资料
             ul(id="collapseOne" class="colnav panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne")
               li
                 a(href='/usermsg?uid=#{user.uid}') 基本信息
               li
-                a(href='/user/#{user.uid}') 账户信息
+                a(href='/account/#{user.uid}') 账户信息
           li
             a(data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" id='page-footprint') 我的足迹
             ul(id="collapseTwo" class="colnav panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo")
