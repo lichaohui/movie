@@ -16,7 +16,7 @@ var userMsgSchema=new mongoose.Schema({
     },
     //头像url地址
     avatar:String,
-    //真实姓名
+    //昵称
     name:String,
     //职位
     position:String,

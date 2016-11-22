@@ -231,6 +231,14 @@ exports.logout=function(req,res){
 exports.index=function(req,res){
     var id=req.params.id;
     user.findById(id,function(err,data){
-        res.render('home/user/account',{'title':'账户信息','account':data});
+        res.render('home/user/index',{'title':'我的主页','account':data});
     });
 };
+
+//展示某个用户账户信息的方法
+exports.show=function(req,res){
+    var id=req.params.id;
+    user.findById(id,function(err,data){
+        res.render('home/user/account',{'title':'账户信息','account':data});
+    });
+}

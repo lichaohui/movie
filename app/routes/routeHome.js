@@ -63,6 +63,8 @@ module.exports=function(app){
     app.post('/usermsg',usermsg.store);
     //更新某个用户基本信息的路由
     app.put('/usermsg/:uid',usermsg.update);
+    //展示某个用户账户信息的路由
+    app.get('/account',user.show);
     //展示某个用户所有评论的路由
     app.get('/comments',comment.index);  
     //展示某个url或者用户下更多评论的路由
