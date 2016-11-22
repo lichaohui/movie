@@ -11,7 +11,7 @@ include ../../common/header
               h5(class="media-heading") 邮箱 
                 b #{account.email} 
                 已绑定
-                button(type='button' class='opera btn btn-default btn-xs') 更改
+                button(type='button' class='opera btn btn-default btn-xs' data-toggle="modal" data-target="#emailModel") 更改
               p(class='font-size-small grey') 可用邮箱加密码登录学疯网，可用邮箱找回密码
             else
               h5(class="media-heading") 邮箱未绑定
@@ -38,6 +38,26 @@ include ../../common/header
             h5(class="media-heading") 密码已设置
               button(type='button' class='opera btn btn-default btn-xs') 修改
             p(class='font-size-small grey') 用于保护帐号信息和登录安全
+      div(class='modal fade' id='emailModal' tabindex='-1' role='dialog' aria-labelledby="myModalLabel")
+        div(class="modal-dialog" role="document")
+          div(class="modal-content")
+            div(class="modal-header")
+              button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                span(aria-hidden="true") &times;
+              h4(class="modal-title" id="myModalLabel") 绑定/更改邮箱
+            div(class='modal-body')
+              div(class="alert alert-warning hidden" id='warning' role="alert")
+              div(class="alert alert-success hidden" id='success' role="alert")
+              form(class='form-horizontal' action='/doLogin' id='form')
+                div(class='form-group')
+                  div(class='col-sm-12')
+                    input(type='email' class='form-control' id='email'  name='email' placeholder='要绑定的邮箱地址或要更改的新邮箱地址')
+                div(class='form-group')
+                  div(class='col-sm-12')
+                    input(type='text' class='form-control' id='ecode'  name='ecode' placeholer='邮箱验证码')
+                div(class='form-group')
+                  div(class='col-sm-12')
+                    button(type='button' class='btn btn-primary') 更改
   include ../../common/footer
   script(src='/js/home/uaside.js')
  
