@@ -3,7 +3,6 @@ function isphone(phone){
     if(/^1[34578]\d{9}$/.test(phone)){ 
         return true;
     }else{
-        alert('手机格式不正确');
         return false; 
     } 
 }
@@ -13,7 +12,6 @@ function isemail(email){
     if(/^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/.test(email)){
         return true;
     }else{
-        alert('邮箱格式不正确！');
         return false;
     }
 }
