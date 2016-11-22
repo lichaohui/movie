@@ -1,5 +1,5 @@
 $(function(){
-    $('#emailform').validate(
+    $('#emailform').validate({
         rules: {
 			email: {
 				required: true,
@@ -14,5 +14,5 @@ $(function(){
 			},
 			vcode: "请输入邮箱动态验证码",
 		},
-    );
+    });
 })
