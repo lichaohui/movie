@@ -230,7 +230,7 @@ exports.logout=function(req,res){
 //显示用户主页的方法
 exports.index=function(req,res){
     var id=req.params.id;
-    user.findById(id,function(err,data){
+    usermgs.findByUid(id,function(err,data){
         res.render('home/user/index',{'title':'我的主页','account':data});
     });
 };
