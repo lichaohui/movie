@@ -16,6 +16,7 @@
 .acc{padding-top: 12px;}
 .f-pr{position: relative;}
 .opera{margin-left: 6px;}
+.error{color:#f54100; position: relative; top: -8px; line-height: 18px}
 
 /*----我的评论----*/
 .replyForm{margin-top:9px;}
