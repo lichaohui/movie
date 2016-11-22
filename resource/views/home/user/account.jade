@@ -13,12 +13,10 @@ include ../../common/header
                 已绑定
                 button(type='button' class='opera btn btn-default btn-xs') 更改
               p(class='font-size-small grey') 可用邮箱加密码登录学疯网，可用邮箱找回密码
-             
             else
               h5(class="media-heading") 邮箱未绑定
                 button(type='button' class='opera btn btn-primary btn-xs') 立即绑定
               p(class='font-size-small grey') 可用邮箱加密码登录学疯网，可用邮箱找回密码
-              
         div(class='media')
           div(class="media-left")
             span(class='glyphicon glyphicon-phone')
@@ -27,15 +25,18 @@ include ../../common/header
               h5(class="media-heading") 手机
                 b #{account.phone}  
                 已绑定
+                button(type='button' class='opera btn btn-default btn-xs') 更改
               p(class='font-size-small grey') 可用手机号加密码登录学疯网，可通过手机号找回密码
             else
               h5(class="media-heading") 手机未绑定
+                button(type='button' class='opera btn btn-primary btn-xs') 立即绑定
               p(class='font-size-small grey') 可用手机号加密码登录学疯网，可通过手机号找回密码
         div(class='media')
           div(class="media-left")
             span(class='glyphicon glyphicon-lock')
           div(class="media-body")
             h5(class="media-heading") 密码已设置
+              button(type='button' class='opera btn btn-default btn-xs') 修改
             p(class='font-size-small grey') 用于保护帐号信息和登录安全
   include ../../common/footer
   script(src='/js/home/uaside.js')
