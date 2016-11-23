@@ -28,9 +28,6 @@ $(function(){
 			},
 			ecode: "请输入邮箱验证码",
 		},
-        submitHandler:function(form) {
-            $(form).ajaxSubmit();
-        }
     });
     //发送邮箱验证码
     $('#sendecode').click(function(){
