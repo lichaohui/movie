@@ -19,14 +19,14 @@ $(function(){
 				required: true,
 				email:true
 			},
-			ecode: "required"
+			vcode: "required"
 		},
 		messages: {
 			email:{
 				required:'请输入邮箱',
 				email:'请输入正确格式的邮箱'
 			},
-			ecode: "请输入邮箱验证码",
+			vcode: "请输入邮箱验证码",
 		},
         submitHandler:function(form) {
             $(form).ajaxSubmit({
