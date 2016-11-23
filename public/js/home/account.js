@@ -1,4 +1,17 @@
 $(function(){
+    //倒计时函数
+    function countDown(dom,time){
+        var t=window.setInterval(function(){
+            time--;
+            if(time==0){
+                $(dom).attr("disabled",false).text('重新发送');
+                window.clearInterval(t);
+            }else{
+                $(dom).attr('disabled',true).text(time+'秒后可重发');
+            }
+        },1000);
+    }
+    
     //jquery.validate验证邮箱表单
     $('#emailform').validate({
         rules: {
@@ -18,6 +31,7 @@ $(function(){
     });
     //发送邮箱验证码
     $('#sendecode').click(function(){
+        var sendecode=$(this);
         //先检验邮箱是否正确输入
         var email=$('#email').val();
         if(isemail(email)){
@@ -26,7 +40,8 @@ $(function(){
                 if(data.isError){
                     $('#warning').text(data.message).removeClass('hidden');
                 }else{
-                   $('#warning').text('').addClass('hidden'); $('#success').text(data.message).removeClass('hidden');
+                    $('#warning').text('').addClass('hidden'); $('#success').text(data.message).removeClass('hidden');
+                    countDown(sendecode,60);
                 }
             });
         }else{
