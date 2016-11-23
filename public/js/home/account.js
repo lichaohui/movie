@@ -22,6 +22,9 @@ $(function(){
         var email=$('#email').val();
         if(isemail(email)){
             //如果邮箱格式输入正确则发送邮箱验证啊
+            $.post('/account/sendmail',{operating:'register',type:'email',email:email},function(data,status){
+                
+            });
         }else{
             //否则提示用户输入正确格式的邮箱
             alert('请输入正确格式的邮箱');
