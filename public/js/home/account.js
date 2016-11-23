@@ -29,7 +29,18 @@ $(function(){
 			ecode: "请输入邮箱验证码",
 		},
         submitHandler:function(form) {
-            $(form).ajaxSubmit();
+            $(form).ajaxSubmit({
+                type:'post',
+                url:'/account/phonemail',
+                success:function(data){
+                    if(data.isError){
+                        $('#warning').text(data.message).removeClass('hidden');
+                    }else{
+                        $('#warning').text('').addClass('hidden'); $('#success').text(data.message).removeClass('hidden');
+                        setTimeout(function(){window.location.reload();},1000);
+                    }
+                }
+            });
         }
     });
     //发送邮箱验证码
