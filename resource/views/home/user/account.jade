@@ -49,7 +49,7 @@ include ../../common/header
               div(class="alert alert-warning hidden" id='warning' role="alert")
               div(class="alert alert-success hidden" id='success' role="alert")
               form(class='form-horizontal' action='' method='post' id='emailform')
-                input(type='hidden' name='id' value=#{account._id})
+                input(type='hidden' name='id' value='#{account._id}')
                 div(class='form-group')
                   div(class='col-sm-12')
                     input(type='email' class='form-control' id='email'  name='email' placeholder='要绑定的邮箱地址或要更改的新邮箱地址' required)
