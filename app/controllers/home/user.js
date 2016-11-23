@@ -266,7 +266,7 @@ exports.update=function(req,res){
                 if(err){
                     console.log(err);
                 }else{
-                    res.send('恭喜！您的账户信息更新成功!');
+                    res.json({'isError':false,'message':'恭喜！您的账户信息更新成功!'});
                 }; 
             });
         }
