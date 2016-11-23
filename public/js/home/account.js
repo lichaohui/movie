@@ -34,7 +34,7 @@ $(function(){
                 url:'/account/phonemail',
                 success:function(data){
                     if(data.isError){
-                        $('#warning').text(data.message).removeClass('hidden');
+                        $('#success').text('').addClass('hidden'); $('#warning').text(data.message).removeClass('hidden');
                     }else{
                         $('#warning').text('').addClass('hidden'); $('#success').text(data.message).removeClass('hidden');
                         setTimeout(function(){window.location.reload();},1000);
@@ -52,7 +52,7 @@ $(function(){
             //如果邮箱格式输入正确则发送邮箱验证啊
             $.post('/account/sendmail',{operating:'register',type:'email',email:email},function(data,status){
                 if(data.isError){
-                    $('#warning').text(data.message).removeClass('hidden');
+                    $('#success').text('').addClass('hidden'); $('#warning').text(data.message).removeClass('hidden');
                 }else{
                     $('#warning').text('').addClass('hidden'); $('#success').text(data.message).removeClass('hidden');
                     countDown(sendecode,60);
