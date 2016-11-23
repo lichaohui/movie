@@ -108,16 +108,21 @@ exports.doRegister=function(req,res){
         'email':postuser.email,
     });
     //将数据保存到数据库
-    newuser.save(function(err,data){
+    newuser.save(function(err,user){
+        if(err){
+            console.log(err);
+        }else{
+            console.log(user);
+        }
         /*
          * 如果user表中的数据保存成功，
          * 则再向usermsg表中插入数据
          * uid是关联user表中的_id
          * name就先给个默认的
          */
-        console.log(data);
+        
         var newusermsg=new usermsg({
-            uid:data._id,
+            uid:user._id,
             name:'无名氏'
         });
         newusermsg.save(function(err,usermsg){
