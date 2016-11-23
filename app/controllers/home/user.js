@@ -115,6 +115,7 @@ exports.doRegister=function(req,res){
          * uid是关联user表中的_id
          * name就先给个默认的
          */
+        console.log(user);
         var newusermsg=new usermsg({
             uid:user._id,
             name:'无名氏'
