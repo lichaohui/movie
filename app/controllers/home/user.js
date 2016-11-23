@@ -248,9 +248,7 @@ exports.show=function(req,res){
 //更新用户账户信息的方法
 exports.update=function(req,res){
     //拿到表单提交过来的要修改的数据的_id
-    var id=req.params.id;
-    console.log(id);
-    console.log(req.body);
+    var id=req.body.id;
     //通过findById获取到要修改的那条数据
     user.findById(id,function(err,data){
         if(err){
