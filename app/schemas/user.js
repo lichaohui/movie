@@ -6,8 +6,8 @@ var bcrypt=require('bcrypt');
 //设计user数据表结构
 var userSchema=new mongoose.Schema({
     phone:{
-        unique:true,
-        sparse:true,
+       // unique:true,
+        //sparse:true,
         type:String
     },
     email:{

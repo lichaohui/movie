@@ -111,8 +111,6 @@ exports.doRegister=function(req,res){
     newuser.save(function(err,user){
         if(err){
             console.log(err);
-        }else{
-            console.log(user);
         }
         /*
          * 如果user表中的数据保存成功，
