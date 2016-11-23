@@ -48,7 +48,7 @@ include ../../common/header
             div(class='modal-body')
               div(class="alert alert-warning hidden" id='warning' role="alert")
               div(class="alert alert-success hidden" id='success' role="alert")
-              form(class='form-horizontal' action='' method='post' id='emailform')
+              form(class='form-horizontal' action='/account/phonemail' method='post' id='emailform')
                 input(type='hidden' name='id' value='#{account._id}')
                 div(class='form-group')
                   div(class='col-sm-12')
