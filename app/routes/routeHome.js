@@ -65,6 +65,8 @@ module.exports=function(app){
     app.put('/usermsg/:uid',usermsg.update);
     //展示某个用户账户信息的路由
     app.get('/account/:id',user.show);
+    //绑定/更改邮箱向邮箱发送验证码的路由
+    app.post('/account/sendmail',user.check,vcode.index,emailer.send);
     //展示某个用户所有评论的路由
     app.get('/comments',comment.index);  
     //展示某个url或者用户下更多评论的路由
