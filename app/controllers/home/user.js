@@ -4,6 +4,8 @@ var user=require('../../models/user');
 var usermsg=require('../../models/usermsg');
 //引入ecrypt控制器来对密码进行加密
 var encrypt=require('../common/encrypt');
+//引入underscore模块可以用来更新数据
+var underscore=require('underscore');
 
 //显示用户注册页面的方法
 exports.register=function(req,res){
@@ -240,5 +242,33 @@ exports.show=function(req,res){
     var id=req.params.id;
     user.findById(id,function(err,data){
         res.render('home/user/account',{'title':'账户信息','account':data});
+    });
+}
+
+//更新用户账户信息的方法
+exports.update=function(req,res){
+    //拿到表单提交过来的要修改的数据的_id
+    var id=req.params.id;
+    //通过findById获取到要修改的那条数据
+    user.findById(id,function(err,data){
+        if(err){
+            console.log(err);
+        }else{
+            /*
+             * 通过underscore模块的extend()方法用表单提交过来的新数据替换之前的数据
+             * 该方法有两个参数，
+             * 第一个参数是要被替换掉的旧的数据
+             * 第二个参数是新的数据
+             */
+            newuser=underscore.extend(data,req.body);
+            //通过save方法保存数据并在回调函数中进行页面重定向
+            newuser.save(function(err,data){
+                if(err){
+                    console.log(err);
+                }else{
+                    res.send('恭喜！您的账户信息更新成功!');
+                }; 
+            });
+        }
     });
 }
