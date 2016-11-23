@@ -109,9 +109,6 @@ exports.doRegister=function(req,res){
     });
     //将数据保存到数据库
     newuser.save(function(err,user){
-        if(err){
-            console.log(err);
-        }
         /*
          * 如果user表中的数据保存成功，
          * 则再向usermsg表中插入数据
