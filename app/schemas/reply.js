@@ -10,8 +10,8 @@ var _id=mongoose.Schema.Types.ObjectId;
 //设计reply数据表结构
 var replySchema=new mongoose.Schema({
     //ref属性表示主键来源与哪个model
-    from:{type:_id,ref:'users'},
-    toWho:{type:_id,ref:'users'},
+    from:{type:_id,ref:'userMsg'},
+    toWho:{type:_id,ref:'userMsg'},
     toWhichComment:{type:_id,ref:'comments'},
     toWhichReply:{type:_id,ref:'reply'},
     content:String,
