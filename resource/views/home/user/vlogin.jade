@@ -1,5 +1,6 @@
 include ../../common/header
   block content
+    link(href='/css/home/user.css' rel='stylesheet')
     section(class='container')
       include ../common/nav
       ul(class="nav nav-tabs" role="tablist")
@@ -26,7 +27,7 @@ include ../../common/header
           div(class='form-group')
             lael(for='checkphone' class='col-md-1 col-sm-2')
             div(class='col-md-11 col-sm-10')
-              button(type='button' data-way='phone' class='checkexist btn btn-primary') 下一步 >>
+              button(type='submit' data-way='phone' class='btn btn-primary' id='sub') 下一步 >>
         form(role="tabpanel" class="form-horizontal tab-pane" action='/emailcode' method='post' id='emailform')
           div(class="alert alert-warning hidden" id='warning-email' role="alert")
           input(type='hidden' name='operating' value='login')
@@ -44,8 +45,9 @@ include ../../common/header
           div(class='form-group')
             lael(for='checkphone' class='col-md-1 col-sm-2')
             div(class='col-md-11 col-sm-10')
-              button(type='button' data-way='email' class='checkexist btn btn-primary') 下一步 >>      
+              button(type='submit' data-way='email' class='btn btn-primary' id='sub1') 下一步 >>      
   include ../../common/footer    
+  script(src='/js/common/jquery.validate.min.js')
+  script(src='/js/common/jquery.validate.methods.js')
   script(src='/js/common/jquery.form.js')
-  script(src='/js/home/check.js')
   script(src='/js/home/vlogin.js')
