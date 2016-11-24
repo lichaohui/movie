@@ -67,6 +67,8 @@ module.exports=function(app){
     app.get('/account/:id',user.show);
     //绑定/更改邮箱向邮箱发送验证码的路由
     app.post('/account/sendmail',user.check,vcode.index,emailer.send);
+    //绑定/更改手机号向手机发送短信验证码的路由
+    app.post('/account/sendphone',user.check,vcode.index,alidayu.send);
     //执行绑定/更改用户邮箱/手机动作的路由
     app.post('/account/phonemail',vcode.verify,user.update);
     //展示某个用户所有评论的路由
