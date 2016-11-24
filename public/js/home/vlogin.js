@@ -45,7 +45,7 @@ $(function(){
 		messages: {
             email:{
                 required:'请输入邮箱',
-                phone:'请输入正确格式的邮箱'
+                email:'请输入正确格式的邮箱'
             },
             captcha:'请输入验证码',
 		},
