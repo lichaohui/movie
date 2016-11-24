@@ -14,7 +14,7 @@ exports.viewMore=function(req,res){
     var url=req.query.url;
     var uid=req.query.uid;
     if(uid==null){
-        console.log('这是获取的url的');
+        //如果uid为空则获取某个url下的评论
         comment.findMoreByUrl(url,from,limit,function(err,data){
             if(err){
                 res.json({'isError':true,'message':'加载失败，请稍后再试！'});
@@ -23,7 +23,7 @@ exports.viewMore=function(req,res){
             }
         });
     }else{
-        console.log('这是获取的用户的');
+        //如果uid不为空则获取的是某个用户的评论
         comment.findMoreByUser(uid,from,limit,function(err,data){
             if(err){
                 res.json({'isError':true,'message':'加载失败，请稍后再试！'});

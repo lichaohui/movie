@@ -66,9 +66,11 @@ exports.show=function(req,res){
     var url=req.url;
     //通过id获取数据并将数据发送给前台视图
     video.findById(id,function(err,data){
+        //更新当前所点击的视频的访问量
         video.update({_id:id},{$inc:{views:1}},function(err){
             console.log(err);
         });
+        //加载当前视频的评论并将数据返回给前台视图
         comment.findByUrl(url,function(err,comments){
             res.render('home/video/detail',{'title':data.name,'video':data,'comments':comments});
         });
