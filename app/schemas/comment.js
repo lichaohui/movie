@@ -9,8 +9,10 @@ var _id=mongoose.Schema.Types.ObjectId;
 
 //设计comment数据表结构
 var commentSchema=new mongoose.Schema({
-    //ref属性表示主键来源与哪个集合
-    from:{type:_id,ref:'usermsg'},
+    /*
+     * ref属性表示主键来源与哪个集合
+     */
+    from:{type:_id,ref:'userMsg'},
     url:String,
     pageTitle:String,
     content:String,
