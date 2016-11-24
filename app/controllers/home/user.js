@@ -188,6 +188,22 @@ exports.doLogin=function(req,res){
     });
 };
 
+//修改密码时判断用户原始密码是否输入正确的方法
+exports.verifypass=function(req,res,next){
+    //获取到表单提交的数据
+    user.findById(req.body.id,function(err,data){
+        data.comparePassword(req.body.oldpass,function(err,isMatch){
+            if(isMatch){
+                //如果用户密码输入正确则直接进行下一步
+                next();
+            }else{
+                //如果密码不匹配则返回错误信息
+                res.json({'isError':true,'message':'原始密码输入错误！'});
+            }
+        });
+    });
+};
+
 //比较密码和确认密码是否一致的方法
 exports.comparepass=function(req,res,next){
     if(req.body.password==req.body.passwordrepeat){

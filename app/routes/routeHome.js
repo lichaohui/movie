@@ -71,6 +71,8 @@ module.exports=function(app){
     app.post('/account/sendphone',user.check,vcode.index,alidayu.send);
     //执行绑定/更改用户邮箱/手机动作的路由
     app.post('/account/phonemail',vcode.verify,user.update);
+    //执行修改密码动作的路由
+    app.post('/account/upass',user.verifypass,user.update);
     //展示某个用户所有评论的路由
     app.get('/comments',comment.index);  
     //展示某个url或者用户下更多评论的路由

@@ -74,6 +74,39 @@ $(function(){
             });
         }
     });
+    //jquery.validate验证修改密码表单
+    $('#passform').validate({
+        rules: {
+			oldpass:"required",
+			password: "required",
+            passwordrepeat:{
+                required:true,
+                equalTo:'#password'
+            }
+		},
+		messages: {
+			oldpass:'请输入原始密码',
+            password:'请输入新密码',
+            passwordrepeat:{
+                required:'请确认密码',
+                equalTo:'两次输入的密码不一致'
+            }
+		},
+        submitHandler:function(form) {
+            $(form).ajaxSubmit({
+                type:'post',
+                url:'/account/upass',
+                success:function(data){
+                    if(data.isError){
+                        $('#success2').text('').addClass('hidden'); $('#warning2').text(data.message).removeClass('hidden');
+                    }else{
+                        $('#warning2').text('').addClass('hidden'); $('#success2').text(data.message).removeClass('hidden');
+                        setTimeout(function(){window.location.reload();},1000);
+                    }
+                }
+            });
+        }
+    });
     //发送邮箱验证码
     $('#sendecode').click(function(){
         var sendecode=$(this);
