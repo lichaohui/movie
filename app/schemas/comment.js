@@ -11,6 +11,8 @@ var _id=mongoose.Schema.Types.ObjectId;
 var commentSchema=new mongoose.Schema({
     /*
      * ref属性表示主键来源与哪个集合
+     * 注意集合的名字是在model里面注册的那个名字
+     * 不要写错了
      */
     from:{type:_id,ref:'userMsg'},
     url:String,
@@ -44,8 +46,8 @@ commentSchema.statics={
     },
     
     //获取某个用户评论的方法
-    findByUser:function(userId,callback){
-        return this.find({from:userId}).sort({'meta.created_at':-1}).limit(3).populate('movie','name').exec(callback);
+    findByUser:function(uid,callback){
+        return this.find({from:uid}).sort({'meta.created_at':-1}).limit(3).populate('from','name').exec(callback);
     },
     //加载某个用户更多评论的方法
     findMoreByUser:function(uid,from,limit,callback){
