@@ -1,5 +1,6 @@
 include ../../common/header
   block content
+    link(href='/css/home/user.css' rel='stylesheet')
     section(class='container')
       include ../common/nav
       div(class="alert alert-warning hidden" id='warning' role="alert")
@@ -20,6 +21,5 @@ include ../../common/header
             a(href='/vlogin' class='btn-xs' style='margin-left:12px') 忘记密码？
   include ../../common/footer
   script(src='/js/common/jquery.validate.min.js')
-  script(src='/js/common/jquery.validate.methods.js')
   script(src='/js/common/jquery.form.js')
   script(src='/js/home/login.js')
