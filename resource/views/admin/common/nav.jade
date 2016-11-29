@@ -9,6 +9,19 @@ nav(class='navbar navbar-default container')
   div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")
     ul(class='nav navbar-nav')
       li(role='presentation' id='page-video' class="dropdown")
+        a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") 课程管理
+          span(class="caret")
+        ul(class="dropdown-menu")  
+          li
+            a(href='/admin/course/') 全部
+          li(class="divider")
+          each firstcate in firstcates
+            li 
+              a(href='/admin/course?firstcate=#{firstcate._id}') #{firstcate.name}  
+          li(class="divider")      
+          li
+            a(href='/admin/course/create') 添加课程
+      li(role='presentation' id='page-video' class="dropdown")
         a(class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") 视频管理
           span(class="caret")
         ul(class="dropdown-menu")  
