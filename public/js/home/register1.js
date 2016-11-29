@@ -11,10 +11,10 @@ $(function(){
 		},
 		messages: {
             vcode:'请输入动态验证码',
-            password:'请输入新密码',
+            password:'请输入密码',
             passwordrepeat:{
-                required:'请确认新密码',
-                equalTo:'两次输入的新密码不一致'
+                required:'请确认密码',
+                equalTo:'两次输入的密码不一致'
             }
 		},
         submitHandler:function(form) {
