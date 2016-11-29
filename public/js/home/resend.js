@@ -23,10 +23,10 @@ $(function(){
         var url='re'+type+'code';
         //组装下要发送的数据
         var postdata="{'"+type+"':'"+val+"'}";
-        //如果是手机注册的则通过ajax重发手机短信验证码
+        //通过ajax重发短信/邮箱验证码
         $.post(url,eval('('+postdata+')'),function(data,status){
             if(data.isError){
-                //如果短信重发失败则显示返回的提示信息
+                //如果重发失败则显示返回的提示信息
                 $("#warning").text(data.message).removeClass('hidden');
             }else{
                 //如果短信重发成功则调用countDown()函数进行重新倒计时
