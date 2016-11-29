@@ -1,5 +1,6 @@
 include ../../common/header
   block content
+    link(href='/css/home/reglog.css' rel='stylesheet')
     section(class='container')
       include ../common/nav      
       div(class="alert alert-warning hidden" id='warning' role="alert")
@@ -25,8 +26,9 @@ include ../../common/header
           div(class='form-group')
             lael(class='col-sm-2')
             div(class='col-sm-10')
-              button(type='button' id='sub' class='btn btn-primary') 注册   
+              button(type='submit' id='sub' class='btn btn-primary') 注册   
   include ../../common/footer    
+  script(src='/js/common/jquery.validate.min.js')
   script(src='/js/common/jquery.form.js')
-  script(src='/js/home/user.js')
   script(src='/js/home/resend.js')
+  script(src='/js/home/register1.js')
