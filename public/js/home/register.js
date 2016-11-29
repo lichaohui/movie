@@ -26,7 +26,7 @@ $(function(){
                         $("#sub").text('下一步 >>').attr("disabled",false);
                     }else{
                         //提交成功后进入下一个验证登录页面
-                        setTimeout(function(){window.location.href="/vlogin1?type="+data.type+'&val='+data.val;},1000);
+                        setTimeout(function(){window.location.href="/register1?type="+data.type+'&val='+data.val;},1000);
                     }
                 }
             });
@@ -60,7 +60,7 @@ $(function(){
                         $("#sub1").text('下一步 >>').attr("disabled",false);
                     }else{
                         //提交成功后进入下一个验证登录页面
-                        setTimeout(function(){window.location.href="/vlogin1?type="+data.type+'&val='+data.val;},1000);
+                        setTimeout(function(){window.location.href="/register1?type="+data.type+'&val='+data.val;},1000);
                     }
                 }
             });

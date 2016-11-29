@@ -26,7 +26,7 @@ include ../../common/header
           div(class='form-group')
             lael(for='checkphone' class='col-md-1 col-sm-2')
             div(class='col-md-11 col-sm-10')
-              button(type='button' data-way='phone' class='checkunique btn btn-primary') 下一步 >>
+              button(type='submit' data-way='phone' class='checkunique btn btn-primary') 下一步 >>
         form(role="tabpanel" class="form-horizontal tab-pane" action='/emailcode' method='post' id='emailform')
           div(class="alert alert-warning hidden" id='warning-email' role="alert")
           input(type='hidden' name='operating' value='register')
@@ -44,7 +44,7 @@ include ../../common/header
           div(class='form-group')
             lael(for='checkphone' class='col-md-1 col-sm-2')
             div(class='col-md-11 col-sm-10')
-              button(type='button' data-way='email' class='checkunique btn btn-primary') 下一步 >>      
+              button(type='submit' data-way='email' class='checkunique btn btn-primary') 下一步 >>      
   include ../../common/footer    
   script(src='/js/common/jquery.validate.min.js')
   script(src='/js/common/jquery.validate.methods.js')
