@@ -2,6 +2,7 @@
 
 //引入后台控制器文件
 var index=require('../controllers/admin/index');
+var course=require('../controllers/admin/course');
 var video=require('../controllers/admin/video');
 var user=require('../controllers/admin/user');
 var admin=require('../controllers/admin/admin');
@@ -83,6 +84,9 @@ module.exports=function(app){
     
     //后台展示用户列表的路由
     app.get('/admin/user',user.index);
+    
+    //后台展示添加课程页面的路由
+    app.get('/admin/course/create',course.create);
 
     //后台视频列表页的路由
     app.get('/admin/video',video.index);
