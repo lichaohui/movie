@@ -85,6 +85,8 @@ module.exports=function(app){
     //后台展示用户列表的路由
     app.get('/admin/user',user.index);
     
+    //后台展示课程列表的路由
+    app.get('/admin/course',course.index);
     //后台展示添加课程页面的路由
     app.get('/admin/course/create',course.create);
 
