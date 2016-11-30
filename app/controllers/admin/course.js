@@ -69,7 +69,6 @@ exports.store=function(req,res){
         'author':postcourse.author,
         'firstcate':postcourse.firstcate,
         'secondcate':postcourse.secondcate,
-        'src':postcourse.src,
         'playbill':postcourse.playbill,
         'intro':postcourse.intro,
     });

@@ -19,4 +19,19 @@ $(function(){
             });
         }
     });
+    
+    //上传课程海报
+    $("#thumb").click(function(){
+        $("#playbill").click();
+    });
+    $("#playbill").change(function(e){
+        //path表示阿里oss中的文件夹
+        var path='course/image/';
+        var callback=function(url){
+            $("#thumb").attr('src',url);
+            $("input[name='playbill']").val(url);
+        };
+        //上传文件
+        uploadFileToAlioss(e,path,callback);
+    });
 })
