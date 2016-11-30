@@ -89,6 +89,8 @@ module.exports=function(app){
     app.get('/admin/course',course.index);
     //后台展示添加课程页面的路由
     app.get('/admin/course/create',course.create);
+    //后台实现添加课程动作的路由
+    app.post('/admin/course/store',course.store);
 
     //后台视频列表页的路由
     app.get('/admin/video',video.index);
