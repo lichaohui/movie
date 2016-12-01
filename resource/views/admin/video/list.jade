@@ -27,7 +27,7 @@ include ../../common/header
             td #{video.intro}
             td
               a(href='/video/detail/#{video._id}' target='_blank' class='btn btn-default btn-xs') view
-              button(type='button' class='edit btn btn-primary btn-xs' data-id='#{video._id}' data-fcate='#{video.firstcate._id}' data-scate='#{video.secondcate._id}' data-course=#{video.course._id} data-toggle="modal" data-target="#myModal") edit
+              button(type='button' class='edit btn btn-primary btn-xs' data-id='#{video._id}' data-fcate='#{video.firstcate._id}' data-scate='#{video.secondcate._id}' data-course='#{video.course._id}' data-toggle="modal" data-target="#myModal") edit
               button(type='button' class='del btn btn-danger btn-xs' data-id='#{video._id}') delete
       -if(pageLength>1)
         div(class='text-center')
