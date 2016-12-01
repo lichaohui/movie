@@ -10,7 +10,7 @@ var videoSchema=new mongoose.Schema({
     intro:String,
     firstcate:{type:_id,ref:'firstcates'},
     secondcate:{type:_id,ref:'secondcates'},
-    course:{type:_id,ref:'courses'},
+    course:{type:_id,ref:'course'},
     src:String,
     meta:{
         created_at:{
