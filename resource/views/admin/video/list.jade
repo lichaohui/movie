@@ -22,7 +22,7 @@ include ../../common/header
         each video in videos
           tr
             td #{video.name}
-            td #{video.firstcate.name} - #{video.secondcate.name} - #{video.course.name}
+            td #{video.firstcate.name} - #{video.secondcate.name} - 
             td #{moment(video.meta.created_at).format('YYYY MM DD')}
             td #{video.intro}
             td
