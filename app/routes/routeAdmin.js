@@ -87,6 +87,8 @@ module.exports=function(app){
     
     //后台展示课程列表的路由
     app.get('/admin/course',course.index);
+    //获取同一个二级分类下所有课程的路由
+    app.get('/admin/course/query',course.query);
     //后台展示添加课程页面的路由
     app.get('/admin/course/create',course.create);
     //后台实现添加课程动作的路由

@@ -55,6 +55,18 @@ exports.index=function(req,res){
     }
 };
 
+//获取同一个二级分类下所有课程的方法
+exports.query=function(req,res){
+    var sid=req.query.sid;
+    secondcate.findBySecondcate(sid,function(err,data){
+        if(err){
+            res.json({'isError':true,'message':'加载出错，请稍后再试！'});
+        }else{
+            res.send(data);
+        }
+    })
+};
+
 //展示添加课程页面的方法
 exports.create=function(req,res){
     res.render('admin/course/create',{'title':'course'}); 

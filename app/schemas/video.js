@@ -5,14 +5,13 @@ var _id=mongoose.Schema.Types.ObjectId;
 
 //设计video数据表结构
 var videoSchema=new mongoose.Schema({
-    author:String,
     name:String,
+    queue:Number,
     intro:String,
-    playbill:String,
     firstcate:{type:_id,ref:'firstcates'},
     secondcate:{type:_id,ref:'secondcates'},
+    course:{type:_id,ref:'courses'},
     src:String,
-    views:{type:Number,default:0},
     meta:{
         created_at:{
             type:Date,
@@ -78,12 +77,16 @@ videoSchema.statics={
         return this.find({secondcate:secondcate}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').exec(callback);
     },
     
+    findByCourse:function(course,callback){
+        return this.find({course:course}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').populate('course','name').exec(callback);
+    },
+    
     /*
      * 添加一个叫做findById的静态方法
      * 该方法返回通过id查找出来的那条数据
      */
     findById:function(id,callback){
-        return this.findOne({_id:id}).populate('firstcate','name').populate('secondcate','name').exec(callback);
+        return this.findOne({_id:id}).populate('firstcate','name').populate('secondcate','name').populate('course','name').exec(callback);
     }
 };
 
