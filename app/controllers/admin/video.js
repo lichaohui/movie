@@ -66,11 +66,11 @@ exports.store=function(req,res){
     var postvideo=req.body;
     var newvideo=new video({
         'name':postvideo.name,
-        'author':postvideo.author,
+        'queue':postvideo.queue,
         'firstcate':postvideo.firstcate,
         'secondcate':postvideo.secondcate,
+        'course':postvideo.course,
         'src':postvideo.src,
-        'playbill':postvideo.playbill,
         'intro':postvideo.intro,
     });
     //调用save方法保存数据并在回调函数中重定向页面
