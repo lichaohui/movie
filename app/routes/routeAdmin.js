@@ -91,6 +91,12 @@ module.exports=function(app){
     app.get('/admin/course/create',course.create);
     //后台实现添加课程动作的路由
     app.post('/admin/course/store',course.store);
+    //后台编辑某个课程获取该课程信息的路由
+    app.get('/admin/course/edit/:id',course.edit);
+    //执行更新某个课程的动作的路由
+    app.put('/admin/course/update/:id',course.update);
+    //删除某个课程的动作的路由
+    app.delete('/admin/course/delete/:id',course.delete);
 
     //后台视频列表页的路由
     app.get('/admin/video',video.index);
