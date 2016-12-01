@@ -58,7 +58,7 @@ exports.index=function(req,res){
 //获取同一个二级分类下所有课程的方法
 exports.query=function(req,res){
     var sid=req.query.sid;
-    secondcate.findBySecondcate(sid,function(err,data){
+    course.findBySecondcate(sid,function(err,data){
         if(err){
             res.json({'isError':true,'message':'加载出错，请稍后再试！'});
         }else{
