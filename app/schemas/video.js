@@ -66,15 +66,15 @@ videoSchema.statics={
      * 该参数就是方法的回调函数
      */
     fetch:function(callback){
-        return this.find({}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').exec(callback);
+        return this.find({}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').populate('course','name').exec(callback);
     },
     
     findByFirstcate:function(firstcate,callback){
-        return this.find({firstcate:firstcate}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').exec(callback);
+        return this.find({firstcate:firstcate}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').populate('course','name').exec(callback);
     },
     
     findBySecondcate:function(secondcate,callback){
-        return this.find({secondcate:secondcate}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').exec(callback);
+        return this.find({secondcate:secondcate}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').populate('course','name').exec(callback);
     },
     
     findByCourse:function(course,callback){

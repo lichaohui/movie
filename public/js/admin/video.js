@@ -19,8 +19,25 @@ $(function(){
                 opt='<option value='+data[i]._id+'>'+data[i].name+'</option>';
                 $("#secondcate").append(opt);
             }
-            //将当前视频的一级分类在二级分类下拉框中默认选中
+            //将当前视频的二级分类在二级分类下拉框中默认选中
             $("#secondcate").find('option[value='+scate+']').attr("selected",true);
+        });
+        /*
+         * 通过当前视频的二级分类获取到所有该二级分类下的课程
+         * 填充到课程下拉框中
+         * 然后通过当前视频所属的课程id，
+         * 将当前分类所属的课程设置为默认选中状态
+         */
+        $('#course').empty();
+        var course=$(this).attr('data-course');
+        $.get('/admin/course/query',{sid:scate},function(data,status){
+            var opt;
+            for(var i=0;i<data.length;i++){
+                opt='<option value='+data[i]._id+'>'+data[i].name+'</option>';
+                $("#course").append(opt);
+            }
+            //将当前视频的所属课程在课程下拉框中默认选中
+            $("#course").find('option[value='+course+']').attr("selected",true);
         });
         
         //通过id获取特定的那条数据
@@ -28,8 +45,7 @@ $(function(){
         $("#form").attr("action","/admin/video/update/"+id);
         $.get('/admin/video/edit/'+id,function(data,status){
             $("#name").val(data.name);
-            $("#author").val(data.author);
-            $("#thumb").attr('src',data.playbill);
+            $("input[name='queue']").val(data.queue);
             $("input[name='playbill']").val(data.playbill);
             $("input[name='src']").val(data.src);
             $("#video").attr('src',data.src);

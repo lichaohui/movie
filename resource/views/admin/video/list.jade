@@ -14,22 +14,20 @@ include ../../common/header
               a(href='/admin/video?firstcate=#{secondcate.parentcate._id}&secondcate=#{secondcate._id}') #{secondcate.name}
       table(class='table table-bordered table-hover text-center')
         tr
-          th name
-          th author
-          th category
-          th created_at
-          th playbill
-          th operating
+          th 名称
+          th 所属课程
+          th 添加时间
+          th 视频介绍
+          th 操作
         each video in videos
           tr
             td #{video.name}
-            td #{video.author}
-            td #{video.firstcate.name} - #{video.secondcate.name}
+            td #{video.firstcate.name} - #{video.secondcate.name} - #{video.course.name}
             td #{moment(video.meta.created_at).format('YYYY MM DD')}
-            td: img(src='#{video.playbill}' width='100')
+            td #{video.intro}
             td
               a(href='/video/detail/#{video._id}' target='_blank' class='btn btn-default btn-xs') view
-              button(type='button' class='edit btn btn-primary btn-xs' data-id='#{video._id}' data-fcate='#{video.firstcate._id}' data-scate='#{video.secondcate._id}' data-toggle="modal" data-target="#myModal") edit
+              button(type='button' class='edit btn btn-primary btn-xs' data-id='#{video._id}' data-fcate='#{video.firstcate._id}' data-scate='#{video.secondcate._id}' data-course=#{video.course._id} data-toggle="modal" data-target="#myModal") edit
               button(type='button' class='del btn btn-danger btn-xs' data-id='#{video._id}') delete
       -if(pageLength>1)
         div(class='text-center')
@@ -61,17 +59,12 @@ include ../../common/header
               span(aria-hidden="true") &times;
             h4(class="modal-title" id="myModalLabel") Edit
           div(class='modal-body')
-            input(type='file' accept="image/*" class='hidden' id='playbill')
             input(type='file' class='hidden' id='src')
             form(class='form-horizontal' action='' id='form')
               div(class='form-group')
                 label(class='col-sm-2 control-label' for='name') 名称
                 div(class='col-sm-10')
                   input(type='text' class='form-control' id='name' placeholder='name' name='name' required)
-              div(class='form-group')
-                label(class='col-sm-2 control-label' for='author') 作者
-                div(class='col-sm-10')
-                  input(type='text' class='form-control' id='author' placeholder='author' name='author' value='学疯网管理员' required readonly="readonly")
               div(class='form-group')
                 label(class='col-sm-2 control-label' for='parentcate') 一级分类
                 div(class='col-sm-10')
@@ -82,10 +75,9 @@ include ../../common/header
                 div(class='col-sm-10')
                   select(class='form-control' name='secondcate' id='secondcate' required)
               div(class='form-group')
-                label(class='col-sm-2 control-label' for='playbill') 海报
+                label(class='col-sm-2 control-label' for='course') 所属课程
                 div(class='col-sm-10')
-                  img(src='/image/admin/video/choosepic.jpg' class='img-thumbnail' id='thumb')
-                  input(type='hidden' name='playbill' required)
+                  select(class='form-control' name='course' id='course' required)
               div(class='form-group')
                 label(class='col-sm-2 control-label' for='src') 视频
                 div(class='col-sm-10')
