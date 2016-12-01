@@ -8,6 +8,7 @@ $(function(){
                 if(data.isError){
                     alert(data.message);
                 }else{
+                    $("#secondcate").append('<option value="">请选择</option>');
                     var opt;
                     for(var i=0;i<data.length;i++){
                         opt='<option value='+data[i]._id+'>'+data[i].name+'</option>';
