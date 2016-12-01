@@ -24,4 +24,11 @@ module.exports=function(app){
         app.locals.secondcates=req.session.secondcates;
         next();
     });
+    
+    app.get('*/course',secondcate.query);
+    app.get('*/course',function(req,res,next){
+        app.locals.firstcate=req.session.firstcate;
+        app.locals.secondcates=req.session.secondcates;
+        next();
+    });
 }
