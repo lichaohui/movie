@@ -21,7 +21,7 @@ $(function(){
     $("#secondcate").change(function(){
         $("#course").empty();
         var sid=$(this).val();
-        if(cid!=""){
+        if(sid!=""){
             $.get('/admin/course/query',{'sid':sid},function(data,status){
                 if(data.isError){
                     alert(data.message);
