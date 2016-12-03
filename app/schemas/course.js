@@ -12,6 +12,7 @@ var courseSchema=new mongoose.Schema({
     firstcate:{type:_id,ref:'firstcates'},
     secondcate:{type:_id,ref:'secondcates'},
     views:{type:Number,default:0},
+    
     meta:{
         created_at:{
             type:Date,

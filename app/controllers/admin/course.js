@@ -1,6 +1,7 @@
 /*----后台操作course的控制器----*/
 //引入model模型
 var course=require('../../models/course');
+var video=require('../../models/video');
 //引入underscore模块可以用来更新数据
 var underscore=require('underscore');
 
@@ -136,15 +137,18 @@ exports.update=function(req,res){
     });
 };
 
-//删除某条记录的方法
+//删除某个课程的方法
 exports.delete=function(req,res){
     var id=req.params.id;
     course.remove({_id:id},function(err,result){
         if(err){
             console.log(err);
         }else{
-            //如果删除成功就给客户端返回一段json数据
-            res.json({'message':'delete successfully!'});
+            //如果没有错误则继续删除该课程下的所有视频(课时)
+            video.remove({course:id},function(err,result){
+                //如果删除成功就给客户端返回一段json数据
+                res.json({'message':'delete successfully!'});
+            })
         }
     });
 };

@@ -1,16 +1,16 @@
 $(function(){
-    /*----异步编辑视频----*/
+    /*----异步编辑课程----*/
     $(".edit").click(function(){
-        //获取当前视频的一级分类
+        //获取当前课程的一级分类
         var fcate=$(this).attr('data-fcate');
-        //将当前视频的一级分类在一级分类下拉框中默认选中
+        //将当前课程的一级分类在一级分类下拉框中默认选中
         $("#parentcate").find('option[value='+fcate+']').attr("selected",true);
         /*
-         * 通过当前视频的一级分类异步获取所有该一级分类下的所有二级分类
-         * 然后通过当前视频的二级分类，
-         * 将当前视频的二级分类的下拉框设置为默认选中
+         * 通过当前课程的一级分类异步获取所有该一级分类下的所有二级分类
+         * 然后通过当前课程的二级分类，
+         * 将当前课程的二级分类的下拉框设置为默认选中
          */
-        //获取当前视频的所属的二级分类
+        //获取当前课程的所属的二级分类
         $("#secondcate").empty();
         var scate=$(this).attr('data-scate');
         $.get('/admin/secondcate/query',{pid:fcate},function(data,status){
@@ -19,7 +19,7 @@ $(function(){
                 opt='<option value='+data[i]._id+'>'+data[i].name+'</option>';
                 $("#secondcate").append(opt);
             }
-            //将当前视频的一级分类在二级分类下拉框中默认选中
+            //将当前课程的一级分类在二级分类下拉框中默认选中
             $("#secondcate").find('option[value='+scate+']').attr("selected",true);
         });
         
@@ -50,9 +50,9 @@ $(function(){
         });
     });
     
-    /*----异步删除视频----*/
+    /*----异步删除课程----*/
     $(".del").click(function(){
-        if(confirm('Are your sure remove it?')){
+        if(confirm('确定要删除该课程吗？该课程下所有的课程也将会被删除！')){
             var id=$(this).attr('data-id');
             $.ajax({
                 url: '/admin/course/delete/'+id,
