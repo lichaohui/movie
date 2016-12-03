@@ -58,7 +58,7 @@ videoSchema.pre('save',function(next){
 videoSchema.statics={
     /*通过课程查找视频*/
     findByCourse:function(course,callback){
-        return this.find({course:course}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').populate('course','name').exec(callback);
+        return this.find({course:course}).sort('queue').populate('course','name').exec(callback);
     },
     
     /*
@@ -66,7 +66,7 @@ videoSchema.statics={
      * 该方法返回通过id查找出来的那条数据
      */
     findById:function(id,callback){
-        return this.findOne({_id:id}).populate('firstcate','name').populate('secondcate','name').populate('course','name').exec(callback);
+        return this.findOne({_id:id}).populate('course','name').exec(callback);
     }
 };
 
