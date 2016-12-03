@@ -12,9 +12,9 @@ include ../../common/header
           each secondcate in secondcates
             li
               a(href='/course?firstcate=#{secondcate.parentcate._id}&secondcate=#{secondcate._id}') #{secondcate.name}
-      ul(class='row')
+      div(class='row')
         each course in courses
-          li(class='col-sm-6 col-md-4')
+          div(class='col-sm-6 col-md-4')
             div(class='thumbnail')
               img(src='#{course.playbill}')
             div(class='caption')
