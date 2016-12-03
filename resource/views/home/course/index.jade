@@ -16,7 +16,7 @@ include ../../common/header
         each course in courses
           li(class='col-sm-6 col-md-4')
             div(class='thumbnail')
-              img(data-src='#{course.playbill}/300*300')
+              img(src='#{course.playbill}')
             div(class='caption')
               h3 #{course.name}
               p #{course.intro}
