@@ -44,7 +44,7 @@ exports.create=function(req,res){
     //查询出要给那个课程添加视频
     course.findById(req.query.cid,function(err,data){
         //然后渲染页面
-        res.render('admin/video/create',{'title':'video','course':data}); 
+        res.render('admin/video/create',{'title':'course','course':data}); 
     })
 };
 
