@@ -1,6 +1,7 @@
 /*----后台操作video的控制器----*/
 //引入model模型
 var video=require('../../models/video');
+var course=require('../../models/course');
 //引入underscore模块可以用来更新数据
 var underscore=require('underscore');
 
@@ -40,8 +41,11 @@ exports.index=function(req,res){
 
 //展示添加视频页面的方法
 exports.create=function(req,res){
-    var cid=req.query.cid;
-    res.render('admin/video/create',{'title':'video','cid':cid}); 
+    //查询出要给那个课程添加视频
+    course.findById(req.query.cid,function(err,data){
+        //然后渲染页面
+        res.render('admin/video/create',{'title':'video','course':data}); 
+    })
 };
 
 //实现添加视频操作的方法
