@@ -14,14 +14,15 @@ include ../../common/header
               a(href='/course?firstcate=#{secondcate.parentcate._id}&secondcate=#{secondcate._id}') #{secondcate.name}
       ul(class='row')
         each course in courses
-          li(class='media list-unstyled')
-            div(class='media-left')
-              a(href='/course/detail/#{course.id}',target='_blank')
-                img(class='media-object',src='#{course.playbill}',alt='#{course.name}',width='64',height='64')
-            div(class='media-boty media-right')
-              h4(class='media-heading') #{course.name}
-                span(class='badge') 观看：#{course.views}
+          li(class='col-sm-6 col-md-4')
+            div(class='thumbnail')
+              img(data-src='#{course.playbill}/300*300')
+            div(class='caption')
+              h3 #{course.name}
               p #{course.intro}
+              p
+                a(href='#' class='btn btn-primary btn-sm' target='_blank') 学习
+                span 浏览量#{course.views}
       -if(pageLength>1)        
         ul(class='pagination')
           -if(curPage==1)
