@@ -9,7 +9,7 @@ include ../../common/header
             button(class='edit btn btn-default btn-xs pull-right' data-toggle="modal" data-target="#myModal" title='编辑' data-id='#{video._id}') 编辑
             a(class="list-group-item-heading" href='/video/detail/#{video._id}' target='_blank') #{video.name}
             p(class="list-group-item-text") #{video.intro}
-      button(type='button' class='add btn btn-info' data-cid='#{cid}') 添加视频        
+      a(href='/admin/video/create?cid=#{cid}' class='add btn btn-info') 添加课时        
       -if(pageLength>1)
         div(class='text-center')
           ul(class='pagination')

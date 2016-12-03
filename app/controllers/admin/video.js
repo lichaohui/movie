@@ -40,7 +40,8 @@ exports.index=function(req,res){
 
 //展示添加视频页面的方法
 exports.create=function(req,res){
-    res.render('admin/video/create',{'title':'video'}); 
+    var cid=req.query.cid;
+    res.render('admin/video/create',{'title':'video','cid':cid}); 
 };
 
 //实现添加视频操作的方法

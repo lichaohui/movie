@@ -11,20 +11,11 @@ include ../../common/header
           div(class='form-group')
             label(class='col-sm-2 control-label' for='queue') 课时
             div(class='col-sm-10')
-              input(type='number' min='1' class='form-control' id='queue' placeholder='queue' name='queue' required)        
-          div(class='form-group')
-            label(class='col-sm-2 control-label' for='parentcate') 一级分类
-            div(class='col-sm-10')
-              select(class='form-control' name='firstcate' id='parentcate' required)
-                option(value='') 请选择
-          div(class='form-group')
-            label(class='col-sm-2 control-label' for='secondcate') 二级分类
-            div(class='col-sm-10')
-              select(class='form-control' name='secondcate' id='secondcate' required)
+              input(type='number' min='1' class='form-control' id='queue' placeholder='queue' name='queue' required)
           div(class='form-group')
             label(class='col-sm-2 control-label' for='course') 所属课程
             div(class='col-sm-10')
-              select(class='form-control' name='course' id='course' required)
+              input(type='text' name='course' id='course' value='#{cid}')
           div(class='form-group')
             label(class='col-sm-2 control-label' for='src') 视频
             div(class='col-sm-10')
