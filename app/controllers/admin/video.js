@@ -27,32 +27,15 @@ exports.index=function(req,res){
             //从所有数据中返回当前页应有的数据
             var pageData=data.slice((page-1)*limit,page*limit);
             
-            res.render('admin/video/list',{'title':'video','videos':pageData,'condition':condition,'pageLength':pageLength,'curPage':page,'isAll':isAll});
+            res.render('admin/video/list',{'title':'video','videos':pageData,'condition':condition,'pageLength':pageLength,'curPage':page});
         }
     };
-    
-    //声明一个condition变量用来承载条件
-    var condition;
-    //声明一个变量用来承载是否显示的全部的二级分类
-    var isAll;
-    if(req.query.firstcate==null && req.query.secondcate==null){
-        isAll=true;
-        condition='';
-        //调用video模型的fetch方法遍历数据传递给前台展示
-        video.fetch(callback);
-    }else if(req.query.secondcate==null){
-        isAll=false;
-        condition='firstcate='+req.query.firstcate+'&';
-        video.findByFirstcate(req.query.firstcate,callback);
-    }else if(req.query.firstcate==null){
-        isAll=true;
-        condition='secondcate='+req.query.secondcate+'&';
-        video.findBySecondcate(req.query.secondcate,callback);
-    }else{
-        isAll=false;
-        condition='firstcate='+req.query.firstcate+'&secondcate='+req.query.secondcate+'&';
-        video.findBySecondcate(req.query.secondcate,callback);
-    }
+    //获取请求参数中的课程id
+    var cid=req.query.cid;
+    //设置条件
+    var condition='cid='+cid;
+    //查询出数据来
+    video.findByCourse(cid,callback);
 };
 
 //展示添加视频页面的方法
@@ -67,8 +50,6 @@ exports.store=function(req,res){
     var newvideo=new video({
         'name':postvideo.name,
         'queue':postvideo.queue,
-        'firstcate':postvideo.firstcate,
-        'secondcate':postvideo.secondcate,
         'course':postvideo.course,
         'src':postvideo.src,
         'intro':postvideo.intro,

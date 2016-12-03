@@ -8,8 +8,6 @@ var videoSchema=new mongoose.Schema({
     name:String,
     queue:Number,
     intro:String,
-    firstcate:{type:_id,ref:'firstcates'},
-    secondcate:{type:_id,ref:'secondcates'},
     course:{type:_id,ref:'courses'},
     src:String,
     meta:{
@@ -58,25 +56,7 @@ videoSchema.pre('save',function(next){
  * 来为对象添加静态方法
  */
 videoSchema.statics={
-    /*
-     * 添加一个叫做fetch的静态方法
-     * 该方法返回所有通过更新时间排序后的数据
-     * 然后通过exec()方法执行回调函数
-     * 方法中必须有一个参数callback,
-     * 该参数就是方法的回调函数
-     */
-    fetch:function(callback){
-        return this.find({}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').populate('course','name').exec(callback);
-    },
-    
-    findByFirstcate:function(firstcate,callback){
-        return this.find({firstcate:firstcate}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').populate('course','name').exec(callback);
-    },
-    
-    findBySecondcate:function(secondcate,callback){
-        return this.find({secondcate:secondcate}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').populate('course','name').exec(callback);
-    },
-    
+    /*通过课程查找视频*/
     findByCourse:function(course,callback){
         return this.find({course:course}).sort('meta.updated_at').populate('firstcate','name').populate('secondcate','name').populate('course','name').exec(callback);
     },
