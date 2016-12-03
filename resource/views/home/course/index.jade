@@ -17,10 +17,10 @@ include ../../common/header
           div(class='col-md-3 col-sm-4 col-xs-6')
             div(class='thumbnail')
               img(src='#{course.playbill}')
-            div(class='caption')
-              h4 #{course.name}
-              small #{course.intro}
-              small 浏览量：#{course.views}
+              div(class='caption')
+                h4 #{course.name}
+                p(class='small') #{course.intro}
+                small 浏览量：#{course.views}
       -if(pageLength>1)        
         ul(class='pagination')
           -if(curPage==1)
