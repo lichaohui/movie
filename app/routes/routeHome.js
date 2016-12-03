@@ -2,6 +2,7 @@
 
 //引入前台控制器文件
 var index=require('../controllers/home/index');
+var course=require('../controllers/home/course');
 var video=require('../controllers/home/video');
 var user=require('../controllers/home/user');
 var usermsg=require('../controllers/home/usermsg');
@@ -20,11 +21,6 @@ module.exports=function(app){
      * 执行index控制器中的index方法
      */
     app.get('/',index.index);
-    
-    //前台视频列表页路由
-    app.get('/video',video.index);
-    //设置前台视频详情页路由
-    app.get('/video/detail/:id',video.show);
     
     //生成图片验证码的路由
     app.get('/captcha',captcha.index);
@@ -88,4 +84,12 @@ module.exports=function(app){
     app.get('/reply/more',reply.viewMore);
     //提交回复的路由
     app.post('/reply/store',reply.store);
+    
+    //展示课程列表页的路由
+    app.get('/course',course.index);
+    
+    //前台视频列表页路由
+    app.get('/video',video.index);
+    //设置前台视频详情页路由
+    app.get('/video/detail/:id',video.show);
 }

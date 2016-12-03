@@ -6,19 +6,19 @@ nav(class='navbar navbar-default')
         span(class="icon-bar")
         span(class="icon-bar")
         span(class="icon-bar")
-      a(class="navbar-brand" href="/" id='page-home') Home
+      a(class="navbar-brand" href="/" id='page-home') 学疯网
     div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")
       ul(class='nav navbar-nav')
         li(role='presentation' id='page-video' class='dropdown')
-          a(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle") Video
+          a(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle") 课程
             span(class='caret')
           ul(class='dropdown-menu' role='menu')
             li
-              a(href='/video') 全部
+              a(href='/course') 全部
             li(class='divider')  
             each firstcate in firstcates
               li 
-                a(href='/video?firstcate=#{firstcate._id}') #{firstcate.name}
+                a(href='/course?firstcate=#{firstcate._id}') #{firstcate.name}
       ul(class='nav navbar-nav navbar-right')
         if(user)
           li(class="dropdown")
