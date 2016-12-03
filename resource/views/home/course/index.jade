@@ -14,7 +14,7 @@ include ../../common/header
               a(href='/course?firstcate=#{secondcate.parentcate._id}&secondcate=#{secondcate._id}') #{secondcate.name}
       div(class='row')
         each course in courses
-          div(class='col-sm-6 col-md-4')
+          div(class='col-sm-4 col-md-3')
             div(class='thumbnail')
               img(src='#{course.playbill}')
             div(class='caption')
