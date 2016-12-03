@@ -19,8 +19,8 @@ include ../../common/header
               img(src='#{course.playbill}')
             div(class='caption')
               h4 #{course.name}
-              p(class='small') #{course.intro}
-              p(class='small') 浏览量：#{course.views}
+              small #{course.intro}
+              small 浏览量：#{course.views}
       -if(pageLength>1)        
         ul(class='pagination')
           -if(curPage==1)
