@@ -1,5 +1,6 @@
 include ../../common/header
   block content
+    link(rel='stylesheet' href='/css/admin/course.css')
     include ../common/nav    
     section(class='container')
       ul(class='list-group')
@@ -7,9 +8,9 @@ include ../../common/header
           li(class='list-group-item')
             button(type='button' class='del btn btn-danger btn-xs pull-right' data-id='#{video._id}' title='删除') 删除
             button(class='edit btn btn-default btn-xs pull-right' data-toggle="modal" data-target="#myModal" title='编辑' data-id='#{video._id}') 编辑
-            a(class="list-group-item-heading" href='/video/detail/#{video._id}' target='_blank') #{video.name}
+            a(class="list-group-item-heading" href='/video/detail/#{video._id}' target='_blank') #{video.queue}.#{video.name}
             p(class="list-group-item-text") #{video.intro}
-      a(href='/admin/video/create?cid=#{cid}' class='add btn btn-info') 添加课时        
+      a(href='/admin/video/create?cid=#{cid}' class='add btn btn-info btn-sm') 添加课时        
       -if(pageLength>1)
         div(class='text-center')
           ul(class='pagination')
