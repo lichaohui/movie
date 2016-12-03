@@ -34,7 +34,7 @@ exports.index=function(req,res){
     //获取请求参数中的课程id
     var cid=req.query.cid;
     //设置条件
-    var condition='cid='+cid;
+    var condition='cid='+cid+'&';
     //查询出数据来
     video.findByCourse(cid,callback);
 };
