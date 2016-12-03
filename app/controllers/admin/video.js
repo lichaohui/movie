@@ -64,7 +64,7 @@ exports.store=function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.redirect('/admin/video');
+            res.redirect('/admin/video?cid='+postvideo.course);
         }; 
     });
 };
