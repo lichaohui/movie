@@ -16,9 +16,11 @@ include ../../common/header
         each course in courses
           div(class='item col-md-3 col-sm-4 col-xs-6')
             div(class='thumbnail')
+              a(href='/video?cid=#{course._id}' target='_blank')
               img(src='#{course.playbill}')
               div(class='caption')
-                h4 #{course.name}
+                h4 
+                  a(href='/video?cid=#{course._id}' target='_blank') #{course.name}
                 p(class='grey small') #{course.intro}
                 small(class='text-primary') 浏览量：#{course.views}
       -if(pageLength>1)        
