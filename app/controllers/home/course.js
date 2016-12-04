@@ -55,20 +55,3 @@ exports.index=function(req,res){
         course.findBySecondcate(req.query.secondcate,callback);
     }
 };
-
-//播放指定course的方法
-exports.show=function(req,res){
-    //获取参数中的id
-    var id=req.params.id;
-    //通过id获取数据并将数据发送给前台视图
-    course.findById(id,function(err,data){
-        //更新当前所点击的课程的访问量
-        course.update({_id:id},{$inc:{views:1}},function(err){
-            if(err){
-                console.log(err);
-            }else{
-                res.render('home/course/detail',{'title':data.name,'course':data});
-            }
-        });
-    });
-}
