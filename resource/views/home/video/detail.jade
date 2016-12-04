@@ -5,9 +5,7 @@ include ../../common/header
       include ../common/nav
       h2(class='text-center') #{video.name}
       video(src='#{video.src}', controls='controls',width='100%')
-      dl(class='dl-horizontal')
-        dt 课时介绍:
-        dd #{video.intro}
+      p(class='text-info small') #{video.intro}
       h3(id='comments-tit') 观众评论  
       ul(id='comments' class='list-unstyled')
         each comment in comments
