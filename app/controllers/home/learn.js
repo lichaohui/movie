@@ -29,7 +29,7 @@ exports.index=function(req,res){
     //获取请求参数中的用户id
     var uid=req.query.uid;
     //设置条件
-    var condition='cid='+cid+'&';
+    var condition='uid='+uid+'&';
     //查询出数据来
     learn.findByUser(uid,callback);
 }
