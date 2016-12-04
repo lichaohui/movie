@@ -18,7 +18,7 @@ section(class='container')
             a(data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" id='page-footprint') 我的足迹
             ul(id="collapseTwo" class="colnav panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo")
               li
-                a(href='') 课程
+                a(href='/learn?uid=#{user._id}') 课程
               li
                 a(href='/comments?uid=#{user._id}') 评论
     div(class='col-md-11 col-sm-10 col-xs-9')            

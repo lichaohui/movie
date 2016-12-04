@@ -4,7 +4,7 @@
  */
 //引入model模型
 var video=require('../../models/video');
-//引用下comment控制器
+//引用下comment模型
 var comment=require('../../models/comment');
 
 //显示video列表的方法

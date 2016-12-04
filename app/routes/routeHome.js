@@ -6,6 +6,7 @@ var course=require('../controllers/home/course');
 var video=require('../controllers/home/video');
 var user=require('../controllers/home/user');
 var usermsg=require('../controllers/home/usermsg');
+var learn=require('../controllers/home/learn');
 var comment=require('../controllers/home/comment');
 var reply=require('../controllers/home/reply');
 var captcha=require('../controllers/home/captcha');
@@ -69,6 +70,10 @@ module.exports=function(app){
     app.post('/account/phonemail',vcode.verify,user.update);
     //执行修改密码动作的路由
     app.post('/account/upass',user.verifypass,user.update);
+    
+    //获取某个用户的所学课程的路由
+    app.get('/laern',learn.index);
+    
     //展示某个用户所有评论的路由
     app.get('/comments',comment.index);  
     //展示某个url或者用户下更多评论的路由
