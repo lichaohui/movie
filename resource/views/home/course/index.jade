@@ -16,7 +16,7 @@ include ../../common/header
         each course in courses
           div(class='item col-md-3 col-sm-4 col-xs-6')
             div(class='thumbnail')
-              a(href='/video?cid=#{course._id}' target='_blank')
+              a(href='/video?cid=#{course._id}&course=#{course.name}' target='_blank')
                 img(src='#{course.playbill}')
               div(class='caption')
                 h4 
