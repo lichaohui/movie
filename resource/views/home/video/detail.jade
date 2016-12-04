@@ -6,13 +6,7 @@ include ../../common/header
       h2(class='text-center') #{video.name}
       video(src='#{video.src}', controls='controls',width='100%')
       dl(class='dl-horizontal')
-        dt 分类:
-        dd #{video.firstcate.name} - #{video.secondcate.name}
-        dt 发布时间:
-        dd #{moment(video.meta.created_at).format('YYYY MM DD')}
-        dt 浏览:
-        dd #{video.views}
-        dt 简介:
+        dt 课时介绍:
         dd #{video.intro}
       h3(id='comments-tit') 观众评论  
       ul(id='comments' class='list-unstyled')
