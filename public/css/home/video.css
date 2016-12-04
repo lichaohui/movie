@@ -1,6 +1,6 @@
 /*----视频列表页----*/
 .pagination{margin-left:20px;}
-.course{border-bottom: #eee solid 1px;}
+.course{border-bottom: #eee solid 1px; padding-bottom: 6px}
 
 /*----视频详情页----*/
 .replyForm{margin-top:9px;}
