@@ -8,7 +8,7 @@ include ../../common/header
           li(class='media list-unstyled')
             div(class='media-boty')
               h4(class='media-heading') 
-                a(href='/video/detail/#{video.id}' target='_blank') #{video.name}
+                a(href='/video/detail/#{video.id}' target='_blank') #{video.queue} . #{video.name}
               p #{video.intro}
       -if(pageLength>1)        
         ul(class='pagination')
