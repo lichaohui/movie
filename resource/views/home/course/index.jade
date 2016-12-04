@@ -12,7 +12,7 @@ include ../../common/header
           each secondcate in secondcates
             li
               a(href='/course?firstcate=#{secondcate.parentcate._id}&secondcate=#{secondcate._id}') #{secondcate.name}
-      div(class='row')
+      div(class='masonry-container row')
         each course in courses
           div(class='col-md-3 col-sm-4 col-xs-6')
             div(class='thumbnail')
@@ -42,4 +42,7 @@ include ../../common/header
           -else
             li()
               a(href='/course?#{condition}page=#{curPage+1}') &raquo;
-  include ../../common/footer          
+  include ../../common/footer    
+  script(src='/libs/imagesloaded/imagesloaded.pkgd.js')
+  script(src='/libs/masonry/dist/masonry.pkgd.min.js')
+  script(src='/js/home/course.js')

@@ -18,6 +18,8 @@
   ],
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "ali-oss": "^4.4.4"
+    "ali-oss": "^4.4.4",
+    "masonry": "^4.1.1",
+    "imagesloaded": "^4.1.1"
   }
 }
