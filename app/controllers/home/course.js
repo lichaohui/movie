@@ -8,7 +8,7 @@ var course=require('../../models/course');
 //显示course列表的方法
 exports.index=function(req,res){
     //设置每页的显示条数
-    var limit=4;
+    var limit=2;
     
     /*
      * 通过一个三元表达式来设置page
