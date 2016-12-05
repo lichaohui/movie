@@ -5,12 +5,20 @@ include ../../common/header
       include ../common/nav
       h3(class='course text-center') #{title}
       ul(class='row')
-        each video in videos
-          li(class='media list-unstyled')
-            div(class='media-boty')
-              h4(class='media-heading') 
-                a(href='/video/detail/#{video.id}') #{video.queue} . #{video.name}
-              p #{video.intro}
+        -if(user)
+          -each video in videos
+            li(class='media list-unstyled')
+              div(class='media-boty')
+                h4(class='media-heading') 
+                  a(href='/video/detail/#{video.id}') #{video.queue} . #{video.name}
+                p #{video.intro}
+        -else
+          -each video in videos
+            li(class='media list-unstyled')
+              div(class='media-boty')
+                h4(class='media-heading') 
+                  a(href='javascript:' data-toggle="modal" data-target="#myModal") #{video.queue} . #{video.name}
+                p #{video.intro}
       -if(pageLength>1)        
         ul(class='pagination')
           -if(curPage==1)
@@ -32,4 +40,28 @@ include ../../common/header
           -else
             li()
               a(href='/video?#{condition}page=#{curPage+1}') &raquo;
+    div(class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby="myModalLabel")
+      div(class="modal-dialog" role="document")
+        div(class="modal-content")
+          div(class="modal-header")
+            button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+              span(aria-hidden="true") &times;
+            h4(class="modal-title" id="myModalLabel") Login
+          div(class='modal-body')
+            div(class="alert alert-warning hidden" id='warning' role="alert")
+            div(class="alert alert-success hidden" id='success' role="alert")
+            form(class='form-horizontal' action='/doLogin' id='form')
+              div(class='form-group')
+                label(class='col-sm-2 control-label' for='name') 账号
+                div(class='col-sm-10')
+                  input(type='text' class='form-control' id='name' placeholder='邮箱/手机号' name='account')
+              div(class='form-group')
+                label(class='col-sm-2 control-label' for='password') 密码
+                div(class='col-sm-10')
+                  input(type='password' class='form-control' id='password' placeholder='password' name='password')
+              div(class='form-group')
+                label(class='col-sm-2 control-label' for='sub')
+                div(class='col-sm-10')
+                  button(type='button' class='btn btn-primary' id='login') 登录
+                  a(href='/vlogin' class='btn-xs' style='margin-left:12px') 忘记密码？      
   include ../../common/footer          
