@@ -7,7 +7,7 @@ var _id=mongoose.Schema.Types.ObjectId;
 var learnSchema=new mongoose.Schema({
     uid:{type:_id,ref:'users'},
     cid:{type:_id,ref:'courses'},
-    curque:{type:Number,default:1},
+    lastque:{type:Number,default:1},
     meta:{
         created_at:{
             type:Date,
@@ -52,6 +52,13 @@ learnSchema.statics={
     findByUser:function(uid,callback){
         return this.findOne({uid:uid}).populate('uid','name').exec(callback);
     },
+    /*
+     * 通过uid(用户id)并且cid(课程id)的方式查询数据
+     * 查询出某个用户是否观看过某个课程
+     */
+    findByUC:function(uid,cid){
+        return this.findOne({uid:uid,cid:cid}).populate('uid','name');
+    }
 };
 
 /*

@@ -4,6 +4,11 @@ include ../../common/header
     section(class='container')
       include ../common/nav
       h3(class='course text-center') #{title}
+        br
+        if(learn)
+          a(href='' class='btn btn-primary btn-xs') 继续学习
+        else
+          a(href='' class='btn btn-info btn-xs') 开始学习
       ul(class='row')
         -if(user)
           -each video in videos
