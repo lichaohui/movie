@@ -39,7 +39,6 @@ include ../../common/header
           p(class='nocmts' id='nocmts') 还没有评论，快来抢沙发吧~
         button(type='button' class='btn btn-sm btn-default hidden' id='hiddenall') 收起评论
           span(class='glyphicon glyphicon-chevron-up') 
-      input(type='hidden' id='isLogin' value='yes')
       form(action='/comment/store' method='post' role='form'  id='commentForm')
         input(type='hidden' name='from' value='#{user._id}')
         input(type='hidden' name='url')
