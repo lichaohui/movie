@@ -15,22 +15,18 @@ include ../../common/header
               time(class='pull-right') #{moment(comment.meta.created_at).format('YYYY-MM-DD H:m:s')}
             div(class='panel-body') #{comment.content}
             div(class='panel-footer')
-              if(user)
-                button(type='button' class='reply btn btn-primary btn-xs') reply
-                button(type='button' class='viewreply btn btn-default btn-xs' data-toggle="modal" data-target="#replies" data-cid="#{comment._id}" data-name="#{comment.from.name}" data-con="#{comment.content}" data-time="#{moment(comment.meta.created_at).format('YYYY-MM-DD H:m:s')}") view replies (#{comment.totalReply})
-                input(type='hidden' id='userid' value='#{user._id}')
-                input(type='hidden' id='username' name='username' value='#{user.name}')
-                form(action='/reply/store' method='post' role='form' class='replyForm hidden')
-                  input(type='hidden' name='from' value='#{user._id}')
-                  input(type='hidden' name='toWhichComment' value='#{comment._id}')
-                  input(type='hidden' name='toWho' value='#{comment.from._id}')
-                  div(class='form-group')
-                    textarea(class='form-control' name='content' placeholder='Please input your comment here' required)
-                  b #{user.name}   
-                  button(type='button' class='replyBtn btn btn-default btn-xs') submit
-              else
-                button(type="button" class='btn btn-primary btn-xs' data-toggle="modal" data-target="#myModal") login and reply
-                button(type='button' class='viewreply btn btn-default btn-xs' data-toggle="modal" data-target="#replies" data-cid="#{comment._id}" data-name="#{comment.from.name}" data-con="#{comment.content}" data-time="#{moment(comment.meta.created_at).format('YYYY-MM-DD H:m:s')}") view replies (#{comment.totalReply})   
+              button(type='button' class='reply btn btn-primary btn-xs') reply
+              button(type='button' class='viewreply btn btn-default btn-xs' data-toggle="modal" data-target="#replies" data-cid="#{comment._id}" data-name="#{comment.from.name}" data-con="#{comment.content}" data-time="#{moment(comment.meta.created_at).format('YYYY-MM-DD H:m:s')}") view replies (#{comment.totalReply})
+              input(type='hidden' id='userid' value='#{user._id}')
+              input(type='hidden' id='username' name='username' value='#{user.name}')
+              form(action='/reply/store' method='post' role='form' class='replyForm hidden')
+                input(type='hidden' name='from' value='#{user._id}')
+                input(type='hidden' name='toWhichComment' value='#{comment._id}')
+                input(type='hidden' name='toWho' value='#{comment.from._id}')
+                div(class='form-group')
+                  textarea(class='form-control' name='content' placeholder='Please input your comment here' required)
+                b #{user.name}   
+                button(type='button' class='replyBtn btn btn-default btn-xs') submit 
       div(class='text-center') 
         if(comments.length>0)
           button(type='button' class='btn btn-sm btn-primary' id='viewMore') 
@@ -42,23 +38,18 @@ include ../../common/header
             span(class='glyphicon glyphicon-chevron-down')
           p(class='nocmts' id='nocmts') 还没有评论，快来抢沙发吧~
         button(type='button' class='btn btn-sm btn-default hidden' id='hiddenall') 收起评论
-          span(class='glyphicon glyphicon-chevron-up')
-      if(user)  
-        input(type='hidden' id='isLogin' value='yes')
-        form(action='/comment/store' method='post' role='form'  id='commentForm')
-          input(type='hidden' name='from' value='#{user._id}')
-          input(type='hidden' name='url')
-          input(type='hidden' name='pageTitle' value='#{title}')
-          div(class='form-group')
-            label(for='content') comment
-            textarea(class='form-control' id='content' required name='content' placeholder='Please input your comment here')
-          div(class='form-group')
-            button(type='button' class='btn btn-default btn-xs'  id='subComment') submit
-      else
-        input(type='hidden' id='isLogin' value='no')
-        button(type="button" class='loc btn btn-default btn-xs' data-toggle="modal" data-target="#myModal") login and comments
+          span(class='glyphicon glyphicon-chevron-up') 
+      input(type='hidden' id='isLogin' value='yes')
+      form(action='/comment/store' method='post' role='form'  id='commentForm')
+        input(type='hidden' name='from' value='#{user._id}')
+        input(type='hidden' name='url')
+        input(type='hidden' name='pageTitle' value='#{title}')
+        div(class='form-group')
+          label(for='content') comment
+          textarea(class='form-control' id='content' required name='content' placeholder='Please input your comment here')
+        div(class='form-group')
+          button(type='button' class='btn btn-default btn-xs'  id='subComment') submit
       br
-    
     div(class='modal fade' id='replies' tabindex='-1' role='dialog'  aria-labelledby="myModalLabel")
       div(class="modal-dialog" role="document")
         div(class="modal-content")
