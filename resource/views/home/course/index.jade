@@ -20,7 +20,7 @@ include ../../common/header
                 img(src='#{course.playbill}')
               div(class='caption')
                 h4 
-                  a(href='/video?cid=#{course._id}' target='_blank') #{course.name}
+                  a(href='/video?cid=#{course._id}&course=#{course.name}' target='_blank') #{course.name}
                 p(class='grey small') #{course.intro}
                 small(class='text-primary') #{course.learner}人在学
       -if(pageLength>1)        
