@@ -26,8 +26,7 @@ exports.index=function(req,res){
             //一共有多少页就是math.ceil(数据的总长度除以每页显示多少条)
             var pageLength=Math.ceil(data.length/limit);
             //从所有数据中返回当前页应有的数据
-            var pageData=data.slice((page-1)*limit,page*limit);
-            
+            var pageData=data.slice((page-1)*limit,page*limit);  
             res.render('admin/course/list',{'title':'course','courses':pageData,'condition':condition,'pageLength':pageLength,'curPage':page,'isAll':isAll});
         }
     };
