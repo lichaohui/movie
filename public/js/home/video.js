@@ -24,7 +24,7 @@ $(function(){
                         //如果成功则显示成功信息并进行页面的跳转
                         $("#warning").addClass('hidden');
                         $("#success").text(data.message).removeClass('hidden');
-                        setTimeout(function(){location.reload;},2000);
+                        setTimeout(function(){location.reload();},2000);
                     }
                 }
             });
