@@ -73,6 +73,7 @@ exports.query=function(req,res,next){
     comment.findByUrl(url,function(err,data){
         //将查询出来的数据赋值给变量comments
         comments=data;
+        console.log(comments);
         next();
     }); 
 };
