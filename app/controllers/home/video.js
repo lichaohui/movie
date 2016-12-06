@@ -66,6 +66,7 @@ exports.show=function(req,res){
     video.findById(id,function(err,data){
         //通过当前视频的url获取该视频下的所有评论
         var comments=comment.findByUrl(url);
+        console.log(comments);
         //加载当前视频的评论并将数据返回给前台视图
         res.render('home/video/detail',{'title':data.name,'video':data,'comments':comments});
     });
