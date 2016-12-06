@@ -6,7 +6,7 @@
 var comment=require('../../models/comment');
 var reply=require('../../models/reply');
 
-//加载某个url下更多评论的方法
+//加载某个url下或者某个特定用户的更多评论的方法
 exports.viewMore=function(req,res){
     //获取参数中的值
     var from=req.query.from;
@@ -63,6 +63,17 @@ exports.index=function(req,res){
     comment.findByUser(uid,function(err,data){
         res.render('home/user/comment',{'title':'我的评论','comments':data});
     });
+};
+
+//获取某个url下的评论的方法
+exports.query=function(req,res,next){
+    var url=req.url;
+    //通过当前视频的url获取该视频下的所有评论
+    comment.findByUrl(url,function(err,data){
+        //将查询出来的数据赋值给变量comments
+        var comments=data;
+        next();
+    }); 
 };
 
 //删除某条评论及评论下所有回复的方法
