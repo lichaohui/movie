@@ -65,15 +65,13 @@ exports.index=function(req,res){
     });
 };
 
-var comments;
 //获取某个url下的评论的方法
 exports.query=function(req,res,next){
     var url=req.url;
     //通过当前视频的url获取该视频下的所有评论
     comment.findByUrl(url,function(err,data){
         //将查询出来的数据赋值给变量comments
-        comments=data;
-        
+        req.params.comments=data;
         next();
     }); 
 };

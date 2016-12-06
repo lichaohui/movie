@@ -63,6 +63,6 @@ exports.show=function(req,res){
     video.findById(id,function(err,data){
         console.log('helloworld');
         //加载当前视频的评论并将数据返回给前台视图
-        res.render('home/video/detail',{'title':data.name,'video':data,'comments':{}});
+        res.render('home/video/detail',{'title':data.name,'video':data,'comments':req.params.comments});
     });
 }
