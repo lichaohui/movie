@@ -62,13 +62,16 @@ exports.show=function(req,res){
     var id=req.params.id;
     //获取当前页面的url地址(不包含协议和域名)
     var url=req.url;
+    //定义一个存储评论的变量
+    var comments;
     //通过id获取数据并将数据发送给前台视图
     video.findById(id,function(err,data){
         //通过当前视频的url获取该视频下的所有评论
-        comment.findByUrl(url,function(err,comments){
-            console.log(comments);
-            //加载当前视频的评论并将数据返回给前台视图
-            res.render('home/video/detail',{'title':data.name,'video':data,'comments':comments});
+        comment.findByUrl(url,function(err,data){
+            //将查询出来的数据赋值给变量comments
+            comments=data;
         }); 
+        //加载当前视频的评论并将数据返回给前台视图
+        res.render('home/video/detail',{'title':data.name,'video':data,'comments':comments});
     });
 }
