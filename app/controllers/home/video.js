@@ -57,12 +57,13 @@ exports.index=function(req,res){
 
 //播放指定video的方法
 exports.show=function(req,res){
+    console.log('hello');
     //获取参数中的id
     var id=req.params.id;
     //通过id获取数据并将数据发送给前台视图
     video.findById(id,function(err,data){
         console.log(comments);
         //加载当前视频的评论并将数据返回给前台视图
-        res.render('home/video/detail',{'title':data.name,'video':data,'comments':comments});
+        res.render('home/video/detail',{'title':data.name,'video':data,'comments':{}});
     });
 }
