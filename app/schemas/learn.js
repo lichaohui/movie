@@ -56,8 +56,8 @@ learnSchema.statics={
      * 通过uid(用户id)并且cid(课程id)的方式查询数据
      * 查询出某个用户是否观看过某个课程
      */
-    findByUC:function(uid,cid){
-        return this.findOne({uid:uid,cid:cid});
+    findByUC:function(uid,cid,callback){
+        return this.findOne({uid:uid,cid:cid}).exec(callback);
     }
 };
 

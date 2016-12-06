@@ -27,15 +27,15 @@ exports.index=function(req,res){
         }else{
             //查询出当前用户是否学习过当前课程
             var learndata;
-            
             if(req.session.user){
                 /*
                  * 如果用户有登录，
                  * 则查找该用户是否学习过该课程
                  * 并将查询出来的数据存储到session中
                  */
-                learndata=learn.findByUC(req.session.user._id,req.query.cid);
-                req.session.learn='hello';
+                learn.findByUC(req.session.user._id,req.query.cid,function(err,data){
+                    req.session.learn=data;
+                });
             }
             
             //一共有多少页就是math.ceil(数据的总长度除以每页显示多少条)
