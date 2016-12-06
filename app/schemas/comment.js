@@ -37,8 +37,8 @@ commentSchema.statics={
     /*
      * 初始化页面的时候获取当前url下最新的三条评论的方法
      */
-    findByUrl:function(url){
-        return this.find({url:url}).sort({'meta.created_at':-1}).limit(3).populate('from','name');
+    findByUrl:function(url,callback){
+        return this.find({url:url}).sort({'meta.created_at':-1}).limit(3).populate('from','name').exec(callback);
     },
     //查看当前url下更多评论的方法
     findMoreByUrl:function(url,from,limit,callback){
