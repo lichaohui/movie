@@ -57,7 +57,7 @@ learnSchema.statics={
      * 查询出某个用户是否观看过某个课程
      */
     findByUC:function(uid,cid){
-        return this.findOne({uid:uid,cid:cid}).populate('uid','name');
+        return this.findOne({uid:uid,cid:cid});
     }
 };
 

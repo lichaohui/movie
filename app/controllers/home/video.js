@@ -35,7 +35,7 @@ exports.index=function(req,res){
                  * 并将查询出来的数据存储到session中
                  */
                 learndata=learn.findByUC(req.session.user._id,req.query.cid);
-                //req.session.learn=learndata;
+                req.session.learn='hello';
             }
             
             //一共有多少页就是math.ceil(数据的总长度除以每页显示多少条)
