@@ -75,6 +75,6 @@ exports.show=function(req,res){
             console.log(comments);
         }); 
         //加载当前视频的评论并将数据返回给前台视图
-        res.render('home/video/detail',{'title':data.name,'video':data,'comments':comments});
+        /*res.render('home/video/detail',{'title':data.name,'video':data,'comments':comments});*/
     });
 }
