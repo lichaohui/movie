@@ -32,8 +32,10 @@ exports.index=function(req,res){
                 /*
                  * 如果用户有登录，
                  * 则查找该用户是否学习过该课程
+                 * 并将查询出来的数据存储到session中
                  */
                 learndata=learn.findByUC(req.session.user._id,req.query.cid);
+                req.session.learn=learndata;
             }
             
             //一共有多少页就是math.ceil(数据的总长度除以每页显示多少条)
@@ -59,9 +61,9 @@ exports.show=function(req,res){
     var url=req.url;
     //通过id获取数据并将数据发送给前台视图
     video.findById(id,function(err,data){
+        //通过当前视频的url获取该视频下的所有评论
+        var comments=comment.findByUrl(url);
         //加载当前视频的评论并将数据返回给前台视图
-        comment.findByUrl(url,function(err,comments){
-            res.render('home/video/detail',{'title':data.name,'video':data,'comments':comments});
-        });
+        res.render('home/video/detail',{'title':data.name,'video':data,'comments':comments});
     });
 }

@@ -7,9 +7,9 @@ include ../../common/header
         br
         -if(user)
           -if(learn.length>0)
-            a(href='/video/detail/#{videos[learn.lastque].id}?learn=#{learn._id}' class='btn btn-primary btn-xs') 继续学习
+            a(href='/video/detail/#{videos[learn.lastque].id}' class='btn btn-primary btn-xs') 继续学习
           -else
-            a(href='/video/detail/#{videos[0].id}?learn=#{learn._id}' class='btn btn-info btn-xs') 开始学习
+            a(href='/video/detail/#{videos[0].id}' class='btn btn-info btn-xs') 开始学习
         -else
           a(href='javascript:' class='btn btn-info btn-xs' data-toggle="modal" data-target="#myModal") 开始学习
       ul(class='row')
@@ -18,7 +18,7 @@ include ../../common/header
             li(class='media list-unstyled')
               div(class='media-boty')
                 h4(class='media-heading') 
-                  a(href='/video/detail/#{video.id}?learn=#{learn._id}') #{video.queue} . #{video.name}
+                  a(href='/video/detail/#{video.id}') #{video.queue} . #{video.name}
                 p #{video.intro}
         -else
           -each video in videos
