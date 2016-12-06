@@ -26,7 +26,16 @@ exports.index=function(req,res){
             console.log(err);
         }else{
             //查询出当前用户是否学习过当前课程
-            var learndata=learn.findByUC(req.session.user._id,req.query.cid);
+            var learndata;
+            
+            if(req.session.user){
+                /*
+                 * 如果用户有登录，
+                 * 则查找该用户是否学习过该课程
+                 */
+                learndata=learn.findByUC(req.session.user._id,req.query.cid);
+            }
+            
             //一共有多少页就是math.ceil(数据的总长度除以每页显示多少条)
             var pageLength=Math.ceil(data.length/limit);
             //从所有数据中返回当前页应有的数据
