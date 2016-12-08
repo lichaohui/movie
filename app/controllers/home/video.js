@@ -78,6 +78,7 @@ exports.querylearn=function(req,res){
              */
             var newlearn=new learn({
                 'uid':req.session.user._id,
+                'cid':video.course,
                 'lastque':video.queue,
             });
             newlearn.save(function(err,data){
