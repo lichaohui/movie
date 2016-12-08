@@ -76,6 +76,7 @@ exports.querylearn=function(req,res){
              * 如果该用户没有学习过该课程
              * 则向learn表中插入一条数据
              */
+            console.log('没有找到');
             var newlearn=new learn({
                 'uid':req.session.user._id,
                 'cid':video.course,
@@ -92,6 +93,8 @@ exports.querylearn=function(req,res){
              * 则证明该用户学习过该课程
              * 那么久更新learn表中的上一次学习课时字段(lastque)
              */
+            console.log('找到了');
+            console.lop(data);
             data.lastque=video.queue;
             data.save(function(err,data){
                 if(err){
