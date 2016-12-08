@@ -33,11 +33,8 @@ exports.index=function(req,res){
                  * 并将查询出来的数据存储到session中
                  */
                 learn.findByUC(req.session.user._id,req.query.cid,function(err,data){
-                    console.log(data);
                     //将数据赋值给变量learndata以便待会发送给前台
                     learndata=data;
-                    console.log('分割线');
-                    console.log(learndata);
                 });
             }
             
