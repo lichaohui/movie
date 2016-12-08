@@ -94,7 +94,7 @@ exports.querylearn=function(req,res){
              * 那么久更新learn表中的上一次学习课时字段(lastque)
              */
             console.log('找到了');
-            console.lop(data);
+            console.log(data);
             data.lastque=video.queue;
             data.save(function(err,data){
                 if(err){
