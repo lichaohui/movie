@@ -6,7 +6,7 @@ include ../../common/header
       h3(class='course text-center') #{title}
         br
         -if(user)
-          -if(learn.length>0)
+          -if(learn)
             a(href='/video/detail/#{videos[learn.lastque].id}' class='btn btn-primary btn-xs') 继续学习
           -else
             a(href='/video/detail/#{videos[0].id}' class='btn btn-info btn-xs') 开始学习
