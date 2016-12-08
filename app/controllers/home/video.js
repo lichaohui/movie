@@ -71,33 +71,7 @@ exports.querylearn=function(req,res){
     var video=req.params.video;
     //先通过用户的id和当前的课程id查询learn表中该用户有没有学习过该课程
     learn.findByUC(req.session.user._id,video.course,function(err,data){
-        if(data.length>0){
-            /*
-             * 如果data.length大于0
-             * 则证明该用户学习过该课程
-             * 那么久更新learn表中的上一次学习课时字段(lastque)
-             */
-            data.lastque=video.queue;
-            data.save(function(err,data){
-                if(err){
-                    console.log(err);
-                }
-            });
-        }else{
-            /*
-             * 如果该用户没有学习过该课程
-             * 则向learn表中插入一条数据
-             */
-            var newlearn=new learn({
-                'uid':req.session.user._id,
-                'lastque':video.queue,
-            });
-            newlearn.save(function(err,data){
-                if(err){
-                    console.log(err);
-                }
-            })
-        }
+        
         //加载当前视频的评论并将数据返回给前台视图
         res.render('home/video/detail',{'title':video.name,'video':video,'comments':req.params.comments}); 
     })
