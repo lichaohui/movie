@@ -33,10 +33,10 @@ exports.index=function(req,res){
                  * 并将查询出来的数据存储到session中
                  */
                 learn.findByUC(req.session.user._id,req.query.cid,function(err,data){
-                    //将查询出来的数据存储到session中
-                    req.session.learn=data;
                     //将数据赋值给变量learndata以便待会发送给前台
                     laerndata=data;
+                    console.log('hello');
+                    console.log(learndata);
                 });
             }
             
