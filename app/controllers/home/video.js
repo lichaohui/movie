@@ -34,9 +34,7 @@ exports.index=function(req,res){
                  */
                 learn.findByUC(req.session.user._id,req.query.cid,function(err,data){
                     //将数据赋值给变量learndata以便待会发送给前台
-                    laerndata=data;
-                    console.log('hello');
-                    console.log(learndata);
+                    learndata=data;
                 });
             }
             
@@ -93,8 +91,6 @@ exports.querylearn=function(req,res){
              * 则证明该用户学习过该课程
              * 那么久更新learn表中的上一次学习课时字段(lastque)
              */
-            console.log('找到了');
-            console.log(data);
             data.lastque=video.queue;
             data.save(function(err,data){
                 if(err){
