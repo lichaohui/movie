@@ -36,6 +36,8 @@ exports.index=function(req,res){
                     console.log(data);
                     //将数据赋值给变量learndata以便待会发送给前台
                     learndata=data;
+                    console,log('分割线');
+                    console.log(learndata);
                 });
             }
             
