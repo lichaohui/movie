@@ -29,7 +29,7 @@ exports.index=function(req,res){
             var pageLength=Math.ceil(data.length/limit);
             //从所有数据中返回当前页应有的数据
             var pageData=data.slice((page-1)*limit,page*limit);
-            console.log(req.params.learndata);
+            console.log('你好啊'+req.params.learndata);
             res.render('home/video/index',{'title':req.query.course,'cid':cid,'learn':req.params.learndata,'videos':pageData,'condition':condition,'pageLength':pageLength,'curPage':page});
         }
     };
