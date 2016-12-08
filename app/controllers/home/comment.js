@@ -70,7 +70,7 @@ exports.query=function(req,res,next){
     var url=req.url;
     //通过当前视频的url获取该视频下的所有评论
     comment.findByUrl(url,function(err,data){
-        //将查询出来的数据赋值给变量comments
+        //将查询出来的数据绑定给请求参数中并进入到下一步
         req.params.comments=data;
         next();
     }); 

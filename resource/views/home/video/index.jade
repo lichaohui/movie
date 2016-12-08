@@ -18,7 +18,7 @@ include ../../common/header
             li(class='media list-unstyled')
               div(class='media-boty')
                 h4(class='media-heading') 
-                  a(href='/video/detail/#{video.id}') #{video.queue} . #{video.name}
+                  a(href='/video/detail/#{video.id}?queue=#{video.queue}') #{video.queue} . #{video.name}
                 p #{video.intro}
         -else
           -each video in videos

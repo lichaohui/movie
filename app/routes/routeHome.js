@@ -96,5 +96,5 @@ module.exports=function(app){
     //前台视频列表页路由
     app.get('/video',video.index);
     //设置前台视频详情页路由
-    app.get('/video/detail/:id',comment.query,video.show);
+    app.get('/video/detail/:id',comment.query,video.querylearn,video.show);
 }
