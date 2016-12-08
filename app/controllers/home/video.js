@@ -55,28 +55,30 @@ exports.index=function(req,res){
     video.findByCourse(cid,callback);
 };
 
-//播放指定video前操作learn表的方法
-exports.querylearn=function(req,res,next){
-    //先通过用户的id和当前的课程id查询learn表中该用户有没有学习过该课程
-    learn.findByUC(req.session.user._id,req.query.cid,function(err,data){
-        req.params.learn=data;
-        next();
-    })
-}
-
 //播放指定video的方法
 exports.show=function(req,res){
     //获取参数中的id
     var id=req.params.id;
     //通过id获取数据并将数据发送给前台视图
     video.findById(id,function(err,data){
-        if(req.params.learn.length>0){
+        req.params.cid=data.course;
+        req.params.queue=data.queue;
+        req.params.video=data;
+        next();
+    });
+}
+
+//播放指定video后操作learn表的方法
+exports.querylearn=function(req,res,next){
+    //先通过用户的id和当前的课程id查询learn表中该用户有没有学习过该课程
+    learn.findByUC(req.session.user._id,req.params.cid,function(err,data){
+        if(data.length>0){
             /*
              * 如果data.length大于0
              * 则证明该用户学习过该课程
              * 那么久更新learn表中的上一次学习课时字段(lastque)
              */
-            data.lastque=data.queue;
+            data.lastque=req.params.queue;
             data.save(function(err,data){
                 if(err){
                     console.log(err);
@@ -89,7 +91,7 @@ exports.show=function(req,res){
              */
             var newlearn=new learn({
                 'uid':req.session.user._id,
-                'lastque':data.queue,
+                'lastque':req.params.queue,
             });
             newlearn.save(function(err,data){
                 if(err){
@@ -98,6 +100,7 @@ exports.show=function(req,res){
             })
         }
         //加载当前视频的评论并将数据返回给前台视图
-        res.render('home/video/detail',{'title':data.name,'video':data,'comments':req.params.comments});
-    });
+        res.render('home/video/detail',{'title':req.params.video.name,'video':req.params.video,'comments':req.params.comments});
+        
+    })
 }
