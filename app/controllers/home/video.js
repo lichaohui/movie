@@ -25,7 +25,7 @@ exports.index=function(req,res){
             console.log(err);
         }else{
             //查询出当前用户是否学习过当前课程
-            var learndata={};
+            var learndata;
             if(req.session.user){
                 /*
                  * 如果用户有登录，
@@ -33,6 +33,7 @@ exports.index=function(req,res){
                  * 并将查询出来的数据存储到session中
                  */
                 learn.findByUC(req.session.user._id,req.query.cid,function(err,data){
+                    console.log(data);
                     //将数据赋值给变量learndata以便待会发送给前台
                     learndata=data;
                 });
