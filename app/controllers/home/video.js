@@ -35,9 +35,10 @@ exports.index=function(req,res){
                 learn.findByUC(req.session.user._id,req.query.cid,function(err,data){
                     //将数据赋值给变量learndata以便待会发送给前台
                     learndata=data;
+                    console.log('我是里面的'+learndata);
                 });
             }
-            
+            console.log('我是外面的'+learndata);
             //一共有多少页就是math.ceil(数据的总长度除以每页显示多少条)
             var pageLength=Math.ceil(data.length/limit);
             //从所有数据中返回当前页应有的数据
