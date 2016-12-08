@@ -94,7 +94,7 @@ module.exports=function(app){
     app.get('/course',course.index);
     
     //前台视频列表页路由
-    app.get('/video',video.index);
+    app.get('/video',learn.query,video.index);
     //设置前台视频详情页路由
     app.get('/video/detail/:id',comment.query,video.show,video.querylearn);
 }

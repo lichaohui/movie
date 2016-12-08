@@ -24,26 +24,12 @@ exports.index=function(req,res){
         if(err){
             console.log(err);
         }else{
-            //查询出当前用户是否学习过当前课程
-            var learndata={};
-            if(req.session.user){
-                /*
-                 * 如果用户有登录，
-                 * 则查找该用户是否学习过该课程
-                 * 并将查询出来的数据存储到session中
-                 */
-                learn.findByUC(req.session.user._id,req.query.cid,function(err,data){
-                    //将数据赋值给变量learndata以便待会发送给前台
-                    learndata=data;
-                    console.log('我是里面的'+learndata);
-                });
-            }
-            console.log('我是外面的'+learndata);
+            
             //一共有多少页就是math.ceil(数据的总长度除以每页显示多少条)
             var pageLength=Math.ceil(data.length/limit);
             //从所有数据中返回当前页应有的数据
             var pageData=data.slice((page-1)*limit,page*limit);
-            res.render('home/video/index',{'title':req.query.course,'cid':cid,'learn':learndata,'videos':pageData,'condition':condition,'pageLength':pageLength,'curPage':page});
+            res.render('home/video/index',{'title':req.query.course,'cid':cid,'learn':req.params.learndata,'videos':pageData,'condition':condition,'pageLength':pageLength,'curPage':page});
         }
     };
     //获取请求参数中的课程id

@@ -33,3 +33,21 @@ exports.index=function(req,res){
     //查询出数据来
     learn.findByUser(uid,callback);
 }
+
+exports.query=function(req,res,next){
+    //查询出当前用户是否学习过当前课程
+    if(req.session.user){
+        /*
+         * 如果用户有登录，
+         * 则查找该用户是否学习过该课程
+         * 并将查询出来的数据存储到session中
+         */
+        learn.findByUC(req.session.user._id,req.query.cid,function(err,data){
+            //将数据赋值给变量learndata以便待会发送给前台
+            req.params.learndata=data;
+            next();
+        });
+    }else{
+        next();
+    }
+}
