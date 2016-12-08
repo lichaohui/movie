@@ -56,7 +56,7 @@ exports.index=function(req,res){
 };
 
 //播放指定video的方法
-exports.show=function(req,res){
+exports.show=function(req,res,next){
     //获取参数中的id
     var id=req.params.id;
     //通过id获取数据并将数据发送给前台视图
@@ -69,7 +69,7 @@ exports.show=function(req,res){
 }
 
 //播放指定video后操作learn表的方法
-exports.querylearn=function(req,res,next){
+exports.querylearn=function(req,res){
     //先通过用户的id和当前的课程id查询learn表中该用户有没有学习过该课程
     learn.findByUC(req.session.user._id,req.params.cid,function(err,data){
         if(data.length>0){
@@ -100,7 +100,6 @@ exports.querylearn=function(req,res,next){
             })
         }
         //加载当前视频的评论并将数据返回给前台视图
-        res.render('home/video/detail',{'title':req.params.video.name,'video':req.params.video,'comments':req.params.comments});
-        
+        res.render('home/video/detail',{'title':req.params.video.name,'video':req.params.video,'comments':req.params.comments}); 
     })
 }
