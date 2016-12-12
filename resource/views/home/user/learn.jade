@@ -10,7 +10,7 @@ include ../../common/header
                 img(src='#{learn.cid.playbill}')
               div(class='caption')
                 h4 
-                  a(href='/video?cid=#{learn.cid}&course=#{learn.cid.name}' target='_blank') #{learn.cid.name}
+                  a(href='/video?cid=#{learn.cid._id}&course=#{learn.cid.name}' target='_blank') #{learn.cid.name}
                 p(class='grey small') #{learn.cid.intro}
                 small(class='text-primary') #{learn.cid.learner}人在学
       -if(pageLength>1)        
