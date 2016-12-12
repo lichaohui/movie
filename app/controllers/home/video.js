@@ -4,6 +4,7 @@
  */
 //引入model模型
 var video=require('../../models/video');
+var course=require('../../models/course');
 var learn=require('../../models/learn');
 
 //显示video列表的方法
@@ -29,7 +30,6 @@ exports.index=function(req,res){
             var pageLength=Math.ceil(data.length/limit);
             //从所有数据中返回当前页应有的数据
             var pageData=data.slice((page-1)*limit,page*limit);
-            console.log('你好啊'+req.params.learndata);
             res.render('home/video/index',{'title':req.query.course,'cid':cid,'learn':req.params.learndata,'videos':pageData,'condition':condition,'pageLength':pageLength,'curPage':page});
         }
     };
@@ -62,7 +62,6 @@ exports.querylearn=function(req,res){
              * 如果该用户没有学习过该课程
              * 则向learn表中插入一条数据
              */
-            console.log('没有找到');
             var newlearn=new learn({
                 'uid':req.session.user._id,
                 'cid':video.course,
@@ -71,6 +70,14 @@ exports.querylearn=function(req,res){
             newlearn.save(function(err,data){
                 if(err){
                     console.log(err);
+                }else{
+                    /*
+                     * 然后更新课程表中的学习人数的字段
+                     * 将该字段在原有的基础上加1
+                     */
+                    course.update({_id:video.course},{$inc:{learner:1}},function(err){
+                        console.log(err);
+                    });
                 }
             })
         }else{
