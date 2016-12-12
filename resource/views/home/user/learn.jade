@@ -6,7 +6,7 @@ include ../../common/header
         each learn in learns
           div(class='item col-md-3 col-sm-4 col-xs-6')
             div(class='thumbnail')
-              a(href='/video?cid=#{learn.cid}&course=#{learn.cid.name}' target='_blank')
+              a(href='/video?cid=#{learn.cid._id}&course=#{learn.cid.name}' target='_blank')
                 img(src='#{learn.cid.playbill}')
               div(class='caption')
                 h4 
