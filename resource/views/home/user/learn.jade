@@ -2,5 +2,40 @@ include ../../common/header
   include ./common
     block content 
       input(type='hidden' id='pagesign' value='footprint')
+      div(class='masonry-container row')
+        each learn in learns
+          div(class='item col-md-3 col-sm-4 col-xs-6')
+            div(class='thumbnail')
+              a(href='/video?cid=#{learn.cid}&course=#{learn.cid.name}' target='_blank')
+                img(src='#{learn.cid.playbill}')
+              div(class='caption')
+                h4 
+                  a(href='/video?cid=#{learn.cid}&course=#{learn.cid.name}' target='_blank') #{learn.cid.name}
+                p(class='grey small') #{learn.cid.intro}
+                small(class='text-primary') #{learn.cid.learner}人在学
+      -if(pageLength>1)        
+        ul(class='pagination')
+          -if(curPage==1)
+            li(class='disabled')
+              a(href='javascript:') &laquo;
+          -else
+            li()
+              a(href='/learn?#{condition}page=#{curPage-1}') &laquo;
+          -for(var i=0;i<pageLength;i++)
+            if(i+1==curPage)
+              li(class='active')
+                a(href='javascript:') #{i+1}
+            else    
+              li()
+                a(href='/learn?#{condition}page=#{i+1}') #{i+1}
+          -if(curPage==pageLength)
+            li(class='disabled')
+              a(href='javascript:') &raquo;
+          -else
+            li()
+              a(href='/learn?#{condition}page=#{curPage+1}') &raquo;
   include ../../common/footer 
+  script(src='/libs/imagesloaded/imagesloaded.pkgd.js')
+  script(src='/libs/masonry/dist/masonry.pkgd.min.js')
   script(src='/js/home/uaside.js')
+  script(src='/js/home/learn.js')
