@@ -9,7 +9,7 @@ include ../../common/header
           -if(learn==null)
             a(href='/video/detail/#{videos[0].id}' class='btn btn-info btn-xs') 开始学习
           -else
-            small(class='text-info') 上次学习至第#{learn.lastque}课时&nbsp;
+            small(class='text-info') 上次学习至第#{learn.lastque}课时&nbsp;&nbsp;
             -var queue=learn.lastque-1
             a(href='/video/detail/#{videos[queue].id}' class='btn btn-primary btn-xs') 继续学习
         -else
