@@ -70,7 +70,6 @@ module.exports=function(app){
     app.post('/account/phonemail',vcode.verify,user.update);
     //执行修改密码动作的路由
     app.post('/account/upass',user.verifypass,user.update);
-    
     //获取某个用户的所学课程的路由
     app.get('/learn',learn.index);
     
