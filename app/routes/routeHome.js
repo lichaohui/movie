@@ -72,6 +72,8 @@ module.exports=function(app){
     app.post('/account/upass',user.verifypass,user.update);
     //获取某个用户的所学课程的路由
     app.get('/learn',learn.index);
+    //删除某个用户所学课程的路由
+    app.delete('/learn/:id',learn.delete);
     
     //展示某个用户所有评论的路由
     app.get('/comments',comment.index);  

@@ -51,3 +51,16 @@ exports.query=function(req,res,next){
         next();
     }
 }
+
+//删除某个课程的方法
+exports.delete=function(req,res){
+    var id=req.params.id;
+    learn.remove({_id:id},function(err,result){
+        if(err){
+            console.log(err);
+        }else{
+            //如果删除成功就给客户端返回一段json数据
+            res.json({'message':'删除成功!'});
+        }
+    });
+}
