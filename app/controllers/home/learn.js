@@ -1,5 +1,6 @@
 //引入model模型
 var learn=require('../../models/learn');
+var course=require('../../models/course');
 
 exports.index=function(req,res){
     //设置每页的显示条数
