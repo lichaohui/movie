@@ -14,7 +14,6 @@ include ../../common/header
             a(href='/video/detail/#{videos[queue].id}' class='btn btn-primary btn-xs') 继续学习
         -else
           a(href='javascript:' class='btn btn-info btn-xs' data-toggle="modal" data-target="#myModal") 开始学习
-        br
       ul(class='row')
         -if(user)
           -each video in videos
@@ -22,14 +21,14 @@ include ../../common/header
               div(class='media-boty')
                 h4(class='media-heading') 
                   a(href='/video/detail/#{video.id}') #{video.queue} . #{video.name}
-                p #{video.intro}
+                p(class='text-info small') #{video.intro}
         -else
           -each video in videos
             li(class='media list-unstyled')
               div(class='media-boty')
                 h4(class='media-heading') 
                   a(href='javascript:' data-toggle="modal" data-target="#myModal") #{video.queue} . #{video.name}
-                p #{video.intro}
+                p(class='text-info small') #{video.intro}
       -if(pageLength>1)        
         ul(class='pagination')
           -if(curPage==1)
