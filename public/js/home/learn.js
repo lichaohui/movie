@@ -12,7 +12,7 @@ $(function(){
         if(confirm('确定要删除吗？')){
             var id=$(this).attr('data-id');
             $.ajax({
-                url: '/learn/delete/'+id,
+                url: '/learn/'+id,
                 type:'DELETE',
                 success:function(result){
                     alert(result.message);
