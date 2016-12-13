@@ -50,7 +50,7 @@ learnSchema.pre('save',function(next){
 learnSchema.statics={
     //通过uid查询数据
     findByUser:function(uid,callback){
-        return this.find({uid:uid}).populate('cid','name playbill learner intro').exec(callback);
+        return this.find({uid:uid}).populate('cid','name playbill intro').exec(callback);
     },
     /*
      * 通过uid(用户id)并且cid(课程id)的方式查询数据

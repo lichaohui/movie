@@ -12,7 +12,7 @@ include ../../common/header
                 h4 
                   a(href='/video?cid=#{learn.cid._id}&course=#{learn.cid.name}' target='_blank') #{learn.cid.name}
                 p(class='grey small') #{learn.cid.intro}
-                small(class='text-primary') #{learn.cid.learner}人在学
+                button(type='button' class='btn btn-danger btn-xs') 删除
       -if(pageLength>1)        
         ul(class='pagination')
           -if(curPage==1)
