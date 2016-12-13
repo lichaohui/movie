@@ -21,14 +21,14 @@ include ../../common/header
               div(class='media-boty')
                 h4(class='media-heading') 
                   a(href='/video/detail/#{video.id}') #{video.queue} . #{video.name}
-                p(class='text-info small') #{video.intro}
+                p(class='text-muted small') #{video.intro}
         -else
           -each video in videos
             li(class='media list-unstyled')
               div(class='media-boty')
                 h4(class='media-heading') 
                   a(href='javascript:' data-toggle="modal" data-target="#myModal") #{video.queue} . #{video.name}
-                p(class='text-info small') #{video.intro}
+                p(class='text-muted small') #{video.intro}
       -if(pageLength>1)        
         ul(class='pagination')
           -if(curPage==1)
